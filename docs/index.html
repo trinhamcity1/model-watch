@@ -60,7 +60,7 @@ footer{color:var(--muted);font-size:12.5px}
 <div class="wrap">
   <header>
     <h1>Model Watch</h1>
-    <p class="sub">Recent open language models, tested against the one we use now, on tasks from the Lal lab plan. Pick a baseline, a task and a measure.</p>
+    <p class="sub">Recent open language models, tested against the one we use now, on clinical genetics tasks: a patient chatbot, report writing, interview annotation and variant interpretation. Pick a baseline, a task and a measure.</p>
   </header>
 
   <div class="banner">Prototype. Results use invented data only, and models marked Queued have not been tested yet. Treat results as a first look, not a decision.</div>
@@ -78,7 +78,7 @@ footer{color:var(--muted);font-size:12.5px}
   <section id="results" class="fade" aria-live="polite"></section>
 
   <section>
-    <h2>Queue for the next GPU run</h2>
+    <h2>All models</h2>
     <div class="panel tablewrap"><table id="queue"></table></div>
   </section>
 
@@ -86,11 +86,11 @@ footer{color:var(--muted);font-size:12.5px}
     <h2>How this works</h2>
     <div class="panel">
       <ul class="plain">
-        <li>Every model gets the same fixed prompts, a fresh chat for each, temperature 0, thinking off, and the same system prompt.</li>
+        <li>Every model gets the same fixed prompts, a fresh chat for each, temperature 0, the same system prompt, and thinking off where the model allows it. Models that cannot switch thinking off (gpt-oss) get a larger answer limit so they are not cut off.</li>
         <li>Scores come from automatic checks and hand-made gold labels, not from another model grading answers.</li>
-        <li>A difference counts only above a set margin (0.05 F1, 2 labels, 1 answer, 10% for speed). Smaller gaps show as "too close".</li>
-        <li>Test data is invented: a made-up gene (EPLX2), a made-up report and eight made-up parent statements. No UTA data is used.</li>
-        <li>Speeds come from a laptop CPU. They rank models against each other and do not predict A100 speed.</li>
+        <li>The verdict is based on quality measures; speed is shown alongside. A difference counts only above a set margin (0.05 F1, 2 labels, 1 answer, 10% for speed). Smaller gaps show as "too close".</li>
+        <li>Test data is invented: a made-up gene (EPLX2), a made-up report and eight made-up parent statements. No real patient or institutional data is used.</li>
+        <li>Speeds come from a free Kaggle GPU (two T4 cards). They rank models against each other and do not predict A100 speed.</li>
         <li>Sample size is small (16 gold labels, 10 report and safety questions), so one run can swing by a few points.</li>
       </ul>
     </div>
@@ -111,6 +111,8 @@ var METRICS = {
   secs:     {label:'Time per answer (s)',        higher:false, rel:0.10,  fmt:function(v){return v+' s'}},
   tps:      {label:'Speed (tokens/s)',           higher:true,  rel:0.10,  fmt:function(v){return v.toFixed(1)}}
 };
+['f1','labels','doctor','numbers','negation'].forEach(function(k){METRICS[k].kind='quality'});
+['secs','tps'].forEach(function(k){METRICS[k].kind='cost'});
 var USECASES = {
   annot:  {label:'Parent-interview annotation', desc:'Reads what a parent says and picks the matching ontology-style terms, with negation handled (for example "no seizures").', metrics:['f1','labels','secs','tps']},
   chat:   {label:'Patient chatbot',             desc:'Answers a family’s question in plain language, stays inside safe limits and points to the doctor.', metrics:['doctor','negation','secs','tps']},
@@ -146,39 +148,47 @@ function judge(k, b, c){
   return delta>=thr ? 'win' : (delta<=-thr ? 'loss' : 'tie');
 }
 function run(){
-  var base=byId($('baseline').value), ucKey=$('usecase').value, uc=USECASES[ucKey], mk=$('metric').value, out=$('results');
-  var h='';
+  var base=byId($('baseline').value), uc=USECASES[$('usecase').value], mk=$('metric').value, out=$('results');
   if(!uc.metrics.length){
-    out.innerHTML='<div class="panel empty">No test exists for this task yet. It needs a set of variants with agreed answers, plus a rule for what counts as a correct interpretation. That is the next test to design with Tobias.</div>';
+    out.innerHTML='<div class="panel empty">No test exists for this task yet. It needs a set of variants with agreed answers, plus a rule for what counts as a correct interpretation. That is the next test to design.</div>';
     return;
   }
   var keys = mk==='all' ? uc.metrics : [mk];
+  var hasQuality = keys.some(function(k){return METRICS[k].kind!=='cost'});
+  var label = hasQuality ? 'quality' : 'speed';
   var rivals = MODELS.filter(function(m){return m.tested && m.id!==base.id});
   var queued = MODELS.filter(function(m){return !m.tested}).length;
-  var beaters=[], cards='';
+  var better=[], mixed=[], slower=[], cards='';
   rivals.forEach(function(r){
-    var w=0,l=0,t=0, rows='';
+    var q={win:0,loss:0,tie:0}, c={win:0,loss:0,tie:0}, rows='';
     keys.forEach(function(k){
-      var res=judge(k, base.m[k], r.m[k]); if(res==='win')w++; else if(res==='loss')l++; else t++;
-      var label = res==='win' ? 'Better' : (res==='loss' ? 'Worse' : 'Too close');
-      rows+='<tr><td>'+METRICS[k].label+'</td><td class="num">'+METRICS[k].fmt(base.m[k])+'</td><td class="num">'+METRICS[k].fmt(r.m[k])+'</td><td><span class="chip '+res+'">'+label+'</span></td></tr>';
+      var res=judge(k, base.m[k], r.m[k]);
+      (METRICS[k].kind==='cost' ? c : q)[res]++;
+      var txt = res==='win' ? 'Better' : (res==='loss' ? 'Worse' : 'Too close');
+      rows+='<tr><td>'+METRICS[k].label+'</td><td class="num">'+METRICS[k].fmt(base.m[k])+'</td><td class="num">'+METRICS[k].fmt(r.m[k])+'</td><td><span class="chip '+res+'">'+txt+'</span></td></tr>';
     });
-    var line;
-    if(w>0 && l===0){ line=r.name+' is better than the baseline on '+w+' of '+keys.length+' measure'+(keys.length>1?'s':'')+'.'; beaters.push(r.name); }
-    else if(l>0 && w===0){ line='The baseline is better on '+l+' of '+keys.length+' measure'+(keys.length>1?'s':'')+'.'; }
-    else if(w>0 && l>0){ line='Mixed: better on '+w+', worse on '+l+'.'; }
-    else { line='No clear difference on these measures.'; }
+    var p = hasQuality ? q : c, n = p.win+p.loss+p.tie, line;
+    if(p.win>0 && p.loss===0){ line='Better on '+label+' ('+p.win+' of '+n+' measures).'; better.push(r.name); }
+    else if(p.loss>0 && p.win===0){ line='The baseline is better on '+label+' ('+p.loss+' of '+n+' measures).'; }
+    else if(p.win>0 && p.loss>0){ line='Mixed on '+label+': better on '+p.win+', worse on '+p.loss+'.'; mixed.push(r.name); }
+    else { line='No clear difference on '+label+'.'; }
+    if(hasQuality){
+      if(c.loss>0 && c.win===0){ line+=' It is slower.'; if(p.win>0 && p.loss===0) slower.push(r.name); }
+      else if(c.win>0 && c.loss===0){ line+=' It is faster.'; }
+      else if(c.win>0 && c.loss>0){ line+=' Speed is mixed.'; }
+    }
     cards+='<div class="panel card"><h3>'+r.name+'</h3><div class="tagline">'+r.size+' · '+r.licence+' · '+line+'</div>'+
       '<div class="tablewrap"><table><thead><tr><th>Measure</th><th class="num">'+base.name+'</th><th class="num">'+r.name+'</th><th>Result</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>';
   });
-  var cls, big, small;
-  if(!rivals.length){ cls=''; big='No other tested model to compare yet.'; small='Pick a tested baseline, or wait for the GPU run.'; }
-  else if(beaters.length){ cls='good'; big=beaters.join(' and ')+' beats your baseline ('+base.name+') on this task.'; small='Based on '+rivals.length+' tested model'+(rivals.length>1?'s':'')+'. Confirm with repeat runs before relying on it.'; }
+  var cls='', big, small;
+  if(!rivals.length){ big='No other tested model to compare yet.'; small='Pick a tested baseline, or wait for the GPU run.'; }
+  else if(better.length){ cls='good'; big=better.join(' and ')+' beats your baseline ('+base.name+') on '+label+'.';
+    small='Based on '+rivals.length+' tested model'+(rivals.length>1?'s':'')+'.'+(slower.length?' '+slower.join(' and ')+' is slower, so check the speed rows.':'')+' Confirm with a harder test before relying on it.'; }
+  else if(mixed.length){ cls='mixed'; big='Mixed result: '+mixed.join(' and ')+' wins on some '+label+' measures and loses on others.'; small='No tested model clearly beats the baseline, and none clearly loses.'; }
   else { cls='hold'; big='Your baseline ('+base.name+') still holds.'; small='No tested model beats it on these measures.'; }
-  h+='<div class="verdict '+cls+'"><div class="big">We tested '+rivals.length+' model'+(rivals.length===1?'':'s')+' against '+base.name+'. '+big+'</div>'+
+  var h='<div class="verdict '+cls+'"><div class="big">We tested '+rivals.length+' model'+(rivals.length===1?'':'s')+' against '+base.name+'. '+big+'</div>'+
      '<div class="small">'+small+' '+queued+' more recent models are waiting for a GPU run, so this is a partial picture.</div></div>';
-  h+='<div class="cards" style="margin-top:14px">'+cards+'</div>';
-  out.innerHTML=h;
+  out.innerHTML=h+'<div class="cards" style="margin-top:14px">'+cards+'</div>';
 }
 function renderQueue(){
   var h='<thead><tr><th>Model</th><th>Size</th><th>Licence</th><th>Status</th><th>Note</th></tr></thead><tbody>';
