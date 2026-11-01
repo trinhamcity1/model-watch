@@ -1,0 +1,7 @@
+{
+ "ornith-ai/Ornith-1.5-35B-A3B": "Card read: tuned for coding and tool use, thinking cannot be switched off",
+ "HuggingFaceBio/Carbon-X": "DNA model, not a general language model",
+ "abacusai/Smaug-Humanizer": "Text-style tool, judged by name only (card not read)",
+ "divagr1925/Qwen3.5-4B-Qwenputer": "Small hobby fork, judged by name only (card not read)",
+ "XingChen-AGI/Xing4.0-29B-Intent": "Looks task-specific, judged by name only (card not read)"
+}

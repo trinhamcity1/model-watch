@@ -1,6 +1,8 @@
 import csv, json, os, re, statistics, subprocess, time, urllib.request
 
-MODELS = os.environ.get("MODELS", "qwen3:4b-instruct-2507-q4_K_M,gemma3:4b").split(",")
+if not os.environ.get("MODELS"):
+    raise SystemExit("Set MODELS, for example MODELS=qwen3:4b-instruct-2507-q4_K_M python run_tests_v2.py")
+MODELS = os.environ["MODELS"].split(",")
 REPEATS = int(os.environ.get("REPEATS", "1"))
 URL = os.environ.get("OLLAMA_URL", "http://localhost:11434/api/chat")
 OPTS = {"temperature": 0, "seed": 42}

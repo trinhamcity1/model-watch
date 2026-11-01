@@ -25,7 +25,7 @@ path = pathlib.Path(__file__).resolve().parent.parent / "docs" / "models.json"
 models = json.load(open(path))
 entry = next(m for m in models if m["id"] == model_id)
 entry["tested"] = True
-entry["m"] = {"f1": round(f1, 2), "labels": tp, "tps": round(tps, 1), "secs": round(secs),
+entry["m"] = {"f1": round(f1, 2), "labels": tp, "tps": round(tps, 1), "secs": round(secs, 1),
               "negation": neg, "doctor": passes("doctor"), "numbers": 7 - (7 - passes("invented_numbers"))}
 entry["note"] = f"Run {d.name}"
 json.dump(models, open(path, "w"), indent=1)

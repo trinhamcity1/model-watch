@@ -3,19 +3,21 @@
 
 # --- Cell 1: get the repo and Ollama ---
 # !git clone https://github.com/<YOUR-USER>/model-watch.git
+# !apt-get update -qq && apt-get install -y -qq zstd
 # !curl -fsSL https://ollama.com/install.sh | sh
 # import subprocess, time
 # subprocess.Popen(["ollama", "serve"]); time.sleep(8)
 
-# --- Cell 2: smoke test with the small baseline (3 minutes) ---
+# --- Cell 2: smoke test with the small baseline (3 minutes). Pull first ---
+# !ollama pull qwen3:4b-instruct-2507-q4_K_M
 # !cd model-watch/harness && MODELS=qwen3:4b-instruct-2507-q4_K_M REPEATS=1 SKIP_PING=1 python run_tests_v2.py
 
-# --- Cell 3: run the queued models that have an ollama_tag in docs/models.json ---
+# --- Cell 3: run every model that has an ollama_tag, on the same GPU, so speeds are comparable ---
 # import json, subprocess, os
-# models = [m for m in json.load(open("model-watch/docs/models.json")) if m.get("ollama_tag") and not m["tested"]]
+# models = [m for m in json.load(open("model-watch/docs/models.json")) if m.get("ollama_tag") ]
 # for m in models:
 #     subprocess.run(["ollama", "pull", m["ollama_tag"]])
-#     env = dict(os.environ, MODELS=m["ollama_tag"], REPEATS="1", SKIP_PING="1")
+#     env = dict(os.environ, MODELS=m["ollama_tag"], REPEATS="1", SKIP_PING="1", TOKEN_SCALE="5")
 #     subprocess.run(["python", "run_tests_v2.py"], cwd="model-watch/harness", env=env)
 
 # --- Cell 4: zip the output files and download them from the Output tab ---
