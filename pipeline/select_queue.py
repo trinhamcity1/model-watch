@@ -7,7 +7,6 @@ import json, os, pathlib, re, sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 MAX_SCOUT, MAX_PARAMS_B = int(os.environ.get("MAX_SCOUT", "10")), 32
 models = json.load(open(ROOT / "docs" / "models.json"))
-cands = json.load(open(ROOT / "docs" / "candidates.json"))["candidates"]
 known_hf = {m.get("hf") for m in models if m.get("hf")}
 known_names = {re.sub(r"[^a-z0-9]", "", m["name"].lower()) for m in models}
 
@@ -21,15 +20,25 @@ for m in models:
         queue.append({**m, "role": "reviewed"})
 
 scout_added = 0
-for c in cands:
-    if scout_added >= MAX_SCOUT: break
+cands_doc = json.load(open(ROOT / "docs" / "candidates.json"))
+for c in cands_doc["candidates"]:
     short = re.sub(r"[^a-z0-9]", "", c["id"].split("/")[1].lower())
-    if c["id"] in known_hf or short in known_names: continue
-    if not c.get("suggested_tag") or c["params_b"] > MAX_PARAMS_B: continue
-    queue.append({"id": re.sub(r"[^a-z0-9]+", "-", c["id"].lower()).strip("-"), "name": c["id"].split("/")[1],
-                  "size": f"{c['params_b']}B", "licence": c["licence"], "ollama_tag": c["suggested_tag"],
-                  "hf": c["id"], "tested": False, "reviewed": False, "source": "scout", "role": "scout"})
-    scout_added += 1
+    if c["id"] in known_hf or short in known_names:
+        c["status"], c["reason"] = "in_list", None
+    elif c["params_b"] > MAX_PARAMS_B:
+        c["status"], c["reason"] = "too_large", f"Too large for the free Kaggle GPUs ({c['params_b']}B, limit {MAX_PARAMS_B}B)"
+    elif not c.get("suggested_tag"):
+        c["status"], c["reason"] = "no_gguf", c.get("tag_note") or "No GGUF version found"
+    elif scout_added >= MAX_SCOUT:
+        c["status"], c["reason"] = "over_limit", f"Over this run's limit of {MAX_SCOUT} new models; will be tried next run"
+    else:
+        queue.append({"id": re.sub(r"[^a-z0-9]+", "-", c["id"].lower()).strip("-"), "name": c["id"].split("/")[1],
+                      "size": f"{c['params_b']}B", "licence": c["licence"], "ollama_tag": c["suggested_tag"],
+                      "hf": c["id"], "tested": False, "reviewed": False, "source": "scout", "role": "scout"})
+        scout_added += 1
+        c["status"], c["reason"] = "queued", None
+cands_doc["limits"] = {"max_params_b": MAX_PARAMS_B, "max_new_per_run": MAX_SCOUT}
+json.dump(cands_doc, open(ROOT / "docs" / "candidates.json", "w"), indent=1)
 
 json.dump(queue, open(sys.argv[1], "w"), indent=1)
 print("queue:", [(q["name"], q["role"]) for q in queue])
