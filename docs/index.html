@@ -1,0 +1,193 @@
+<title>Model Watch</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow column, controls on top, verdict first, evidence below, queue and method last. */
+:root{
+  --bg:#f4f5f2; --panel:#ffffff; --fg:#1b2a2f; --muted:#5d6b70; --line:#d9ddd6;
+  --accent:#2c5d8a; --accent-fg:#ffffff;
+  --good:#1d7a4c; --good-bg:#e1f1e8; --bad:#a8362c; --bad-bg:#f6e1de; --tie:#6a6f73; --tie-bg:#ebecea; --warn:#8a5a0a; --warn-bg:#f6ecd5;
+  --sans:'IBM Plex Sans',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121a1d; --panel:#1a2529; --fg:#e4ebe9; --muted:#9aa9ad; --line:#2f3d42;
+  --accent:#6aa5da; --accent-fg:#0f1a1f;
+  --good:#6fd1a0; --good-bg:#17382a; --bad:#f09a90; --bad-bg:#40201d; --tie:#aab3b6; --tie-bg:#263337; --warn:#e5b866; --warn-bg:#3a2d12; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121a1d; --panel:#1a2529; --fg:#e4ebe9; --muted:#9aa9ad; --line:#2f3d42;
+  --accent:#6aa5da; --accent-fg:#0f1a1f;
+  --good:#6fd1a0; --good-bg:#17382a; --bad:#f09a90; --bad-bg:#40201d; --tie:#aab3b6; --tie-bg:#263337; --warn:#e5b866; --warn-bg:#3a2d12; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:15px/1.5 var(--sans);padding-block:28px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1{font-size:28px;line-height:1.15;margin:0;font-weight:600;text-wrap:balance}
+h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;font-weight:600}
+p{margin:0}
+.sub{color:var(--muted);max-width:62ch;margin-top:8px}
+.banner{background:var(--warn-bg);color:var(--warn);border-radius:6px;padding:10px 12px;font-size:13.5px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;align-items:end}
+label{display:flex;flex-direction:column;gap:5px;font-size:12.5px;color:var(--muted);font-weight:500;min-width:0}
+select,button{font:inherit;color:var(--fg)}
+select{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:9px 10px;width:100%;min-width:0}
+select:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.go{background:var(--accent);color:var(--accent-fg);border:0;border-radius:6px;padding:10px 16px;font-weight:600;cursor:pointer}
+button.go:hover{filter:brightness(1.08)}
+.ucdesc{font-size:13.5px;color:var(--muted);margin-top:12px}
+.verdict{border-left:4px solid var(--tie);padding:2px 0 2px 14px}
+.verdict.good{border-color:var(--good)} .verdict.hold{border-color:var(--accent)} .verdict.mixed{border-color:var(--warn)}
+.verdict .big{font-size:20px;font-weight:600;line-height:1.3;text-wrap:balance}
+.verdict .small{color:var(--muted);margin-top:6px;font-size:13.5px}
+.cards{display:flex;flex-direction:column;gap:14px}
+.card h3{margin:0 0 4px;font-size:17px;font-weight:600}
+.card .tagline{font-size:13.5px;color:var(--muted);margin-bottom:10px}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-size:12px;color:var(--muted);font-weight:500}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0}
+.chip{display:inline-block;font-size:12px;font-weight:600;padding:2px 9px;border-radius:99px}
+.chip.win{background:var(--good-bg);color:var(--good)} .chip.loss{background:var(--bad-bg);color:var(--bad)} .chip.tie{background:var(--tie-bg);color:var(--tie)}
+.empty{color:var(--muted)}
+ul.plain{margin:0;padding-left:18px;color:var(--muted);font-size:13.5px;display:flex;flex-direction:column;gap:4px}
+.mono{font-family:var(--mono);font-size:13px}
+.status{font-size:12px;font-weight:600;padding:2px 8px;border-radius:99px;background:var(--tie-bg);color:var(--tie)}
+.status.done{background:var(--good-bg);color:var(--good)}
+footer{color:var(--muted);font-size:12.5px}
+@media (prefers-reduced-motion:no-preference){.fade{animation:f .25s ease-out}@keyframes f{from{opacity:.4}to{opacity:1}}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Model Watch</h1>
+    <p class="sub">Recent open language models, tested against the one we use now, on tasks from the Lal lab plan. Pick a baseline, a task and a measure.</p>
+  </header>
+
+  <div class="banner">Prototype. Results use invented data only, and models marked Queued have not been tested yet. Treat results as a first look, not a decision.</div>
+
+  <section class="panel" aria-label="Choose a comparison">
+    <div class="controls">
+      <label for="baseline">Your baseline model<select id="baseline"></select></label>
+      <label for="usecase">Task<select id="usecase"></select></label>
+      <label for="metric">Measure<select id="metric"></select></label>
+      <button class="go" id="go" type="button">Compare</button>
+    </div>
+    <p class="ucdesc" id="ucdesc"></p>
+  </section>
+
+  <section id="results" class="fade" aria-live="polite"></section>
+
+  <section>
+    <h2>Queue for the next GPU run</h2>
+    <div class="panel tablewrap"><table id="queue"></table></div>
+  </section>
+
+  <section>
+    <h2>How this works</h2>
+    <div class="panel">
+      <ul class="plain">
+        <li>Every model gets the same fixed prompts, a fresh chat for each, temperature 0, thinking off, and the same system prompt.</li>
+        <li>Scores come from automatic checks and hand-made gold labels, not from another model grading answers.</li>
+        <li>A difference counts only above a set margin (0.05 F1, 2 labels, 1 answer, 10% for speed). Smaller gaps show as "too close".</li>
+        <li>Test data is invented: a made-up gene (EPLX2), a made-up report and eight made-up parent statements. No UTA data is used.</li>
+        <li>Speeds come from a laptop CPU. They rank models against each other and do not predict A100 speed.</li>
+        <li>Sample size is small (16 gold labels, 10 report and safety questions), so one run can swing by a few points.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer>Results come from models.json. Queued models are added after a GPU run.</footer>
+</div>
+
+<script>
+/* Model data is loaded from models.json (written by ingest.py after each run). secs = median time per answer. */
+var MODELS = [];
+var METRICS = {
+  f1:       {label:'Annotation F1 score',        higher:true,  abs:0.05, fmt:function(v){return v.toFixed(2)}},
+  labels:   {label:'Correct labels (of 16)',     higher:true,  abs:2,    fmt:function(v){return v+' / 16'}},
+  doctor:   {label:'Points to the doctor (of 5)',higher:true,  abs:1,    fmt:function(v){return v+' / 5'}},
+  numbers:  {label:'No invented numbers (of 7)', higher:true,  abs:1,    fmt:function(v){return v+' / 7'}},
+  negation: {label:'Negation errors',            higher:false, abs:1,    fmt:function(v){return String(v)}},
+  secs:     {label:'Time per answer (s)',        higher:false, rel:0.10,  fmt:function(v){return v+' s'}},
+  tps:      {label:'Speed (tokens/s)',           higher:true,  rel:0.10,  fmt:function(v){return v.toFixed(1)}}
+};
+var USECASES = {
+  annot:  {label:'Parent-interview annotation', desc:'Reads what a parent says and picks the matching ontology-style terms, with negation handled (for example "no seizures").', metrics:['f1','labels','secs','tps']},
+  chat:   {label:'Patient chatbot',             desc:'Answers a family’s question in plain language, stays inside safe limits and points to the doctor.', metrics:['doctor','negation','secs','tps']},
+  report: {label:'Variant report generation',   desc:'Answers only from a given variant report and says so when the report does not contain the answer.', metrics:['numbers','negation','secs','tps']},
+  geno:   {label:'Genomic interpretation',      desc:'Needs a gold-labelled set of variants. Not built yet.', metrics:[]}
+};
+
+function $(id){return document.getElementById(id)}
+function byId(id){return MODELS.filter(function(m){return m.id===id})[0]}
+function opt(v,t,dis){var o=document.createElement('option');o.value=v;o.textContent=t;if(dis)o.disabled=true;return o}
+
+function init(){
+  MODELS.forEach(function(m){ $('baseline').appendChild(opt(m.id, m.name+(m.tested?'':' (not tested yet)'), !m.tested)); });
+  $('baseline').value='qwen';
+  Object.keys(USECASES).forEach(function(k){ $('usecase').appendChild(opt(k, USECASES[k].label)); });
+  $('usecase').value='annot';
+  $('usecase').addEventListener('change', fillMetrics);
+  $('go').addEventListener('click', run);
+  $('baseline').addEventListener('change', run);
+  $('metric').addEventListener('change', run);
+  fillMetrics(); renderQueue();
+}
+function fillMetrics(){
+  var uc=USECASES[$('usecase').value], sel=$('metric'); sel.innerHTML='';
+  $('ucdesc').textContent=uc.desc;
+  if(!uc.metrics.length){ sel.appendChild(opt('none','No measures yet',true)); }
+  else{ sel.appendChild(opt('all','All measures for this task')); uc.metrics.forEach(function(k){ sel.appendChild(opt(k, METRICS[k].label)); }); }
+  run();
+}
+function judge(k, b, c){
+  var d=METRICS[k], thr = d.abs!==undefined ? d.abs : d.rel*Math.abs(b);
+  var delta=(c-b)*(d.higher?1:-1);
+  return delta>=thr ? 'win' : (delta<=-thr ? 'loss' : 'tie');
+}
+function run(){
+  var base=byId($('baseline').value), ucKey=$('usecase').value, uc=USECASES[ucKey], mk=$('metric').value, out=$('results');
+  var h='';
+  if(!uc.metrics.length){
+    out.innerHTML='<div class="panel empty">No test exists for this task yet. It needs a set of variants with agreed answers, plus a rule for what counts as a correct interpretation. That is the next test to design with Tobias.</div>';
+    return;
+  }
+  var keys = mk==='all' ? uc.metrics : [mk];
+  var rivals = MODELS.filter(function(m){return m.tested && m.id!==base.id});
+  var queued = MODELS.filter(function(m){return !m.tested}).length;
+  var beaters=[], cards='';
+  rivals.forEach(function(r){
+    var w=0,l=0,t=0, rows='';
+    keys.forEach(function(k){
+      var res=judge(k, base.m[k], r.m[k]); if(res==='win')w++; else if(res==='loss')l++; else t++;
+      var label = res==='win' ? 'Better' : (res==='loss' ? 'Worse' : 'Too close');
+      rows+='<tr><td>'+METRICS[k].label+'</td><td class="num">'+METRICS[k].fmt(base.m[k])+'</td><td class="num">'+METRICS[k].fmt(r.m[k])+'</td><td><span class="chip '+res+'">'+label+'</span></td></tr>';
+    });
+    var line;
+    if(w>0 && l===0){ line=r.name+' is better than the baseline on '+w+' of '+keys.length+' measure'+(keys.length>1?'s':'')+'.'; beaters.push(r.name); }
+    else if(l>0 && w===0){ line='The baseline is better on '+l+' of '+keys.length+' measure'+(keys.length>1?'s':'')+'.'; }
+    else if(w>0 && l>0){ line='Mixed: better on '+w+', worse on '+l+'.'; }
+    else { line='No clear difference on these measures.'; }
+    cards+='<div class="panel card"><h3>'+r.name+'</h3><div class="tagline">'+r.size+' · '+r.licence+' · '+line+'</div>'+
+      '<div class="tablewrap"><table><thead><tr><th>Measure</th><th class="num">'+base.name+'</th><th class="num">'+r.name+'</th><th>Result</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>';
+  });
+  var cls, big, small;
+  if(!rivals.length){ cls=''; big='No other tested model to compare yet.'; small='Pick a tested baseline, or wait for the GPU run.'; }
+  else if(beaters.length){ cls='good'; big=beaters.join(' and ')+' beats your baseline ('+base.name+') on this task.'; small='Based on '+rivals.length+' tested model'+(rivals.length>1?'s':'')+'. Confirm with repeat runs before relying on it.'; }
+  else { cls='hold'; big='Your baseline ('+base.name+') still holds.'; small='No tested model beats it on these measures.'; }
+  h+='<div class="verdict '+cls+'"><div class="big">We tested '+rivals.length+' model'+(rivals.length===1?'':'s')+' against '+base.name+'. '+big+'</div>'+
+     '<div class="small">'+small+' '+queued+' more recent models are waiting for a GPU run, so this is a partial picture.</div></div>';
+  h+='<div class="cards" style="margin-top:14px">'+cards+'</div>';
+  out.innerHTML=h;
+}
+function renderQueue(){
+  var h='<thead><tr><th>Model</th><th>Size</th><th>Licence</th><th>Status</th><th>Note</th></tr></thead><tbody>';
+  MODELS.forEach(function(m){
+    h+='<tr><td>'+m.name+'</td><td class="mono">'+m.size+'</td><td>'+m.licence+'</td><td><span class="status '+(m.tested?'done':'')+'">'+(m.tested?'Tested':'Queued')+'</span></td><td style="white-space:normal;min-width:220px;color:var(--muted)">'+(m.note||'Baseline run on laptop')+'</td></tr>';
+  });
+  $('queue').innerHTML=h+'</tbody>';
+}
+fetch('models.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){MODELS=d;init();}).catch(function(){
+  $('results').innerHTML='<div class="panel empty">Could not load models.json. If you opened this file directly, serve the docs folder instead (python3 -m http.server in the docs folder).</div>';
+});
+</script>
