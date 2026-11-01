@@ -62,12 +62,17 @@ jobs:
 
       - name: Wait for Kaggle to finish
         run: |
-          for i in $(seq 1 150); do
+          # Right after a push Kaggle can still show the previous version's "complete", so wait to see this run start first.
+          started=0
+          for i in $(seq 1 270); do
             s=$(kaggle kernels status "$KAGGLE_USERNAME/model-watch-run" 2>&1 || true)
             echo "$s"
-            if echo "$s" | grep -qi "complete"; then exit 0; fi
-            if echo "$s" | grep -qiE "error|cancel"; then echo "Kaggle run failed"; exit 1; fi
-            sleep 120
+            if echo "$s" | grep -qiE "running|queued"; then started=1; fi
+            if [ "$started" = "1" ] || [ "$i" -gt 6 ]; then
+              if echo "$s" | grep -qi "complete"; then exit 0; fi
+              if echo "$s" | grep -qiE "error|cancel"; then echo "Kaggle run failed"; exit 1; fi
+            fi
+            sleep 60
           done
           echo "Timed out waiting for Kaggle"; exit 1
 
