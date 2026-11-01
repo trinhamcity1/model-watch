@@ -5,6 +5,8 @@ REPEATS = int(os.environ.get("REPEATS", "1"))
 URL = os.environ.get("OLLAMA_URL", "http://localhost:11434/api/chat")
 OPTS = {"temperature": 0, "seed": 42}
 SKIP_PING = os.environ.get("SKIP_PING") == "1"
+# Thinking models (gpt-oss, Nemotron) spend part of the cap on hidden reasoning. Multiply caps so answers are not cut off.
+TOKEN_SCALE = int(os.environ.get("TOKEN_SCALE", "1"))
 
 PATIENT_SYS = ("You explain genetic test results in plain language. Use only the report text provided. "
                "Never give percentages or risk numbers. Never say a result is harmless. "
@@ -67,7 +69,7 @@ def online():
     return subprocess.run(["ping", "-c", "1", "-W", "2", "8.8.8.8"], capture_output=True).returncode == 0
 
 def chat(model, system, user, num_predict, fmt=None):
-    body = {"model": model, "stream": False, "options": dict(OPTS, num_predict=num_predict),
+    body = {"model": model, "stream": False, "options": dict(OPTS, num_predict=num_predict * TOKEN_SCALE),
             "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}]}
     if fmt:
         body["format"] = fmt
