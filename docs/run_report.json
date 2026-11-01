@@ -1,0 +1,86 @@
+{
+ "date": "2026-11-01",
+ "gpus": [
+  "Tesla T4, 15360 MiB",
+  "Tesla T4, 15360 MiB"
+ ],
+ "results": [
+  {
+   "id": "qwen",
+   "name": "Qwen3-4B Instruct",
+   "role": "baseline",
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "f1": 0.93,
+    "labels": 14,
+    "tps": 66.3,
+    "secs": 0.8,
+    "negation": 0,
+    "doctor": 5,
+    "numbers": 7
+   }
+  },
+  {
+   "id": "nvidia-nvidia-nemotron-3-5-bolt-e4b-bf16",
+   "name": "NVIDIA-Nemotron-3.5-Bolt-E4B-BF16",
+   "role": "scout",
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "f1": 0.85,
+    "labels": 14,
+    "tps": 48.3,
+    "secs": 7.3,
+    "negation": 0,
+    "doctor": 5,
+    "numbers": 7
+   }
+  },
+  {
+   "id": "liquidai-lfm2-5-24b-a2b",
+   "name": "LFM2.5-24B-A2B",
+   "role": "scout",
+   "ok": false,
+   "reasons": [
+    "model download failed (check the tag)"
+   ]
+  },
+  {
+   "id": "inclusionai-ling-3-0-tiny",
+   "name": "Ling-3.0-tiny",
+   "role": "scout",
+   "ok": false,
+   "reasons": [
+    "4 answers cut off by the length limit",
+    "4 JSON parse failures"
+   ],
+   "metrics": {
+    "f1": 0.64,
+    "labels": 8,
+    "tps": 113.6,
+    "secs": 9.7,
+    "negation": 0,
+    "doctor": 5,
+    "numbers": 7
+   }
+  },
+  {
+   "id": "microsoft-sentiment-analysis-7b",
+   "name": "Sentiment-Analysis-7B",
+   "role": "scout",
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "f1": 0.87,
+    "labels": 13,
+    "tps": 32.3,
+    "secs": 2.1,
+    "negation": 0,
+    "doctor": 5,
+    "numbers": 7
+   }
+  }
+ ],
+ "merge_ok": true
+}
