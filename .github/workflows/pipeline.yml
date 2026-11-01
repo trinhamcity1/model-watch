@@ -1,0 +1,136 @@
+name: Model Watch pipeline
+on:
+  schedule:
+    - cron: "17 13 * * 1"   # Mondays, 13:17 UTC (morning in Texas)
+  workflow_dispatch:
+    inputs:
+      auto_merge:
+        description: "Merge automatically when every check passes"
+        type: boolean
+        default: true
+      max_models:
+        description: "New scout models to test this run"
+        type: string
+        default: "10"
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  actions: write
+concurrency:
+  group: model-watch
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    env:
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+      KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -U kaggle
+      - name: Check Kaggle login (fails fast if the token is wrong)
+        run: |
+          test -n "$KAGGLE_USERNAME" || { echo "Add the KAGGLE_USERNAME secret"; exit 1; }
+          kaggle kernels list --mine --page-size 1
+
+      - name: Scout Hugging Face
+        run: python scout/scout.py
+
+      - name: Choose models to test
+        env:
+          MAX_SCOUT: ${{ github.event.inputs.max_models || '10' }}
+        run: python pipeline/select_queue.py queue.json
+
+      - name: Start the Kaggle run
+        run: |
+          mkdir kdir
+          python - <<'PY'
+          import json, os
+          q = open("queue.json").read()
+          nb = open("kaggle/notebook.py").read().replace("__QUEUE__", q.replace("'''", "")).replace("__REPO__", os.environ["GITHUB_REPOSITORY"])
+          open("kdir/notebook.py", "w").write(nb)
+          md = open("kaggle/kernel-metadata.json").read().replace("__KAGGLE_USER__", os.environ["KAGGLE_USERNAME"])
+          open("kdir/kernel-metadata.json", "w").write(md)
+          PY
+          kaggle kernels push -p kdir
+
+      - name: Wait for Kaggle to finish
+        run: |
+          for i in $(seq 1 150); do
+            s=$(kaggle kernels status "$KAGGLE_USERNAME/model-watch-run" 2>&1 || true)
+            echo "$s"
+            if echo "$s" | grep -qi "complete"; then exit 0; fi
+            if echo "$s" | grep -qiE "error|cancel"; then echo "Kaggle run failed"; exit 1; fi
+            sleep 120
+          done
+          echo "Timed out waiting for Kaggle"; exit 1
+
+      - name: Download Kaggle results
+        run: kaggle kernels output "$KAGGLE_USERNAME/model-watch-run" -p out
+
+      - name: Check results and update the data files
+        run: python pipeline/collect.py out queue.json
+
+      - name: Commit to a branch and open a pull request
+        id: pr
+        run: |
+          git config user.name "model-watch-bot"
+          git config user.email "actions@users.noreply.github.com"
+          BR="run-$(date +%Y-%m-%d-%H%M)"
+          git checkout -b "$BR"
+          git add docs runs
+          git commit -m "Model Watch run $(date +%F)"
+          git push origin "$BR"
+          python - <<'PY' > body.md
+          import json
+          r = json.load(open("docs/run_report.json"))
+          print(f"Run {r['date']} on {', '.join(r['gpus']) or 'no GPU'}\n")
+          print("| Model | Role | Result | Notes |\n|---|---|---|---|")
+          for x in r["results"]:
+              m = x.get("metrics", {})
+              score = f"F1 {m['f1']}, {m['labels']}/16 labels, {m['tps']} tok/s" if m else "no scores"
+              print(f"| {x['name']} | {x['role']} | {'passed checks' if x['ok'] else 'FAILED checks'} | {score}; {'; '.join(x['reasons'])} |")
+          print("\nAll checks passed, safe to merge." if r["merge_ok"] else "\nSome checks failed. Review before merging.")
+          PY
+          URL=$(gh pr create --base main --head "$BR" --title "Model Watch run $(date +%F)" --body-file body.md)
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+          echo "branch=$BR" >> "$GITHUB_OUTPUT"
+          echo "merge_ok=$(python -c "import json;print(str(json.load(open('docs/run_report.json'))['merge_ok']).lower())")" >> "$GITHUB_OUTPUT"
+
+      - name: Merge when every check passed
+        id: merge
+        run: |
+          WANT="${{ github.event.inputs.auto_merge }}"
+          if [ "${{ steps.pr.outputs.merge_ok }}" = "true" ] && [ "$WANT" != "false" ]; then
+            gh pr merge "${{ steps.pr.outputs.url }}" --squash --delete-branch
+            echo "merged=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "merged=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publish the site
+        if: steps.merge.outputs.merged == 'true'
+        run: gh workflow run deploy.yml --ref main
+
+      - name: Notify
+        if: always()
+        run: |
+          OWNER="${{ github.repository_owner }}"
+          SITE="https://${OWNER}.github.io/${{ github.event.repository.name }}/"
+          RUN="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          if [ "${{ job.status }}" = "success" ]; then
+            if [ "${{ steps.merge.outputs.merged }}" = "true" ]; then
+              T="Model Watch updated: new results are live"; B="@${OWNER} The weekly run passed every check and was merged. The site redeploys in a minute or two: ${SITE}"
+            else
+              T="Model Watch run needs your review"; B="@${OWNER} The run finished but was not merged (a check failed, or auto-merge was off). Review the pull request: ${{ steps.pr.outputs.url }}"
+            fi
+          else
+            T="Model Watch run failed"; B="@${OWNER} The pipeline stopped with an error. Log: ${RUN}"
+          fi
+          gh issue create --title "$T" --body "$B"
