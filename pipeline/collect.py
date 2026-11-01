@@ -46,13 +46,22 @@ if not meta.get("gpus"):
     report["problem"] = "no GPU detected, so speeds and sizes are not comparable"
 by_id = {e["id"]: e for e in models}
 pulled = {x["id"]: x["pull_ok"] for x in meta["models"]}
+meta_by = {x["id"]: x for x in meta["models"]}
 for q in queue:
     row = {"id": q["id"], "name": q["name"], "role": q.get("role"), "ok": False, "reasons": []}
-    if not pulled.get(q["id"], False):
+    skipped = meta_by.get(q["id"], {}).get("skipped")
+    if skipped:
+        row["reasons"] = ["not reached: this run's time budget ran out, so it is tried first next run"]
+        row["skipped"] = True
+    elif not pulled.get(q["id"], False):
         row["reasons"] = ["model download failed (check the tag)"]
     else:
         m, reasons = read_run(q["ollama_tag"])
         row["reasons"] = reasons
+        if not m and meta_by.get(q["id"], {}).get("test_exit") == "timeout":
+            row["reasons"] = ["test timed out after 40 minutes (model too slow or did not fit in GPU memory)"]
+        elif not m:
+            row["reasons"] = ["test produced no results (the model may not fit in GPU memory)"]
         if m:
             row["metrics"] = m
             prev = by_id.get(q["id"], {}).get("m")
@@ -68,6 +77,8 @@ for q in queue:
         entry["m"], entry["tested"] = row["metrics"], True
         entry.pop("failed", None)
         entry["note"] = f"Run {today} on {', '.join(meta['gpus']) or 'unknown GPU'}"
+    elif row.get("skipped"):
+        entry["note"] = row["reasons"][0][0].upper() + row["reasons"][0][1:]          # no failed flag, so the next run picks it up
     else:
         if q.get("role") != "baseline": entry["failed"] = True   # not retried automatically; delete this flag to retry
         entry["note"] = f"Run {today} failed checks: " + "; ".join(row["reasons"])

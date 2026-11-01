@@ -219,8 +219,8 @@ function renderFound(d){
     var m=byHf[c.id]||byName[norm(c.id.split('/')[1])], label, cls='', reason='', rank;
     if(m && m.tested){label='Tested'; cls='done'; rank=0;}
     else if(m && m.failed){label='Failed'; cls='warn'; rank=1; reason=(m.note||'').split('failed checks: ')[1]||m.note||'';}
-    else if(m || c.status==='queued' || c.status==='over_limit'){label='Waiting for next run'; rank=2; reason=c.reason||'';}
-    else {label=c.status==='too_large'?'Too large':(c.status==='no_gguf'?'No GGUF':'Not tested'); rank=3; reason=c.reason||'';}
+    else if(m || c.status==='queued' || c.status==='over_limit'){label='Waiting for next run'; rank=2; reason=(m&&m.note)||c.reason||'';}
+    else {label=c.status==='too_large'?'Too large':(c.status==='no_gguf'?'No GGUF':'Not tested'); rank=3; reason=c.reason||'Reason is recorded when the next weekly run starts.';}
     return {rank:rank, html:'<tr><td><a href="'+c.card+'" target="_blank" rel="noopener">'+c.id+'</a></td><td class="mono">'+c.params_b+'B</td><td>'+c.licence+'</td><td>'+c.days_since_update+' d ago</td><td><span class="status '+cls+'">'+label+'</span></td><td style="white-space:normal;min-width:240px;color:var(--muted)">'+reason+'</td></tr>'};
   });
   rows.sort(function(a,b){return a.rank-b.rank});
@@ -228,7 +228,7 @@ function renderFound(d){
   rows.forEach(function(r,i){ h+= i<SHOW ? r.html : r.html.replace('<tr>','<tr class="extra" hidden>'); });
   $('foundtable').innerHTML=h+'</tbody>';
   var lim=d.limits||{};
-  $('foundnote').textContent='Listed by the weekly scout on '+d.generated.slice(0,10)+'; '+d.kept+' passed its filters. A model is tested automatically when a GGUF version exists'+(lim.max_params_b?' and it is '+lim.max_params_b+'B or smaller':'')+(lim.max_new_per_run?', up to '+lim.max_new_per_run+' new models per run':'')+'. The reason is shown for each one that was not.';
+  $('foundnote').textContent='Listed by the weekly scout on '+d.generated.slice(0,10)+'; '+d.kept+' passed its filters. A model is tested automatically when a GGUF version exists'+(lim.max_params_b?' and it is '+lim.max_params_b+'B or smaller':'')+(lim.max_new_per_run?', up to '+lim.max_new_per_run+' per run':'')+'. The reason is shown for each one that was not.';
   var btn=$('foundmore');
   if(rows.length>SHOW){
     btn.hidden=false; btn.textContent='Show all '+rows.length+' models';
@@ -243,7 +243,7 @@ function renderFound(d){
 function loadExtras(){
   fetch('candidates.json',{cache:'no-store'}).then(function(r){return r.json()}).then(renderFound).catch(function(){});
   fetch('run_report.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(r){
-    var bad=r.results.filter(function(x){return !x.ok}).length;
+    var bad=r.results.filter(function(x){return !x.ok && !x.skipped}).length;
     $('lastrun').textContent='Last run '+r.date+' on '+(r.gpus.length?r.gpus.join(', '):'unknown hardware')+'. '+(bad?bad+' model'+(bad>1?'s':'')+' failed checks and keep their old scores.':'All checks passed.');
   }).catch(function(){});
 }

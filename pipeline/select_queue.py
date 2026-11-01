@@ -1,11 +1,11 @@
 """Decide which models the Kaggle run tests. Writes queue.json (path given as argv[1]).
 Always: the baseline (so every run has a same-hardware reference).
 Plus: reviewed models with an ollama_tag that are not tested yet.
-Plus: up to MAX_SCOUT (default 10) unreviewed scout candidates that have a suggested tag and fit the free GPUs."""
+Plus: up to MAX_SCOUT (default 40, i.e. everything that qualifies) unreviewed scout candidates that have a suggested tag and fit the free GPUs."""
 import json, os, pathlib, re, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-MAX_SCOUT, MAX_PARAMS_B = int(os.environ.get("MAX_SCOUT", "10")), 32
+MAX_SCOUT, MAX_PARAMS_B = int(os.environ.get("MAX_SCOUT", "40")), int(os.environ.get("MAX_PARAMS_B", "40"))
 models = json.load(open(ROOT / "docs" / "models.json"))
 known_hf = {m.get("hf") for m in models if m.get("hf")}
 known_names = {re.sub(r"[^a-z0-9]", "", m["name"].lower()) for m in models}
@@ -26,11 +26,11 @@ for c in cands_doc["candidates"]:
     if c["id"] in known_hf or short in known_names:
         c["status"], c["reason"] = "in_list", None
     elif c["params_b"] > MAX_PARAMS_B:
-        c["status"], c["reason"] = "too_large", f"Too large for the free Kaggle GPUs ({c['params_b']}B, limit {MAX_PARAMS_B}B)"
+        c["status"], c["reason"] = "too_large", f"Too large for the free Kaggle GPUs ({c['params_b']}B; the two T4s hold about {MAX_PARAMS_B}B at 4-bit)"
     elif not c.get("suggested_tag"):
         c["status"], c["reason"] = "no_gguf", c.get("tag_note") or "No GGUF version found"
     elif scout_added >= MAX_SCOUT:
-        c["status"], c["reason"] = "over_limit", f"Over this run's limit of {MAX_SCOUT} new models; will be tried next run"
+        c["status"], c["reason"] = "over_limit", f"Over this run's cap of {MAX_SCOUT} new models; will be tried next run"
     else:
         queue.append({"id": re.sub(r"[^a-z0-9]+", "-", c["id"].lower()).strip("-"), "name": c["id"].split("/")[1],
                       "size": f"{c['params_b']}B", "licence": c["licence"], "ollama_tag": c["suggested_tag"],
