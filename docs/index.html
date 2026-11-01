@@ -186,7 +186,7 @@ function run(){
       else if(c.win>0 && c.loss===0){ line+=' It is faster.'; }
       else if(c.win>0 && c.loss>0){ line+=' Speed is mixed.'; }
     }
-    var html='<div class="panel card"><h3>'+r.name+'</h3><div class="tagline">'+r.size+' · '+r.licence+(r.reviewed===false?' · Found by scout, not reviewed':'')+' · '+line+'</div>'+
+    var html='<div class="panel card"><h3>'+r.name+'</h3><div class="tagline">'+r.size+' · '+r.licence+(r.source==='scout'?' · Found by scout':'')+' · '+line+'</div>'+
       '<div class="tablewrap"><table><thead><tr><th>Measure</th><th class="num">'+base.name+'</th><th class="num">'+r.name+'</th><th>Result</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>';
     (p.win>0 ? top : rest).push(html);
   });
@@ -202,9 +202,9 @@ function run(){
   out.innerHTML=h+'<div class="cards" style="margin-top:14px">'+cards+'</div>';
 }
 function renderQueue(){
-  var h='<thead><tr><th>Model</th><th>Size</th><th>Licence</th><th>Added</th><th>Status</th><th>Review</th><th>Note</th></tr></thead><tbody>';
+  var h='<thead><tr><th>Model</th><th>Size</th><th>Licence</th><th>Added</th><th>Status</th><th>Note</th></tr></thead><tbody>';
   MODELS.forEach(function(m){
-    h+='<tr><td>'+m.name+'</td><td class="mono">'+m.size+'</td><td>'+m.licence+'</td><td class="mono">'+(m.added||'\u2014')+'</td><td><span class="status '+(m.tested?'done':(m.failed?'warn':''))+'">'+(m.tested?'Tested':(m.failed?'Failed':'Queued'))+'</span></td><td><span class="status '+(m.reviewed===false?'warn':'done')+'">'+(m.reviewed===false?'Not reviewed':'Reviewed')+'</span></td><td style="white-space:normal;min-width:220px;color:var(--muted)">'+(m.note||'Baseline run on laptop')+'</td></tr>';
+    h+='<tr><td>'+m.name+'</td><td class="mono">'+m.size+'</td><td>'+m.licence+'</td><td class="mono">'+(m.added||'\u2014')+'</td><td><span class="status '+(m.tested?'done':(m.failed?'warn':''))+'">'+(m.tested?'Tested':(m.failed?'Failed':'Queued'))+'</span></td><td style="white-space:normal;min-width:220px;color:var(--muted)">'+(m.note||'Baseline run on laptop')+'</td></tr>';
   });
   $('queue').innerHTML=h+'</tbody>';
 }
@@ -215,7 +215,7 @@ function renderFound(d){
   var h='<thead><tr><th>Model</th><th>Size</th><th>Licence</th><th>Updated</th><th>Auto-test</th><th>Status</th></tr></thead><tbody>';
   d.candidates.forEach(function(c){
     var short=norm(c.id.split('/')[1]), inList=have[short];
-    h+='<tr><td><a href="'+c.card+'" target="_blank" rel="noopener">'+c.id+'</a></td><td class="mono">'+c.params_b+'B</td><td>'+c.licence+'</td><td>'+c.days_since_update+' d ago</td><td>'+(c.suggested_tag?'Tag found':'No tag yet')+'</td><td><span class="status '+(inList?'done':'warn')+'">'+(inList?'In the list above':'Not reviewed')+'</span></td></tr>';
+    h+='<tr><td><a href="'+c.card+'" target="_blank" rel="noopener">'+c.id+'</a></td><td class="mono">'+c.params_b+'B</td><td>'+c.licence+'</td><td>'+c.days_since_update+' d ago</td><td>'+(c.suggested_tag?'Tag found':'No tag yet')+'</td><td><span class="status '+(inList?'done':'warn')+'">'+(inList?'In the list above':'Not tested yet')+'</span></td></tr>';
   });
   $('foundtable').innerHTML=h+'</tbody>';
   $('foundnote').textContent='Listed by the weekly scout on '+d.generated.slice(0,10)+'. '+d.kept+' passed the filters. Nobody has read these cards yet, so they are leads, not results.';

@@ -7,7 +7,7 @@ All test data is invented. No real patient or institutional data is used anywher
 ## How a weekly run works
 1. **Monday morning (or press Run workflow):** `.github/workflows/pipeline.yml` starts.
 2. **Scout:** `scout/scout.py` lists trending, recently updated text models that pass fixed rules and writes `docs/candidates.json`. Models in `scout/skip.json` are ignored.
-3. **Choose:** `pipeline/select_queue.py` builds the test list: the baseline, any reviewed model that has an `ollama_tag` and no results yet, and up to 10 unreviewed scout models that have a GGUF tag and fit the free GPUs (32B or smaller). Models from earlier weeks stay in `models.json` and on the page, each with the date it was added; hand-picked models stay too. A model that failed is marked `failed` and not retried until you delete that flag.
+3. **Choose:** `pipeline/select_queue.py` builds the test list: the baseline, any hand-added model that has an `ollama_tag` and no results yet, and up to 10 scout models that have a GGUF tag and fit the free GPUs (32B or smaller). Models from earlier weeks stay in `models.json` and on the page, each with the date it was added; hand-picked models stay too. A model that failed is marked `failed` and not retried until you delete that flag.
 4. **Kaggle:** the workflow pushes `kaggle/notebook.py` (with the list filled in) to Kaggle, which installs Ollama, downloads each model and runs `harness/run_tests_v2.py`.
 5. **Checks:** `pipeline/collect.py` reads the results. A model passes only if all 18 calls finished, no answer was cut off, JSON never failed to parse, and the baseline score stayed within 0.10 of its last run. Failed models keep their old scores and get a note.
 6. **Merge:** results go to a branch and a pull request. If everything passed (and auto-merge is on) the PR merges itself; otherwise it stays open for you to review.
@@ -16,7 +16,7 @@ All test data is invented. No real patient or institutional data is used anywher
 ## One-time setup
 1. **Pages:** Settings > Pages > Source: **GitHub Actions** (not "Deploy from a branch").
 2. **Actions permissions:** Settings > Actions > General > Workflow permissions: **Read and write**, and tick **Allow GitHub Actions to create and approve pull requests**.
-3. **Secrets:** Settings > Secrets and variables > Actions > New repository secret: `KAGGLE_USERNAME` and `KAGGLE_KEY` (from kaggle.com > Settings > API > Create New Token; the downloaded file holds both values).
+3. **Secrets:** Settings > Secrets and variables > Actions > New repository secret: `KAGGLE_USERNAME` (your Kaggle handle) and `KAGGLE_API_TOKEN` (the token that starts with KGAT_, from kaggle.com > Settings > API). Older accounts can use `KAGGLE_KEY` instead of the token.
 4. **Kaggle account:** phone-verified, so GPU and internet are allowed in notebooks.
 5. Delete the old `.github/workflows/scout.yml` if it is still there. The pipeline replaces it.
 6. Run it: Actions > Model Watch pipeline > Run workflow.
@@ -32,7 +32,7 @@ All test data is invented. No real patient or institutional data is used anywher
 | `runs/` | Raw output of every run. |
 
 ## Add a model by hand
-Add a block to `docs/models.json` with `"reviewed": true` and an `ollama_tag` (an ollama.com tag or `hf.co/<org>/<repo>:Q4_K_M`). The next run tests it.
+Add a block to `docs/models.json` with an `ollama_tag` (an ollama.com tag or `hf.co/<org>/<repo>:Q4_K_M`). The next run tests it.
 
 ## Known gaps
 - The scout, Kaggle push and merge steps have never run against the live services. Expect fixes on the first run.
