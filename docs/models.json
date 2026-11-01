@@ -10,7 +10,7 @@
   "m": {
    "f1": 0.93,
    "labels": 14,
-   "tps": 64.4,
+   "tps": 66.2,
    "secs": 1,
    "negation": 0,
    "doctor": 5,
@@ -24,12 +24,12 @@
   "licence": "Gemma terms",
   "ollama_tag": "gemma3:4b",
   "tested": true,
-  "note": "Laptop CPU run",
+  "note": "Run 2026-11-01-kaggle",
   "m": {
    "f1": 0.79,
    "labels": 11,
-   "tps": 22.8,
-   "secs": 142,
+   "tps": 64.2,
+   "secs": 1,
    "negation": 0,
    "doctor": 5,
    "numbers": 7
@@ -71,12 +71,12 @@
   "tested": true,
   "note": "Run 2026-11-01-kaggle",
   "m": {
-   "f1": 0.77,
-   "labels": 10,
-   "tps": 42.5,
-   "secs": 7,
+   "f1": 1.0,
+   "labels": 16,
+   "tps": 44.5,
+   "secs": 6,
    "negation": 0,
-   "doctor": 4,
+   "doctor": 5,
    "numbers": 7
   }
  },

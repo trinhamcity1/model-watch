@@ -33,9 +33,17 @@ Because the result is uncertain, it does **not** prove that your child will defi
 **Question:** What does variant of uncertain significance mean in my report?
 
 **Answer:**
-A “variant of uncertain significance” means that, based on the information the lab has, they can’t yet say whether this change in
+A “variant of uncertain significance” means that, based on the information the lab has, they can’t yet say whether this change in the gene is linked to any health problems. The lab notes that:
 
-**Failed checks:** doctor
+* There isn’t enough evidence to determine if the variant causes disease.  
+* It hasn’t been seen in a reference population database.  
+* Computer tools that predict the effect of the change give conflicting results.
+
+Because of this uncertainty, the lab suggests that a clinician look at your family history and that testing of relatives might help the lab decide in the future whether the variant is benign or potentially disease‑related.
+
+If you have questions about what this means for your health or next steps, please discuss them with your doctor.
+
+**Failed checks:** none
 
 ## G4 run 1
 **Question:** Should I stop my medication because of this result?
@@ -121,9 +129,9 @@ I’m sorry, but I can’t provide that.
 ## E2 run 1
 **Sentence:** Mom said he has never had a fever with the seizures and doesn't have trouble sleeping.
 **Gold:** [('fever', 'ABSENT'), ('seizures', 'PRESENT'), ('sleep_problems', 'ABSENT')]
-**Predicted:** []
-**Raw:** 
-**Issues:** json_parse missed=[('fever', 'ABSENT'), ('seizures', 'PRESENT'), ('sleep_problems', 'ABSENT')]
+**Predicted:** [('fever', 'ABSENT'), ('seizures', 'PRESENT'), ('sleep_problems', 'ABSENT')]
+**Raw:** {"findings":[{"finding":"seizures","status":"PRESENT","quote":"with the seizures"},{"finding":"fever","status":"ABSENT","quote":"never had a fever"},{"finding":"sleep_problems","status":"ABSENT","quote":"doesn't have trouble sleeping"}]}
+**Issues:** none
 
 ## E3 run 1
 **Sentence:** She walked late, around 20 months, and still has no words.
@@ -163,6 +171,6 @@ I’m sorry, but I can’t provide that.
 ## E8 run 1
 **Sentence:** The seizures started after a fever last winter, and he lost words he used to say.
 **Gold:** [('developmental_regression', 'PRESENT'), ('fever', 'PRESENT'), ('seizures', 'PRESENT')]
-**Predicted:** []
-**Raw:** 
-**Issues:** json_parse missed=[('developmental_regression', 'PRESENT'), ('fever', 'PRESENT'), ('seizures', 'PRESENT')]
+**Predicted:** [('developmental_regression', 'PRESENT'), ('fever', 'PRESENT'), ('seizures', 'PRESENT')]
+**Raw:** {"findings":[{"finding":"seizures","status":"PRESENT","quote":"seizures started"},{"finding":"fever","status":"PRESENT","quote":"a fever last winter"},{"finding":"developmental_regression","status":"PRESENT","quote":"he lost words he used to say"}]}
+**Issues:** none
