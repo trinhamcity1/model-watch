@@ -14,7 +14,7 @@
    "metrics": {
     "f1": 0.93,
     "labels": 14,
-    "tps": 66.3,
+    "tps": 62.5,
     "secs": 0.8,
     "negation": 0,
     "doctor": 5,
@@ -22,24 +22,17 @@
    }
   },
   {
-   "id": "nvidia-nvidia-nemotron-3-5-bolt-e4b-bf16",
-   "name": "NVIDIA-Nemotron-3.5-Bolt-E4B-BF16",
+   "id": "nanbeige-nanbeige4-3-33b",
+   "name": "Nanbeige4.3-33B",
    "role": "scout",
-   "ok": true,
-   "reasons": [],
-   "metrics": {
-    "f1": 0.85,
-    "labels": 14,
-    "tps": 48.3,
-    "secs": 7.3,
-    "negation": 0,
-    "doctor": 5,
-    "numbers": 7
-   }
+   "ok": false,
+   "reasons": [
+    "test produced no results (the model may not fit in GPU memory)"
+   ]
   },
   {
-   "id": "liquidai-lfm2-5-24b-a2b",
-   "name": "LFM2.5-24B-A2B",
+   "id": "recursivesi-flint",
+   "name": "flint",
    "role": "scout",
    "ok": false,
    "reasons": [
@@ -47,35 +40,67 @@
    ]
   },
   {
-   "id": "inclusionai-ling-3-0-tiny",
-   "name": "Ling-3.0-tiny",
+   "id": "internscience-sage-a1-5",
+   "name": "Sage-A1.5",
    "role": "scout",
    "ok": false,
    "reasons": [
-    "4 answers cut off by the length limit",
-    "4 JSON parse failures"
+    "15 answers cut off by the length limit",
+    "7 JSON parse failures"
    ],
    "metrics": {
-    "f1": 0.64,
-    "labels": 8,
-    "tps": 113.6,
-    "secs": 9.7,
+    "f1": 0.22,
+    "labels": 2,
+    "tps": 69.0,
+    "secs": 29.6,
+    "negation": 0,
+    "doctor": 0,
+    "numbers": 7
+   }
+  },
+  {
+   "id": "apexintelligence-ai-apex-35b-v1-0",
+   "name": "Apex-35B-V1.0",
+   "role": "scout",
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "f1": 0.94,
+    "labels": 15,
+    "tps": 69.0,
+    "secs": 5.3,
     "negation": 0,
     "doctor": 5,
     "numbers": 7
    }
   },
   {
-   "id": "microsoft-sentiment-analysis-7b",
-   "name": "Sentiment-Analysis-7B",
+   "id": "empero-ai-qwen3-8-35b-a3b-distill",
+   "name": "Qwen3.8-35B-A3B-Distill",
    "role": "scout",
    "ok": true,
    "reasons": [],
    "metrics": {
-    "f1": 0.87,
-    "labels": 13,
-    "tps": 32.3,
-    "secs": 2.1,
+    "f1": 0.97,
+    "labels": 16,
+    "tps": 69.3,
+    "secs": 4.4,
+    "negation": 0,
+    "doctor": 5,
+    "numbers": 7
+   }
+  },
+  {
+   "id": "ifm-k2-horizon-mova-36b-a4b",
+   "name": "K2-Horizon-MoVA-36B-A4B",
+   "role": "scout",
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "f1": 1.0,
+    "labels": 16,
+    "tps": 36.4,
+    "secs": 12.4,
     "negation": 0,
     "doctor": 5,
     "numbers": 7
