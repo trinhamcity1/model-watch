@@ -72,10 +72,16 @@ jobs:
           echo "Timed out waiting for Kaggle"; exit 1
 
       - name: Download Kaggle results
-        run: kaggle kernels output "$KAGGLE_USERNAME/model-watch-run" -p out
+        run: |
+          kaggle kernels output "$KAGGLE_USERNAME/model-watch-run" -p out
+          echo "Files returned by Kaggle:"; ls -R out | head -60
 
       - name: Check results and update the data files
         run: python pipeline/collect.py out queue.json
+
+      - name: Show the end of the Kaggle log
+        if: failure()
+        run: tail -n 80 out/*.log 2>/dev/null || echo "no log file returned"
 
       - name: Commit to a branch and open a pull request
         id: pr

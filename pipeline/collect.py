@@ -5,6 +5,12 @@ import csv, datetime, json, pathlib, re, statistics, sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 out_dir, queue_path = pathlib.Path(sys.argv[1]), sys.argv[2]
+# Kaggle may return the files inside a subfolder, so look for meta.json anywhere under out_dir.
+found = sorted(out_dir.rglob("meta.json"))
+if not found:
+    files = [str(f.relative_to(out_dir)) for f in out_dir.rglob("*") if f.is_file()][:40]
+    raise SystemExit("meta.json not found in the Kaggle output, so the notebook probably stopped early. Files returned: " + ", ".join(files))
+out_dir = found[0].parent
 queue = json.load(open(queue_path))
 meta = json.load(open(out_dir / "meta.json"))
 models = json.load(open(ROOT / "docs" / "models.json"))
@@ -72,6 +78,6 @@ report["merge_ok"] = bool(meta.get("gpus")) and bool(base_rows) and all(r["ok"] 
 json.dump(models, open(ROOT / "docs" / "models.json", "w"), indent=1)
 json.dump(report, open(ROOT / "docs" / "run_report.json", "w"), indent=1)
 (ROOT / "runs" / today).mkdir(parents=True, exist_ok=True)
-for f in out_dir.iterdir():
+for f in [x for x in out_dir.iterdir() if x.is_file()]:
     (ROOT / "runs" / today / f.name).write_bytes(f.read_bytes())
 print(json.dumps({"merge_ok": report["merge_ok"], "results": [(r["name"], r["ok"], r["reasons"]) for r in report["results"]]}, indent=1))
