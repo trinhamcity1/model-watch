@@ -1,0 +1,125 @@
+[
+ {
+  "id": "qwen",
+  "name": "Qwen3-4B Instruct",
+  "size": "4B",
+  "licence": "Apache-2.0",
+  "ollama_tag": "qwen3:4b-instruct-2507-q4_K_M",
+  "tested": true,
+  "note": "Kaggle run 2026-11-01 on two Tesla T4 GPUs",
+  "m": {
+   "f1": 0.93,
+   "labels": 14,
+   "tps": 66.2,
+   "secs": 1,
+   "negation": 0,
+   "doctor": 5,
+   "numbers": 7
+  },
+  "reviewed": true,
+  "source": "reviewed",
+  "baseline": true
+ },
+ {
+  "id": "gemma",
+  "name": "Gemma 3 4B",
+  "size": "4B",
+  "licence": "Gemma terms",
+  "ollama_tag": "gemma3:4b",
+  "tested": true,
+  "note": "Kaggle run 2026-11-01 on two Tesla T4 GPUs",
+  "m": {
+   "f1": 0.79,
+   "labels": 11,
+   "tps": 64.2,
+   "secs": 1,
+   "negation": 0,
+   "doctor": 5,
+   "numbers": 7
+  },
+  "reviewed": true,
+  "source": "reviewed",
+  "baseline": false
+ },
+ {
+  "id": "q38",
+  "name": "Qwen3.8-27B",
+  "size": "27B",
+  "licence": "Apache-2.0",
+  "ollama_tag": null,
+  "tested": false,
+  "note": "Hybrid attention layers, so memory math needs recomputing",
+  "reviewed": true,
+  "source": "reviewed",
+  "baseline": false
+ },
+ {
+  "id": "g4",
+  "name": "Gemma 4 31B",
+  "size": "31B",
+  "licence": "Apache-2.0",
+  "ollama_tag": null,
+  "tested": false,
+  "note": "Dense; fits one 80 GB card in 8-bit",
+  "reviewed": true,
+  "source": "reviewed",
+  "baseline": false
+ },
+ {
+  "id": "nemo",
+  "name": "Nemotron-3-Nano-30B-A3B",
+  "size": "30B (3.5B active)",
+  "licence": "NVIDIA Open Model",
+  "ollama_tag": null,
+  "tested": false,
+  "note": "Thinking can be switched off; needs extra parser file for vLLM",
+  "reviewed": true,
+  "source": "reviewed",
+  "baseline": false
+ },
+ {
+  "id": "gpt",
+  "name": "gpt-oss-20b",
+  "size": "21B (3.6B active)",
+  "licence": "Apache-2.0",
+  "ollama_tag": "gpt-oss:20b",
+  "tested": true,
+  "note": "Kaggle run 2026-11-01 on two Tesla T4 GPUs (answer limit raised for thinking)",
+  "reviewed": true,
+  "source": "reviewed",
+  "baseline": false,
+  "m": {
+   "f1": 1.0,
+   "labels": 16,
+   "tps": 44.5,
+   "secs": 6,
+   "negation": 0,
+   "doctor": 5,
+   "numbers": 7
+  }
+ },
+ {
+  "id": "med",
+  "name": "MedGemma 27B (text)",
+  "size": "27B",
+  "licence": "Check terms",
+  "ollama_tag": null,
+  "tested": false,
+  "note": "Medical tuning; compare against the general models",
+  "reviewed": true,
+  "source": "reviewed",
+  "baseline": false
+ },
+ {
+  "id": "gran",
+  "name": "granite-switch-4.1-30b",
+  "size": "30B",
+  "licence": "Apache-2.0",
+  "ollama_tag": null,
+  "tested": false,
+  "note": "Very new (updated 27 Oct); no medical results published",
+  "reviewed": true,
+  "source": "reviewed",
+  "baseline": false
+ }
+]
