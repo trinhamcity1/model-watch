@@ -66,7 +66,7 @@ footer{color:var(--muted);font-size:12.5px}
     <p class="sub">Recent open language models, tested against the one we use now, on clinical genetics tasks: a patient chatbot, report writing, interview annotation and variant interpretation. Pick a baseline, a task and a measure.</p>
   </header>
 
-  <div class="banner">Prototype. Results use invented data only, and models marked Queued have not been tested yet. Treat results as a first look, not a decision.</div>
+  <div class="banner">Prototype. Results use invented data only, and models not marked Tested have no results yet. Treat results as a first look, not a decision.</div>
 
   <section class="panel" aria-label="Choose a comparison">
     <div class="controls">
@@ -107,7 +107,7 @@ footer{color:var(--muted);font-size:12.5px}
     </div>
   </section>
 
-  <footer><span id="lastrun">Results come from models.json. Queued models are added after a GPU run.</span></footer>
+  <footer><span id="lastrun">Results come from models.json. Models without results are added after a run.</span></footer>
 </div>
 
 <script>
@@ -168,7 +168,7 @@ function run(){
   var hasQuality = keys.some(function(k){return METRICS[k].kind!=='cost'});
   var label = hasQuality ? 'quality' : 'speed';
   var rivals = MODELS.filter(function(m){return m.tested && m.id!==base.id});
-  var queued = MODELS.filter(function(m){return !m.tested && !m.failed}).length;
+  var untested = MODELS.filter(function(m){return !m.tested && !m.failed}).length;
   var better=[], mixed=[], slower=[], top=[], rest=[], cards='';
   rivals.forEach(function(r){
     var q={win:0,loss:0,tie:0}, c={win:0,loss:0,tie:0}, rows='';
@@ -200,13 +200,13 @@ function run(){
   else if(mixed.length){ cls='mixed'; big='Mixed result: '+mixed.join(', ')+(mixed.length>1?' win':' wins')+' on some '+label+' measures and loses on others.'; small='No tested model clearly beats the baseline, and none clearly loses.'; }
   else { cls='hold'; big='Your baseline ('+base.name+') still holds.'; small='No tested model beats it on these measures.'; }
   var h='<div class="verdict '+cls+'"><div class="big">We tested '+rivals.length+' model'+(rivals.length===1?'':'s')+' against '+base.name+'. '+big+'</div>'+
-     '<div class="small">'+small+' '+queued+' more recent models are waiting for a GPU run, so this is a partial picture.</div></div>';
+     '<div class="small">'+small+' '+untested+(untested===1?' listed model has':' listed models have')+' no results yet, so this is a partial picture.</div></div>';
   out.innerHTML=h+'<div class="cards" style="margin-top:14px">'+cards+'</div>';
 }
 function renderQueue(){
   var h='<thead><tr><th>Model</th><th>Size</th><th>Licence</th><th>Added</th><th>Status</th><th>Note</th></tr></thead><tbody>';
   MODELS.forEach(function(m){
-    h+='<tr><td>'+m.name+'</td><td class="mono">'+m.size+'</td><td>'+m.licence+'</td><td class="mono">'+(m.added||'\u2014')+'</td><td><span class="status '+(m.tested?'done':(m.failed?'warn':''))+'">'+(m.tested?'Tested':(m.failed?'Failed':'Queued'))+'</span></td><td style="white-space:normal;min-width:220px;color:var(--muted)">'+(m.note||'Baseline run on laptop')+'</td></tr>';
+    h+='<tr><td>'+m.name+'</td><td class="mono">'+m.size+'</td><td>'+m.licence+'</td><td class="mono">'+(m.added||'\u2014')+'</td><td><span class="status '+(m.tested?'done':(m.failed?'warn':''))+'">'+(m.tested?'Tested':(m.failed?'Failed':(m.ollama_tag?'Waiting for next run':'Needs a tag')))+'</span></td><td style="white-space:normal;min-width:220px;color:var(--muted)">'+(m.note||'Baseline run on laptop')+'</td></tr>';
   });
   $('queue').innerHTML=h+'</tbody>';
 }
@@ -219,8 +219,8 @@ function renderFound(d){
     var m=byHf[c.id]||byName[norm(c.id.split('/')[1])], label, cls='', reason='', rank;
     if(m && m.tested){label='Tested'; cls='done'; rank=0;}
     else if(m && m.failed){label='Failed'; cls='warn'; rank=1; reason=(m.note||'').split('failed checks: ')[1]||m.note||'';}
-    else if(m || c.status==='queued' || c.status==='over_limit'){label=(c.status==='over_limit'?'Waiting for next run':'Queued'); rank=2; reason=c.reason||'';}
-    else {label=c.status==='too_large'?'Too large':(c.status==='no_gguf'?'No GGUF':'Not queued'); rank=3; reason=c.reason||'';}
+    else if(m || c.status==='queued' || c.status==='over_limit'){label='Waiting for next run'; rank=2; reason=c.reason||'';}
+    else {label=c.status==='too_large'?'Too large':(c.status==='no_gguf'?'No GGUF':'Not tested'); rank=3; reason=c.reason||'';}
     return {rank:rank, html:'<tr><td><a href="'+c.card+'" target="_blank" rel="noopener">'+c.id+'</a></td><td class="mono">'+c.params_b+'B</td><td>'+c.licence+'</td><td>'+c.days_since_update+' d ago</td><td><span class="status '+cls+'">'+label+'</span></td><td style="white-space:normal;min-width:240px;color:var(--muted)">'+reason+'</td></tr>'};
   });
   rows.sort(function(a,b){return a.rank-b.rank});
