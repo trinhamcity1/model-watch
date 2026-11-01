@@ -1,6 +1,6 @@
 # Summary: qwen3:4b-instruct-2507-q4_K_M
 Offline: start=False, end=False
-Calls: 18, total time 103.7 s (includes first model load), median 66.35 tokens/s
+Calls: 18, total time 106.2 s (includes first model load), median 62.45 tokens/s
 
 Automatic checks passed (passes / times applied):
 - cites_report: 2 / 2

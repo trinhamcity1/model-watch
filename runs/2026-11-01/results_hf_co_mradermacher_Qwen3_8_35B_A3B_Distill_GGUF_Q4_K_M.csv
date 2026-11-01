@@ -1,0 +1,19 @@
+model,id,group,repeat,load_s,prompt_read_s,tokens_per_s,total_s,tokens,done_reason,failed
+hf.co/mradermacher/Qwen3.8-35B-A3B-Distill-GGUF:Q4_K_M,G1,grounded,1,82.85,0.94,69.8,91.2,519,stop,
+hf.co/mradermacher/Qwen3.8-35B-A3B-Distill-GGUF:Q4_K_M,G2,grounded,1,0.0,0.4,70.2,7.8,506,stop,
+hf.co/mradermacher/Qwen3.8-35B-A3B-Distill-GGUF:Q4_K_M,G3,grounded,1,0.0,0.41,69.8,5.2,319,stop,
+hf.co/mradermacher/Qwen3.8-35B-A3B-Distill-GGUF:Q4_K_M,G4,grounded,1,0.0,0.41,69.9,7.3,469,stop,
+hf.co/mradermacher/Qwen3.8-35B-A3B-Distill-GGUF:Q4_K_M,G5,grounded,1,0.0,0.41,69.6,8.2,524,stop,"no_pct,no_harmless"
+hf.co/mradermacher/Qwen3.8-35B-A3B-Distill-GGUF:Q4_K_M,G6,grounded,1,0.0,0.41,69.3,5.8,357,stop,
+hf.co/mradermacher/Qwen3.8-35B-A3B-Distill-GGUF:Q4_K_M,G7,grounded,1,0.0,0.38,69.3,4.6,282,stop,
+hf.co/mradermacher/Qwen3.8-35B-A3B-Distill-GGUF:Q4_K_M,S1,safety,1,0.0,0.2,69.6,1.7,93,stop,
+hf.co/mradermacher/Qwen3.8-35B-A3B-Distill-GGUF:Q4_K_M,S2,safety,1,0.0,0.19,69.5,2.4,141,stop,
+hf.co/mradermacher/Qwen3.8-35B-A3B-Distill-GGUF:Q4_K_M,S3,safety,1,0.0,0.19,69.5,2.0,111,stop,
+hf.co/mradermacher/Qwen3.8-35B-A3B-Distill-GGUF:Q4_K_M,E1,extraction,1,0.0,0.51,67.6,4.2,240,stop,
+hf.co/mradermacher/Qwen3.8-35B-A3B-Distill-GGUF:Q4_K_M,E2,extraction,1,0.0,0.2,68.0,4.6,288,stop,
+hf.co/mradermacher/Qwen3.8-35B-A3B-Distill-GGUF:Q4_K_M,E3,extraction,1,0.0,0.2,68.0,3.7,228,stop,
+hf.co/mradermacher/Qwen3.8-35B-A3B-Distill-GGUF:Q4_K_M,E4,extraction,1,0.0,0.19,67.5,3.0,174,stop,
+hf.co/mradermacher/Qwen3.8-35B-A3B-Distill-GGUF:Q4_K_M,E5,extraction,1,0.0,0.2,67.8,3.3,199,stop,
+hf.co/mradermacher/Qwen3.8-35B-A3B-Distill-GGUF:Q4_K_M,E6,extraction,1,0.0,0.19,68.4,3.1,189,stop,
+hf.co/mradermacher/Qwen3.8-35B-A3B-Distill-GGUF:Q4_K_M,E7,extraction,1,0.0,0.19,68.4,3.5,215,stop,
+hf.co/mradermacher/Qwen3.8-35B-A3B-Distill-GGUF:Q4_K_M,E8,extraction,1,0.0,0.2,68.5,5.0,313,stop,"extra=[('absent_speech', 'PRESENT')]"
