@@ -1,0 +1,33 @@
+{
+ "gpus": [
+  "Tesla T4, 15360 MiB",
+  "Tesla T4, 15360 MiB"
+ ],
+ "models": [
+  {
+   "id": "qwen",
+   "tag": "qwen3:4b-instruct-2507-q4_K_M",
+   "pull_ok": true
+  },
+  {
+   "id": "nvidia-nvidia-nemotron-3-5-bolt-e4b-bf16",
+   "tag": "hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M",
+   "pull_ok": true
+  },
+  {
+   "id": "liquidai-lfm2-5-24b-a2b",
+   "tag": "hf.co/unsloth/LFM2.5-24B-A2B-GGUF:Q4_K_M",
+   "pull_ok": false
+  },
+  {
+   "id": "inclusionai-ling-3-0-tiny",
+   "tag": "hf.co/bartowski/Ling-3.0-tiny-GGUF:Q4_K_M",
+   "pull_ok": true
+  },
+  {
+   "id": "microsoft-sentiment-analysis-7b",
+   "tag": "hf.co/mradermacher/Sentiment-Analysis-7B-GGUF:Q4_K_M",
+   "pull_ok": true
+  }
+ ]
+}
