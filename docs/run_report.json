@@ -1,0 +1,101 @@
+{
+ "date": "2026-11-02",
+ "gpus": [
+  "Tesla T4, 15360 MiB",
+  "Tesla T4, 15360 MiB"
+ ],
+ "results": [
+  {
+   "id": "qwen",
+   "name": "Qwen3-4B Instruct",
+   "role": "baseline",
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "f1": 0.93,
+    "labels": 14,
+    "tps": 61.6,
+    "secs": 0.8,
+    "negation": 0,
+    "doctor": 5,
+    "numbers": 7
+   }
+  },
+  {
+   "id": "q38",
+   "name": "Qwen3.8-27B",
+   "role": "reviewed",
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "f1": 1.0,
+    "labels": 16,
+    "tps": 12.6,
+    "secs": 19.5,
+    "negation": 0,
+    "doctor": 5,
+    "numbers": 7
+   }
+  },
+  {
+   "id": "g4",
+   "name": "Gemma 4 31B",
+   "role": "reviewed",
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "f1": 1.0,
+    "labels": 16,
+    "tps": 11.2,
+    "secs": 34.5,
+    "negation": 0,
+    "doctor": 5,
+    "numbers": 7
+   }
+  },
+  {
+   "id": "nemo",
+   "name": "Nemotron-3-Nano-30B-A3B",
+   "role": "reviewed",
+   "ok": false,
+   "reasons": [
+    "1 answers cut off by the length limit"
+   ],
+   "metrics": {
+    "f1": 1.0,
+    "labels": 16,
+    "tps": 71.2,
+    "secs": 6.7,
+    "negation": 0,
+    "doctor": 4,
+    "numbers": 7
+   }
+  },
+  {
+   "id": "med",
+   "name": "MedGemma 27B (text)",
+   "role": "reviewed",
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "f1": 0.97,
+    "labels": 15,
+    "tps": 13.1,
+    "secs": 4.2,
+    "negation": 0,
+    "doctor": 4,
+    "numbers": 7
+   }
+  },
+  {
+   "id": "gran",
+   "name": "granite-switch-4.1-30b",
+   "role": "reviewed",
+   "ok": false,
+   "reasons": [
+    "test produced no results (the model may not fit in GPU memory)"
+   ]
+  }
+ ],
+ "merge_ok": true
+}
