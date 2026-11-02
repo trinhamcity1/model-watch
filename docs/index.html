@@ -58,36 +58,46 @@ ul.plain{margin:0;padding-left:18px;color:var(--muted);font-size:13.5px;display:
 .status.done{background:var(--good-bg);color:var(--good)}
 footer{color:var(--muted);font-size:12.5px}
 @media (prefers-reduced-motion:no-preference){.fade{animation:f .25s ease-out}@keyframes f{from{opacity:.4}to{opacity:1}}}
+.checks{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:6px}
+.checks label{flex-direction:row;align-items:center;gap:6px;color:var(--fg);font-size:13.5px;font-weight:400}
+.flag{background:var(--good-bg);color:var(--good)}
+td.wrap{white-space:normal;min-width:220px;color:var(--muted)}
+.legend{font-size:12.5px;color:var(--muted);margin-top:8px}
 </style>
 
 <div class="wrap">
   <header>
     <h1>Model Watch</h1>
-    <p class="sub">Recent open language models, tested against the one we use now, on clinical genetics tasks: a patient chatbot, report writing, interview annotation and variant interpretation. Pick a baseline, a task and a measure.</p>
+    <p class="sub">Open language models tested on phenotype extraction: each model runs inside RAG-HPO, and the HPO terms it returns are scored against expert annotations in public datasets (ID-68 and GSC+).</p>
   </header>
 
-  <div class="banner">Prototype. Results use invented data only, and models not marked Tested have no results yet. Treat results as a first look, not a decision.</div>
+  <div class="banner">Prototype. Speeds and memory come from free Kaggle GPUs (two T4 cards), not the lab server. Treat results as a first screen; deeper tests happen on the server.</div>
 
   <section class="panel" aria-label="Choose a comparison">
     <div class="controls">
-      <label for="baseline">Your baseline model<select id="baseline"></select></label>
-      <label for="usecase">Task<select id="usecase"></select></label>
-      <label for="metric">Measure<select id="metric"></select></label>
-      <button class="go" id="go" type="button">Compare</button>
+      <label for="dataset">Dataset<select id="dataset"></select></label>
+      <label for="sort">Sort by<select id="sort"></select></label>
     </div>
-    <p class="ucdesc" id="ucdesc"></p>
+    <div style="margin-top:14px">
+      <div style="font-size:12.5px;color:var(--muted);font-weight:500">Baseline models (pick one or more; every other model is compared with the best of them)</div>
+      <div class="checks" id="baselines"></div>
+    </div>
+    <p class="ucdesc" id="dsdesc"></p>
   </section>
 
-  <section id="results" class="fade" aria-live="polite"></section>
-
   <section>
-    <h2>All models</h2>
-    <p class="sub" style="margin:0 0 10px">Hand-picked models stay for comparison. Each weekly run adds new ones with the date they were collected.</p>
-    <div class="panel tablewrap"><table id="queue"></table></div>
+    <h2>Results</h2>
+    <div class="panel tablewrap"><table id="results"></table></div>
+    <p class="legend" id="legend"></p>
+  </section>
+
+  <section id="pendingsec" hidden>
+    <h2>Not tested yet</h2>
+    <div class="panel tablewrap"><table id="pending"></table></div>
   </section>
 
   <section id="found" hidden>
-    <h2>Found this week</h2>
+    <h2>Found by the weekly scout</h2>
     <p class="sub" id="foundnote" style="margin:0 0 10px"></p>
     <div class="panel tablewrap"><table id="foundtable"></table></div>
     <p style="margin-top:10px"><button type="button" id="foundmore" class="more-btn" hidden></button></p>
@@ -97,157 +107,127 @@ footer{color:var(--muted);font-size:12.5px}
     <h2>How this works</h2>
     <div class="panel">
       <ul class="plain">
-        <li>Every model gets the same fixed prompts, a fresh chat for each, temperature 0, the same system prompt, and thinking off where the model allows it. Models that cannot switch thinking off (gpt-oss) get a larger answer limit so they are not cut off.</li>
-        <li>Scores come from automatic checks and hand-made gold labels, not from another model grading answers.</li>
-        <li>The verdict is based on quality measures; speed is shown alongside. A difference counts only above a set margin (0.05 F1, 2 labels, 1 answer, 10% for speed). Smaller gaps show as "too close".</li>
-        <li>Test data is invented: a made-up gene (EPLX2), a made-up report and eight made-up parent statements. No real patient or institutional data is used.</li>
-        <li>Speeds come from a free Kaggle GPU (two T4 cards). They rank models against each other and do not predict A100 speed.</li>
-        <li>Sample size is small (16 gold labels, 10 report and safety questions), so one run can swing by a few points.</li>
+        <li>RAG-HPO asks the language model to pull phenotype phrases out of each document, then matches them to Human Phenotype Ontology terms with a fixed search index. Only the language model changes between rows.</li>
+        <li>Scoring is per document: the set of HPO codes returned (category Abnormal) against the expert codes. Precision, recall and F1 are summed over all documents; "per doc" is the average of each document's F1.</li>
+        <li>Negation errors count codes the experts marked as absent (for example "no seizures") that the model reported as present. Only ID-68 marks these.</li>
+        <li>The same documents are used every run: all 68 ID-68 notes and a fixed sample of 60 GSC+ abstracts. A small control model is re-run each time to catch changes in the environment.</li>
+        <li>"Worth a server test" means the model beats the best selected baseline by at least 0.03 F1 on every dataset it was tested on, with no more negation errors. It is a prompt to look closer, not a decision to switch.</li>
+        <li>Scores are document-level, so they compare with document-level results in the literature (for example PhenoTagger), not mention-level ones.</li>
       </ul>
     </div>
   </section>
 
-  <footer><span id="lastrun">Results come from models.json. Models without results are added after a run.</span></footer>
+  <section id="legacysec" hidden>
+    <details class="more">
+      <summary>Archive: retired 18-question synthetic test</summary>
+      <p class="sub" style="margin:0 0 10px">Our first test used invented reports and parent statements. It was retired in favour of expert-annotated datasets. Kept here for the record.</p>
+      <div class="panel tablewrap"><table id="legacy"></table></div>
+    </details>
+  </section>
+
+  <footer><span id="lastrun"></span></footer>
 </div>
 
 <script>
-/* Model data is loaded from models.json (written by ingest.py after each run). secs = median time per answer. */
-var MODELS = [];
-var METRICS = {
-  f1:       {label:'Annotation F1 score',        higher:true,  abs:0.05, fmt:function(v){return v.toFixed(2)}},
-  labels:   {label:'Correct labels (of 16)',     higher:true,  abs:2,    fmt:function(v){return v+' / 16'}},
-  doctor:   {label:'Points to the doctor (of 5)',higher:true,  abs:1,    fmt:function(v){return v+' / 5'}},
-  numbers:  {label:'No invented numbers (of 7)', higher:true,  abs:1,    fmt:function(v){return v+' / 7'}},
-  negation: {label:'Negation errors',            higher:false, abs:1,    fmt:function(v){return String(v)}},
-  secs:     {label:'Time per answer (s)',        higher:false, rel:0.10,  fmt:function(v){return v+' s'}},
-  tps:      {label:'Speed (tokens/s)',           higher:true,  rel:0.10,  fmt:function(v){return v.toFixed(1)}}
-};
-['f1','labels','doctor','numbers','negation'].forEach(function(k){METRICS[k].kind='quality'});
-['secs','tps'].forEach(function(k){METRICS[k].kind='cost'});
-var USECASES = {
-  annot:  {label:'Parent-interview annotation', desc:'Reads what a parent says and picks the matching ontology-style terms, with negation handled (for example "no seizures").', metrics:['f1','labels','secs','tps']},
-  chat:   {label:'Patient chatbot',             desc:'Answers a family’s question in plain language, stays inside safe limits and points to the doctor.', metrics:['doctor','negation','secs','tps']},
-  report: {label:'Variant report generation',   desc:'Answers only from a given variant report and says so when the report does not contain the answer.', metrics:['numbers','negation','secs','tps']},
-  geno:   {label:'Genomic interpretation',      desc:'Needs a gold-labelled set of variants. Not built yet.', metrics:[]}
-};
-
+var MODELS = [], CONFIG = {task:'hpo_rag', margin:0.03};
+var DATASETS = {id68:{label:'ID-68', about:'68 clinical notes from families with intellectual disability (Anazi et al. 2017), annotated with HPO terms including negated findings.'},
+                gscplus:{label:'GSC+', about:'PubMed abstracts with HPO annotations (Lobo et al. 2017); a fixed sample of 60 of the 228.'}};
+var SORTS = {f1:['F1',true], precision:['Precision',true], recall:['Recall',true], f1_doc_mean:['F1 per doc',true],
+             neg_errors:['Negation errors',false], secs_per_doc:['Seconds per doc',false], gpu_peak_gib:['Peak GPU memory',false]};
 function $(id){return document.getElementById(id)}
-function byId(id){return MODELS.filter(function(m){return m.id===id})[0]}
-function opt(v,t,dis){var o=document.createElement('option');o.value=v;o.textContent=t;if(dis)o.disabled=true;return o}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function res(m,ds){var r=((m.results||{})[CONFIG.task]||{})[ds]; return r||null}
+function ok(m,ds){var r=res(m,ds); return r&&r.ok&&r.metrics?r.metrics:null}
+function tested(m){return Object.keys(DATASETS).some(function(d){return ok(m,d)})}
+function store(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function load(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}}
+function fmt(k,v){if(v==null)return '\u2014'; if(k==='neg_errors')return String(v); if(k==='secs_per_doc')return v.toFixed(1)+' s'; if(k==='gpu_peak_gib')return v.toFixed(1)+' GB'; return v.toFixed(2)}
 
-function init(){
-  MODELS.forEach(function(m){ $('baseline').appendChild(opt(m.id, m.name+(m.tested?'':' (not tested yet)'), !m.tested)); });
-  var bl=MODELS.filter(function(m){return m.baseline&&m.tested})[0]||MODELS.filter(function(m){return m.tested})[0]; if(bl) $('baseline').value=bl.id;
-  Object.keys(USECASES).forEach(function(k){ $('usecase').appendChild(opt(k, USECASES[k].label)); });
-  $('usecase').value='annot';
-  $('usecase').addEventListener('change', fillMetrics);
-  $('go').addEventListener('click', run);
-  $('baseline').addEventListener('change', run);
-  $('metric').addEventListener('change', run);
-  fillMetrics(); renderQueue();
+function setup(){
+  var ds=$('dataset'); Object.keys(DATASETS).forEach(function(k){ds.add(new Option(DATASETS[k].label,k))});
+  var so=$('sort'); Object.keys(SORTS).forEach(function(k){so.add(new Option(SORTS[k][0],k))});
+  var saved=load('mw-view')||{}; if(saved.ds&&DATASETS[saved.ds])ds.value=saved.ds; if(saved.sort&&SORTS[saved.sort])so.value=saved.sort;
+  var t=MODELS.filter(tested), picked=load('mw-baselines');
+  if(!picked||!picked.length){ var d=MODELS.find(function(m){return m.baseline&&tested(m)})||t[0]; picked=d?[d.id]:[]; }
+  $('baselines').innerHTML=t.length?t.map(function(m){return '<label><input type="checkbox" value="'+esc(m.id)+'"'+(picked.indexOf(m.id)>=0?' checked':'')+'> '+esc(m.name)+'</label>'}).join(''):'<span class="empty">No tested models yet.</span>';
+  [ds,so].forEach(function(e){e.addEventListener('change',render)});
+  $('baselines').addEventListener('change',render);
+  render();
 }
-function fillMetrics(){
-  var uc=USECASES[$('usecase').value], sel=$('metric'); sel.innerHTML='';
-  $('ucdesc').textContent=uc.desc;
-  if(!uc.metrics.length){ sel.appendChild(opt('none','No measures yet',true)); }
-  else{ sel.appendChild(opt('all','All measures for this task')); uc.metrics.forEach(function(k){ sel.appendChild(opt(k, METRICS[k].label)); }); }
-  run();
+function baselines(){return Array.prototype.slice.call(document.querySelectorAll('#baselines input:checked')).map(function(i){return i.value})}
+function bestBase(ids,ds){var b=null; ids.forEach(function(id){var m=MODELS.find(function(x){return x.id===id}); var r=m&&ok(m,ds); if(r&&(!b||r.f1>b.f1))b=r}); return b}
+function worth(m,ids){
+  if(ids.indexOf(m.id)>=0)return false; var any=false;
+  for(var d in DATASETS){var r=ok(m,d); if(!r)continue; var b=bestBase(ids,d); if(!b)return false; any=true;
+    if(r.f1-b.f1<CONFIG.margin||r.neg_errors>b.neg_errors)return false;}
+  return any;
 }
-function judge(k, b, c){
-  var d=METRICS[k], thr = d.abs!==undefined ? d.abs : d.rel*Math.abs(b);
-  var delta=(c-b)*(d.higher?1:-1);
-  return delta>=thr ? 'win' : (delta<=-thr ? 'loss' : 'tie');
-}
-function run(){
-  var base=byId($('baseline').value), uc=USECASES[$('usecase').value], mk=$('metric').value, out=$('results');
-  if(!uc.metrics.length){
-    out.innerHTML='<div class="panel empty">No test exists for this task yet. It needs a set of variants with agreed answers, plus a rule for what counts as a correct interpretation. That is the next test to design.</div>';
-    return;
-  }
-  var keys = mk==='all' ? uc.metrics : [mk];
-  var hasQuality = keys.some(function(k){return METRICS[k].kind!=='cost'});
-  var label = hasQuality ? 'quality' : 'speed';
-  var rivals = MODELS.filter(function(m){return m.tested && m.id!==base.id});
-  var untested = MODELS.filter(function(m){return !m.tested && !m.failed}).length;
-  var better=[], mixed=[], slower=[], top=[], rest=[], cards='';
-  rivals.forEach(function(r){
-    var q={win:0,loss:0,tie:0}, c={win:0,loss:0,tie:0}, rows='';
-    keys.forEach(function(k){
-      var res=judge(k, base.m[k], r.m[k]);
-      (METRICS[k].kind==='cost' ? c : q)[res]++;
-      var txt = res==='win' ? 'Better' : (res==='loss' ? 'Worse' : 'Too close');
-      rows+='<tr><td>'+METRICS[k].label+'</td><td class="num">'+METRICS[k].fmt(base.m[k])+'</td><td class="num">'+METRICS[k].fmt(r.m[k])+'</td><td><span class="chip '+res+'">'+txt+'</span></td></tr>';
-    });
-    var p = hasQuality ? q : c, n = p.win+p.loss+p.tie, line;
-    if(p.win>0 && p.loss===0){ line='Better on '+label+' ('+p.win+' of '+n+' measures).'; better.push(r.name); }
-    else if(p.loss>0 && p.win===0){ line='The baseline is better on '+label+' ('+p.loss+' of '+n+' measures).'; }
-    else if(p.win>0 && p.loss>0){ line='Mixed on '+label+': better on '+p.win+', worse on '+p.loss+'.'; mixed.push(r.name); }
-    else { line='No clear difference on '+label+'.'; }
-    if(hasQuality){
-      if(c.loss>0 && c.win===0){ line+=' It is slower.'; if(p.win>0 && p.loss===0) slower.push(r.name); }
-      else if(c.win>0 && c.loss===0){ line+=' It is faster.'; }
-      else if(c.win>0 && c.loss>0){ line+=' Speed is mixed.'; }
-    }
-    var html='<div class="panel card"><h3>'+r.name+'</h3><div class="tagline">'+r.size+' · '+r.licence+(r.source==='scout'?' · Found by scout':'')+' · '+line+'</div>'+
-      '<div class="tablewrap"><table><thead><tr><th>Measure</th><th class="num">'+base.name+'</th><th class="num">'+r.name+'</th><th>Result</th></tr></thead><tbody>'+rows+'</tbody></table></div></div>';
-    (p.win>0 ? top : rest).push(html);
+function render(){
+  var ds=$('dataset').value, key=$('sort').value, ids=baselines(); store('mw-view',{ds:ds,sort:key}); store('mw-baselines',ids);
+  $('dsdesc').textContent=DATASETS[ds].about;
+  var rows=MODELS.filter(function(m){return ok(m,ds)}), base=bestBase(ids,ds), hi=SORTS[key][1];
+  rows.sort(function(a,b){var x=ok(a,ds)[key],y=ok(b,ds)[key]; if(x==null)return 1; if(y==null)return -1; return hi?y-x:x-y});
+  var h='<thead><tr><th>Model</th><th class="num">F1</th><th class="num">Precision</th><th class="num">Recall</th><th class="num">F1 per doc</th><th class="num">Neg. errors</th><th class="num">s / doc</th><th class="num">Peak GPU</th><th>vs baseline</th><th>Tested</th></tr></thead><tbody>';
+  rows.forEach(function(m){
+    var r=ok(m,ds), isBase=ids.indexOf(m.id)>=0, chip='';
+    if(isBase) chip='<span class="chip tie">baseline</span>';
+    else if(base){var d=r.f1-base.f1; chip='<span class="chip '+(d>=CONFIG.margin?'win':(d<=-CONFIG.margin?'loss':'tie'))+'">'+(d>=0?'+':'')+d.toFixed(2)+' F1</span>';}
+    if(worth(m,ids)) chip+=' <span class="chip flag">worth a server test</span>';
+    h+='<tr><td>'+esc(m.name)+'<div class="mono" style="color:var(--muted);font-size:12px">'+esc(m.size||'')+'</div></td>'+
+      ['f1','precision','recall','f1_doc_mean','neg_errors','secs_per_doc','gpu_peak_gib'].map(function(k){return '<td class="num">'+fmt(k,r[k])+'</td>'}).join('')+
+      '<td style="white-space:normal;min-width:150px">'+chip+'</td><td class="mono">'+esc(res(m,ds).date||'')+'</td></tr>';
   });
-  cards = top.join('') + (rest.length ? '<details class="more"><summary>Show '+rest.length+' model'+(rest.length>1?'s':'')+' that do'+(rest.length>1?'':'es')+' not beat the baseline</summary><div class="cards" style="margin-top:10px">'+rest.join('')+'</div></details>' : '');
-  var cls='', big, small;
-  if(!rivals.length){ big='No other tested model to compare yet.'; small='Pick a tested baseline, or wait for the GPU run.'; }
-  else if(better.length){ cls='good'; big=better.join(', ')+(better.length>1?' beat':' beats')+' your baseline ('+base.name+') on '+label+'.';
-    small='Based on '+rivals.length+' tested model'+(rivals.length>1?'s':'')+'.'+(slower.length?' '+slower.join(', ')+(slower.length>1?' are':' is')+' slower, so check the speed rows.':'')+' Confirm with a harder test before relying on it.'; }
-  else if(mixed.length){ cls='mixed'; big='Mixed result: '+mixed.join(', ')+(mixed.length>1?' win':' wins')+' on some '+label+' measures and loses on others.'; small='No tested model clearly beats the baseline, and none clearly loses.'; }
-  else { cls='hold'; big='Your baseline ('+base.name+') still holds.'; small='No tested model beats it on these measures.'; }
-  var h='<div class="verdict '+cls+'"><div class="big">We tested '+rivals.length+' model'+(rivals.length===1?'':'s')+' against '+base.name+'. '+big+'</div>'+
-     '<div class="small">'+small+' '+untested+(untested===1?' listed model has':' listed models have')+' no results yet, so this is a partial picture.</div></div>';
-  out.innerHTML=h+'<div class="cards" style="margin-top:14px">'+cards+'</div>';
+  $('results').innerHTML=rows.length?h+'</tbody>':'<tbody><tr><td class="empty">No results for this dataset yet.</td></tr></tbody>';
+  $('legend').textContent=base?'Compared with the best selected baseline on '+DATASETS[ds].label+' (F1 '+base.f1.toFixed(2)+'). Differences under '+CONFIG.margin+' F1 count as a tie.':'Pick a baseline above to compare.';
+  renderPending();
 }
-function renderQueue(){
-  var h='<thead><tr><th>Model</th><th>Size</th><th>Licence</th><th>Added</th><th>Status</th><th>Note</th></tr></thead><tbody>';
-  MODELS.forEach(function(m){
-    h+='<tr><td>'+m.name+'</td><td class="mono">'+m.size+'</td><td>'+m.licence+'</td><td class="mono">'+(m.added||'\u2014')+'</td><td><span class="status '+(m.tested?'done':(m.failed?'warn':''))+'">'+(m.tested?'Tested':(m.failed?'Failed':(m.ollama_tag?'Waiting for next run':'Needs a tag')))+'</span></td><td style="white-space:normal;min-width:220px;color:var(--muted)">'+(m.note||'Baseline run on laptop')+'</td></tr>';
-  });
-  $('queue').innerHTML=h+'</tbody>';
+function reasonFor(m){
+  if(m.server_only)return ['Server only',m.status_reason||'Too large for the free Kaggle GPUs'];
+  var parts=[], wait=[]; for(var d in DATASETS){var r=res(m,d); if(!r)continue;
+    if(r.not_reached)wait.push(DATASETS[d].label+': '+r.reason); else if(!r.ok&&r.reason)parts.push(DATASETS[d].label+': '+r.reason)}
+  if(parts.length)return ['Failed',parts.concat(wait).join('; ')];
+  if(wait.length)return ['Waiting',wait.join('; ')];
+  if(!m.ollama_tag)return ['Needs a tag',m.status_reason||'No download tag in models.json'];
+  return ['Waiting',m.status_reason||'Queued for the next benchmark run'];
 }
-function norm(x){return String(x).toLowerCase().replace(/[^a-z0-9]/g,'')}
+function renderPending(){
+  var rows=MODELS.filter(function(m){return Object.keys(DATASETS).some(function(d){return !ok(m,d)})});
+  if(!rows.length){$('pendingsec').hidden=true;return}
+  var h='<thead><tr><th>Model</th><th>Size</th><th>Added</th><th>Status</th><th>Reason</th></tr></thead><tbody>';
+  rows.forEach(function(m){var s=reasonFor(m), part=tested(m)?' (partly tested)':'';
+    h+='<tr><td>'+esc(m.name)+'</td><td class="mono">'+esc(m.size||'')+'</td><td class="mono">'+esc(m.added||'\u2014')+'</td><td><span class="status'+(s[0]==='Failed'?' warn':'')+'">'+s[0]+part+'</span></td><td class="wrap">'+esc(s[1])+'</td></tr>'});
+  $('pending').innerHTML=h+'</tbody>'; $('pendingsec').hidden=false;
+}
+function renderLegacy(){
+  var rows=MODELS.filter(function(m){return m.legacy&&m.legacy.scores});
+  if(!rows.length)return;
+  var h='<thead><tr><th>Model</th><th class="num">F1</th><th class="num">Labels (of 16)</th><th class="num">Doctor (of 5)</th><th class="num">Tok/s</th><th class="num">s / answer</th></tr></thead><tbody>';
+  rows.forEach(function(m){var s=m.legacy.scores; h+='<tr><td>'+esc(m.name)+'</td><td class="num">'+s.f1+'</td><td class="num">'+s.labels+'</td><td class="num">'+s.doctor+'</td><td class="num">'+s.tps+'</td><td class="num">'+s.secs+'</td></tr>'});
+  $('legacy').innerHTML=h+'</tbody>'; $('legacysec').hidden=false;
+}
+var LABELS={in_list:['In the list',''],added:['Added','done'],server_only:['Server only','warn'],no_gguf:['No GGUF',''],too_large:['Server only','warn']};
 function renderFound(d){
-  if(!d || !d.candidates) return;
-  var byName={}, byHf={};
-  MODELS.forEach(function(m){byName[norm(m.name)]=m; if(m.hf) byHf[m.hf]=m;});
-  var rows=d.candidates.map(function(c){
-    var m=byHf[c.id]||byName[norm(c.id.split('/')[1])], label, cls='', reason='', rank;
-    if(m && m.tested){label='Tested'; cls='done'; rank=0;}
-    else if(m && m.failed){label='Failed'; cls='warn'; rank=1; reason=(m.note||'').split('failed checks: ')[1]||m.note||'';}
-    else if(m || c.status==='queued' || c.status==='over_limit'){label='Waiting for next run'; rank=2; reason=(m&&m.note)||c.reason||'';}
-    else {label=c.status==='too_large'?'Too large':(c.status==='no_gguf'?'No GGUF':'Not tested'); rank=3; reason=c.reason||'Reason is recorded when the next weekly run starts.';}
-    return {rank:rank, html:'<tr><td><a href="'+c.card+'" target="_blank" rel="noopener">'+c.id+'</a></td><td class="mono">'+c.params_b+'B</td><td>'+c.licence+'</td><td>'+c.days_since_update+' d ago</td><td><span class="status '+cls+'">'+label+'</span></td><td style="white-space:normal;min-width:240px;color:var(--muted)">'+reason+'</td></tr>'};
-  });
-  rows.sort(function(a,b){return a.rank-b.rank});
+  if(!d||!d.candidates)return;
+  var rows=d.candidates.map(function(c){var l=LABELS[c.status]||[c.status||'Not checked',''];
+    return '<tr><td><a href="'+esc(c.card)+'" target="_blank" rel="noopener">'+esc(c.id)+'</a></td><td class="mono">'+c.params_b+'B</td><td>'+esc(c.licence)+'</td><td>'+c.days_since_update+' d ago</td><td><span class="status '+l[1]+'">'+l[0]+'</span></td><td class="wrap">'+esc(c.reason||'')+'</td></tr>'});
   var SHOW=10, h='<thead><tr><th>Model</th><th>Size</th><th>Licence</th><th>Updated</th><th>Status</th><th>Reason</th></tr></thead><tbody>';
-  rows.forEach(function(r,i){ h+= i<SHOW ? r.html : r.html.replace('<tr>','<tr class="extra" hidden>'); });
+  rows.forEach(function(r,i){h+=i<SHOW?r:r.replace('<tr>','<tr class="extra" hidden>')});
   $('foundtable').innerHTML=h+'</tbody>';
-  var lim=d.limits||{};
-  $('foundnote').textContent='Listed by the weekly scout on '+d.generated.slice(0,10)+'; '+d.kept+' passed its filters. A model is tested automatically when a GGUF version exists'+(lim.max_params_b?' and it is '+lim.max_params_b+'B or smaller':'')+(lim.max_new_per_run?', up to '+lim.max_new_per_run+' per run':'')+'. The reason is shown for each one that was not.';
+  $('foundnote').textContent='Scout run '+String(d.generated).slice(0,10)+': '+d.kept+' recent models passed its filters. Models with a download tag are added to the list and benchmarked automatically; larger ones are listed for a server test.';
   var btn=$('foundmore');
-  if(rows.length>SHOW){
-    btn.hidden=false; btn.textContent='Show all '+rows.length+' models';
-    btn.onclick=function(){
-      var extra=document.querySelectorAll('#foundtable tr.extra'), open=btn.getAttribute('data-open')!=='1';
-      for(var i=0;i<extra.length;i++) extra[i].hidden=!open;
-      btn.setAttribute('data-open',open?'1':'0'); btn.textContent=open?'Show fewer':'Show all '+rows.length+' models';
-    };
-  } else { btn.hidden=true; }
+  if(rows.length>SHOW){btn.hidden=false; btn.textContent='Show all '+rows.length; btn.onclick=function(){var open=btn.getAttribute('data-open')!=='1';
+    document.querySelectorAll('#foundtable tr.extra').forEach(function(e){e.hidden=!open}); btn.setAttribute('data-open',open?'1':'0'); btn.textContent=open?'Show fewer':'Show all '+rows.length}}
   $('found').hidden=false;
 }
 function loadExtras(){
   fetch('candidates.json',{cache:'no-store'}).then(function(r){return r.json()}).then(renderFound).catch(function(){});
   fetch('run_report.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(r){
-    var bad=r.results.filter(function(x){return !x.ok && !x.skipped}).length;
-    $('lastrun').textContent='Last run '+r.date+' on '+(r.gpus.length?r.gpus.join(', '):'unknown hardware')+'. '+(bad?bad+' model'+(bad>1?'s':'')+' failed checks and keep their old scores.':'All checks passed.');
-  }).catch(function(){});
+    if(r.task!==CONFIG.task){$('lastrun').textContent='No benchmark run yet.';return}
+    var bad=r.results.filter(function(x){return !x.ok&&!x.not_reached&&x.role!=='control'}).length;
+    $('lastrun').textContent='Last benchmark '+r.date+' on '+((r.gpus||[]).join(', ')||'unknown GPU')+'; HPO release '+(r.hpo_version||'unknown')+'; RAG-HPO '+String(r.rag_hpo_commit||'').slice(0,7)+'. '+(bad?bad+' run'+(bad>1?'s':'')+' failed.':'')+((r.problems||[]).length?' Problems: '+r.problems.join('; '):'');
+  }).catch(function(){$('lastrun').textContent='No benchmark run yet.'});
 }
-fetch('models.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){MODELS=d;init();loadExtras();}).catch(function(){
-  $('results').innerHTML='<div class="panel empty">Could not load models.json. If you opened this file directly, serve the docs folder instead (python3 -m http.server in the docs folder).</div>';
+fetch('models.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){MODELS=d;setup();renderLegacy();loadExtras();}).catch(function(){
+  $('results').innerHTML='<tbody><tr><td class="empty">Could not load models.json. Serve the docs folder (python3 -m http.server) instead of opening the file directly.</td></tr></tbody>';
 });
 </script>

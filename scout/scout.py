@@ -8,7 +8,7 @@ ALLOWED_LICENCES = {"apache-2.0", "mit", "gemma", "llama3.3", "other"}  # 'other
 BAD_WORDS = ["gguf", "awq", "gptq", "mlx", "nvfp4", "fp8", "bnb", "abliterated", "uncensored", "roleplay",
              "-rp", "coder", "code", "-base", "merge", "lora", "embedding", "guard", "humaniz",
              "sentiment", "classif", "reward", "ocr", "speech", "tts", "asr", "translat", "ner-", "detector", "intent"]
-MIN_B, MAX_B, MAX_AGE_DAYS = 7, 40, 60
+MIN_B, MAX_B, MAX_AGE_DAYS = 1, 1000, 60   # large models are kept and listed as server-only
 GGUF_ORGS = ["unsloth", "bartowski", "lmstudio-community", "ggml-org", "mradermacher", "QuantFactory", "MaziyarPanahi"]
 SKIP = json.load(open(ROOT / "scout" / "skip.json"))
 
@@ -24,12 +24,13 @@ def resolve_gguf(hf_id):
             {"search": base, "filter": "gguf", "sort": "downloads", "limit": "20"}))
     except Exception:
         return None, "GGUF lookup failed (network error); will retry next week"
-    for org in GGUF_ORGS:
+    orgs = [hf_id.split("/")[0]] + GGUF_ORGS   # the model's own publisher first: many labs ship their own GGUF
+    for org in orgs:
         for r in res:
             org_r, name = r["id"].split("/", 1)
             if org_r.lower() == org.lower() and name.lower().replace("-gguf", "") == base:
                 return f"hf.co/{r['id']}:Q4_K_M", None
-    return None, f"No GGUF version found from the {len(GGUF_ORGS)} publishers we search"
+    return None, f"No GGUF version found from the model's own publisher or the {len(GGUF_ORGS)} community publishers we search"
 
 params = [("pipeline_tag", "text-generation"), ("sort", "trendingScore"), ("limit", "200"),
           ("expand[]", "safetensors"), ("expand[]", "lastModified"), ("expand[]", "tags"),

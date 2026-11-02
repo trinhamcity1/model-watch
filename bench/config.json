@@ -1,0 +1,18 @@
+{
+ "task": "hpo_rag",
+ "task_version": 1,
+ "description": "RAG-HPO phenotype extraction: each model is the LLM inside RAG-HPO; output HPO codes are scored per document against expert annotations.",
+ "rag_hpo": {"repo": "https://github.com/PoseyPod/RAG-HPO", "ref": "main"},
+ "corpora": {"repo": "https://github.com/EclipseCN/PhenoBERT", "ref": "main"},
+ "datasets": {
+  "id68":    {"label": "ID-68",  "path": "phenobert/data/ID-68", "n": 68, "about": "68 clinical notes, families with intellectual disability (Anazi et al. 2017)"},
+  "gscplus": {"label": "GSC+",   "path": "phenobert/data/GSC+",  "n": 60, "about": "PubMed abstracts with HPO annotations (Lobo et al. 2017); fixed sample of 60 of 228"}
+ },
+ "sample_seed": 42,
+ "control": {"tag": "qwen3:4b-instruct-2507-q4_K_M", "dataset": "id68", "n": 10, "max_f1_drift": 0.10},
+ "kaggle_max_params_b": 40,
+ "budget_minutes": 200,
+ "per_dataset_timeout_minutes": 90,
+ "pull_timeout_minutes": 25,
+ "temperature": 0.0
+}

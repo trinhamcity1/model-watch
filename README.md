@@ -1,44 +1,63 @@
 # Model Watch
 
-Compares recent open language models against a baseline on clinical genetics tasks
-(patient chatbot, variant report generation, parent-interview annotation, genomic interpretation).
-All test data is invented. No real patient or institutional data is used anywhere in this repo.
+Finds new open language models and benchmarks them on phenotype extraction, then publishes the results on a GitHub Pages site.
 
-## How a weekly run works
-1. **Monday morning (or press Run workflow):** `.github/workflows/pipeline.yml` starts.
-2. **Scout:** `scout/scout.py` lists trending, recently updated text models that pass fixed rules and writes `docs/candidates.json`. Models in `scout/skip.json` are ignored.
-3. **Choose:** `pipeline/select_queue.py` builds the test list: the baseline, any hand-added model that has an `ollama_tag` and no results yet, and up to 10 scout models that have a GGUF tag and fit the free GPUs (32B or smaller). Models from earlier weeks stay in `models.json` and on the page, each with the date it was added; hand-picked models stay too. A model that failed is marked `failed` and not retried until you delete that flag.
-4. **Kaggle:** the workflow pushes `kaggle/notebook.py` (with the list filled in) to Kaggle, which installs Ollama, downloads each model and runs `harness/run_tests_v2.py`.
-5. **Checks:** `pipeline/collect.py` reads the results. A model passes only if all 18 calls finished, no answer was cut off, JSON never failed to parse, and the baseline score stayed within 0.10 of its last run. Failed models keep their old scores and get a note.
-6. **Merge:** results go to a branch and a pull request. If everything passed (and auto-merge is on) the PR merges itself; otherwise it stays open for you to review.
-7. **Publish and notify:** `deploy.yml` republishes the site, and the workflow opens a GitHub issue that mentions you, which sends you an email or phone notification.
+## How it works
+
+Two workflows:
+
+1. **Model Watch scout** (`.github/workflows/pipeline.yml`) runs every Monday, or by hand.
+   It reads the trending text-generation models on Hugging Face (`scout/scout.py`), looks for a 4-bit GGUF download,
+   and adds the models it finds to `docs/models.json` (`scout/update_models.py`). Models over 40B are listed as
+   "server only". It then publishes the site and starts the benchmark.
+2. **Model Watch HPO benchmark** (`.github/workflows/benchmark.yml`) runs after the scout, or by hand.
+   It queues every model in `docs/models.json` that has no result yet (`bench/select.py`), runs them on a free Kaggle
+   GPU notebook (`bench/kaggle_hpo.py`), scores the output (`bench/score.py`, `bench/collect.py`), opens and merges a
+   pull request, and publishes the site.
+
+## The benchmark
+
+Each model is the language model inside [RAG-HPO](https://github.com/PoseyPod/RAG-HPO). RAG-HPO pulls phenotype
+phrases from each document and matches them to Human Phenotype Ontology (HPO) terms. The HPO codes it returns are
+compared, per document, with expert annotations from two public datasets in the
+[PhenoBERT repository](https://github.com/EclipseCN/PhenoBERT) (MIT licence):
+
+- **ID-68**: 68 clinical notes from families with intellectual disability (Anazi et al. 2017). Includes negated findings.
+- **GSC+**: PubMed abstracts with HPO annotations (Lobo et al. 2017). A fixed sample of 60 of the 228.
+
+Measures: precision, recall, F1 (summed over documents and averaged per document), negation errors, seconds per
+document, and peak GPU memory. A small control model is re-run every time; if its F1 moves by more than 0.10 the
+run is not merged.
+
+Settings live in `bench/config.json`. Change `task_version` there whenever the task changes (datasets, sample
+sizes, RAG-HPO version); every model is then re-run.
+
+## Running it by hand
+
+Actions -> Model Watch HPO benchmark -> Run workflow. Options: specific model ids, one dataset, fewer documents for a
+quick trial, or force a re-run.
+
+To add a model by hand, add an entry to `docs/models.json` with `id`, `name`, `size`, `licence`, `ollama_tag` (an
+Ollama tag or `hf.co/<org>/<repo>:Q4_K_M`) and `hf`. The next benchmark run tests it. If a model failed and you want
+to retry it, delete its entry under `results`.
 
 ## One-time setup
-1. **Pages:** Settings > Pages > Source: **GitHub Actions** (not "Deploy from a branch").
-2. **Actions permissions:** Settings > Actions > General > Workflow permissions: **Read and write**, and tick **Allow GitHub Actions to create and approve pull requests**.
-3. **Secrets:** Settings > Secrets and variables > Actions > New repository secret: `KAGGLE_USERNAME` (your Kaggle handle) and `KAGGLE_API_TOKEN` (the token that starts with KGAT_, from kaggle.com > Settings > API). Older accounts can use `KAGGLE_KEY` instead of the token.
-4. **Kaggle account:** phone-verified, so GPU and internet are allowed in notebooks.
-5. Delete the old `.github/workflows/scout.yml` if it is still there. The pipeline replaces it.
-6. Run it: Actions > Model Watch pipeline > Run workflow.
+
+- Settings -> Pages -> Source: GitHub Actions
+- Settings -> Actions -> General -> Workflow permissions: Read and write, and tick "Allow GitHub Actions to create and approve pull requests"
+- Secrets: `KAGGLE_USERNAME` and `KAGGLE_API_TOKEN` (Kaggle account with phone verification, for GPU and internet)
 
 ## Folders
-| Folder | What it does |
-|---|---|
-| `docs/` | The website. `models.json` holds results, `candidates.json` the scout list, `run_report.json` the last run's checks. |
-| `harness/` | `run_tests_v2.py` is the test. `MODELS` must be set. `TOKEN_SCALE` raises answer limits for thinking models. |
-| `scout/` | Weekly scout and `skip.json`. |
-| `pipeline/` | Queue selection and result checks. |
-| `kaggle/` | Notebook template and Kaggle metadata. |
-| `runs/` | Raw output of every run. |
 
-## Add a model by hand
-Add a block to `docs/models.json` with an `ollama_tag` (an ollama.com tag or `hf.co/<org>/<repo>:Q4_K_M`). The next run tests it.
+- `docs/`: the site and its data (`models.json`, `candidates.json`, `run_report.json`, `control.json`)
+- `bench/`: the benchmark (selection, Kaggle script, scoring)
+- `scout/`: the weekly scout
+- `runs/`: raw Kaggle output for each run
+- `harness/`, `kaggle/`, `pipeline/`: the retired 18-question test, kept for the record. Its scores are archived on the site.
 
 ## Known gaps
-- The scout, Kaggle push and merge steps have never run against the live services. Expect fixes on the first run.
-- The test is small and easy (16 gold labels). Scores near the top cannot separate good models.
-- Two automatic checks (`no_harmless`, `not_in_report`) can flag good answers.
-- Kaggle may give one 16 GB GPU instead of two, so 27B to 32B models may fail to load. The checks report this.
-- Speeds come from free Kaggle GPUs and do not predict A100 speed.
-- No genomic interpretation test exists yet.
-- The scout lists leads only. Nobody has read those model cards.
+
+- Speeds and memory come from two T4 GPUs, not the lab server.
+- The HPO release is not pinned; the release used is recorded with each result.
+- Scores are document-level, so compare them with document-level results in the literature.
+- Thinking models may format their output in ways RAG-HPO does not parse; those runs show a reason on the site.
