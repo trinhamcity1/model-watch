@@ -5,20 +5,25 @@
   "size": "4B",
   "licence": "Apache-2.0",
   "ollama_tag": "qwen3:4b-instruct-2507-q4_K_M",
-  "tested": true,
-  "note": "Run 2026-11-02 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
-  "m": {
-   "f1": 0.93,
-   "labels": 14,
-   "tps": 61.6,
-   "secs": 0.8,
-   "negation": 0,
-   "doctor": 5,
-   "numbers": 7
-  },
   "reviewed": true,
   "source": "reviewed",
-  "baseline": true
+  "baseline": true,
+  "legacy": {
+   "test": "18-question synthetic test (retired)",
+   "scores": {
+    "f1": 0.93,
+    "labels": 14,
+    "tps": 61.6,
+    "secs": 0.8,
+    "negation": 0,
+    "doctor": 5,
+    "numbers": 7
+   },
+   "tested": true,
+   "failed": false,
+   "note": "Run 2026-11-02 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
+   "reason": null
+  }
  },
  {
   "id": "gemma",
@@ -26,20 +31,25 @@
   "size": "4B",
   "licence": "Gemma terms",
   "ollama_tag": "gemma3:4b",
-  "tested": true,
-  "note": "Kaggle run 2026-11-01 on two Tesla T4 GPUs",
-  "m": {
-   "f1": 0.79,
-   "labels": 11,
-   "tps": 64.2,
-   "secs": 1,
-   "negation": 0,
-   "doctor": 5,
-   "numbers": 7
-  },
   "reviewed": true,
   "source": "reviewed",
-  "baseline": false
+  "baseline": false,
+  "legacy": {
+   "test": "18-question synthetic test (retired)",
+   "scores": {
+    "f1": 0.79,
+    "labels": 11,
+    "tps": 64.2,
+    "secs": 1,
+    "negation": 0,
+    "doctor": 5,
+    "numbers": 7
+   },
+   "tested": true,
+   "failed": false,
+   "note": "Kaggle run 2026-11-01 on two Tesla T4 GPUs",
+   "reason": null
+  }
  },
  {
   "id": "q38",
@@ -47,19 +57,24 @@
   "size": "27B",
   "licence": "Apache-2.0",
   "ollama_tag": "hf.co/bartowski/Qwen3.8-27B-GGUF:Q4_K_M",
-  "tested": true,
-  "note": "Run 2026-11-02 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
   "reviewed": true,
   "source": "reviewed",
   "baseline": false,
-  "m": {
-   "f1": 1.0,
-   "labels": 16,
-   "tps": 12.6,
-   "secs": 19.5,
-   "negation": 0,
-   "doctor": 5,
-   "numbers": 7
+  "legacy": {
+   "test": "18-question synthetic test (retired)",
+   "scores": {
+    "f1": 1.0,
+    "labels": 16,
+    "tps": 12.6,
+    "secs": 19.5,
+    "negation": 0,
+    "doctor": 5,
+    "numbers": 7
+   },
+   "tested": true,
+   "failed": false,
+   "note": "Run 2026-11-02 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
+   "reason": null
   }
  },
  {
@@ -68,19 +83,24 @@
   "size": "31B",
   "licence": "Apache-2.0",
   "ollama_tag": "hf.co/unsloth/gemma-4-31B-it-GGUF:Q4_K_M",
-  "tested": true,
-  "note": "Run 2026-11-02 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
   "reviewed": true,
   "source": "reviewed",
   "baseline": false,
-  "m": {
-   "f1": 1.0,
-   "labels": 16,
-   "tps": 11.2,
-   "secs": 34.5,
-   "negation": 0,
-   "doctor": 5,
-   "numbers": 7
+  "legacy": {
+   "test": "18-question synthetic test (retired)",
+   "scores": {
+    "f1": 1.0,
+    "labels": 16,
+    "tps": 11.2,
+    "secs": 34.5,
+    "negation": 0,
+    "doctor": 5,
+    "numbers": 7
+   },
+   "tested": true,
+   "failed": false,
+   "note": "Run 2026-11-02 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
+   "reason": null
   }
  },
  {
@@ -89,12 +109,17 @@
   "size": "30B (3.5B active)",
   "licence": "NVIDIA Open Model",
   "ollama_tag": "hf.co/bartowski/nvidia_Nemotron-3-Nano-30B-A3B-GGUF:Q4_K_M",
-  "tested": false,
-  "note": "Run 2026-11-02 failed checks: 1 answers cut off by the length limit",
   "reviewed": true,
   "source": "reviewed",
   "baseline": false,
-  "failed": true
+  "legacy": {
+   "test": "18-question synthetic test (retired)",
+   "scores": null,
+   "tested": false,
+   "failed": true,
+   "note": "Run 2026-11-02 failed checks: 1 answers cut off by the length limit",
+   "reason": null
+  }
  },
  {
   "id": "gpt",
@@ -102,19 +127,24 @@
   "size": "21B (3.6B active)",
   "licence": "Apache-2.0",
   "ollama_tag": "gpt-oss:20b",
-  "tested": true,
-  "note": "Kaggle run 2026-11-01 on two Tesla T4 GPUs (answer limit raised for thinking)",
   "reviewed": true,
   "source": "reviewed",
   "baseline": false,
-  "m": {
-   "f1": 1.0,
-   "labels": 16,
-   "tps": 44.5,
-   "secs": 6,
-   "negation": 0,
-   "doctor": 5,
-   "numbers": 7
+  "legacy": {
+   "test": "18-question synthetic test (retired)",
+   "scores": {
+    "f1": 1.0,
+    "labels": 16,
+    "tps": 44.5,
+    "secs": 6,
+    "negation": 0,
+    "doctor": 5,
+    "numbers": 7
+   },
+   "tested": true,
+   "failed": false,
+   "note": "Kaggle run 2026-11-01 on two Tesla T4 GPUs (answer limit raised for thinking)",
+   "reason": null
   }
  },
  {
@@ -123,19 +153,24 @@
   "size": "27B",
   "licence": "Check terms",
   "ollama_tag": "hf.co/unsloth/medgemma-27b-it-GGUF:Q4_K_M",
-  "tested": true,
-  "note": "Run 2026-11-02 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
   "reviewed": true,
   "source": "reviewed",
   "baseline": false,
-  "m": {
-   "f1": 0.97,
-   "labels": 15,
-   "tps": 13.1,
-   "secs": 4.2,
-   "negation": 0,
-   "doctor": 4,
-   "numbers": 7
+  "legacy": {
+   "test": "18-question synthetic test (retired)",
+   "scores": {
+    "f1": 0.97,
+    "labels": 15,
+    "tps": 13.1,
+    "secs": 4.2,
+    "negation": 0,
+    "doctor": 4,
+    "numbers": 7
+   },
+   "tested": true,
+   "failed": false,
+   "note": "Run 2026-11-02 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
+   "reason": null
   }
  },
  {
@@ -144,12 +179,18 @@
   "size": "30B",
   "licence": "Apache-2.0",
   "ollama_tag": "hf.co/ibm-granite/granite-switch-4.1-30b-GGUF:Q4_K_M",
-  "tested": false,
-  "note": "Run 2026-11-02 failed checks: test produced no results (the model may not fit in GPU memory)",
   "reviewed": true,
   "source": "reviewed",
   "baseline": false,
-  "failed": true
+  "legacy": {
+   "test": "18-question synthetic test (retired)",
+   "scores": null,
+   "tested": false,
+   "failed": true,
+   "note": "Run 2026-11-02 failed checks: test produced no results (the model may not fit in GPU memory)",
+   "reason": null
+  },
+  "hf": "ibm-granite/granite-switch-4.1-30b"
  },
  {
   "id": "nvidia-nvidia-nemotron-3-5-bolt-e4b-bf16",
@@ -160,18 +201,23 @@
   "hf": "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16",
   "reviewed": false,
   "source": "scout",
-  "tested": true,
   "added": "2026-11-01",
-  "m": {
-   "f1": 0.85,
-   "labels": 14,
-   "tps": 48.3,
-   "secs": 7.3,
-   "negation": 0,
-   "doctor": 5,
-   "numbers": 7
-  },
-  "note": "Run 2026-11-01 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB"
+  "legacy": {
+   "test": "18-question synthetic test (retired)",
+   "scores": {
+    "f1": 0.85,
+    "labels": 14,
+    "tps": 48.3,
+    "secs": 7.3,
+    "negation": 0,
+    "doctor": 5,
+    "numbers": 7
+   },
+   "tested": true,
+   "failed": false,
+   "note": "Run 2026-11-01 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
+   "reason": null
+  }
  },
  {
   "id": "liquidai-lfm2-5-24b-a2b",
@@ -182,10 +228,15 @@
   "hf": "LiquidAI/LFM2.5-24B-A2B",
   "reviewed": false,
   "source": "scout",
-  "tested": false,
   "added": "2026-11-01",
-  "failed": true,
-  "note": "Run 2026-11-01 failed checks: model download failed (check the tag)"
+  "legacy": {
+   "test": "18-question synthetic test (retired)",
+   "scores": null,
+   "tested": false,
+   "failed": true,
+   "note": "Run 2026-11-01 failed checks: model download failed (check the tag)",
+   "reason": null
+  }
  },
  {
   "id": "inclusionai-ling-3-0-tiny",
@@ -196,10 +247,15 @@
   "hf": "inclusionAI/Ling-3.0-tiny",
   "reviewed": false,
   "source": "scout",
-  "tested": false,
   "added": "2026-11-01",
-  "failed": true,
-  "note": "Run 2026-11-01 failed checks: 4 answers cut off by the length limit; 4 JSON parse failures"
+  "legacy": {
+   "test": "18-question synthetic test (retired)",
+   "scores": null,
+   "tested": false,
+   "failed": true,
+   "note": "Run 2026-11-01 failed checks: 4 answers cut off by the length limit; 4 JSON parse failures",
+   "reason": null
+  }
  },
  {
   "id": "microsoft-sentiment-analysis-7b",
@@ -210,18 +266,23 @@
   "hf": "microsoft/Sentiment-Analysis-7B",
   "reviewed": false,
   "source": "scout",
-  "tested": true,
   "added": "2026-11-01",
-  "m": {
-   "f1": 0.87,
-   "labels": 13,
-   "tps": 32.3,
-   "secs": 2.1,
-   "negation": 0,
-   "doctor": 5,
-   "numbers": 7
-  },
-  "note": "Run 2026-11-01 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB"
+  "legacy": {
+   "test": "18-question synthetic test (retired)",
+   "scores": {
+    "f1": 0.87,
+    "labels": 13,
+    "tps": 32.3,
+    "secs": 2.1,
+    "negation": 0,
+    "doctor": 5,
+    "numbers": 7
+   },
+   "tested": true,
+   "failed": false,
+   "note": "Run 2026-11-01 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
+   "reason": null
+  }
  },
  {
   "id": "nanbeige-nanbeige4-3-33b",
@@ -232,10 +293,15 @@
   "hf": "Nanbeige/Nanbeige4.3-33B",
   "reviewed": false,
   "source": "scout",
-  "tested": false,
   "added": "2026-11-01",
-  "failed": true,
-  "note": "Run 2026-11-01 failed checks: test produced no results (the model may not fit in GPU memory)"
+  "legacy": {
+   "test": "18-question synthetic test (retired)",
+   "scores": null,
+   "tested": false,
+   "failed": true,
+   "note": "Run 2026-11-01 failed checks: test produced no results (the model may not fit in GPU memory)",
+   "reason": null
+  }
  },
  {
   "id": "recursivesi-flint",
@@ -246,10 +312,15 @@
   "hf": "RecursiveSI/flint",
   "reviewed": false,
   "source": "scout",
-  "tested": false,
   "added": "2026-11-01",
-  "failed": true,
-  "note": "Run 2026-11-01 failed checks: model download failed (check the tag)"
+  "legacy": {
+   "test": "18-question synthetic test (retired)",
+   "scores": null,
+   "tested": false,
+   "failed": true,
+   "note": "Run 2026-11-01 failed checks: model download failed (check the tag)",
+   "reason": null
+  }
  },
  {
   "id": "internscience-sage-a1-5",
@@ -260,10 +331,15 @@
   "hf": "InternScience/Sage-A1.5",
   "reviewed": false,
   "source": "scout",
-  "tested": false,
   "added": "2026-11-01",
-  "failed": true,
-  "note": "Run 2026-11-01 failed checks: 15 answers cut off by the length limit; 7 JSON parse failures"
+  "legacy": {
+   "test": "18-question synthetic test (retired)",
+   "scores": null,
+   "tested": false,
+   "failed": true,
+   "note": "Run 2026-11-01 failed checks: 15 answers cut off by the length limit; 7 JSON parse failures",
+   "reason": null
+  }
  },
  {
   "id": "apexintelligence-ai-apex-35b-v1-0",
@@ -274,18 +350,23 @@
   "hf": "Apexintelligence-AI/Apex-35B-V1.0",
   "reviewed": false,
   "source": "scout",
-  "tested": true,
   "added": "2026-11-01",
-  "m": {
-   "f1": 0.94,
-   "labels": 15,
-   "tps": 69.0,
-   "secs": 5.3,
-   "negation": 0,
-   "doctor": 5,
-   "numbers": 7
-  },
-  "note": "Run 2026-11-01 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB"
+  "legacy": {
+   "test": "18-question synthetic test (retired)",
+   "scores": {
+    "f1": 0.94,
+    "labels": 15,
+    "tps": 69.0,
+    "secs": 5.3,
+    "negation": 0,
+    "doctor": 5,
+    "numbers": 7
+   },
+   "tested": true,
+   "failed": false,
+   "note": "Run 2026-11-01 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
+   "reason": null
+  }
  },
  {
   "id": "empero-ai-qwen3-8-35b-a3b-distill",
@@ -296,18 +377,23 @@
   "hf": "empero-ai/Qwen3.8-35B-A3B-Distill",
   "reviewed": false,
   "source": "scout",
-  "tested": true,
   "added": "2026-11-01",
-  "m": {
-   "f1": 0.97,
-   "labels": 16,
-   "tps": 69.3,
-   "secs": 4.4,
-   "negation": 0,
-   "doctor": 5,
-   "numbers": 7
-  },
-  "note": "Run 2026-11-01 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB"
+  "legacy": {
+   "test": "18-question synthetic test (retired)",
+   "scores": {
+    "f1": 0.97,
+    "labels": 16,
+    "tps": 69.3,
+    "secs": 4.4,
+    "negation": 0,
+    "doctor": 5,
+    "numbers": 7
+   },
+   "tested": true,
+   "failed": false,
+   "note": "Run 2026-11-01 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
+   "reason": null
+  }
  },
  {
   "id": "ifm-k2-horizon-mova-36b-a4b",
@@ -318,17 +404,286 @@
   "hf": "IFM/K2-Horizon-MoVA-36B-A4B",
   "reviewed": false,
   "source": "scout",
-  "tested": true,
   "added": "2026-11-01",
-  "m": {
-   "f1": 1.0,
-   "labels": 16,
-   "tps": 36.4,
-   "secs": 12.4,
-   "negation": 0,
-   "doctor": 5,
-   "numbers": 7
-  },
-  "note": "Run 2026-11-01 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB"
+  "legacy": {
+   "test": "18-question synthetic test (retired)",
+   "scores": {
+    "f1": 1.0,
+    "labels": 16,
+    "tps": 36.4,
+    "secs": 12.4,
+    "negation": 0,
+    "doctor": 5,
+    "numbers": 7
+   },
+   "tested": true,
+   "failed": false,
+   "note": "Run 2026-11-01 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
+   "reason": null
+  }
+ },
+ {
+  "id": "liquidai-lfm3-1-7b",
+  "name": "LFM3-1.7B",
+  "size": "1.7B",
+  "params_b": 1.7,
+  "licence": "other",
+  "ollama_tag": "hf.co/LiquidAI/LFM3-1.7B-GGUF:Q4_K_M",
+  "hf": "LiquidAI/LFM3-1.7B",
+  "source": "scout",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "diffuspace-clover-35b-a3b-preview",
+  "name": "Clover-35B-A3B-Preview",
+  "size": "34.7B",
+  "params_b": 34.7,
+  "licence": "apache-2.0",
+  "ollama_tag": "hf.co/Diffuspace/Clover-35B-A3B-Preview-GGUF:Q4_K_M",
+  "hf": "Diffuspace/Clover-35B-A3B-Preview",
+  "source": "scout",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "obliteratus-deepseek-v4-1-flash-1017-obliterated",
+  "name": "DeepSeek-V4.1-Flash-1017-obliterated",
+  "size": "754.6B",
+  "params_b": 754.6,
+  "licence": "mit",
+  "ollama_tag": null,
+  "hf": "OBLITERATUS/DeepSeek-V4.1-Flash-1017-obliterated",
+  "source": "scout",
+  "added": "2026-11-02",
+  "server_only": true,
+  "status_reason": "Large model (754.6B): cannot test on the free Kaggle GPUs, server test needed"
+ },
+ {
+  "id": "xhtoken-spark-x2-6-4b",
+  "name": "Spark-X2.6-4B",
+  "size": "4.1B",
+  "params_b": 4.1,
+  "licence": "apache-2.0",
+  "ollama_tag": "hf.co/XHToken/Spark-X2.6-4B-GGUF:Q4_K_M",
+  "hf": "XHToken/Spark-X2.6-4B",
+  "source": "scout",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "inclusionai-ling-3-1-flash-1019",
+  "name": "Ling-3.1-flash-1019",
+  "size": "572.1B",
+  "params_b": 572.1,
+  "licence": "mit",
+  "ollama_tag": "hf.co/bartowski/Ling-3.1-flash-1019-GGUF:Q4_K_M",
+  "hf": "inclusionAI/Ling-3.1-flash-1019",
+  "source": "scout",
+  "added": "2026-11-02",
+  "server_only": true,
+  "status_reason": "Large model (572.1B): cannot test on the free Kaggle GPUs, server test needed"
+ },
+ {
+  "id": "xhtoken-spark-x2-6-1-7b",
+  "name": "Spark-X2.6-1.7B",
+  "size": "1.7B",
+  "params_b": 1.7,
+  "licence": "apache-2.0",
+  "ollama_tag": "hf.co/XHToken/Spark-X2.6-1.7B-GGUF:Q4_K_M",
+  "hf": "XHToken/Spark-X2.6-1.7B",
+  "source": "scout",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "deep-principle-hydrogen-1-0",
+  "name": "Hydrogen-1.0",
+  "size": "753.3B",
+  "params_b": 753.3,
+  "licence": "mit",
+  "ollama_tag": null,
+  "hf": "deep-principle/Hydrogen-1.0",
+  "source": "scout",
+  "added": "2026-11-02",
+  "server_only": true,
+  "status_reason": "Large model (753.3B): cannot test on the free Kaggle GPUs, server test needed"
+ },
+ {
+  "id": "zai-org-glm-5-3",
+  "name": "GLM-5.3",
+  "size": "753.3B",
+  "params_b": 753.3,
+  "licence": "other",
+  "ollama_tag": "hf.co/unsloth/GLM-5.3-GGUF:Q4_K_M",
+  "hf": "zai-org/GLM-5.3",
+  "source": "scout",
+  "added": "2026-11-02",
+  "server_only": true,
+  "status_reason": "Large model (753.3B): cannot test on the free Kaggle GPUs, server test needed"
+ },
+ {
+  "id": "reflection-beam-1-0-501b-a23b",
+  "name": "Beam-1.0-501B-A23B",
+  "size": "501.3B",
+  "params_b": 501.3,
+  "licence": "apache-2.0",
+  "ollama_tag": "hf.co/unsloth/Beam-1.0-501B-A23B-GGUF:Q4_K_M",
+  "hf": "reflection/Beam-1.0-501B-A23B",
+  "source": "scout",
+  "added": "2026-11-02",
+  "server_only": true,
+  "status_reason": "Large model (501.3B): cannot test on the free Kaggle GPUs, server test needed"
+ },
+ {
+  "id": "krafton-raon-1-mini-preview",
+  "name": "Raon-1-mini-preview",
+  "size": "28.8B",
+  "params_b": 28.8,
+  "licence": "apache-2.0",
+  "ollama_tag": "hf.co/KRAFTON/Raon-1-mini-preview-gguf:Q4_K_M",
+  "hf": "KRAFTON/Raon-1-mini-preview",
+  "source": "scout",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "ornith-ai-ornith-1-5-122b",
+  "name": "Ornith-1.5-122B",
+  "size": "125.1B",
+  "params_b": 125.1,
+  "licence": "mit",
+  "ollama_tag": "hf.co/ornith-ai/Ornith-1.5-122B-GGUF:Q4_K_M",
+  "hf": "ornith-ai/Ornith-1.5-122B",
+  "source": "scout",
+  "added": "2026-11-02",
+  "server_only": true,
+  "status_reason": "Large model (125.1B): cannot test on the free Kaggle GPUs, server test needed"
+ },
+ {
+  "id": "aleph-alpha-kolibri-1",
+  "name": "Kolibri-1",
+  "size": "78.1B",
+  "params_b": 78.1,
+  "licence": "apache-2.0",
+  "ollama_tag": "hf.co/bartowski/Kolibri-1-GGUF:Q4_K_M",
+  "hf": "Aleph-Alpha/Kolibri-1",
+  "source": "scout",
+  "added": "2026-11-02",
+  "server_only": true,
+  "status_reason": "Large model (78.1B): cannot test on the free Kaggle GPUs, server test needed"
+ },
+ {
+  "id": "inclusionai-ling-3-0-flash-sante",
+  "name": "Ling-3.0-flash-Sante",
+  "size": "127.5B",
+  "params_b": 127.5,
+  "licence": "mit",
+  "ollama_tag": "hf.co/bartowski/Ling-3.0-flash-Sante-GGUF:Q4_K_M",
+  "hf": "inclusionAI/Ling-3.0-flash-Sante",
+  "source": "scout",
+  "added": "2026-11-02",
+  "server_only": true,
+  "status_reason": "Large model (127.5B): cannot test on the free Kaggle GPUs, server test needed"
+ },
+ {
+  "id": "jetbrains-mellum2-1-12b-a2-5b-thinking-mtp",
+  "name": "Mellum2.1-12B-A2.5B-Thinking-MTP",
+  "size": "12.1B",
+  "params_b": 12.1,
+  "licence": "apache-2.0",
+  "ollama_tag": "hf.co/bartowski/Mellum2.1-12B-A2.5B-Thinking-MTP-GGUF:Q4_K_M",
+  "hf": "JetBrains/Mellum2.1-12B-A2.5B-Thinking-MTP",
+  "source": "scout",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "nanbeige-nanbeige4-2-3b",
+  "name": "Nanbeige4.2-3B",
+  "size": "4.2B",
+  "params_b": 4.2,
+  "licence": "apache-2.0",
+  "ollama_tag": "hf.co/mradermacher/Nanbeige4.2-3B-GGUF:Q4_K_M",
+  "hf": "Nanbeige/Nanbeige4.2-3B",
+  "source": "scout",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "ibm-granite-granite-4-2-3b",
+  "name": "granite-4.2-3b",
+  "size": "3.7B",
+  "params_b": 3.7,
+  "licence": "apache-2.0",
+  "ollama_tag": "hf.co/ibm-granite/granite-4.2-3b-GGUF:Q4_K_M",
+  "hf": "ibm-granite/granite-4.2-3b",
+  "source": "scout",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "ibm-granite-granite-switch-4-1-8b",
+  "name": "granite-switch-4.1-8b",
+  "size": "8.8B",
+  "params_b": 8.8,
+  "licence": "apache-2.0",
+  "ollama_tag": "hf.co/ibm-granite/granite-switch-4.1-8b-GGUF:Q4_K_M",
+  "hf": "ibm-granite/granite-switch-4.1-8b",
+  "source": "scout",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "openbmb-minicpm5-2b",
+  "name": "MiniCPM5-2B",
+  "size": "2.5B",
+  "params_b": 2.5,
+  "licence": "apache-2.0",
+  "ollama_tag": "hf.co/openbmb/MiniCPM5-2B-GGUF:Q4_K_M",
+  "hf": "openbmb/MiniCPM5-2B",
+  "source": "scout",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "jetbrains-mellum2-1-12b-a2-5b-thinking",
+  "name": "Mellum2.1-12B-A2.5B-Thinking",
+  "size": "12.1B",
+  "params_b": 12.1,
+  "licence": "apache-2.0",
+  "ollama_tag": "hf.co/JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF:Q4_K_M",
+  "hf": "JetBrains/Mellum2.1-12B-A2.5B-Thinking",
+  "source": "scout",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "inclusionai-ling-3-1-flash",
+  "name": "Ling-3.1-flash",
+  "size": "572.1B",
+  "params_b": 572.1,
+  "licence": "mit",
+  "ollama_tag": "hf.co/bartowski/Ling-3.1-flash-GGUF:Q4_K_M",
+  "hf": "inclusionAI/Ling-3.1-flash",
+  "source": "scout",
+  "added": "2026-11-02",
+  "server_only": true,
+  "status_reason": "Large model (572.1B): cannot test on the free Kaggle GPUs, server test needed"
+ },
+ {
+  "id": "libertaidai-deepseek-v4-1-flash-1017-exl3-2-9bpw",
+  "name": "DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
+  "size": "105.3B",
+  "params_b": 105.3,
+  "licence": "mit",
+  "ollama_tag": null,
+  "hf": "LibertAIDAI/DeepSeek-V4.1-Flash-1017-EXL3-2.9bpw",
+  "source": "scout",
+  "added": "2026-11-02",
+  "server_only": true,
+  "status_reason": "Large model (105.3B): cannot test on the free Kaggle GPUs, server test needed"
+ },
+ {
+  "id": "memtensor-memt-1-0-flash",
+  "name": "MemT-1.0-Flash",
+  "size": "287.9B",
+  "params_b": 287.9,
+  "licence": "mit",
+  "ollama_tag": null,
+  "hf": "MemTensor/MemT-1.0-Flash",
+  "source": "scout",
+  "added": "2026-11-02",
+  "server_only": true,
+  "status_reason": "Large model (287.9B): cannot test on the free Kaggle GPUs, server test needed"
  }
 ]
