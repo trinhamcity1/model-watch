@@ -6,11 +6,11 @@
   "licence": "Apache-2.0",
   "ollama_tag": "qwen3:4b-instruct-2507-q4_K_M",
   "tested": true,
-  "note": "Run 2026-11-01 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
+  "note": "Run 2026-11-02 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
   "m": {
    "f1": 0.93,
    "labels": 14,
-   "tps": 62.5,
+   "tps": 61.6,
    "secs": 0.8,
    "negation": 0,
    "doctor": 5,
@@ -47,11 +47,20 @@
   "size": "27B",
   "licence": "Apache-2.0",
   "ollama_tag": "hf.co/bartowski/Qwen3.8-27B-GGUF:Q4_K_M",
-  "tested": false,
-  "note": "Hybrid attention layers, so memory math needs recomputing",
+  "tested": true,
+  "note": "Run 2026-11-02 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
   "reviewed": true,
   "source": "reviewed",
-  "baseline": false
+  "baseline": false,
+  "m": {
+   "f1": 1.0,
+   "labels": 16,
+   "tps": 12.6,
+   "secs": 19.5,
+   "negation": 0,
+   "doctor": 5,
+   "numbers": 7
+  }
  },
  {
   "id": "g4",
@@ -59,11 +68,20 @@
   "size": "31B",
   "licence": "Apache-2.0",
   "ollama_tag": "hf.co/unsloth/gemma-4-31B-it-GGUF:Q4_K_M",
-  "tested": false,
-  "note": "Dense; fits one 80 GB card in 8-bit",
+  "tested": true,
+  "note": "Run 2026-11-02 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
   "reviewed": true,
   "source": "reviewed",
-  "baseline": false
+  "baseline": false,
+  "m": {
+   "f1": 1.0,
+   "labels": 16,
+   "tps": 11.2,
+   "secs": 34.5,
+   "negation": 0,
+   "doctor": 5,
+   "numbers": 7
+  }
  },
  {
   "id": "nemo",
@@ -72,10 +90,11 @@
   "licence": "NVIDIA Open Model",
   "ollama_tag": "hf.co/bartowski/nvidia_Nemotron-3-Nano-30B-A3B-GGUF:Q4_K_M",
   "tested": false,
-  "note": "Thinking can be switched off; needs extra parser file for vLLM",
+  "note": "Run 2026-11-02 failed checks: 1 answers cut off by the length limit",
   "reviewed": true,
   "source": "reviewed",
-  "baseline": false
+  "baseline": false,
+  "failed": true
  },
  {
   "id": "gpt",
@@ -104,11 +123,20 @@
   "size": "27B",
   "licence": "Check terms",
   "ollama_tag": "hf.co/unsloth/medgemma-27b-it-GGUF:Q4_K_M",
-  "tested": false,
-  "note": "Medical tuning; compare against the general models",
+  "tested": true,
+  "note": "Run 2026-11-02 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
   "reviewed": true,
   "source": "reviewed",
-  "baseline": false
+  "baseline": false,
+  "m": {
+   "f1": 0.97,
+   "labels": 15,
+   "tps": 13.1,
+   "secs": 4.2,
+   "negation": 0,
+   "doctor": 4,
+   "numbers": 7
+  }
  },
  {
   "id": "gran",
@@ -117,10 +145,11 @@
   "licence": "Apache-2.0",
   "ollama_tag": "hf.co/ibm-granite/granite-switch-4.1-30b-GGUF:Q4_K_M",
   "tested": false,
-  "note": "Very new (updated 27 Oct); no medical results published",
+  "note": "Run 2026-11-02 failed checks: test produced no results (the model may not fit in GPU memory)",
   "reviewed": true,
   "source": "reviewed",
-  "baseline": false
+  "baseline": false,
+  "failed": true
  },
  {
   "id": "nvidia-nvidia-nemotron-3-5-bolt-e4b-bf16",

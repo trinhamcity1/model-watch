@@ -1,5 +1,5 @@
 {
- "date": "2026-11-01",
+ "date": "2026-11-02",
  "gpus": [
   "Tesla T4, 15360 MiB",
   "Tesla T4, 15360 MiB"
@@ -14,7 +14,7 @@
    "metrics": {
     "f1": 0.93,
     "labels": 14,
-    "tps": 62.5,
+    "tps": 61.6,
     "secs": 0.8,
     "negation": 0,
     "doctor": 5,
@@ -22,89 +22,79 @@
    }
   },
   {
-   "id": "nanbeige-nanbeige4-3-33b",
-   "name": "Nanbeige4.3-33B",
-   "role": "scout",
-   "ok": false,
-   "reasons": [
-    "test produced no results (the model may not fit in GPU memory)"
-   ]
-  },
-  {
-   "id": "recursivesi-flint",
-   "name": "flint",
-   "role": "scout",
-   "ok": false,
-   "reasons": [
-    "model download failed (check the tag)"
-   ]
-  },
-  {
-   "id": "internscience-sage-a1-5",
-   "name": "Sage-A1.5",
-   "role": "scout",
-   "ok": false,
-   "reasons": [
-    "15 answers cut off by the length limit",
-    "7 JSON parse failures"
-   ],
-   "metrics": {
-    "f1": 0.22,
-    "labels": 2,
-    "tps": 69.0,
-    "secs": 29.6,
-    "negation": 0,
-    "doctor": 0,
-    "numbers": 7
-   }
-  },
-  {
-   "id": "apexintelligence-ai-apex-35b-v1-0",
-   "name": "Apex-35B-V1.0",
-   "role": "scout",
-   "ok": true,
-   "reasons": [],
-   "metrics": {
-    "f1": 0.94,
-    "labels": 15,
-    "tps": 69.0,
-    "secs": 5.3,
-    "negation": 0,
-    "doctor": 5,
-    "numbers": 7
-   }
-  },
-  {
-   "id": "empero-ai-qwen3-8-35b-a3b-distill",
-   "name": "Qwen3.8-35B-A3B-Distill",
-   "role": "scout",
-   "ok": true,
-   "reasons": [],
-   "metrics": {
-    "f1": 0.97,
-    "labels": 16,
-    "tps": 69.3,
-    "secs": 4.4,
-    "negation": 0,
-    "doctor": 5,
-    "numbers": 7
-   }
-  },
-  {
-   "id": "ifm-k2-horizon-mova-36b-a4b",
-   "name": "K2-Horizon-MoVA-36B-A4B",
-   "role": "scout",
+   "id": "q38",
+   "name": "Qwen3.8-27B",
+   "role": "reviewed",
    "ok": true,
    "reasons": [],
    "metrics": {
     "f1": 1.0,
     "labels": 16,
-    "tps": 36.4,
-    "secs": 12.4,
+    "tps": 12.6,
+    "secs": 19.5,
     "negation": 0,
     "doctor": 5,
     "numbers": 7
    }
+  },
+  {
+   "id": "g4",
+   "name": "Gemma 4 31B",
+   "role": "reviewed",
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "f1": 1.0,
+    "labels": 16,
+    "tps": 11.2,
+    "secs": 34.5,
+    "negation": 0,
+    "doctor": 5,
+    "numbers": 7
+   }
+  },
+  {
+   "id": "nemo",
+   "name": "Nemotron-3-Nano-30B-A3B",
+   "role": "reviewed",
+   "ok": false,
+   "reasons": [
+    "1 answers cut off by the length limit"
+   ],
+   "metrics": {
+    "f1": 1.0,
+    "labels": 16,
+    "tps": 71.2,
+    "secs": 6.7,
+    "negation": 0,
+    "doctor": 4,
+    "numbers": 7
+   }
+  },
+  {
+   "id": "med",
+   "name": "MedGemma 27B (text)",
+   "role": "reviewed",
+   "ok": true,
+   "reasons": [],
+   "metrics": {
+    "f1": 0.97,
+    "labels": 15,
+    "tps": 13.1,
+    "secs": 4.2,
+    "negation": 0,
+    "doctor": 4,
+    "numbers": 7
+   }
+  },
+  {
+   "id": "gran",
+   "name": "granite-switch-4.1-30b",
+   "role": "reviewed",
+   "ok": false,
+   "reasons": [
+    "test produced no results (the model may not fit in GPU memory)"
+   ]
   }
  ],
  "merge_ok": true

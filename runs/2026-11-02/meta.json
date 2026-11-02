@@ -1,0 +1,44 @@
+{
+ "gpus": [
+  "Tesla T4, 15360 MiB",
+  "Tesla T4, 15360 MiB"
+ ],
+ "models": [
+  {
+   "id": "qwen",
+   "tag": "qwen3:4b-instruct-2507-q4_K_M",
+   "pull_ok": true,
+   "test_exit": 0
+  },
+  {
+   "id": "q38",
+   "tag": "hf.co/bartowski/Qwen3.8-27B-GGUF:Q4_K_M",
+   "pull_ok": true,
+   "test_exit": 0
+  },
+  {
+   "id": "g4",
+   "tag": "hf.co/unsloth/gemma-4-31B-it-GGUF:Q4_K_M",
+   "pull_ok": true,
+   "test_exit": 0
+  },
+  {
+   "id": "nemo",
+   "tag": "hf.co/bartowski/nvidia_Nemotron-3-Nano-30B-A3B-GGUF:Q4_K_M",
+   "pull_ok": true,
+   "test_exit": 0
+  },
+  {
+   "id": "med",
+   "tag": "hf.co/unsloth/medgemma-27b-it-GGUF:Q4_K_M",
+   "pull_ok": true,
+   "test_exit": 0
+  },
+  {
+   "id": "gran",
+   "tag": "hf.co/ibm-granite/granite-switch-4.1-30b-GGUF:Q4_K_M",
+   "pull_ok": true,
+   "test_exit": 1
+  }
+ ]
+}
