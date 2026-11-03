@@ -27,9 +27,9 @@
     "fn": 68,
     "neg_errors": 0,
     "n_docs": 12,
-    "seconds": 278.6,
-    "secs_per_doc": 23.2,
-    "docs_per_min": 2.58,
+    "seconds": 313.4,
+    "secs_per_doc": 26.1,
+    "docs_per_min": 2.3,
     "gpu_peak_gib": 7.8,
     "gpu_idle_gib": 0.0,
     "categories": {
@@ -38,324 +38,10 @@
    }
   },
   {
-   "id": "nvidia-nvidia-nemotron-3-5-bolt-e4b-bf16",
-   "tag": "hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M",
+   "id": "jetbrains-mellum2-1-12b-a2-5b-thinking",
+   "tag": "hf.co/JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF:Q4_K_M",
    "role": "candidate",
    "dataset": "id68",
-   "ok": false,
-   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
-  },
-  {
-   "id": "nvidia-nvidia-nemotron-3-5-bolt-e4b-bf16",
-   "tag": "hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "gscplus",
-   "ok": false,
-   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
-  },
-  {
-   "id": "inclusionai-ling-3-0-tiny",
-   "tag": "hf.co/bartowski/Ling-3.0-tiny-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "id68",
-   "ok": false,
-   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
-  },
-  {
-   "id": "inclusionai-ling-3-0-tiny",
-   "tag": "hf.co/bartowski/Ling-3.0-tiny-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "gscplus",
-   "ok": false,
-   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
-  },
-  {
-   "id": "microsoft-sentiment-analysis-7b",
-   "tag": "hf.co/mradermacher/Sentiment-Analysis-7B-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "id68",
-   "ok": true,
-   "reason": null,
-   "metrics": {
-    "precision": 0.638,
-    "recall": 0.503,
-    "f1": 0.563,
-    "f1_doc_mean": 0.515,
-    "tp": 74,
-    "fp": 42,
-    "fn": 73,
-    "neg_errors": 0,
-    "n_docs": 12,
-    "seconds": 495.8,
-    "secs_per_doc": 41.3,
-    "docs_per_min": 1.45,
-    "gpu_peak_gib": 9.0,
-    "gpu_idle_gib": 0.0,
-    "categories": {
-     "Abnormal": 123
-    }
-   }
-  },
-  {
-   "id": "microsoft-sentiment-analysis-7b",
-   "tag": "hf.co/mradermacher/Sentiment-Analysis-7B-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "gscplus",
-   "ok": true,
-   "reason": null,
-   "metrics": {
-    "precision": 0.522,
-    "recall": 0.245,
-    "f1": 0.333,
-    "f1_doc_mean": 0.333,
-    "tp": 36,
-    "fp": 33,
-    "fn": 111,
-    "neg_errors": 0,
-    "n_docs": 12,
-    "seconds": 507.6,
-    "secs_per_doc": 42.3,
-    "docs_per_min": 1.42,
-    "gpu_peak_gib": 9.0,
-    "gpu_idle_gib": 8.4,
-    "categories": {
-     "Abnormal": 76
-    }
-   }
-  },
-  {
-   "id": "qwen",
-   "tag": "qwen3:4b-instruct-2507-q4_K_M",
-   "role": "candidate",
-   "dataset": "id68",
-   "ok": true,
-   "reason": null,
-   "metrics": {
-    "precision": 0.577,
-    "recall": 0.537,
-    "f1": 0.556,
-    "f1_doc_mean": 0.529,
-    "tp": 79,
-    "fp": 58,
-    "fn": 68,
-    "neg_errors": 0,
-    "n_docs": 12,
-    "seconds": 207.4,
-    "secs_per_doc": 17.3,
-    "docs_per_min": 3.47,
-    "gpu_peak_gib": 7.8,
-    "gpu_idle_gib": 0.0,
-    "categories": {
-     "Abnormal": 145
-    }
-   }
-  },
-  {
-   "id": "qwen",
-   "tag": "qwen3:4b-instruct-2507-q4_K_M",
-   "role": "candidate",
-   "dataset": "gscplus",
-   "ok": true,
-   "reason": null,
-   "metrics": {
-    "precision": 0.418,
-    "recall": 0.279,
-    "f1": 0.335,
-    "f1_doc_mean": 0.31,
-    "tp": 41,
-    "fp": 57,
-    "fn": 106,
-    "neg_errors": 0,
-    "n_docs": 12,
-    "seconds": 189.3,
-    "secs_per_doc": 15.8,
-    "docs_per_min": 3.8,
-    "gpu_peak_gib": 7.8,
-    "gpu_idle_gib": 7.2,
-    "categories": {
-     "Abnormal": 110
-    }
-   }
-  },
-  {
-   "id": "gemma",
-   "tag": "gemma3:4b",
-   "role": "candidate",
-   "dataset": "id68",
-   "ok": true,
-   "reason": null,
-   "metrics": {
-    "precision": 0.588,
-    "recall": 0.592,
-    "f1": 0.59,
-    "f1_doc_mean": 0.551,
-    "tp": 87,
-    "fp": 61,
-    "fn": 60,
-    "neg_errors": 1,
-    "n_docs": 12,
-    "seconds": 293.9,
-    "secs_per_doc": 24.5,
-    "docs_per_min": 2.45,
-    "gpu_peak_gib": 5.0,
-    "gpu_idle_gib": 0.0,
-    "categories": {
-     "Abnormal": 156
-    }
-   }
-  },
-  {
-   "id": "gemma",
-   "tag": "gemma3:4b",
-   "role": "candidate",
-   "dataset": "gscplus",
-   "ok": true,
-   "reason": null,
-   "metrics": {
-    "precision": 0.453,
-    "recall": 0.327,
-    "f1": 0.379,
-    "f1_doc_mean": 0.364,
-    "tp": 48,
-    "fp": 58,
-    "fn": 99,
-    "neg_errors": 0,
-    "n_docs": 12,
-    "seconds": 242.1,
-    "secs_per_doc": 20.2,
-    "docs_per_min": 2.97,
-    "gpu_peak_gib": 5.0,
-    "gpu_idle_gib": 4.4,
-    "categories": {
-     "Abnormal": 123
-    }
-   }
-  },
-  {
-   "id": "liquidai-lfm3-1-7b",
-   "tag": "hf.co/LiquidAI/LFM3-1.7B-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "id68",
-   "ok": false,
-   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
-  },
-  {
-   "id": "liquidai-lfm3-1-7b",
-   "tag": "hf.co/LiquidAI/LFM3-1.7B-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "gscplus",
-   "ok": false,
-   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
-  },
-  {
-   "id": "xhtoken-spark-x2-6-4b",
-   "tag": "hf.co/XHToken/Spark-X2.6-4B-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "id68",
-   "ok": false,
-   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
-  },
-  {
-   "id": "xhtoken-spark-x2-6-4b",
-   "tag": "hf.co/XHToken/Spark-X2.6-4B-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "gscplus",
-   "ok": false,
-   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
-  },
-  {
-   "id": "xhtoken-spark-x2-6-1-7b",
-   "tag": "hf.co/XHToken/Spark-X2.6-1.7B-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "id68",
-   "ok": false,
-   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
-  },
-  {
-   "id": "xhtoken-spark-x2-6-1-7b",
-   "tag": "hf.co/XHToken/Spark-X2.6-1.7B-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "gscplus",
-   "ok": false,
-   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
-  },
-  {
-   "id": "jetbrains-mellum2-1-12b-a2-5b-thinking-mtp",
-   "tag": "hf.co/bartowski/Mellum2.1-12B-A2.5B-Thinking-MTP-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "id68",
-   "ok": false,
-   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
-  },
-  {
-   "id": "jetbrains-mellum2-1-12b-a2-5b-thinking-mtp",
-   "tag": "hf.co/bartowski/Mellum2.1-12B-A2.5B-Thinking-MTP-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "gscplus",
-   "ok": false,
-   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
-  },
-  {
-   "id": "nanbeige-nanbeige4-2-3b",
-   "tag": "hf.co/mradermacher/Nanbeige4.2-3B-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "id68",
-   "ok": false,
-   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
-  },
-  {
-   "id": "nanbeige-nanbeige4-2-3b",
-   "tag": "hf.co/mradermacher/Nanbeige4.2-3B-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "gscplus",
-   "ok": false,
-   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
-  },
-  {
-   "id": "ibm-granite-granite-4-2-3b",
-   "tag": "hf.co/ibm-granite/granite-4.2-3b-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "id68",
-   "ok": false,
-   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
-  },
-  {
-   "id": "ibm-granite-granite-4-2-3b",
-   "tag": "hf.co/ibm-granite/granite-4.2-3b-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "gscplus",
-   "ok": false,
-   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
-  },
-  {
-   "id": "ibm-granite-granite-switch-4-1-8b",
-   "tag": "hf.co/ibm-granite/granite-switch-4.1-8b-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "id68",
-   "ok": false,
-   "reason": "RAG-HPO produced no output (last log line: FileNotFoundError: [Errno 2] No such file or directory: '/Users/garciabt/Library/CloudStorage/OneDrive-BaylorCollegeofMedicine/01 Posey Lab/RAG-HPO/RAG-HPO/Test)"
-  },
-  {
-   "id": "ibm-granite-granite-switch-4-1-8b",
-   "tag": "hf.co/ibm-granite/granite-switch-4.1-8b-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "gscplus",
-   "ok": false,
-   "reason": "RAG-HPO produced no output (last log line: FileNotFoundError: [Errno 2] No such file or directory: '/Users/garciabt/Library/CloudStorage/OneDrive-BaylorCollegeofMedicine/01 Posey Lab/RAG-HPO/RAG-HPO/Test)"
-  },
-  {
-   "id": "openbmb-minicpm5-2b",
-   "tag": "hf.co/openbmb/MiniCPM5-2B-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "id68",
-   "ok": false,
-   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
-  },
-  {
-   "id": "openbmb-minicpm5-2b",
-   "tag": "hf.co/openbmb/MiniCPM5-2B-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "gscplus",
    "ok": false,
    "reason": "timed out after 30 minutes (too slow on the free GPUs)"
   },
@@ -363,19 +49,9 @@
    "id": "jetbrains-mellum2-1-12b-a2-5b-thinking",
    "tag": "hf.co/JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF:Q4_K_M",
    "role": "candidate",
-   "dataset": "id68",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
-  },
-  {
-   "id": "jetbrains-mellum2-1-12b-a2-5b-thinking",
-   "tag": "hf.co/JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF:Q4_K_M",
-   "role": "candidate",
    "dataset": "gscplus",
    "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
+   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
   },
   {
    "id": "qwen3-8b",
@@ -383,8 +59,7 @@
    "role": "candidate",
    "dataset": "id68",
    "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
+   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
   },
   {
    "id": "qwen3-8b",
@@ -392,8 +67,7 @@
    "role": "candidate",
    "dataset": "gscplus",
    "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
+   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
   },
   {
    "id": "qwen3-1-7b",
@@ -401,269 +75,304 @@
    "role": "candidate",
    "dataset": "id68",
    "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
+   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
   },
   {
    "id": "qwen3-1-7b",
    "tag": "qwen3:1.7b",
    "role": "candidate",
    "dataset": "gscplus",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
+   "ok": true,
+   "reason": null,
+   "metrics": {
+    "precision": 0.5,
+    "recall": 0.177,
+    "f1": 0.261,
+    "f1_doc_mean": 0.231,
+    "tp": 26,
+    "fp": 26,
+    "fn": 121,
+    "neg_errors": 0,
+    "n_docs": 12,
+    "seconds": 622.5,
+    "secs_per_doc": 51.9,
+    "docs_per_min": 1.16,
+    "gpu_peak_gib": 5.5,
+    "gpu_idle_gib": 4.9,
+    "categories": {
+     "Abnormal": 55
+    }
+   }
   },
   {
    "id": "llama31-8b",
    "tag": "llama3.1:8b",
    "role": "candidate",
    "dataset": "id68",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
+   "ok": true,
+   "reason": null,
+   "metrics": {
+    "precision": 0.658,
+    "recall": 0.694,
+    "f1": 0.675,
+    "f1_doc_mean": 0.639,
+    "tp": 102,
+    "fp": 53,
+    "fn": 45,
+    "neg_errors": 0,
+    "n_docs": 12,
+    "seconds": 336.5,
+    "secs_per_doc": 28.0,
+    "docs_per_min": 2.14,
+    "gpu_peak_gib": 9.3,
+    "gpu_idle_gib": 0.0,
+    "categories": {
+     "Abnormal": 174
+    }
+   }
   },
   {
    "id": "llama31-8b",
    "tag": "llama3.1:8b",
    "role": "candidate",
    "dataset": "gscplus",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
+   "ok": true,
+   "reason": null,
+   "metrics": {
+    "precision": 0.527,
+    "recall": 0.395,
+    "f1": 0.451,
+    "f1_doc_mean": 0.446,
+    "tp": 58,
+    "fp": 52,
+    "fn": 89,
+    "neg_errors": 0,
+    "n_docs": 12,
+    "seconds": 312.2,
+    "secs_per_doc": 26.0,
+    "docs_per_min": 2.31,
+    "gpu_peak_gib": 9.3,
+    "gpu_idle_gib": 8.7,
+    "categories": {
+     "Abnormal": 130
+    }
+   }
   },
   {
    "id": "llama32-3b",
    "tag": "llama3.2:3b",
    "role": "candidate",
    "dataset": "id68",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
+   "ok": true,
+   "reason": null,
+   "metrics": {
+    "precision": 0.562,
+    "recall": 0.49,
+    "f1": 0.524,
+    "f1_doc_mean": 0.491,
+    "tp": 72,
+    "fp": 56,
+    "fn": 75,
+    "neg_errors": 0,
+    "n_docs": 12,
+    "seconds": 129.2,
+    "secs_per_doc": 10.8,
+    "docs_per_min": 5.57,
+    "gpu_peak_gib": 6.3,
+    "gpu_idle_gib": 0.0,
+    "categories": {
+     "Abnormal": 141
+    }
+   }
   },
   {
    "id": "llama32-3b",
    "tag": "llama3.2:3b",
    "role": "candidate",
    "dataset": "gscplus",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
+   "ok": true,
+   "reason": null,
+   "metrics": {
+    "precision": 0.436,
+    "recall": 0.347,
+    "f1": 0.386,
+    "f1_doc_mean": 0.385,
+    "tp": 51,
+    "fp": 66,
+    "fn": 96,
+    "neg_errors": 0,
+    "n_docs": 12,
+    "seconds": 145.7,
+    "secs_per_doc": 12.1,
+    "docs_per_min": 4.94,
+    "gpu_peak_gib": 6.3,
+    "gpu_idle_gib": 5.7,
+    "categories": {
+     "Abnormal": 130
+    }
+   }
   },
   {
    "id": "gemma3-1b",
    "tag": "gemma3:1b",
    "role": "candidate",
    "dataset": "id68",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
+   "ok": true,
+   "reason": null,
+   "metrics": {
+    "precision": 0.619,
+    "recall": 0.177,
+    "f1": 0.275,
+    "f1_doc_mean": 0.256,
+    "tp": 26,
+    "fp": 16,
+    "fn": 121,
+    "neg_errors": 0,
+    "n_docs": 12,
+    "seconds": 109.1,
+    "secs_per_doc": 9.1,
+    "docs_per_min": 6.6,
+    "gpu_peak_gib": 1.8,
+    "gpu_idle_gib": 0.0,
+    "categories": {
+     "Abnormal": 48
+    }
+   }
   },
   {
    "id": "gemma3-1b",
    "tag": "gemma3:1b",
    "role": "candidate",
    "dataset": "gscplus",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
+   "ok": true,
+   "reason": null,
+   "metrics": {
+    "precision": 0.545,
+    "recall": 0.122,
+    "f1": 0.2,
+    "f1_doc_mean": 0.205,
+    "tp": 18,
+    "fp": 15,
+    "fn": 129,
+    "neg_errors": 0,
+    "n_docs": 12,
+    "seconds": 71.0,
+    "secs_per_doc": 5.9,
+    "docs_per_min": 10.14,
+    "gpu_peak_gib": 1.8,
+    "gpu_idle_gib": 1.2,
+    "categories": {
+     "Abnormal": 43
+    }
+   }
   },
   {
    "id": "gemma3n-e4b",
    "tag": "gemma3n:e4b",
    "role": "candidate",
    "dataset": "id68",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
+   "ok": true,
+   "reason": null,
+   "metrics": {
+    "precision": 0.611,
+    "recall": 0.619,
+    "f1": 0.615,
+    "f1_doc_mean": 0.578,
+    "tp": 91,
+    "fp": 58,
+    "fn": 56,
+    "neg_errors": 0,
+    "n_docs": 12,
+    "seconds": 300.7,
+    "secs_per_doc": 25.1,
+    "docs_per_min": 2.39,
+    "gpu_peak_gib": 5.3,
+    "gpu_idle_gib": 0.0,
+    "categories": {
+     "Abnormal": 161
+    }
+   }
   },
   {
    "id": "gemma3n-e4b",
    "tag": "gemma3n:e4b",
    "role": "candidate",
    "dataset": "gscplus",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
+   "ok": true,
+   "reason": null,
+   "metrics": {
+    "precision": 0.49,
+    "recall": 0.32,
+    "f1": 0.387,
+    "f1_doc_mean": 0.393,
+    "tp": 47,
+    "fp": 49,
+    "fn": 100,
+    "neg_errors": 0,
+    "n_docs": 12,
+    "seconds": 219.5,
+    "secs_per_doc": 18.3,
+    "docs_per_min": 3.28,
+    "gpu_peak_gib": 5.3,
+    "gpu_idle_gib": 4.7,
+    "categories": {
+     "Abnormal": 106
+    }
+   }
   },
   {
    "id": "phi4-mini",
    "tag": "phi4-mini",
    "role": "candidate",
    "dataset": "id68",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
+   "ok": true,
+   "reason": null,
+   "metrics": {
+    "precision": 0.55,
+    "recall": 0.524,
+    "f1": 0.537,
+    "f1_doc_mean": 0.528,
+    "tp": 77,
+    "fp": 63,
+    "fn": 70,
+    "neg_errors": 0,
+    "n_docs": 12,
+    "seconds": 184.2,
+    "secs_per_doc": 15.3,
+    "docs_per_min": 3.91,
+    "gpu_peak_gib": 7.2,
+    "gpu_idle_gib": 0.0,
+    "categories": {
+     "Abnormal": 144
+    }
+   }
   },
   {
    "id": "phi4-mini",
    "tag": "phi4-mini",
    "role": "candidate",
    "dataset": "gscplus",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
-  },
-  {
-   "id": "mistral-7b",
-   "tag": "mistral:7b",
-   "role": "candidate",
-   "dataset": "id68",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
-  },
-  {
-   "id": "mistral-7b",
-   "tag": "mistral:7b",
-   "role": "candidate",
-   "dataset": "gscplus",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
-  },
-  {
-   "id": "granite33-8b",
-   "tag": "granite3.3:8b",
-   "role": "candidate",
-   "dataset": "id68",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
-  },
-  {
-   "id": "granite33-8b",
-   "tag": "granite3.3:8b",
-   "role": "candidate",
-   "dataset": "gscplus",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
-  },
-  {
-   "id": "deepseek-r1-8b",
-   "tag": "deepseek-r1:8b",
-   "role": "candidate",
-   "dataset": "id68",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
-  },
-  {
-   "id": "deepseek-r1-8b",
-   "tag": "deepseek-r1:8b",
-   "role": "candidate",
-   "dataset": "gscplus",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
-  },
-  {
-   "id": "olmo2-7b",
-   "tag": "olmo2:7b",
-   "role": "candidate",
-   "dataset": "id68",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
-  },
-  {
-   "id": "olmo2-7b",
-   "tag": "olmo2:7b",
-   "role": "candidate",
-   "dataset": "gscplus",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
-  },
-  {
-   "id": "medgemma15-4b",
-   "tag": "hf.co/unsloth/medgemma-1.5-4b-it-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "id68",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
-  },
-  {
-   "id": "medgemma15-4b",
-   "tag": "hf.co/unsloth/medgemma-1.5-4b-it-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "gscplus",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
-  },
-  {
-   "id": "gemma3-12b",
-   "tag": "gemma3:12b",
-   "role": "candidate",
-   "dataset": "id68",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
-  },
-  {
-   "id": "gemma3-12b",
-   "tag": "gemma3:12b",
-   "role": "candidate",
-   "dataset": "gscplus",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
-  },
-  {
-   "id": "openbiollm-8b",
-   "tag": "hf.co/LoneStriker/OpenBioLLM-Llama3-8B-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "id68",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
-  },
-  {
-   "id": "openbiollm-8b",
-   "tag": "hf.co/LoneStriker/OpenBioLLM-Llama3-8B-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "gscplus",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
-  },
-  {
-   "id": "biomistral-7b",
-   "tag": "hf.co/LoneStriker/BioMistral-7B-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "id68",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
-  },
-  {
-   "id": "biomistral-7b",
-   "tag": "hf.co/LoneStriker/BioMistral-7B-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "gscplus",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
-  },
-  {
-   "id": "med42-8b",
-   "tag": "hf.co/SandLogicTechnologies/Llama3-Med42-8B-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "id68",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
-  },
-  {
-   "id": "med42-8b",
-   "tag": "hf.co/SandLogicTechnologies/Llama3-Med42-8B-GGUF:Q4_K_M",
-   "role": "candidate",
-   "dataset": "gscplus",
-   "ok": false,
-   "reason": "not reached: the run's time budget ran out, tried first next run",
-   "not_reached": true
+   "ok": true,
+   "reason": null,
+   "metrics": {
+    "precision": 0.426,
+    "recall": 0.272,
+    "f1": 0.332,
+    "f1_doc_mean": 0.312,
+    "tp": 40,
+    "fp": 54,
+    "fn": 107,
+    "neg_errors": 0,
+    "n_docs": 12,
+    "seconds": 143.7,
+    "secs_per_doc": 12.0,
+    "docs_per_min": 5.01,
+    "gpu_peak_gib": 7.2,
+    "gpu_idle_gib": 6.6,
+    "categories": {
+     "Abnormal": 99
+    }
+   }
   }
  ],
  "control": {
@@ -683,9 +392,9 @@
    "fn": 68,
    "neg_errors": 0,
    "n_docs": 12,
-   "seconds": 278.6,
-   "secs_per_doc": 23.2,
-   "docs_per_min": 2.58,
+   "seconds": 313.4,
+   "secs_per_doc": 26.1,
+   "docs_per_min": 2.3,
    "gpu_peak_gib": 7.8,
    "gpu_idle_gib": 0.0,
    "categories": {
@@ -695,23 +404,5 @@
  },
  "merge_ok": true,
  "problems": [],
- "not_reached": [
-  "biomistral-7b",
-  "deepseek-r1-8b",
-  "gemma3-12b",
-  "gemma3-1b",
-  "gemma3n-e4b",
-  "granite33-8b",
-  "jetbrains-mellum2-1-12b-a2-5b-thinking",
-  "llama31-8b",
-  "llama32-3b",
-  "med42-8b",
-  "medgemma15-4b",
-  "mistral-7b",
-  "olmo2-7b",
-  "openbiollm-8b",
-  "phi4-mini",
-  "qwen3-1-7b",
-  "qwen3-8b"
- ]
+ "not_reached": []
 }

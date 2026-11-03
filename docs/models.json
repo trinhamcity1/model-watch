@@ -1388,22 +1388,33 @@
   "results": {
    "hpo_rag": {
     "id68": {
-     "task_version": null,
-     "for_version": 2,
-     "not_reached": true,
+     "task_version": 2,
+     "tier": "small",
      "date": "2026-11-03",
-     "reason": "not reached: the run's time budget ran out, tried first next run"
+     "ok": false,
+     "reason": "timed out after 30 minutes (too slow on the free GPUs)",
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9"
     },
     "gscplus": {
-     "task_version": null,
-     "for_version": 2,
-     "not_reached": true,
+     "task_version": 2,
+     "tier": "small",
      "date": "2026-11-03",
-     "reason": "not reached: the run's time budget ran out, tried first next run"
+     "ok": false,
+     "reason": "timed out after 30 minutes (too slow on the free GPUs)",
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9"
     }
    }
-  },
-  "status_reason": "In the queue for the benchmark"
+  }
  },
  {
   "id": "inclusionai-ling-3-1-flash",
@@ -1455,22 +1466,33 @@
   "results": {
    "hpo_rag": {
     "id68": {
-     "task_version": null,
-     "for_version": 2,
-     "not_reached": true,
+     "task_version": 2,
+     "tier": "small",
      "date": "2026-11-03",
-     "reason": "not reached: the run's time budget ran out, tried first next run"
+     "ok": false,
+     "reason": "timed out after 30 minutes (too slow on the free GPUs)",
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9"
     },
     "gscplus": {
-     "task_version": null,
-     "for_version": 2,
-     "not_reached": true,
+     "task_version": 2,
+     "tier": "small",
      "date": "2026-11-03",
-     "reason": "not reached: the run's time budget ran out, tried first next run"
+     "ok": false,
+     "reason": "timed out after 30 minutes (too slow on the free GPUs)",
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9"
     }
    }
-  },
-  "status_reason": "In the queue for the benchmark"
+  }
  },
  {
   "id": "qwen3-1-7b",
@@ -1483,22 +1505,52 @@
   "results": {
    "hpo_rag": {
     "id68": {
-     "task_version": null,
-     "for_version": 2,
-     "not_reached": true,
+     "task_version": 2,
+     "tier": "small",
      "date": "2026-11-03",
-     "reason": "not reached: the run's time budget ran out, tried first next run"
+     "ok": false,
+     "reason": "timed out after 30 minutes (too slow on the free GPUs)",
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9"
     },
     "gscplus": {
-     "task_version": null,
-     "for_version": 2,
-     "not_reached": true,
+     "task_version": 2,
+     "tier": "small",
      "date": "2026-11-03",
-     "reason": "not reached: the run's time budget ran out, tried first next run"
+     "ok": true,
+     "reason": null,
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9",
+     "metrics": {
+      "precision": 0.5,
+      "recall": 0.177,
+      "f1": 0.261,
+      "f1_doc_mean": 0.231,
+      "tp": 26,
+      "fp": 26,
+      "fn": 121,
+      "neg_errors": 0,
+      "n_docs": 12,
+      "seconds": 622.5,
+      "secs_per_doc": 51.9,
+      "docs_per_min": 1.16,
+      "gpu_peak_gib": 5.5,
+      "gpu_idle_gib": 4.9,
+      "categories": {
+       "Abnormal": 55
+      }
+     }
     }
    }
-  },
-  "status_reason": "In the queue for the benchmark"
+  }
  },
  {
   "id": "llama31-8b",
@@ -1511,22 +1563,71 @@
   "results": {
    "hpo_rag": {
     "id68": {
-     "task_version": null,
-     "for_version": 2,
-     "not_reached": true,
+     "task_version": 2,
+     "tier": "small",
      "date": "2026-11-03",
-     "reason": "not reached: the run's time budget ran out, tried first next run"
+     "ok": true,
+     "reason": null,
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9",
+     "metrics": {
+      "precision": 0.658,
+      "recall": 0.694,
+      "f1": 0.675,
+      "f1_doc_mean": 0.639,
+      "tp": 102,
+      "fp": 53,
+      "fn": 45,
+      "neg_errors": 0,
+      "n_docs": 12,
+      "seconds": 336.5,
+      "secs_per_doc": 28.0,
+      "docs_per_min": 2.14,
+      "gpu_peak_gib": 9.3,
+      "gpu_idle_gib": 0.0,
+      "categories": {
+       "Abnormal": 174
+      }
+     }
     },
     "gscplus": {
-     "task_version": null,
-     "for_version": 2,
-     "not_reached": true,
+     "task_version": 2,
+     "tier": "small",
      "date": "2026-11-03",
-     "reason": "not reached: the run's time budget ran out, tried first next run"
+     "ok": true,
+     "reason": null,
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9",
+     "metrics": {
+      "precision": 0.527,
+      "recall": 0.395,
+      "f1": 0.451,
+      "f1_doc_mean": 0.446,
+      "tp": 58,
+      "fp": 52,
+      "fn": 89,
+      "neg_errors": 0,
+      "n_docs": 12,
+      "seconds": 312.2,
+      "secs_per_doc": 26.0,
+      "docs_per_min": 2.31,
+      "gpu_peak_gib": 9.3,
+      "gpu_idle_gib": 8.7,
+      "categories": {
+       "Abnormal": 130
+      }
+     }
     }
    }
-  },
-  "status_reason": "In the queue for the benchmark"
+  }
  },
  {
   "id": "llama32-3b",
@@ -1539,22 +1640,71 @@
   "results": {
    "hpo_rag": {
     "id68": {
-     "task_version": null,
-     "for_version": 2,
-     "not_reached": true,
+     "task_version": 2,
+     "tier": "small",
      "date": "2026-11-03",
-     "reason": "not reached: the run's time budget ran out, tried first next run"
+     "ok": true,
+     "reason": null,
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9",
+     "metrics": {
+      "precision": 0.562,
+      "recall": 0.49,
+      "f1": 0.524,
+      "f1_doc_mean": 0.491,
+      "tp": 72,
+      "fp": 56,
+      "fn": 75,
+      "neg_errors": 0,
+      "n_docs": 12,
+      "seconds": 129.2,
+      "secs_per_doc": 10.8,
+      "docs_per_min": 5.57,
+      "gpu_peak_gib": 6.3,
+      "gpu_idle_gib": 0.0,
+      "categories": {
+       "Abnormal": 141
+      }
+     }
     },
     "gscplus": {
-     "task_version": null,
-     "for_version": 2,
-     "not_reached": true,
+     "task_version": 2,
+     "tier": "small",
      "date": "2026-11-03",
-     "reason": "not reached: the run's time budget ran out, tried first next run"
+     "ok": true,
+     "reason": null,
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9",
+     "metrics": {
+      "precision": 0.436,
+      "recall": 0.347,
+      "f1": 0.386,
+      "f1_doc_mean": 0.385,
+      "tp": 51,
+      "fp": 66,
+      "fn": 96,
+      "neg_errors": 0,
+      "n_docs": 12,
+      "seconds": 145.7,
+      "secs_per_doc": 12.1,
+      "docs_per_min": 4.94,
+      "gpu_peak_gib": 6.3,
+      "gpu_idle_gib": 5.7,
+      "categories": {
+       "Abnormal": 130
+      }
+     }
     }
    }
-  },
-  "status_reason": "In the queue for the benchmark"
+  }
  },
  {
   "id": "gemma3-1b",
@@ -1567,22 +1717,71 @@
   "results": {
    "hpo_rag": {
     "id68": {
-     "task_version": null,
-     "for_version": 2,
-     "not_reached": true,
+     "task_version": 2,
+     "tier": "small",
      "date": "2026-11-03",
-     "reason": "not reached: the run's time budget ran out, tried first next run"
+     "ok": true,
+     "reason": null,
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9",
+     "metrics": {
+      "precision": 0.619,
+      "recall": 0.177,
+      "f1": 0.275,
+      "f1_doc_mean": 0.256,
+      "tp": 26,
+      "fp": 16,
+      "fn": 121,
+      "neg_errors": 0,
+      "n_docs": 12,
+      "seconds": 109.1,
+      "secs_per_doc": 9.1,
+      "docs_per_min": 6.6,
+      "gpu_peak_gib": 1.8,
+      "gpu_idle_gib": 0.0,
+      "categories": {
+       "Abnormal": 48
+      }
+     }
     },
     "gscplus": {
-     "task_version": null,
-     "for_version": 2,
-     "not_reached": true,
+     "task_version": 2,
+     "tier": "small",
      "date": "2026-11-03",
-     "reason": "not reached: the run's time budget ran out, tried first next run"
+     "ok": true,
+     "reason": null,
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9",
+     "metrics": {
+      "precision": 0.545,
+      "recall": 0.122,
+      "f1": 0.2,
+      "f1_doc_mean": 0.205,
+      "tp": 18,
+      "fp": 15,
+      "fn": 129,
+      "neg_errors": 0,
+      "n_docs": 12,
+      "seconds": 71.0,
+      "secs_per_doc": 5.9,
+      "docs_per_min": 10.14,
+      "gpu_peak_gib": 1.8,
+      "gpu_idle_gib": 1.2,
+      "categories": {
+       "Abnormal": 43
+      }
+     }
     }
    }
-  },
-  "status_reason": "In the queue for the benchmark"
+  }
  },
  {
   "id": "gemma3n-e4b",
@@ -1596,22 +1795,71 @@
   "results": {
    "hpo_rag": {
     "id68": {
-     "task_version": null,
-     "for_version": 2,
-     "not_reached": true,
+     "task_version": 2,
+     "tier": "small",
      "date": "2026-11-03",
-     "reason": "not reached: the run's time budget ran out, tried first next run"
+     "ok": true,
+     "reason": null,
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9",
+     "metrics": {
+      "precision": 0.611,
+      "recall": 0.619,
+      "f1": 0.615,
+      "f1_doc_mean": 0.578,
+      "tp": 91,
+      "fp": 58,
+      "fn": 56,
+      "neg_errors": 0,
+      "n_docs": 12,
+      "seconds": 300.7,
+      "secs_per_doc": 25.1,
+      "docs_per_min": 2.39,
+      "gpu_peak_gib": 5.3,
+      "gpu_idle_gib": 0.0,
+      "categories": {
+       "Abnormal": 161
+      }
+     }
     },
     "gscplus": {
-     "task_version": null,
-     "for_version": 2,
-     "not_reached": true,
+     "task_version": 2,
+     "tier": "small",
      "date": "2026-11-03",
-     "reason": "not reached: the run's time budget ran out, tried first next run"
+     "ok": true,
+     "reason": null,
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9",
+     "metrics": {
+      "precision": 0.49,
+      "recall": 0.32,
+      "f1": 0.387,
+      "f1_doc_mean": 0.393,
+      "tp": 47,
+      "fp": 49,
+      "fn": 100,
+      "neg_errors": 0,
+      "n_docs": 12,
+      "seconds": 219.5,
+      "secs_per_doc": 18.3,
+      "docs_per_min": 3.28,
+      "gpu_peak_gib": 5.3,
+      "gpu_idle_gib": 4.7,
+      "categories": {
+       "Abnormal": 106
+      }
+     }
     }
    }
-  },
-  "status_reason": "In the queue for the benchmark"
+  }
  },
  {
   "id": "phi4-mini",
@@ -1624,22 +1872,71 @@
   "results": {
    "hpo_rag": {
     "id68": {
-     "task_version": null,
-     "for_version": 2,
-     "not_reached": true,
+     "task_version": 2,
+     "tier": "small",
      "date": "2026-11-03",
-     "reason": "not reached: the run's time budget ran out, tried first next run"
+     "ok": true,
+     "reason": null,
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9",
+     "metrics": {
+      "precision": 0.55,
+      "recall": 0.524,
+      "f1": 0.537,
+      "f1_doc_mean": 0.528,
+      "tp": 77,
+      "fp": 63,
+      "fn": 70,
+      "neg_errors": 0,
+      "n_docs": 12,
+      "seconds": 184.2,
+      "secs_per_doc": 15.3,
+      "docs_per_min": 3.91,
+      "gpu_peak_gib": 7.2,
+      "gpu_idle_gib": 0.0,
+      "categories": {
+       "Abnormal": 144
+      }
+     }
     },
     "gscplus": {
-     "task_version": null,
-     "for_version": 2,
-     "not_reached": true,
+     "task_version": 2,
+     "tier": "small",
      "date": "2026-11-03",
-     "reason": "not reached: the run's time budget ran out, tried first next run"
+     "ok": true,
+     "reason": null,
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9",
+     "metrics": {
+      "precision": 0.426,
+      "recall": 0.272,
+      "f1": 0.332,
+      "f1_doc_mean": 0.312,
+      "tp": 40,
+      "fp": 54,
+      "fn": 107,
+      "neg_errors": 0,
+      "n_docs": 12,
+      "seconds": 143.7,
+      "secs_per_doc": 12.0,
+      "docs_per_min": 5.01,
+      "gpu_peak_gib": 7.2,
+      "gpu_idle_gib": 6.6,
+      "categories": {
+       "Abnormal": 99
+      }
+     }
     }
    }
-  },
-  "status_reason": "In the queue for the benchmark"
+  }
  },
  {
   "id": "mistral-7b",
