@@ -1,0 +1,325 @@
+Patient ID,Category,Phenotype name,HPO ID
+1,Abnormal,hearing loss,HP:0000365
+1,Abnormal,preaxial polydactyly,HP:0100258
+1,Abnormal,triphalangeal thumbs,HP:0001199
+1,Abnormal,imperforate anus,HP:0002023
+1,Abnormal,external ear anomalies,HP:0000356
+1,Abnormal,renal malformations,HP:0000077
+1,Abnormal,mental retardation has been noted in a few,HP:0001249
+2,Abnormal,severe mental retardation,HP:0010864
+2,Abnormal,postnatal microcephaly,HP:0005484
+2,Abnormal,macrostomia,HP:0000154
+2,Abnormal,prognathia,HP:0000303
+2,Abnormal,ataxia,HP:0001251
+2,Abnormal,obesity,HP:0001513
+2,Abnormal,muscular hypotonia,HP:0001252
+2,Abnormal,mild mental retardation,HP:0001256
+2,Abnormal,absence of speech,HP:0001344
+2,Abnormal,maternal band was faint or absent,HP:0001562
+2,Abnormal,imprinting defect,HP:0034338
+3,Abnormal,18% (61/334) of patients with NF2 on the UK database presented in the paediatric age group (0-15 years),HP:0003621
+3,Abnormal,frequently with the symptoms of an isolated tumour,HP:0002664
+3,Abnormal,three of 22 children presenting with a meningioma on the Manchester Children's Tumour Registry have gone on to develop classic features of NF2,HP:0033714
+4,Abnormal,cleft lip,HP:0410030
+4,Abnormal,cleft palate,HP:0000175
+4,Abnormal,syndactyly,HP:0001159
+4,Abnormal,cleft lip/palate,HP:0000202
+4,Abnormal,popliteal webbing,HP:0001159
+4,Abnormal,lower lip pits,HP:0000196
+4,Abnormal,genital and nail anomalies,HP:0025755
+4,Abnormal,lower lip pits,HP:0000196
+5,Abnormal,nasolacrimal duct stenosis,HP:0007678
+5,Abnormal,deafness,HP:0000365
+5,Abnormal,renal anomalies,HP:0000077
+5,Abnormal,skin defects in the neck or infra/supra-auricular region,HP:0000383
+5,Abnormal,"unusual areas of thin, erythematous wrinkled skin",HP:0000963
+5,Abnormal,prehelical pits,HP:0004467
+5,Abnormal,malformed pinna,HP:0000356
+6,Abnormal,bilateral mandibular coronoid processes hyperplasia,HP:3000078
+8,Abnormal,multiple basal cell carcinomas in all the patients,HP:0002671
+8,Abnormal,frontal bossing or increased occipitofrontal circumference in three patients,HP:0002007
+8,Abnormal,palmar pits in two patients,HP:0010610
+8,Abnormal,odontogenic keratocyst in one patient,HP:0010603
+8,Abnormal,ectopic calcification in one patient,HP:0010766
+8,Abnormal,bifid rib in one patient,HP:0000892
+8,Abnormal,all four patients had multiple basal cell carcinomas on the face and elsewhere,HP:0002671
+8,Abnormal,eyelid basal cell carcinoma was advanced with orbital infiltration in three patients,No Candidate Fit
+8,Abnormal,"fourth patient, who had localized recurrent basal cell carcinoma in the upper eyelid",HP:0002671
+9,Abnormal,axonal mononeuropathy multiplex,HP:0003477
+9,Abnormal,sural nerve biopsy showed small scattered groups of Schwann cells transformed into irregular branching cells with abnormal cell-cell contacts,HP:0033035
+9,Abnormal,defective Schwann cell function,HP:0025713
+9,Abnormal,"changes in morphology, cell-cell contact, and growth",HP:0025461
+9,Abnormal,degeneration of axons,HP:0040078
+10,Abnormal,imperforate anus,HP:0002023
+10,Abnormal,hand anomalies,HP:0001155
+10,Abnormal,ear malformations with sensorineural hearing loss,HP:0000407
+10,Abnormal,lethal truncus arteriosus in one patient,HP:0001660
+10,Abnormal,"lethal complicated defect, including pulmonary valve atresia, in a second patient",HP:0010882
+10,Abnormal,hypoplastic thumbs were seen in two individuals,HP:0009778
+11,Abnormal,three members present variable clinical and radiological manifestations of brachydactyly type C,HP:0009373
+12,Abnormal,malignant mesothelioma,HP:0100001
+12,Abnormal,loss of expression of the NF2 protein,No Candidate Fit
+12,Abnormal,"losses of chromosomes 14, 15, and 22",HP:0003494
+12,Abnormal,gain of 7,HP:0031579
+13,Abnormal,Brachydactyly type A1 (BDA1),HP:0009371
+13,Abnormal,both share a common mutation within the Indian hedgehog gene (IHH),No Candidate Fit
+13,Abnormal,"a guanine to adenine transition at nucleotide 298, resulting in an Asn100Asp amino acid substitution",HP:0500217
+13,Abnormal,both families demonstrate significant intrafamilial phenotypic heterogeneity among the affected individuals,HP:0003812
+14,Abnormal,"short stature (in two, who are otherwise unaffected)",HP:0004322
+14,Abnormal,"homozygous CDMP-1 mutations cause Hunter-Thompson and Grebe types of acromesomelic chondrodysplasia and DuPan syndrome in humans, as well as brachypodism in mice",HP:0009373
+14,Abnormal,heterozygous mutations cause brachydactyly type C (BDC),HP:0009373
+14,Abnormal,eight mutation carriers display BDC,HP:0031393
+14,Abnormal,"several carriers have other skeletal abnormalities, including severe bilateral vertical talus (in two)",HP:0001838
+14,Abnormal,developmental hip dysplasia (in one),HP:0001385
+14,Abnormal,premature vertebral end-plate disease was observed in four mutation carriers,HP:0030775
+14,Abnormal,was associated with spondylolysis and spondylolisthesis in three of these,HP:0003304
+14,Abnormal,"atypical skeletal features that have been reported in some patients with BDC (i.e., clubfoot, short stature, spondylolysis) may also result from CDMP-1 mutation",HP:0011842
+15,Abnormal,multiple congenital contractures of the limbs,HP:0002804
+16,Abnormal,oligohydramnios due to renal hypoplasia and agenesis,HP:0008678
+16,Abnormal,both babies died neonatally of pulmonary hypoplasia,HP:0002089
+16,Abnormal,"marked immaturity of the middle ear cleft, ossicles, facial nerve and canal, and cochlear nerve",HP:0009910
+16,Abnormal,intravenous pyelography indicated renal hypoplasia,HP:0000089
+17,Abnormal,"shortening of the middle phalanges of the index, middle, and little finger",HP:0006110
+17,Abnormal,"hyperphalangy, usually of the index and middle finger",HP:0030368
+17,Abnormal,pronounced ulnar deviation of the second and third digits,HP:0009464
+17,Abnormal,mild shortening of the metacarpals IV and V,HP:0010049
+17,Abnormal,hand radiographs of heterozygous mutation carriers showed mild shortening of the metacarpals IV and V,HP:0010044
+18,Abnormal,hearing impairment,HP:0000365
+18,Abnormal,preauricular pits,HP:0004467
+18,Abnormal,renal anomalies,HP:0000077
+18,Abnormal,lop-ear deformity,HP:0000394
+18,Abnormal,branchial cleft sinus tracts,HP:0100272
+19,Abnormal,age at onset was 18.17 years in 36 maternally inherited cases and 24.5 in 20 paternally inherited cases (p = 0.027),HP:0025710
+19,Abnormal,"data are presented which suggest that there are two types of NF2, one with later onset and bilateral vestibular schwannomas as the only usual feature, and the other with earlier onset and multiple other tumours",HP:0009589
+20,Abnormal,deafness,HP:0000365
+20,Abnormal,unilateral deafness,HP:0009900
+20,Abnormal,tinnitus,HP:0000360
+20,Abnormal,seizures,HP:0001250
+20,Abnormal,vertigo,HP:0002321
+20,Abnormal,blindness,HP:0000618
+20,Abnormal,skin tumours,HP:0008069
+20,Abnormal,spinal tumours,HP:0010302
+20,Abnormal,muscle weakness or wasting,HP:0001324
+20,Abnormal,numbness and tingling,HP:0012534
+20,Abnormal,café au lait spots,HP:0000957
+20,Abnormal,lens opacity or cataract,HP:0000518
+20,Abnormal,vestibular schwannomas (acoustic neuroma),HP:0009588
+20,Abnormal,cranial meningiomas,HP:0100009
+21,Abnormal,typical AS features,HP:0001999
+21,Abnormal,asymmetric spasticity that led originally to a diagnosis of cerebral palsy,HP:0011099
+21,Abnormal,mild cerebral atrophy,HP:0002059
+21,Abnormal,severe brain malformation,HP:0002060
+22,Abnormal,brachydactyly type C,HP:0009373
+22,Abnormal,cupped ears,HP:0000378
+22,Abnormal,shortening of the big toes,HP:0010109
+23,Abnormal,severe mental retardation,HP:0010864
+23,Abnormal,speech disorder,HP:0002463
+23,Abnormal,stereotyped jerky movements,HP:0000733
+23,Abnormal,"peculiar behavioral profile, with a happy disposition and outbursts of laughter",HP:0000749
+23,Abnormal,most patients with AS present with epilepsy,HP:0001250
+23,Abnormal,suggestive electroencephalographic patterns,HP:0002353
+23,Abnormal,all patients with AS in this group had generalized epilepsy,HP:0001250
+23,Abnormal,10 (53%) also had partial epilepsy,HP:0007359
+23,Abnormal,main seizure types were atypical absences and myoclonic and tonic-clonic seizures,HP:0007270
+23,Abnormal,mean age at onset was 1 year 1 month,HP:0003593
+23,Abnormal,epilepsy aggravated by fever occurred in 10 patients (53%),HP:0032894
+23,Abnormal,status epilepticus in 16 (84%),HP:0032660
+23,Abnormal,eighteen patients (95%) had previous or current history of daily seizures,HP:0002197
+23,Abnormal,14 (64%) had disabling seizures,HP:0001250
+23,Abnormal,multiple seizure types were observed in 13 patients (53%),HP:0007359
+23,Abnormal,history of refractory epilepsy was reported in 16 patients (84%),HP:0032867
+23,Abnormal,"parents reported improvement, characterized by decrease in seizure frequency or seizure control, at the mean age of 5.3 years",HP:0025254
+23,Abnormal,most of these patients had a period of refractory epilepsy,HP:0001250
+23,Abnormal,"epilepsy was aggravated by carbamazepine, oxcarbazepine, and vigabatrin",HP:4000116
+23,Abnormal,"patients with AS with deletion have epilepsy with early onset and stereotyped electroclinical profile regarding seizure type, severity, and response to antiepileptic drug treatment",HP:0001250
+23,Abnormal,"another feature of AS is the age-related improvement, even in refractory cases, during late childhood and puberty",HP:0005616
+24,Abnormal,Angelman's syndrome and Prader-Willi syndrome are both causes of mental retardation,HP:0001249
+24,Abnormal,In 2 patients with Angelman's syndrome we found evidence of uniparental paternal disomy,HP:0032382
+24,Abnormal,the phenotypic effects of maternal and paternal disomy of chromosome 15 are very different,HP:0033334
+24,Abnormal,inheritance of two normal 15s from one parent does not lead to normal development,HP:0001263
+25,Abnormal,64 mosaic patients,HP:0001442
+25,Abnormal,projected mosaicism rate of 33% for sporadic classical NF2 with bilateral vestibular schwannoma at presentation,HP:0009589
+25,Abnormal,60% for those presenting unilaterally,HP:0025797
+25,Abnormal,even MLPA cannot detect high levels of mosaicism,HP:0001442
+26,Abnormal,"cervical, infra- and/or supra-auricular defects",HP:0000377
+26,Abnormal,dermal thymus,HP:0010517
+26,Abnormal,ocular anomalies,HP:0012372
+26,Abnormal,"characteristic facial appearance (malformed pinnae, oral clefts)",HP:0000356
+26,Abnormal,renal and ectodermal (dental and hair) anomalies,HP:0000968
+27,Abnormal,ankyloblepharon,HP:0009755
+27,Abnormal,coronal hypospadias,HP:0008743
+27,Abnormal,unilateral cleft lip and palate,HP:0100333
+27,Abnormal,paramedian lip pits,HP:0100269
+27,Abnormal,unilateral renal aplasia,HP:0000122
+28,Abnormal,brachydactyly type A1,HP:0009371
+28,Abnormal,uniform shortening of the middle phalanges in all digits,HP:0006110
+28,Abnormal,"deletion in IHH, p.delE95",HP:0008527
+28,Abnormal,mild Brachydact性A1,HP:0009371
+29,Abnormal,only 2/173 cases had evidence supporting a diagnosis of GS,HP:0045090
+29,Abnormal,a further case at 50% risk of GS died of a brain tumour aged 4 years,HP:0010796
+29,Abnormal,"incidence of GS in medulloblastoma is, therefore, probably between 1-2%",HP:0002885
+29,Abnormal,incidence of medulloblastoma in GS was found to be between -3-5%,HP:0002885
+29,Abnormal,those at high risk of developing multiple invasive basal cell carcinomata will then be identified,HP:0002671
+30,Abnormal,seizures,HP:0001250
+30,Abnormal,hypotonia,HP:0001252
+30,Abnormal,hyperreflexia,HP:0001347
+30,Abnormal,hyperkinesis,HP:0002487
+30,Abnormal,oculocutaneous albinism,HP:0001107
+30,Abnormal,severe to profound global developmental delay,HP:0012736
+30,Abnormal,postnatal-onset microcephaly,HP:0005484
+30,Abnormal,hypopigmented as compared to their relatives,HP:0007513
+30,Abnormal,eye abnormalities,HP:0000478
+30,Abnormal,choroidal pigment hypoplasia,HP:0040030
+30,Abnormal,"all of the patients presented with severe to profound global developmental delay and postnatal-onset microcephaly; they had seizures, hypotonia, hyperreflexia, and hyperkinesis",HP:0011344
+30,Abnormal,hypopigmentation that patients with AS frequently have,HP:0001010
+30,Abnormal,what we think is the first reported case of albinism and AS,HP:0001022
+31,Abnormal,mentally retarded girl,HP:0100543
+31,Abnormal,multiple congenital anomalies,HP:0001197
+31,Abnormal,phenotypic abnormalities,HP:0000118
+32,Abnormal,sensorineural hearing loss,HP:0000407
+32,Abnormal,enlarged foramen magnum,HP:0002700
+32,Abnormal,severe brachycephaly,HP:0000248
+32,Abnormal,speech impediment,HP:0000750
+32,Abnormal,mild ataxia,HP:0001251
+32,Abnormal,abnormal or cytogenetically apparently normal chromosome 15,HP:0031411
+33,Abnormal,bilateral acoustic neurofibromatosis (BANF),HP:0009589
+33,Abnormal,"development of multiple tumours of the nervous system including meningiomas, gliomas, neurofibromas and particularly bilateral acoustic neuromas",HP:0009589
+33,Abnormal,loss of genes on chromosome 22 in meningiomas and acoustic neuromas,HP:0009588
+34,Abnormal,"aneuploid mitoses, including pseudodiploids",HP:0003220
+34,Abnormal,monosomy 22,No Candidate Fit
+34,Abnormal,"several, as yet unidentified marker chromosomes",HP:0003220
+34,Abnormal,much higher level of unstable chromosomal anomalies,HP:0003220
+35,Abnormal,"multiple central nervous system tumors of various types--mainly, bilateral acoustic neuromas",HP:0009589
+35,Abnormal,two or more tumors eventually developed in 20 of the patients,HP:0002664
+35,Abnormal,9 had evidence of only bilateral acoustic neuromas,HP:0009589
+35,Abnormal,meningiomas and ependymomas were more common among the young patients,HP:0002858
+35,Abnormal,intracranial nontumoral calcifications were present in most patients and were also found in symptom-free children,HP:0430048
+36,Abnormal,preauricular pits,HP:0004467
+36,Abnormal,"hearing loss of conductive, sensorineural, or mixed type",HP:0000410
+36,Abnormal,auricular deformities,HP:0000377
+36,Abnormal,"lateral cervical sinuses, cysts, or fistulas",HP:0031157
+36,Abnormal,renal malformations,HP:0000077
+37,Abnormal,obesity,HP:0001513
+37,Abnormal,mental retardation,HP:0001249
+37,Abnormal,coxa-epiphysiolysis,HP:0006461
+37,Abnormal,bilateral thumb ankylosis,HP:0009640
+37,Abnormal,a slight dysmorphia,HP:0001999
+37,Abnormal,a type A brachydactylia,HP:0009370
+37,Abnormal,signs of obesity,HP:0001513
+37,Abnormal,an identical ankylosis of both thumbs,HP:0009640
+38,Abnormal,central neurofibromatosis with bilateral acoustic neuroma,HP:0009589
+38,Abnormal,bilateral acoustic neuroma,HP:0009589
+38,Abnormal,mild skin changes,HP:0001000
+38,Abnormal,only the antigenic activity of nerve growth factor was increased,HP:0410372
+38,Abnormal,only the functional activity of nerve growth factor has been reported increased,HP:0003450
+39,Abnormal,unusual craniofacial anomalies consisting of hemangiomatous branchial clefts,HP:0009794
+39,Abnormal,lip pseudoclefts,HP:0034185
+39,Abnormal,identical unusual facial appearance,HP:0001999
+39,Abnormal,unilateral microphthalmia,HP:0011480
+39,Abnormal,congenital nasolacrimal duct obstruction,HP:0000579
+40,Abnormal,severe bilateral sensorineural hearing loss,HP:0008619
+40,Abnormal,a preauricular pit or tag,HP:0004467
+40,Abnormal,duplication of the ureters or bifid renal pelvices,HP:0005580
+41,Abnormal,severe mental retardation,HP:0010864
+41,Abnormal,puppet-like gait,HP:0002136
+41,Abnormal,characteristic craniofacial abnormalities,HP:0001999
+41,Abnormal,frequent episodes of laughter,HP:0000748
+41,Abnormal,unilateral cerebellar atrophy,HP:0001272
+43,Abnormal,basal cell carcinoma,HP:0002671
+43,Abnormal,multiple basal cell nevi,HP:0002671
+43,Abnormal,cysts of the jaw,HP:0010603
+43,Abnormal,anomalies of ribs and spine,HP:0003468
+43,Abnormal,abnormal calcifications,HP:0010766
+43,Abnormal,anomalies of the facial skull,HP:0011821
+44,Abnormal,skin tumors (12.7%),HP:0008069
+44,Abnormal,cataracts (81.0%),HP:0000518
+44,Abnormal,skin tumors (67.7%),HP:0008069
+44,Abnormal,spinal tumors (67.4%),HP:0010302
+44,Abnormal,vestibular schwannomas (44.4%),HP:0009588
+44,Abnormal,other CNS tumors (22.2%),HP:0100006
+44,Abnormal,ocular manifestations including cataracts and retinal hamartomas (12.7%),HP:0000519
+44,Abnormal,meningiomas (49.2%),HP:0002858
+45,Abnormal,hypopigmentation of skin or hair,HP:0001010
+45,Abnormal,neurological signs,HP:0000707
+45,Abnormal,facial characteristics,HP:0001999
+46,Abnormal,multiple basal cell carcinomas are manifest from an earlier age,HP:0007606
+47,Abnormal,mutation brachypodism (bp) alters the length and number of bones in the limbs of mice but spares the axial skeleton,HP:0002813
+47,Abnormal,skeletal alterations in bp mice,HP:0000924
+47,Abnormal,highly specific skeletal alterations in bp and short ear mice,HP:0011842
+47,Abnormal,mutations in Gdf5 are responsible for skeletal alterations in bp mice,HP:0004704
+48,Abnormal,unilateral renal agenesis was present in the first child,HP:0000122
+48,Abnormal,both the mother and her son also had bilateral supra-auricular sinuses,HP:0008606
+48,Abnormal,the second child has a mild expression of this condition,HP:0040196
+49,Abnormal,multiple basal cell carcinomas (BCCs),HP:0002671
+49,Abnormal,diverse developmental defects,HP:0033334
+49,Abnormal,loss of heterozygosity (LOH) for genetic markers in this region has been detected in sporadic BCCs,HP:0003494
+49,Abnormal,LOH at these loci was detected in 50% of sporadic BCCs,HP:0003494
+50,Abnormal,All patients showed movement problems,HP:0004302
+50,Abnormal,Eleven patients were also reported to have long-lasting periods of jerky movements,HP:0001336
+50,Abnormal,The polygraphic recording showed a myoclonic status epilepticus in nine of them,HP:0032667
+50,Abnormal,"Seven patients had partial seizures with eye deviation and vomiting, similar to those of childhood occipital epilepsies",HP:0011165
+50,Abnormal,"the occurrence of a transient myoclonic status epilepticus may account for the recurrence of different abnormal movements, namely the jerky ones",HP:0032667
+51,Abnormal,Type A1 brachydactyly in humans is a recognisable syndrome characterised by shortening of the middle phalanx of all digits with occasional fusion of the middle and terminal phalanges.,HP:0009371
+51,Abnormal,shortening of the middle phalanx of all digits,HP:0006110
+51,Abnormal,occasional fusion of the middle and terminal phalanges,HP:0009244
+52,Abnormal,cataracts,HP:0000518
+52,Abnormal,bilateral vestibular schwannomas,HP:0009589
+52,Abnormal,other benign neural tumors,HP:0030430
+52,Abnormal,many tumors at an early age,HP:0002664
+52,Abnormal,rapid clinical progression,HP:0003678
+52,Abnormal,vestibular schwannomas may be the only tumors,HP:0009588
+52,Abnormal,numbers of meningiomas,HP:0033714
+52,Abnormal,spinal and skin tumors,HP:0010302
+52,Abnormal,presence of cataracts and retinal abnormalities,HP:0000518
+52,Abnormal,retinal hamartomas and/or epiretinal membranes,HP:0009594
+54,Abnormal,medulloblastoma,HP:0002885
+54,Abnormal,nevoid basal cell carcinoma syndrome (NBCCS),HP:0002671
+54,Abnormal,basal cell carcinoma (BCC) formation in the area irradiated for medulloblastoma,HP:0002671
+54,Abnormal,large odontogenic keratocyst of the mandible,HP:0010603
+54,Abnormal,pits of the palms and soles,HP:0010610
+54,Abnormal,numerous BCCs in the area of the back and neck that had been irradiated previously for medulloblastoma,HP:0002671
+55,Abnormal,severe intellectual disability,HP:0010864
+55,Abnormal,lack of speech,HP:0001344
+55,Abnormal,epilepsy,HP:0001250
+55,Abnormal,ataxic or hypermotoric limb movements,HP:0002070
+55,Abnormal,a 'happy' demeanour,HP:0040082
+55,Abnormal,facial appearance consistent with the diagnosis,HP:0001999
+55,Abnormal,large mouth and jaw with deep set eyes,HP:0000316
+55,Abnormal,microcephaly in nine patients,HP:0000252
+55,Abnormal,outbursts of laughter occurred in all patients,HP:0000749
+55,Abnormal,infrequent outbursts of laughter in 7/11 (64%),HP:0000748
+55,Abnormal,constant happy demeanour in 5/11 (46%),HP:0031844
+55,Abnormal,all had epilepsy,HP:0001250
+55,Abnormal,improvement in 5/11 (46%),HP:0025254
+55,Abnormal,no change in 4 (36%),HP:0003680
+55,Abnormal,deterioration in 2 (18%),HP:0002344
+55,Abnormal,EEG was abnormal in 10/10 patients,HP:0002353
+55,Abnormal,ocular abnormalities in 3/8 patients (37.5%),HP:0000478
+55,Abnormal,kyphosis in 4/11 (36%),HP:0002808
+55,Abnormal,two had never walked,HP:0002540
+55,Abnormal,"all nine who walked were ataxic with an awkward, clumsy, heavy, and/or lilting gait",HP:0002066
+55,Abnormal,no patient had a single word of speech,HP:0002371
+55,Abnormal,kyphosis and keratoconus are two problems of older patients,HP:0002808
+56,Abnormal,"multiple facial angiofibromas were observed in 28 (88%) of the patients with MEN1, with 16 patients (50%) having 5 or more",HP:0009720
+56,Abnormal,collagenomas were observed in 23 patients (72%),HP:6000022
+56,Abnormal,cafe au lait macules in 12 patients (38%),HP:0000957
+56,Abnormal,lipomas in 11 patients (34%),HP:0001031
+56,Abnormal,confetti-like hypopigmented macules in 2 patients (6%),HP:0007449
+56,Abnormal,multiple gingival papules in 2 patients (6%),HP:0000168
+57,Abnormal,exotropia,HP:0000577
+57,Abnormal,"a painful, expanding, cystic mass in the left posterior alveolar ridge",HP:0000700
+57,Abnormal,odontogenic keratocysts with palmar and plantar pitting,HP:0000972
+57,Abnormal,an impacted molar displaced into the orbit by an odontogenic keratocyst,HP:0010603
+58,Abnormal,large de novo deletions of 15q11-q13,HP:0002006
+58,Abnormal,paternal uniparental disomy (UPD),HP:0032382
+58,Abnormal,parental transmission of a structurally or functionally unbalanced chromosome complement,HP:0003220
+58,Abnormal,maternally inherited imprinting center (IC) mutation,HP:0012275
+58,Abnormal,ubiquitin-protein ligase (UBE3A) gene mutation,No Candidate Fit
+59,Abnormal,unilateral vestibular schwannomas,HP:0009590
+59,Abnormal,additional features of type 2 neurofibromatosis (NF2),HP:0001067
+59,Abnormal,bilateral disease,HP:0012832
+59,Abnormal,neurogenic tumours,HP:0100008
+59,Abnormal,other tumours,HP:0002664
+59,Abnormal,features of NF2,HP:0001067
+60,Abnormal,"to date, we have identified one truncating mutation in a medulloblastoma",HP:0002885
+60,Abnormal,a change in a splice donor site in a basal cell carcinoma,HP:0002671

@@ -1,0 +1,316 @@
+{
+ "started": "2026-11-02T22:10:11Z",
+ "runs": [
+  {
+   "id": "_control",
+   "tag": "qwen3:4b-instruct-2507-q4_K_M",
+   "role": "control",
+   "dataset": "id68",
+   "n_docs": 10,
+   "gold_index": "index_10.json",
+   "log_tail": "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 | 113/125 [01:17<00:08,  1.45entry/s]\nGenerating HPO:  91%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 | 114/125 [01:18<00:07,  1.45entry/s]\nGenerating HPO:  92%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f| 115/125 [01:18<00:06,  1.46entry/s]\nGenerating HPO:  93%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258e| 116/125 [01:19<00:06,  1.46entry/s]\nGenerating HPO:  94%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258e| 117/125 [01:20<00:05,  1.44entry/s]\nGenerating HPO:  94%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258d| 118/125 [01:21<00:04,  1.45entry/s]\nGenerating HPO:  95%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c| 119/125 [01:21<00:04,  1.45entry/s]\nGenerating HPO:  96%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c| 120/125 [01:22<00:03,  1.46entry/s]\nGenerating HPO:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 121/125 [01:23<00:02,  1.44entry/s]\nGenerating HPO:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 122/125 [01:23<00:02,  1.41entry/s]\nGenerating HPO:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 123/125 [01:24<00:01,  1.36entry/s]\nGenerating HPO:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 124/125 [01:25<00:00,  1.35entry/s]\nGenerating HPO: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 125/125 [01:26<00:00,  1.34entry/s]\nGenerating HPO: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 125/125 [01:26<00:00,  1.45entry/s]\nTraceback (most recent call last):\n  File \"/kaggle/working/RAG-HPO/RAG-HPO.py\", line 992, in <module>\n    process_and_replace_all(input_file, output_file)\n    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/RAG-HPO/RAG-HPO.py\", line 940, in process_and_replace_all\n    with open(infile, newline='') as rf:\n         ~~~~^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/garciabt/Library/CloudStorage/OneDrive-BaylorCollegeofMedicine/01 Posey Lab/RAG-HPO/RAG-HPO/Test_Cases_Manual_Annotations.csv'\n",
+   "seconds": 303.7,
+   "gpu_idle_mib": 0,
+   "gpu_peak_mib": 7938,
+   "pred_file": "pred__control_id68.csv"
+  },
+  {
+   "id": "qwen",
+   "tag": "qwen3:4b-instruct-2507-q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "n_docs": 68,
+   "gold_index": "index_68.json",
+   "log_tail": "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 508/520 [05:56<00:08,  1.36entry/s]\nGenerating HPO:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 509/520 [05:57<00:07,  1.39entry/s]\nGenerating HPO:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 510/520 [05:57<00:07,  1.39entry/s]\nGenerating HPO:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 511/520 [05:58<00:06,  1.39entry/s]\nGenerating HPO:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 512/520 [05:59<00:05,  1.40entry/s]\nGenerating HPO:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 513/520 [05:59<00:04,  1.41entry/s]\nGenerating HPO:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 514/520 [06:00<00:04,  1.43entry/s]\nGenerating HPO:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 515/520 [06:01<00:03,  1.44entry/s]\nGenerating HPO:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 516/520 [06:01<00:02,  1.46entry/s]\nGenerating HPO:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 517/520 [06:02<00:02,  1.46entry/s]\nGenerating HPO: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 518/520 [06:03<00:01,  1.46entry/s]\nGenerating HPO: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 519/520 [06:03<00:00,  1.44entry/s]\nGenerating HPO: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 520/520 [06:04<00:00,  1.40entry/s]\nGenerating HPO: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 520/520 [06:04<00:00,  1.43entry/s]\nTraceback (most recent call last):\n  File \"/kaggle/working/RAG-HPO/RAG-HPO.py\", line 992, in <module>\n    process_and_replace_all(input_file, output_file)\n    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/RAG-HPO/RAG-HPO.py\", line 940, in process_and_replace_all\n    with open(infile, newline='') as rf:\n         ~~~~^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/garciabt/Library/CloudStorage/OneDrive-BaylorCollegeofMedicine/01 Posey Lab/RAG-HPO/RAG-HPO/Test_Cases_Manual_Annotations.csv'\n",
+   "seconds": 958.3,
+   "gpu_idle_mib": 0,
+   "gpu_peak_mib": 7946,
+   "pred_file": "pred_qwen_id68.csv"
+  },
+  {
+   "id": "qwen",
+   "tag": "qwen3:4b-instruct-2507-q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "n_docs": 60,
+   "gold_index": "index_60.json",
+   "log_tail": "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c| 250/262 [02:55<00:08,  1.38entry/s]\nGenerating HPO:  96%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c| 251/262 [02:56<00:07,  1.39entry/s]\nGenerating HPO:  96%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c| 252/262 [02:57<00:07,  1.39entry/s]\nGenerating HPO:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 253/262 [02:57<00:06,  1.39entry/s]\nGenerating HPO:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 254/262 [02:58<00:05,  1.46entry/s]\nGenerating HPO:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 255/262 [02:59<00:04,  1.42entry/s]\nGenerating HPO:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 256/262 [02:59<00:04,  1.42entry/s]\nGenerating HPO:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 257/262 [03:00<00:03,  1.40entry/s]\nGenerating HPO:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 258/262 [03:01<00:02,  1.41entry/s]\nGenerating HPO:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 259/262 [03:02<00:02,  1.38entry/s]\nGenerating HPO:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 260/262 [03:02<00:01,  1.39entry/s]\nGenerating HPO: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 261/262 [03:03<00:00,  1.39entry/s]\nGenerating HPO: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 262/262 [03:04<00:00,  1.37entry/s]\nGenerating HPO: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 262/262 [03:04<00:00,  1.42entry/s]\nTraceback (most recent call last):\n  File \"/kaggle/working/RAG-HPO/RAG-HPO.py\", line 992, in <module>\n    process_and_replace_all(input_file, output_file)\n    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/RAG-HPO/RAG-HPO.py\", line 940, in process_and_replace_all\n    with open(infile, newline='') as rf:\n         ~~~~^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/garciabt/Library/CloudStorage/OneDrive-BaylorCollegeofMedicine/01 Posey Lab/RAG-HPO/RAG-HPO/Test_Cases_Manual_Annotations.csv'\n",
+   "seconds": 517.7,
+   "gpu_idle_mib": 7341,
+   "gpu_peak_mib": 7946,
+   "pred_file": "pred_qwen_gscplus.csv"
+  },
+  {
+   "id": "gemma",
+   "tag": "gemma3:4b",
+   "role": "candidate",
+   "dataset": "id68",
+   "n_docs": 68,
+   "gold_index": "index_68.json",
+   "log_tail": "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 483/495 [07:49<00:12,  1.02s/entry]\nGenerating HPO:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 484/495 [07:50<00:11,  1.02s/entry]\nGenerating HPO:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 485/495 [07:51<00:09,  1.01entry/s]\nGenerating HPO:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 486/495 [07:52<00:08,  1.04entry/s]\nGenerating HPO:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 487/495 [07:53<00:07,  1.03entry/s]\nGenerating HPO:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 488/495 [07:54<00:06,  1.00entry/s]\nGenerating HPO:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 489/495 [07:55<00:05,  1.03entry/s]\nGenerating HPO:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 490/495 [07:56<00:04,  1.03entry/s]\nGenerating HPO:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 491/495 [07:57<00:03,  1.06entry/s]\nGenerating HPO:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 492/495 [07:58<00:02,  1.05entry/s]\nGenerating HPO: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 493/495 [07:59<00:01,  1.03entry/s]\nGenerating HPO: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 494/495 [08:00<00:01,  1.00s/entry]\nGenerating HPO: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 495/495 [08:01<00:00,  1.02s/entry]\nGenerating HPO: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 495/495 [08:01<00:00,  1.03entry/s]\nTraceback (most recent call last):\n  File \"/kaggle/working/RAG-HPO/RAG-HPO.py\", line 992, in <module>\n    process_and_replace_all(input_file, output_file)\n    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/RAG-HPO/RAG-HPO.py\", line 940, in process_and_replace_all\n    with open(infile, newline='') as rf:\n         ~~~~^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/garciabt/Library/CloudStorage/OneDrive-BaylorCollegeofMedicine/01 Posey Lab/RAG-HPO/RAG-HPO/Test_Cases_Manual_Annotations.csv'\n",
+   "seconds": 1262.5,
+   "gpu_idle_mib": 0,
+   "gpu_peak_mib": 5156,
+   "pred_file": "pred_gemma_id68.csv"
+  },
+  {
+   "id": "gemma",
+   "tag": "gemma3:4b",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "n_docs": 60,
+   "gold_index": "index_60.json",
+   "log_tail": "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c| 245/257 [04:02<00:11,  1.01entry/s]\nGenerating HPO:  96%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c| 246/257 [04:03<00:10,  1.00entry/s]\nGenerating HPO:  96%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c| 247/257 [04:04<00:09,  1.01entry/s]\nGenerating HPO:  96%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 248/257 [04:05<00:08,  1.01entry/s]\nGenerating HPO:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 249/257 [04:06<00:07,  1.00entry/s]\nGenerating HPO:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 250/257 [04:07<00:07,  1.00s/entry]\nGenerating HPO:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 251/257 [04:08<00:06,  1.00s/entry]\nGenerating HPO:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 252/257 [04:09<00:05,  1.02s/entry]\nGenerating HPO:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 253/257 [04:10<00:04,  1.01s/entry]\nGenerating HPO:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 254/257 [04:12<00:03,  1.02s/entry]\nGenerating HPO:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 255/257 [04:13<00:02,  1.02s/entry]\nGenerating HPO: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 256/257 [04:14<00:01,  1.02s/entry]\nGenerating HPO: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 257/257 [04:15<00:00,  1.02s/entry]\nGenerating HPO: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 257/257 [04:15<00:00,  1.01entry/s]\nTraceback (most recent call last):\n  File \"/kaggle/working/RAG-HPO/RAG-HPO.py\", line 992, in <module>\n    process_and_replace_all(input_file, output_file)\n    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/RAG-HPO/RAG-HPO.py\", line 940, in process_and_replace_all\n    with open(infile, newline='') as rf:\n         ~~~~^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/garciabt/Library/CloudStorage/OneDrive-BaylorCollegeofMedicine/01 Posey Lab/RAG-HPO/RAG-HPO/Test_Cases_Manual_Annotations.csv'\n",
+   "seconds": 668.7,
+   "gpu_idle_mib": 4551,
+   "gpu_peak_mib": 5156,
+   "pred_file": "pred_gemma_gscplus.csv"
+  },
+  {
+   "id": "q38",
+   "tag": "hf.co/bartowski/Qwen3.8-27B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "n_docs": 68,
+   "gold_index": "index_68.json",
+   "timeout": true,
+   "seconds": 5400.5,
+   "gpu_idle_mib": 0,
+   "gpu_peak_mib": 20620
+  },
+  {
+   "id": "q38",
+   "tag": "hf.co/bartowski/Qwen3.8-27B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "n_docs": 60,
+   "gold_index": "index_60.json",
+   "timeout": true,
+   "seconds": 5400.4,
+   "gpu_idle_mib": 20018,
+   "gpu_peak_mib": 20620
+  },
+  {
+   "id": "g4",
+   "tag": "hf.co/unsloth/gemma-4-31B-it-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "not_reached": true
+  },
+  {
+   "id": "g4",
+   "tag": "hf.co/unsloth/gemma-4-31B-it-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "not_reached": true
+  },
+  {
+   "id": "nemo",
+   "tag": "hf.co/bartowski/nvidia_Nemotron-3-Nano-30B-A3B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "not_reached": true
+  },
+  {
+   "id": "nemo",
+   "tag": "hf.co/bartowski/nvidia_Nemotron-3-Nano-30B-A3B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "not_reached": true
+  },
+  {
+   "id": "gpt",
+   "tag": "gpt-oss:20b",
+   "role": "candidate",
+   "dataset": "id68",
+   "not_reached": true
+  },
+  {
+   "id": "gpt",
+   "tag": "gpt-oss:20b",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "not_reached": true
+  },
+  {
+   "id": "med",
+   "tag": "hf.co/unsloth/medgemma-27b-it-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "not_reached": true
+  },
+  {
+   "id": "med",
+   "tag": "hf.co/unsloth/medgemma-27b-it-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "not_reached": true
+  },
+  {
+   "id": "gran",
+   "tag": "hf.co/ibm-granite/granite-switch-4.1-30b-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "not_reached": true
+  },
+  {
+   "id": "gran",
+   "tag": "hf.co/ibm-granite/granite-switch-4.1-30b-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "not_reached": true
+  },
+  {
+   "id": "nvidia-nvidia-nemotron-3-5-bolt-e4b-bf16",
+   "tag": "hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "not_reached": true
+  },
+  {
+   "id": "nvidia-nvidia-nemotron-3-5-bolt-e4b-bf16",
+   "tag": "hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "not_reached": true
+  },
+  {
+   "id": "liquidai-lfm2-5-24b-a2b",
+   "tag": "hf.co/unsloth/LFM2.5-24B-A2B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "not_reached": true
+  },
+  {
+   "id": "liquidai-lfm2-5-24b-a2b",
+   "tag": "hf.co/unsloth/LFM2.5-24B-A2B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "not_reached": true
+  },
+  {
+   "id": "inclusionai-ling-3-0-tiny",
+   "tag": "hf.co/bartowski/Ling-3.0-tiny-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "not_reached": true
+  },
+  {
+   "id": "inclusionai-ling-3-0-tiny",
+   "tag": "hf.co/bartowski/Ling-3.0-tiny-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "not_reached": true
+  },
+  {
+   "id": "microsoft-sentiment-analysis-7b",
+   "tag": "hf.co/mradermacher/Sentiment-Analysis-7B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "not_reached": true
+  },
+  {
+   "id": "microsoft-sentiment-analysis-7b",
+   "tag": "hf.co/mradermacher/Sentiment-Analysis-7B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "not_reached": true
+  },
+  {
+   "id": "nanbeige-nanbeige4-3-33b",
+   "tag": "hf.co/mradermacher/Nanbeige4.3-33B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "not_reached": true
+  },
+  {
+   "id": "nanbeige-nanbeige4-3-33b",
+   "tag": "hf.co/mradermacher/Nanbeige4.3-33B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "not_reached": true
+  },
+  {
+   "id": "recursivesi-flint",
+   "tag": "hf.co/unsloth/flint-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "not_reached": true
+  },
+  {
+   "id": "recursivesi-flint",
+   "tag": "hf.co/unsloth/flint-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "not_reached": true
+  },
+  {
+   "id": "internscience-sage-a1-5",
+   "tag": "hf.co/mradermacher/Sage-A1.5-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "not_reached": true
+  },
+  {
+   "id": "internscience-sage-a1-5",
+   "tag": "hf.co/mradermacher/Sage-A1.5-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "not_reached": true
+  },
+  {
+   "id": "apexintelligence-ai-apex-35b-v1-0",
+   "tag": "hf.co/mradermacher/Apex-35B-V1.0-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "not_reached": true
+  },
+  {
+   "id": "apexintelligence-ai-apex-35b-v1-0",
+   "tag": "hf.co/mradermacher/Apex-35B-V1.0-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "not_reached": true
+  },
+  {
+   "id": "empero-ai-qwen3-8-35b-a3b-distill",
+   "tag": "hf.co/mradermacher/Qwen3.8-35B-A3B-Distill-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "not_reached": true
+  },
+  {
+   "id": "empero-ai-qwen3-8-35b-a3b-distill",
+   "tag": "hf.co/mradermacher/Qwen3.8-35B-A3B-Distill-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "not_reached": true
+  },
+  {
+   "id": "ifm-k2-horizon-mova-36b-a4b",
+   "tag": "hf.co/bartowski/K2-Horizon-MoVA-36B-A4B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "not_reached": true
+  },
+  {
+   "id": "ifm-k2-horizon-mova-36b-a4b",
+   "tag": "hf.co/bartowski/K2-Horizon-MoVA-36B-A4B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "not_reached": true
+  }
+ ],
+ "setup": {
+  "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9",
+  "corpora_commit": "195d5df2ad9c6265e1de523f139694c7646eee29",
+  "vectorization_seconds": 2879,
+  "vectorization_ok": true,
+  "hpo_version": "hp/releases/2026-09-01",
+  "gpus": [
+   "Tesla T4, 15360 MiB",
+   "Tesla T4, 15360 MiB"
+  ]
+ },
+ "finished": "2026-11-03T03:08:00Z"
+}
