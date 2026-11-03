@@ -1,0 +1,82 @@
+Patient ID,Category,Phenotype name,HPO ID
+2,Abnormal,microcephaly,HP:0000252
+2,Abnormal,hypopigmentation,HP:0001010
+2,Abnormal,seizures,HP:0001250
+2,Abnormal,severe developmental delay and/or mental retardation,HP:0001249
+2,Abnormal,profound speech impairment,HP:0000750
+2,Abnormal,movement and balance disorder,HP:0100022
+2,Abnormal,AS specific behaviour typified by an easily excitable personality with an inapproprately happy affect,HP:0100024
+3,Abnormal,"All patients with AS in this group had generalized epilepsy, and 10 (53%) also had partial epilepsy.",HP:0007359
+3,Abnormal,Main seizure types were atypical absence and myoclonic and tonic-clonic seizures.,HP:0007270
+3,Abnormal,Mean age at onset was 1 year 1 month.,HP:0003593
+3,Abnormal,Epilepsy aggravated by fever occurred in 10 patients (53%).,HP:0032894
+3,Abnormal,"Eighteen patients (95%) had previous or current history of daily seizures, of which 14 (64%) had disabling seizures.",HP:0032882
+3,Abnormal,Multipleseizure types were observed in 13 patients (53%).,HP:0007270
+3,Abnormal,History of refractory epilepsy was reported in 16 patients (84%).,HP:0032867
+3,Abnormal,"Epilepsy was aggravated by carbamazepine, oxcarbazepine, and vigabatrin.",HP:0001250
+4,Abnormal,ataxia,HP:0001251
+4,Abnormal,seizures,HP:0001250
+4,Abnormal,microcephaly,HP:0000252
+4,Abnormal,including global developmental delay,HP:0001263
+4,Abnormal,episodes of paroxysmal laughter,HP:0000749
+4,Abnormal,"wide based, ataxic gait",HP:0002066
+4,Abnormal,with frequent jerky limb movements,HP:0001336
+4,Abnormal,and flapping of the hands,HP:0100023
+4,Abnormal,Tone is variable in the limbs,HP:0003808
+4,Abnormal,with normal reflexes,No Candidate Fit
+4,Abnormal,and the plantar responses are usually flexor,HP:0008112
+5,Abnormal,"multiple central nervous system tumors of various types--mainly, bilateral acoustic neuromas",HP:0009589
+5,Abnormal,two or more tumors eventually developed in 20 of the patients,HP:0012780
+5,Abnormal,nine had evidence of only bilateral acoustic neuromas,HP:0009589
+5,Abnormal,meningiomas and ependymomas were more common among the young patients,HP:0002888
+5,Abnormal,those who initially presented with acoustic neuromas were nearly a decade older,HP:0040113
+5,Abnormal,intracranial nontumoral calciфикаtions were present in most patients and were also found in symptom-free children,HP:0007238
+5,Abnormal,simultaneous analysis of D22S1 and IGLV DNA marker for coinheritance with neurofibromatosis 2 indicates that the locus for the disease is near the center of the long arm of chromosome 22 (22q11.1----22q13.1),HP:0001067
+6,Abnormal,severe mental retardation,HP:0010864
+6,Abnormal,seizures,HP:0001250
+6,Abnormal,ataxia-like incoordinaton,HP:0001251
+6,Abnormal,similar deletion of the proximal long arm of chromosome 15,HP:0006209
+6,Abnormal,mild hyperteleorism,HP:0000316
+6,Abnormal,atxic-like movements,HP:0002345
+6,Abnormal,"frequent, unprovoked and prolonged bout of laughter",HP:0000749
+7,Abnormal,"posterior subcapsular or capsular, cortical, or mixed lens opaciplies in 33 (67%) of 49 patients with neurofibromatosis 2",HP:0007787
+7,Abnormal,retinal hamartomas in 11 (22%),HP:0009594
+7,Abnormal,three asymptomatic mutation carriers had cataracts,HP:0000518
+8,Abnormal,All patients showed movement problems,HP:0100022
+8,Abnormal,Eleven patients were also reported to have long-lasting periods of jerky movements,HP:0045084
+8,Abnormal,The polygraphic recording showed a myoclonic status epilepticus in nine of them,HP:0032667
+8,Abnormal,Seven patients had partial seizures with eye deviation and vomiting,HP:0007359
+9,Abnormal,"all patients were ataxic, severely retarded, and lacking recognizable speech",HP:0010864
+9,Abnormal,15 had poor postnatal head growth,HP:0001510
+9,Abnormal,hyponotonia at birth was recorded in 15/24 (63%),HP:0008935
+9,Abnormal,neonatal feeding difficulties were recorded in 20/26 (77%),HP:0002015
+9,Abnormal,epilepsy was present in 26/27 (96%),HP:0001250
+9,Abnormal,improvement in epilepsy was reported in 11/16 patients (69%),No Candidate Fit
+9,Abnormal,an abnormal EEG was reported in 25/25 patients,HP:0002353
+9,Abnormal,hypopigmentation was present in 19/26 (73%),No Candidate Fit
+9,Abnormal,one patient had oculocutaneous albinism,HP:0001107
+9,Abnormal,five patients could not walk independently,No Candidate Fit
+9,Abnormal,disrupted sleep patterns were present in 18/21 patients (86%),HP:0011119
+9,Abnormal,improvement in 9/12 patients (75%) over 10 years of age,HP:0025254
+9,Abnormal,"100% showed severe mental retardation, ataxic movements, absent language, abnormal EEG, happy disposition (noted in infancy in 95%), normal birth weight and head circumference at birth, and a large, wide mouth",HP:0010864
+10,Abnormal,severe intellectual disability,HP:0010864
+10,Abnormal,lack of speech,HP:0001344
+10,Abnormal,epilepsy,HP:0001250
+10,Abnormal,microcephaly,HP:0000252
+10,Abnormal,abnormal EEG,HP:0002353
+10,Abnormal,kyphosis,HP:0002808
+10,Abnormal,ataxic or hypermotoric limb movements,HP:0002070
+10,Abnormal,facial appearance consistent with the diagnosis,No Candidate Fit
+10,Abnormal,large mouth and jaw with deep set eyes,HP:0000154
+10,Abnormal,ocular abnormalities,HP:0000315
+10,Abnormal,never walked,HP:0002505
+10,Abnormal,all nine who walked were ataxic,HP:0002066
+10,Abnormal,"awkward, clumsy, heavy, and/or lilting gait",HP:0002066
+10,Abnormal,no patient had a single word of speech,HP:0001344
+11,Abnormal,affected individuals develop both benign and malignant tumors at an increased frequency,HP:0002664
+12,Abnormal,"patients had characteristic EEGs with diffuse bifrontally dominant high-ampplitude 1- to 3-Hz notched or triphasic or polyphasic slow waves, or slow and sharp waves",HP:0010857
+12,Abnormal,"Class I patients had severe intractable epilepsy, most frequently with atypical absences and myoclonias and less frequently with generalized extensor tonic seizures or flexor spasms",HP:0007270
+12,Abnormal,epileptic spasms were recorded in AS patients as old as 41 years,HP:0011097
+12,Abnormal,"aged-matched class II, III, and IV patients had either no epilepsy or drug-responsive mild epilepsy with relatively infrequent atypical absence, myoclonias, or atonic seizures",HP:0007270
+12,Abnormal,maternaly inherited chromosoome 15q11-13 deletions produce severe epilepsy,HP:0001250
+12,Abnormal,"loss-of-function UBE3A mutations, uniparental disomy, or methylation impring abnormalities in AS are associated with relatively mild epilepsy",HP:0001250
