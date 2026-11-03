@@ -7,6 +7,8 @@ QUEUE = json.loads(r'''__QUEUE__''')
 CONFIG = json.loads(r'''__CONFIG__''')
 START = time.time()
 BUDGET_S = CONFIG["budget_minutes"] * 60
+HARD_S = CONFIG.get("hard_limit_minutes", 660) * 60   # stay under Kaggle's session limit (about 12 hours)
+left = lambda: HARD_S - (time.time() - START)
 sh = lambda cmd, **kw: subprocess.run(cmd, shell=True, **kw)
 OUT = pathlib.Path("/kaggle/working/out"); OUT.mkdir(parents=True, exist_ok=True)
 meta = {"started": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "runs": [], "setup": {}}
@@ -88,6 +90,8 @@ def gpu_used():
 
 def run_one(entry, ds, n):
     rec = {"id": entry["id"], "tag": entry["tag"], "role": entry["role"], "dataset": ds}
+    if left() < 10 * 60 or (entry["role"] != "control" and time.time() - START > BUDGET_S):
+        rec["not_reached"] = True; return rec
     inp, ndocs, index = prepare(ds, n)
     rec["n_docs"], rec["gold_index"] = ndocs, index
     json.dump({"api_key": "none", "base_url": "http://localhost:11434/v1/chat/completions", "model_name": entry["tag"],
@@ -101,10 +105,11 @@ def run_one(entry, ds, n):
     t0 = time.time()
     try:
         r = subprocess.run(["python", "RAG-HPO.py"], cwd=RAG, input=f"no\n{inp}\nsave\n{outname}\n", text=True,
-                           capture_output=True, timeout=CONFIG["per_dataset_timeout_minutes"] * 60)
+                           capture_output=True, timeout=max(60, min(CONFIG["per_dataset_timeout_minutes"] * 60, left() - 5 * 60)))
         rec["log_tail"] = (r.stdout + r.stderr)[-1500:]
     except subprocess.TimeoutExpired:
         rec["timeout"] = True
+        if left() < 6 * 60: rec["not_reached"] = True; rec.pop("timeout")   # cut by the run's deadline, not too slow
     rec["seconds"] = round(time.time() - t0, 1)
     p.stop = True; th.join(timeout=5)
     rec["gpu_idle_mib"], rec["gpu_peak_mib"] = idle, p.peak

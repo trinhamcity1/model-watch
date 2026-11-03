@@ -11,7 +11,8 @@
  "sample_seed": 42,
  "control": {"tag": "qwen3:4b-instruct-2507-q4_K_M", "dataset": "id68", "n": 10, "max_f1_drift": 0.10},
  "kaggle_max_params_b": 40,
- "budget_minutes": 200,
+ "budget_minutes": 600,
+ "hard_limit_minutes": 660,
  "per_dataset_timeout_minutes": 90,
  "pull_timeout_minutes": 25,
  "temperature": 0.0

@@ -4,16 +4,19 @@ Finds new open language models and benchmarks them on phenotype extraction, then
 
 ## How it works
 
-Two workflows:
+Three workflows:
 
 1. **Model Watch scout** (`.github/workflows/pipeline.yml`) runs every Monday, or by hand.
    It reads the trending text-generation models on Hugging Face (`scout/scout.py`), looks for a 4-bit GGUF download,
    and adds the models it finds to `docs/models.json` (`scout/update_models.py`). Models over 40B are listed as
    "server only". It then publishes the site and starts the benchmark.
 2. **Model Watch HPO benchmark** (`.github/workflows/benchmark.yml`) runs after the scout, or by hand.
-   It queues every model in `docs/models.json` that has no result yet (`bench/select.py`), runs them on a free Kaggle
-   GPU notebook (`bench/kaggle_hpo.py`), scores the output (`bench/score.py`, `bench/collect.py`), opens and merges a
-   pull request, and publishes the site.
+   It queues every model in `docs/models.json` that has no result yet (`bench/select.py`), starts a free Kaggle GPU
+   notebook (`bench/kaggle_hpo.py`) and exits. It will not start while a Kaggle run is going or uncollected.
+3. **Model Watch collect** (`.github/workflows/collect.yml`) checks every 30 minutes. When the Kaggle run has
+   finished, it scores the output (`bench/score.py`, `bench/collect.py`), opens and merges a pull request, publishes the
+   site, and starts a follow-up run for any models the run did not reach. A Kaggle run can last up to 11 hours
+   (`hard_limit_minutes` in `bench/config.json`).
 
 ## The benchmark
 
@@ -34,7 +37,8 @@ sizes, RAG-HPO version); every model is then re-run.
 
 ## Running it by hand
 
-Actions -> Model Watch HPO benchmark -> Run workflow. Options: specific model ids, one dataset, fewer documents for a
+Actions -> Model Watch HPO benchmark -> Run workflow. To pick up a finished Kaggle run right away instead of waiting
+for the 30-minute check, run Model Watch collect by hand (tick `force` if the run was started by an older version). Options: specific model ids, one dataset, fewer documents for a
 quick trial, or force a re-run.
 
 To add a model by hand, add an entry to `docs/models.json` with `id`, `name`, `size`, `licence`, `ollama_tag` (an

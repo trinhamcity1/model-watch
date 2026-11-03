@@ -1,5 +1,6 @@
 name: Model Watch HPO benchmark
-# Runs RAG-HPO on Kaggle for every model in docs/models.json that has no result yet, scores it, and publishes.
+# Starts a Kaggle run for every model in docs/models.json that has no result yet, then exits.
+# The "Model Watch collect" workflow picks up the results when Kaggle finishes (it checks every 30 minutes).
 on:
   workflow_dispatch:
     inputs:
@@ -19,22 +20,20 @@ on:
         description: "Re-run models that already have results"
         type: boolean
         default: false
-      auto_merge:
-        description: "Merge automatically when every check passes"
+      ignore_pending:
+        description: "Start even if the last Kaggle run was never collected (its output will be lost)"
         type: boolean
-        default: true
+        default: false
 permissions:
   contents: write
-  pull-requests: write
-  issues: write
   actions: write
 concurrency:
-  group: model-watch-kaggle
+  group: model-watch-start
   cancel-in-progress: false
 jobs:
-  run:
+  start:
     runs-on: ubuntu-latest
-    timeout-minutes: 340
+    timeout-minutes: 20
     env:
       KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
       KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
@@ -51,8 +50,22 @@ jobs:
           test -n "$KAGGLE_USERNAME" || { echo "Add the KAGGLE_USERNAME secret"; exit 1; }
           kaggle kernels list --mine --page-size 1
 
+      - name: Make sure the last run was collected
+        id: gate
+        run: |
+          PENDING=$(python -c "import json;print(str(json.load(open('docs/kaggle_state.json')).get('pending', False)).lower())" 2>/dev/null || echo false)
+          S=$(kaggle kernels status "$KERNEL" 2>&1 || true); echo "$S"
+          if echo "$S" | grep -qiE "running|queued"; then
+            echo "A Kaggle run is still going. Not starting another; the collect workflow will pick it up."; echo "ok=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if [ "$PENDING" = "true" ] && [ "${{ github.event.inputs.ignore_pending }}" != "true" ]; then
+            echo "The last Kaggle run has not been collected yet. Run 'Model Watch collect' first (or tick ignore_pending)."; echo "ok=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          echo "ok=true" >> "$GITHUB_OUTPUT"
+
       - name: Choose models to test
         id: q
+        if: steps.gate.outputs.ok == 'true'
         env:
           MODELS: ${{ github.event.inputs.models }}
           DATASETS: ${{ github.event.inputs.datasets }}
@@ -61,7 +74,7 @@ jobs:
         run: cd bench && python select.py ../queue.json
 
       - name: Start the Kaggle run
-        if: steps.q.outputs.queued != '0'
+        if: steps.gate.outputs.ok == 'true' && steps.q.outputs.queued != '0'
         run: |
           mkdir kdir
           python - <<'PY'
@@ -75,93 +88,19 @@ jobs:
           PY
           kaggle kernels push -p kdir
 
-      - name: Wait for Kaggle to finish
-        if: steps.q.outputs.queued != '0'
+      - name: Record that a run is pending
+        if: steps.gate.outputs.ok == 'true' && steps.q.outputs.queued != '0'
         run: |
-          started=0
-          for i in $(seq 1 290); do
-            s=$(kaggle kernels status "$KERNEL" 2>&1 || true)
-            echo "$s"
-            if echo "$s" | grep -qiE "running|queued"; then started=1; fi
-            if [ "$started" = "1" ] || [ "$i" -gt 6 ]; then
-              if echo "$s" | grep -qi "complete"; then exit 0; fi
-              if echo "$s" | grep -qiE "error|cancel"; then echo "Kaggle run failed"; exit 1; fi
-            fi
-            sleep 60
-          done
-          echo "Timed out waiting for Kaggle"; exit 1
-
-      - name: Download Kaggle results
-        if: steps.q.outputs.queued != '0' && always()
-        run: |
-          kaggle kernels output "$KERNEL" -p out || true
-          echo "Files returned by Kaggle:"; ls -R out | head -80
-
-      - name: Score and update the data files
-        id: c
-        if: steps.q.outputs.queued != '0'
-        run: cd bench && python collect.py ../out ../queue.json
-
-      - name: Show the end of the Kaggle log
-        if: failure()
-        run: tail -n 80 out/*.log 2>/dev/null || echo "no log file returned"
-
-      - name: Commit to a branch and open a pull request
-        id: pr
-        if: steps.q.outputs.queued != '0'
-        run: |
+          python - <<'PY'
+          import json, datetime
+          q = json.load(open("queue.json"))
+          json.dump({"pending": True, "started": datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z",
+                     "queued": len(q["models"]), "models": [m["id"] for m in q["models"]]},
+                    open("docs/kaggle_state.json", "w"), indent=1)
+          PY
           git config user.name "model-watch-bot"
           git config user.email "actions@users.noreply.github.com"
-          BR="hpo-$(date +%Y-%m-%d-%H%M)"
-          git checkout -b "$BR"
-          git add docs runs
-          git commit -m "HPO benchmark $(date +%F)"
-          git push origin "$BR"
-          python - <<'PY' > body.md
-          import json
-          r = json.load(open("docs/run_report.json"))
-          print(f"HPO benchmark {r['date']} on {', '.join(r['gpus']) or 'no GPU'}; HPO release {r.get('hpo_version')}\n")
-          print("| Model | Dataset | Result | F1 | P | R | Neg. errors | s/doc | Peak GPU |\n|---|---|---|---|---|---|---|---|---|")
-          for x in r["results"]:
-              m = x.get("metrics") or {}
-              g = lambda k: m.get(k, "")
-              print(f"| {x['id']} | {x['dataset']} | {'ok' if x['ok'] else x['reason']} | {g('f1')} | {g('precision')} | {g('recall')} | {g('neg_errors')} | {g('secs_per_doc')} | {g('gpu_peak_gib')} |")
-          print("\nAll checks passed, safe to merge." if r["merge_ok"] else "\nProblems: " + "; ".join(r["problems"]) + ". Review before merging.")
-          PY
-          URL=$(gh pr create --base main --head "$BR" --title "HPO benchmark $(date +%F)" --body-file body.md)
-          echo "url=$URL" >> "$GITHUB_OUTPUT"
-          echo "merge_ok=$(python -c "import json;print(str(json.load(open('docs/run_report.json'))['merge_ok']).lower())")" >> "$GITHUB_OUTPUT"
-
-      - name: Merge when every check passed
-        id: merge
-        if: steps.q.outputs.queued != '0'
-        run: |
-          if [ "${{ steps.pr.outputs.merge_ok }}" = "true" ] && [ "${{ github.event.inputs.auto_merge }}" != "false" ]; then
-            gh pr merge "${{ steps.pr.outputs.url }}" --squash --delete-branch
-            echo "merged=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "merged=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Publish the site
-        if: steps.merge.outputs.merged == 'true'
-        run: gh workflow run deploy.yml --ref main
-
-      - name: Continue with models the time budget did not reach
-        if: steps.merge.outputs.merged == 'true' && steps.c.outputs.not_reached != '0' && steps.c.outputs.completed != '0'
-        run: gh workflow run benchmark.yml --ref main
-
-      - name: Notify
-        if: always() && steps.q.outputs.queued != '0'
-        run: |
-          OWNER="${{ github.repository_owner }}"
-          SITE="https://${OWNER}.github.io/${{ github.event.repository.name }}/"
-          RUN="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          if [ "${{ job.status }}" = "success" ] && [ "${{ steps.merge.outputs.merged }}" = "true" ]; then
-            T="HPO benchmark: new results are live"; B="@${OWNER} The benchmark passed every check and was merged. Site: ${SITE}"
-          elif [ "${{ job.status }}" = "success" ]; then
-            T="HPO benchmark needs your review"; B="@${OWNER} The run finished but was not merged. Review: ${{ steps.pr.outputs.url }}"
-          else
-            T="HPO benchmark failed"; B="@${OWNER} The benchmark stopped with an error. Log: ${RUN}"
-          fi
-          gh issue create --title "$T" --body "$B"
+          git add docs/kaggle_state.json docs/models.json
+          git commit -m "Kaggle run started $(date +%F)"
+          git push origin HEAD:main
+          echo "Kaggle run started. The collect workflow checks every 30 minutes and publishes when it finishes."
