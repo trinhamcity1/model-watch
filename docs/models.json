@@ -89,7 +89,8 @@
      }
     }
    }
-  }
+  },
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "gemma",
@@ -181,7 +182,8 @@
      }
     }
    }
-  }
+  },
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "q38",
@@ -235,7 +237,8 @@
      "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9"
     }
    }
-  }
+  },
+  "status_reason": "27B model: runs when the benchmark is started with 'include 15B+ models' ticked"
  },
  {
   "id": "g4",
@@ -278,7 +281,7 @@
     }
    }
   },
-  "status_reason": "In the queue for the benchmark"
+  "status_reason": "31B model: runs when the benchmark is started with 'include 15B+ models' ticked"
  },
  {
   "id": "nemo",
@@ -313,7 +316,7 @@
     }
    }
   },
-  "status_reason": "In the queue for the benchmark"
+  "status_reason": "30B model: runs when the benchmark is started with 'include 15B+ models' ticked"
  },
  {
   "id": "gpt",
@@ -356,7 +359,7 @@
     }
    }
   },
-  "status_reason": "In the queue for the benchmark"
+  "status_reason": "21B model: runs when the benchmark is started with 'include 15B+ models' ticked"
  },
  {
   "id": "med",
@@ -399,7 +402,7 @@
     }
    }
   },
-  "status_reason": "In the queue for the benchmark"
+  "status_reason": "27B model: runs when the benchmark is started with 'include 15B+ models' ticked"
  },
  {
   "id": "gran",
@@ -435,7 +438,7 @@
     }
    }
   },
-  "status_reason": "In the queue for the benchmark"
+  "status_reason": "30B model: runs when the benchmark is started with 'include 15B+ models' ticked"
  },
  {
   "id": "nvidia-nvidia-nemotron-3-5-bolt-e4b-bf16",
@@ -515,7 +518,7 @@
     }
    }
   },
-  "status_reason": "In the queue for the benchmark"
+  "status_reason": "24B model: runs when the benchmark is started with 'include 15B+ models' ticked"
  },
  {
   "id": "inclusionai-ling-3-0-tiny",
@@ -631,7 +634,7 @@
     }
    }
   },
-  "status_reason": "In the queue for the benchmark"
+  "status_reason": "33.1B model: runs when the benchmark is started with 'include 15B+ models' ticked"
  },
  {
   "id": "recursivesi-flint",
@@ -667,7 +670,7 @@
     }
    }
   },
-  "status_reason": "In the queue for the benchmark"
+  "status_reason": "39.8B model: runs when the benchmark is started with 'include 15B+ models' ticked"
  },
  {
   "id": "internscience-sage-a1-5",
@@ -703,7 +706,7 @@
     }
    }
   },
-  "status_reason": "In the queue for the benchmark"
+  "status_reason": "36B model: runs when the benchmark is started with 'include 15B+ models' ticked"
  },
  {
   "id": "apexintelligence-ai-apex-35b-v1-0",
@@ -747,7 +750,7 @@
     }
    }
   },
-  "status_reason": "In the queue for the benchmark"
+  "status_reason": "36B model: runs when the benchmark is started with 'include 15B+ models' ticked"
  },
  {
   "id": "empero-ai-qwen3-8-35b-a3b-distill",
@@ -791,7 +794,7 @@
     }
    }
   },
-  "status_reason": "In the queue for the benchmark"
+  "status_reason": "35.1B model: runs when the benchmark is started with 'include 15B+ models' ticked"
  },
  {
   "id": "ifm-k2-horizon-mova-36b-a4b",
@@ -835,7 +838,7 @@
     }
    }
   },
-  "status_reason": "In the queue for the benchmark"
+  "status_reason": "37.4B model: runs when the benchmark is started with 'include 15B+ models' ticked"
  },
  {
   "id": "liquidai-lfm3-1-7b",
@@ -859,7 +862,7 @@
   "hf": "Diffuspace/Clover-35B-A3B-Preview",
   "source": "scout",
   "added": "2026-11-02",
-  "status_reason": "In the queue for the benchmark"
+  "status_reason": "34.7B model: runs when the benchmark is started with 'include 15B+ models' ticked"
  },
  {
   "id": "obliteratus-deepseek-v4-1-flash-1017-obliterated",
@@ -960,7 +963,7 @@
   "hf": "KRAFTON/Raon-1-mini-preview",
   "source": "scout",
   "added": "2026-11-02",
-  "status_reason": "In the queue for the benchmark"
+  "status_reason": "28.8B model: runs when the benchmark is started with 'include 15B+ models' ticked"
  },
  {
   "id": "ornith-ai-ornith-1-5-122b",
@@ -1119,7 +1122,8 @@
   "licence": "Apache-2.0",
   "ollama_tag": "qwen3:8b",
   "source": "hand-added",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "qwen3-1-7b",
@@ -1128,7 +1132,8 @@
   "licence": "Apache-2.0",
   "ollama_tag": "qwen3:1.7b",
   "source": "hand-added",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "llama31-8b",
@@ -1137,7 +1142,8 @@
   "licence": "Llama 3.1 Community",
   "ollama_tag": "llama3.1:8b",
   "source": "hand-added",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "llama32-3b",
@@ -1146,7 +1152,8 @@
   "licence": "Llama 3.2 Community",
   "ollama_tag": "llama3.2:3b",
   "source": "hand-added",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "gemma3-1b",
@@ -1155,7 +1162,8 @@
   "licence": "Gemma terms",
   "ollama_tag": "gemma3:1b",
   "source": "hand-added",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "gemma3n-e4b",
@@ -1165,7 +1173,8 @@
   "licence": "Gemma terms",
   "ollama_tag": "gemma3n:e4b",
   "source": "hand-added",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "phi4-mini",
@@ -1174,7 +1183,8 @@
   "licence": "MIT",
   "ollama_tag": "phi4-mini",
   "source": "hand-added",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "mistral-7b",
@@ -1183,7 +1193,8 @@
   "licence": "Apache-2.0",
   "ollama_tag": "mistral:7b",
   "source": "hand-added",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "granite33-8b",
@@ -1192,7 +1203,8 @@
   "licence": "Apache-2.0",
   "ollama_tag": "granite3.3:8b",
   "source": "hand-added",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "deepseek-r1-8b",
@@ -1201,7 +1213,8 @@
   "licence": "MIT",
   "ollama_tag": "deepseek-r1:8b",
   "source": "hand-added",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "olmo2-7b",
@@ -1210,7 +1223,8 @@
   "licence": "Apache-2.0",
   "ollama_tag": "olmo2:7b",
   "source": "hand-added",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "medgemma15-4b",
@@ -1219,7 +1233,8 @@
   "licence": "Health AI Developer Foundations terms",
   "ollama_tag": "hf.co/unsloth/medgemma-1.5-4b-it-GGUF:Q4_K_M",
   "source": "hand-added",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "gemma3-12b",
@@ -1228,7 +1243,8 @@
   "licence": "Gemma terms",
   "ollama_tag": "gemma3:12b",
   "source": "hand-added",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "openbiollm-8b",
@@ -1237,7 +1253,8 @@
   "licence": "Llama 3 Community",
   "ollama_tag": "hf.co/LoneStriker/OpenBioLLM-Llama3-8B-GGUF:Q4_K_M",
   "source": "hand-added",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "biomistral-7b",
@@ -1246,7 +1263,8 @@
   "licence": "Apache-2.0",
   "ollama_tag": "hf.co/LoneStriker/BioMistral-7B-GGUF:Q4_K_M",
   "source": "hand-added",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "med42-8b",
@@ -1255,6 +1273,7 @@
   "licence": "Llama 3 Community",
   "ollama_tag": "hf.co/SandLogicTechnologies/Llama3-Med42-8B-GGUF:Q4_K_M",
   "source": "hand-added",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  }
 ]
