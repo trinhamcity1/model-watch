@@ -76,11 +76,16 @@ FLAG = re.search(r"FLAG_FILE\s*=\s*['\"]([^'\"]+)['\"]", src).group(1)
 tf = re.search(r"TEMP_FILES\s*=\s*\{[^}]*\}", src, re.S)
 TEMPS = re.findall(r"['\"]([^'\"]+\.(?:csv|json|pkl|parquet))['\"]", tf.group(0)) if tf else []
 
-# ---------- documents: the same fixed sample every run ----------
+# ---------- documents: the same hand-picked documents every run ----------
 import pandas as pd
 def pick_docs(ds, n):
     folder = CORP / CONFIG["datasets"][ds]["path"]
     names = sorted(p.stem for p in (folder / "corpus").iterdir() if p.is_file())
+    fixed = CONFIG["datasets"][ds].get("docs")
+    if fixed:   # hand-picked list in bench/config.json
+        missing = [d for d in fixed if d not in names]
+        if missing: raise SystemExit(f"{ds}: picked documents not found: {missing}")
+        return folder, fixed[:n]
     full = CONFIG["datasets"][ds]["n"]
     chosen = sorted(random.Random(CONFIG["sample_seed"]).sample(names, full)) if full < len(names) else names
     return folder, chosen[:n]

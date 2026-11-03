@@ -13,9 +13,13 @@ on:
         type: string
         default: ""
       max_docs:
-        description: "Documents per dataset (empty = the full fixed set: 68 and 60)"
+        description: "Documents per dataset (empty = all 12 hand-picked per dataset)"
         type: string
         default: ""
+      include_large:
+        description: "Include 15B+ models (up to 40B; slower, uses more GPU hours)"
+        type: boolean
+        default: false
       force:
         description: "Re-run models that already have results"
         type: boolean
@@ -71,6 +75,7 @@ jobs:
           DATASETS: ${{ github.event.inputs.datasets }}
           MAX_DOCS: ${{ github.event.inputs.max_docs }}
           FORCE: ${{ github.event.inputs.force }}
+          LARGE: ${{ github.event.inputs.include_large }}
         run: cd bench && python select.py ../queue.json
 
       - name: Start the Kaggle run

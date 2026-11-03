@@ -63,7 +63,7 @@ for run in meta.get("runs", []):
            "gpus": setup.get("gpus"), "hpo_version": setup.get("hpo_version"), "rag_hpo_commit": setup.get("rag_hpo_commit")}
     if row.get("metrics"): res["metrics"] = row["metrics"]
     if row.get("not_reached"):
-        res = {"task_version": None, "not_reached": True, "date": today, "reason": row["reason"]}  # not current, so re-queued
+        res = {"task_version": None, "for_version": ver, "not_reached": True, "date": today, "reason": row["reason"]}  # not current, so re-queued
     m.setdefault("results", {}).setdefault(task, {})[ds] = res
     m.pop("status_reason", None)
 

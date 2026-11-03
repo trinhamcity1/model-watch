@@ -1,8 +1,8 @@
 """Build the Kaggle queue for the HPO benchmark. Usage: python bench/select.py queue.json
 Inputs (env): MODELS ('' = all queued, or comma-separated ids), DATASETS ('' = all), MAX_DOCS ('' = config), FORCE ('true').
 A model is queued for each dataset that has no result at the current task version (or always, with FORCE).
-Size tiers (bench/config.json): up to full_max_params_b = every document; up to quick_max_params_b = a quick check on
-quick_docs documents per dataset; above that = never queued, marked server_only with a reason."""
+Every model gets the same hand-picked documents (bench/config.json). Models over large_min_params_b run only with
+LARGE=true (the 'include 15B+ models' box); models over kaggle_max_params_b never run on Kaggle (server_only)."""
 import json, os, sys
 from common import CONFIG, load_models, save_models, size_b, tier_for, add_extra_models, migrate_legacy, result_for, is_current
 
@@ -10,6 +10,7 @@ want_models = [x.strip() for x in os.environ.get("MODELS", "").split(",") if x.s
 want_ds = [x.strip() for x in os.environ.get("DATASETS", "").split(",") if x.strip()] or list(CONFIG["datasets"])
 max_docs = int(os.environ["MAX_DOCS"]) if os.environ.get("MAX_DOCS", "").strip() else None
 force = os.environ.get("FORCE", "").lower() == "true"
+large = os.environ.get("LARGE", "").lower() == "true"
 unknown = [d for d in want_ds if d not in CONFIG["datasets"]]
 if unknown:
     sys.exit(f"Unknown dataset(s): {unknown}. Known: {list(CONFIG['datasets'])}")
@@ -28,6 +29,10 @@ for m in models:
         m["status_reason"] = f"Large model ({b:g}B): cannot test on the free Kaggle GPUs, server test needed"
         continue
     m.pop("server_only", None)
+    if tier == "large" and not large:
+        if not all(is_current(result_for(m, d)) for d in want_ds):
+            m["status_reason"] = f"{b:g}B model: runs when the benchmark is started with 'include 15B+ models' ticked"
+        continue
     if not m.get("ollama_tag"):
         m["status_reason"] = "No download tag in models.json, so the benchmark cannot pull it"
         continue
@@ -35,13 +40,12 @@ for m in models:
     if not todo:
         m.pop("status_reason", None)
         continue
-    cap = CONFIG["quick_docs"] if tier == "quick" else None
-    n = {d: min([x for x in (max_docs, cap, CONFIG["datasets"][d]["n"]) if x]) for d in todo}
-    # Full-tier models go before quick checks; within a tier, models cut off by the time budget last run go first.
+    n = {d: min(max_docs, CONFIG["datasets"][d]["n"]) if max_docs else CONFIG["datasets"][d]["n"] for d in todo}
+    # Small models go before 15B+ ones; within a tier, models cut off by the time budget last run go first.
     first = 0 if any((result_for(m, d) or {}).get("not_reached") for d in todo) else 1
     queue.append({"id": m["id"], "name": m["name"], "tag": m["ollama_tag"], "role": "candidate", "tier": tier, "datasets": n,
-                  "_order": (0 if tier == "full" else 1, first)})
-    m["status_reason"] = "In the queue for the benchmark" + (" (quick check, 12 documents per dataset)" if tier == "quick" else "")
+                  "_order": (0 if tier == "small" else 1, first)})
+    m["status_reason"] = "In the queue for the benchmark"
     notes.append(f"{m['name']}: {', '.join(todo)}")
 
 queue.sort(key=lambda q: q.pop("_order"))

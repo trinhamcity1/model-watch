@@ -37,15 +37,15 @@ def result_for(m, ds):
     return ((m.get("results") or {}).get(CONFIG["task"]) or {}).get(ds)
 
 def tier_for(m):
-    """full: every document (models up to full_max_params_b). quick: a small fixed sample (up to quick_max_params_b).
-    server: too big for the free Kaggle GPUs."""
+    """small: up to large_min_params_b, runs every time. large: up to kaggle_max_params_b, runs only when the
+    benchmark is started with 'include 15B+ models' ticked. server: too big for the free Kaggle GPUs."""
     b = size_b(m)
-    if b is None or b <= CONFIG["full_max_params_b"]: return "full"
-    if b <= CONFIG["quick_max_params_b"]: return "quick"
+    if b is None or b <= CONFIG["large_min_params_b"]: return "small"
+    if b <= CONFIG["kaggle_max_params_b"]: return "large"
     return "server"
 
-def is_current(res, tier="full"):
-    return bool(res) and res.get("task_version") == CONFIG["task_version"] and (res.get("tier") or "full") == tier
+def is_current(res, tier=None):
+    return bool(res) and res.get("task_version") == CONFIG["task_version"]
 
 def add_extra_models(models):
     """Hand-picked models in bench/extra_models.json are added to models.json when missing (never overwritten)."""

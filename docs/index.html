@@ -110,7 +110,8 @@ td.wrap{white-space:normal;min-width:220px;color:var(--muted)}
         <li>RAG-HPO asks the language model to pull phenotype phrases out of each document, then matches them to Human Phenotype Ontology terms with a fixed search index. Only the language model changes between rows.</li>
         <li>Scoring is per document: the set of HPO codes returned (category Abnormal) against the expert codes. Precision, recall and F1 are summed over all documents; "per doc" is the average of each document's F1.</li>
         <li>Negation errors count codes the experts marked as absent (for example "no seizures") that the model reported as present. Only ID-68 marks these.</li>
-        <li>The same documents are used every run: all 68 ID-68 notes and a fixed sample of 60 GSC+ abstracts. A small control model is re-run each time to catch changes in the environment.</li>
+        <li>Every model gets the same 24 documents: 12 hand-picked ID-68 notes and 12 hand-picked GSC+ abstracts, chosen for epilepsy and neurodevelopmental findings (and, in ID-68, negated findings). With the same documents and the same scoring, every model on the page is directly comparable. A small control model is re-run each time to catch changes in the environment.</li>
+        <li>Models over 15B run only when the benchmark is started with "include 15B+ models" ticked; models over 40B need the lab server.</li>
         <li>"Worth a server test" means the model beats the best selected baseline by at least 0.03 F1 on every dataset it was tested on, with no more negation errors. It is a prompt to look closer, not a decision to switch.</li>
         <li>Scores are document-level, so they compare with document-level results in the literature (for example PhenoTagger), not mention-level ones.</li>
       </ul>
@@ -129,25 +130,31 @@ td.wrap{white-space:normal;min-width:220px;color:var(--muted)}
 </div>
 
 <script>
-var MODELS = [], CONFIG = {task:'hpo_rag', margin:0.03};
-var DATASETS = {id68:{label:'ID-68', about:'68 clinical notes from families with intellectual disability (Anazi et al. 2017), annotated with HPO terms including negated findings.'},
-                gscplus:{label:'GSC+', about:'PubMed abstracts with HPO annotations (Lobo et al. 2017); a fixed sample of 60 of the 228.'}};
+var MODELS = [], CONFIG = {task:'hpo_rag', task_version:2, margin:0.03};
+var DATASETS = {id68:{label:'ID-68', about:'12 hand-picked clinical notes from ID-68 (families with intellectual disability, Anazi et al. 2017): 7 with seizures or epilepsy, 5 with negated findings, the rest other neurodevelopmental features.'},
+                gscplus:{label:'GSC+', about:'12 hand-picked PubMed abstracts from GSC+ (Lobo et al. 2017): 8 on seizure or epilepsy disorders, 4 on other neurodevelopmental disorders.'}};
+var BOTH = {label:'GSC+ and ID-68 (mean)', about:'The mean of the two datasets, for models tested on both: precision, recall, F1, F1 per doc and seconds per doc are averaged; negation errors are added up; peak GPU is the higher of the two.'};
 var SORTS = {f1:['F1',true], precision:['Precision',true], recall:['Recall',true], f1_doc_mean:['F1 per doc',true],
              neg_errors:['Negation errors',false], secs_per_doc:['Seconds per doc',false], gpu_peak_gib:['Peak GPU memory',false]};
 function $(id){return document.getElementById(id)}
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
-function res(m,ds){var r=((m.results||{})[CONFIG.task]||{})[ds]; return r||null}
-function ok(m,ds){var r=res(m,ds); return r&&r.ok&&r.metrics?r.metrics:null}
-function quick(m,ds){var r=res(m,ds); return !!(r&&r.tier==='quick')}
-function tested(m){return Object.keys(DATASETS).some(function(d){return ok(m,d)&&!quick(m,d)})}
+function res(m,ds){
+  if(ds==='both'){var a=res(m,'id68'),b=res(m,'gscplus'); if(!a||!b)return null; return {date:a.date>b.date?a.date:b.date}}
+  var r=((m.results||{})[CONFIG.task]||{})[ds]; return r&&(r.task_version===CONFIG.task_version||(r.not_reached&&r.for_version===CONFIG.task_version))?r:null}
+function ok(m,ds){
+  if(ds==='both'){var a=ok(m,'id68'),b=ok(m,'gscplus'); if(!a||!b)return null; var o={};
+    ['precision','recall','f1','f1_doc_mean','secs_per_doc'].forEach(function(k){o[k]=(a[k]!=null&&b[k]!=null)?(a[k]+b[k])/2:null});
+    o.neg_errors=(a.neg_errors||0)+(b.neg_errors||0); o.gpu_peak_gib=Math.max(a.gpu_peak_gib||0,b.gpu_peak_gib||0)||null; o.n_docs=(a.n_docs||0)+(b.n_docs||0); return o}
+  var r=res(m,ds); return r&&r.ok&&r.metrics?r.metrics:null}
+function tested(m){return Object.keys(DATASETS).some(function(d){return ok(m,d)})}
 function store(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 function load(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}}
 function fmt(k,v){if(v==null)return '\u2014'; if(k==='neg_errors')return String(v); if(k==='secs_per_doc')return v.toFixed(1)+' s'; if(k==='gpu_peak_gib')return v.toFixed(1)+' GB'; return v.toFixed(2)}
 
 function setup(){
-  var ds=$('dataset'); Object.keys(DATASETS).forEach(function(k){ds.add(new Option(DATASETS[k].label,k))});
+  var ds=$('dataset'); ds.add(new Option(BOTH.label,'both')); Object.keys(DATASETS).forEach(function(k){ds.add(new Option(DATASETS[k].label,k))});
   var so=$('sort'); Object.keys(SORTS).forEach(function(k){so.add(new Option(SORTS[k][0],k))});
-  var saved=load('mw-view')||{}; if(saved.ds&&DATASETS[saved.ds])ds.value=saved.ds; if(saved.sort&&SORTS[saved.sort])so.value=saved.sort;
+  var saved=load('mw-view')||{}; if(saved.ds&&(DATASETS[saved.ds]||saved.ds==='both'))ds.value=saved.ds; if(saved.sort&&SORTS[saved.sort])so.value=saved.sort;
   var t=MODELS.filter(tested), picked=load('mw-baselines');
   if(!picked||!picked.length){ var d=MODELS.find(function(m){return m.baseline&&tested(m)})||t[0]; picked=d?[d.id]:[]; }
   $('baselines').innerHTML=t.length?t.map(function(m){return '<label><input type="checkbox" value="'+esc(m.id)+'"'+(picked.indexOf(m.id)>=0?' checked':'')+'> '+esc(m.name)+'</label>'}).join(''):'<span class="empty">No tested models yet.</span>';
@@ -156,23 +163,22 @@ function setup(){
   render();
 }
 function baselines(){return Array.prototype.slice.call(document.querySelectorAll('#baselines input:checked')).map(function(i){return i.value})}
-function bestBase(ids,ds){var b=null; ids.forEach(function(id){var m=MODELS.find(function(x){return x.id===id}); var r=m&&ok(m,ds); if(r&&!quick(m,ds)&&(!b||r.f1>b.f1))b=r}); return b}
+function bestBase(ids,ds){var b=null; ids.forEach(function(id){var m=MODELS.find(function(x){return x.id===id}); var r=m&&ok(m,ds); if(r&&(!b||r.f1>b.f1))b=r}); return b}
 function worth(m,ids){
   if(ids.indexOf(m.id)>=0)return false; var any=false;
-  for(var d in DATASETS){var r=ok(m,d); if(!r||quick(m,d))continue; var b=bestBase(ids,d); if(!b)return false; any=true;
+  for(var d in DATASETS){var r=ok(m,d); if(!r)continue; var b=bestBase(ids,d); if(!b)return false; any=true;
     if(r.f1-b.f1<CONFIG.margin||r.neg_errors>b.neg_errors)return false;}
   return any;
 }
 function render(){
   var ds=$('dataset').value, key=$('sort').value, ids=baselines(); store('mw-view',{ds:ds,sort:key}); store('mw-baselines',ids);
-  $('dsdesc').textContent=DATASETS[ds].about;
+  var DS=ds==='both'?BOTH:DATASETS[ds]; $('dsdesc').textContent=DS.about;
   var rows=MODELS.filter(function(m){return ok(m,ds)}), base=bestBase(ids,ds), hi=SORTS[key][1];
   rows.sort(function(a,b){var x=ok(a,ds)[key],y=ok(b,ds)[key]; if(x==null)return 1; if(y==null)return -1; return hi?y-x:x-y});
   var h='<thead><tr><th>Model</th><th class="num">F1</th><th class="num">Precision</th><th class="num">Recall</th><th class="num">F1 per doc</th><th class="num">Neg. errors</th><th class="num">s / doc</th><th class="num">Peak GPU</th><th>vs baseline</th><th>Tested</th></tr></thead><tbody>';
   rows.forEach(function(m){
     var r=ok(m,ds), isBase=ids.indexOf(m.id)>=0, chip='';
     if(isBase) chip='<span class="chip tie">baseline</span>';
-    else if(quick(m,ds)) chip='<span class="chip tie">quick check, '+r.n_docs+' docs: not comparable</span>';
     else if(base){var d=r.f1-base.f1; chip='<span class="chip '+(d>=CONFIG.margin?'win':(d<=-CONFIG.margin?'loss':'tie'))+'">'+(d>=0?'+':'')+d.toFixed(2)+' F1</span>';}
     if(worth(m,ids)) chip+=' <span class="chip flag">worth a server test</span>';
     h+='<tr><td>'+esc(m.name)+'<div class="mono" style="color:var(--muted);font-size:12px">'+esc(m.size||'')+'</div></td>'+
@@ -180,7 +186,7 @@ function render(){
       '<td style="white-space:normal;min-width:150px">'+chip+'</td><td class="mono">'+esc(res(m,ds).date||'')+'</td></tr>';
   });
   $('results').innerHTML=rows.length?h+'</tbody>':'<tbody><tr><td class="empty">No results for this dataset yet.</td></tr></tbody>';
-  $('legend').textContent=base?'Compared with the best selected baseline on '+DATASETS[ds].label+' (F1 '+base.f1.toFixed(2)+'). Differences under '+CONFIG.margin+' F1 count as a tie.':'Pick a baseline above to compare.';
+  $('legend').textContent=base?'Compared with the best selected baseline on '+DS.label+' (F1 '+base.f1.toFixed(2)+'). Differences under '+CONFIG.margin+' F1 count as a tie.':'Pick a baseline above to compare.';
   renderPending();
 }
 function reasonFor(m){
