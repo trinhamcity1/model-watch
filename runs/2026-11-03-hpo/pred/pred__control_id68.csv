@@ -1,0 +1,156 @@
+Patient ID,Category,Phenotype name,HPO ID
+1,Abnormal,birth weight was 2.8 kg,HP:0008846
+1,Abnormal,was noted to be floppy with poor sucking,HP:0008947
+1,Abnormal,aspiration problems persisted,HP:0002100
+1,Abnormal,seizures and continues to seize daily despite multiple attempts to control her seizures with medications,HP:0032867
+1,Abnormal,seizures semiology appears to be as opisthotonic posturing,HP:0001250
+1,Abnormal,has bronchial asthma,HP:0002099
+1,Abnormal,"barely can feel pain, and has no tears when she cries even though she has normal sweating",HP:0000522
+1,Abnormal,demonstrates a self-mutilating behavior by scratching her face,HP:0000742
+1,Abnormal,current developmental delay affecting all domains,HP:0012736
+1,Abnormal,IQ was estimated to be 20-30,HP:0002342
+1,Abnormal,can walk although her gait is unstable,HP:0002317
+1,Abnormal,poor growth with significant microcephaly,HP:0000252
+1,Abnormal,subtle dysmorphia characterized as hypotelorism and tapering of fingers,HP:0001182
+1,Abnormal,MRI showed thinning of the corpus callosum and mild atrophy of the cerebellar vermis,HP:0006855
+2,Abnormal,tachypnea,HP:0002789
+2,Abnormal,irritability,HP:0000737
+2,Abnormal,global developmental delay,HP:0001263
+2,Abnormal,hypertonia,HP:0001276
+2,Abnormal,flat feet,HP:0001763
+2,Abnormal,microcephaly,HP:0000252
+2,Abnormal,brachycephaly,HP:0000248
+2,Abnormal,spastic movements of the upper limbs,HP:0006986
+2,Abnormal,mild hypocalcemia,HP:0002901
+2,Abnormal,mild hypomagnesemia,HP:0002917
+2,Abnormal,weak suckling,HP:0002033
+2,Abnormal,feeding difficulty,HP:0002033
+2,Abnormal,motor delay at the age of 9 months,HP:0001270
+2,Abnormal,sat at 15 months,HP:0025336
+2,Abnormal,walked at 22 months,HP:0031936
+2,Abnormal,said mama at 24 months,No Candidate Fit
+2,Abnormal,claimed stairs shortly after,HP:0003551
+2,Abnormal,could speak only 10 words at 3 years,No Candidate Fit
+2,Abnormal,could speak in two-word sentences at 4 years,HP:0011351
+2,Abnormal,can jump on one leg,HP:5200134
+2,Abnormal,ride a tricycle,No Candidate Fit
+2,Abnormal,dress himself and tie his shoes,HP:0031060
+2,Abnormal,can write his name,No Candidate Fit
+2,Abnormal,can count to 10,No Candidate Fit
+2,Abnormal,toilet-trained,HP:0031061
+2,Abnormal,left eye strabismus,HP:0010877
+2,Abnormal,height 107 cm (on the 5th percentile),No Candidate Fit
+2,Abnormal,"periventricular, thalamic and perirolandic white matter changes",HP:0030891
+2,Abnormal,region of increased myoinositol in the left thalamus indicating gliosis,HP:0002171
+2,Abnormal,no lactate peak,HP:6000526
+2,Abnormal,TSH persistently mildly elevated,HP:0008223
+2,Abnormal,first seizure at 7 months,HP:0001250
+2,Abnormal,frequency of seizures increased with time,HP:0001250
+2,Abnormal,profound developmental delay,HP:0012736
+2,Abnormal,at 10 months,No Candidate Fit
+2,Abnormal,cannot walk or talk,HP:0002540
+2,Abnormal,speech limited to mama,HP:0006977
+2,Abnormal,upturned ear lobules,HP:0040080
+2,Abnormal,weight 18.7 kg (on the 5th percentile),HP:0001508
+2,Abnormal,head circumference 48.5 cm (<1st percentile),HP:0000252
+2,Abnormal,right temporal lobe cortical dysplasia,HP:0032046
+2,Abnormal,EEG consistent with partial seizure activity,HP:0011185
+3,Abnormal,failure to thrive,HP:0001508
+3,Abnormal,dysarthria,HP:0001260
+3,Abnormal,ataxic gait,HP:0002066
+3,Abnormal,hyperreflexia,HP:0001347
+3,Abnormal,metatarsus adductus,HP:0001840
+3,Abnormal,poor weight gain at early months of life,HP:0001531
+3,Abnormal,weight 12.7 kg (<3rd percentile),HP:0004325
+3,Abnormal,height 102.2 cm (<3rd percentile),HP:0004322
+3,Abnormal,head circumference 50 cm (25th-50th percentile),HP:0004488
+3,Abnormal,atrial fibrillation since very young age,HP:0005110
+4,Abnormal,posteriorly rotated ears,HP:0000358
+4,Abnormal,prominent nose,HP:0000448
+4,Abnormal,micrognathia,HP:0000347
+4,Abnormal,symmetric IUGR,HP:0001511
+4,Abnormal,mild respiratory distress,HP:0002098
+4,Abnormal,weight 1.92 kg (<1st percentile),HP:0004325
+4,Abnormal,OFC 29.5 cm (<1st percentile),HP:0020298
+4,Abnormal,oligodactyly and dysplasia of the digits in the right hand (4 digits),HP:0009380
+4,Abnormal,Cutis aplasia in the scalp,HP:0007385
+4,Abnormal,last growth parameters were all below 3rd percentile,HP:0004322
+4,Abnormal,skeletal survey showed 5 metacarpals with 3 hypoplastic fingers in the right hand as well as a claw appearance of a part of the little finger,HP:0009237
+5,Abnormal,tip-toeing at 14 months of age,HP:0030051
+5,Abnormal,two seizures at 26 and 28 months of age,HP:0001250
+5,Abnormal,expressive language delay at age three years,HP:0002474
+5,Abnormal,reduced cognitive abilities,HP:0100543
+5,Abnormal,estimated IQ of 76,HP:0001256
+5,Abnormal,frequent sleep panic attacks,HP:0025269
+5,Abnormal,mild hypertelorism,HP:0000316
+5,Abnormal,hypopigmentation on the back,HP:0001010
+5,Abnormal,weight 44.2 kg (>97th percentile),HP:0004324
+5,Abnormal,"height 150 cm (>97th percentile, +2.64 SD)",HP:0001519
+5,Abnormal,"head circumference 55.5 cm (>99th percentile, +2.68 SD)",HP:0004482
+6,Abnormal,episode of stiffness that turned to be seizures,HP:0001250
+6,Abnormal,regress in his motor skills and had dystonia and ataxia,HP:0001332
+6,Abnormal,"two severe episodes of seizures, high-grade fever, dystonia, hypotonia and hyperextension of the neck",HP:0002373
+6,Abnormal,brain MRI showed massive hemorrhagic infarction of nonvascular distribution pattern involving both posterior occipitoparietal regions within the brainstem area and cerebellum,HP:0002170
+6,Abnormal,subsequently died due to progressive cerebral edema and tentorial herniation,HP:0002448
+6,Abnormal,"muscle biopsy showed mild lipid myopathy with type 2 muscle fiber atrophy, with no morphological evidence of mitochondrial disease",HP:0003554
+7,Abnormal,psychomotor delay,HP:0001263
+7,Abnormal,epilepsy,HP:0001250
+7,Abnormal,global developmental delay,HP:0001263
+7,Abnormal,short stature,HP:0004322
+7,Abnormal,obesity,HP:0001513
+7,Abnormal,hypertelorism,HP:0000316
+7,Abnormal,depressed nasal bridge,HP:0005280
+7,Abnormal,hyperreflexia in the lower limbs,HP:0002395
+7,Abnormal,brain malformation,HP:0012443
+7,Abnormal,did not cry immediately after birth,HP:0001612
+7,Abnormal,seizures at the age of two years described as tonic clonic with rolling of the eyes,HP:0002069
+7,Abnormal,subsequent EEGs showed multifocal discharges,HP:0010841
+7,Abnormal,sat at the age of 2 years and started to walk after the age of 3 years,HP:0031936
+7,Abnormal,speech is significantly delayed,HP:0002474
+7,Abnormal,IQ was estimated to be 55,HP:0002342
+7,Abnormal,"weight 78 kg, height 140 cm and BMI 39.7",HP:0031418
+7,Abnormal,agenesis of corpus callosum with bilateral colpocephaly,HP:0030048
+7,Abnormal,spina bifida at L5 as well as upper two sacral vertebrae,HP:0002414
+7,Abnormal,right ectopic kidney lying in the pelvis close to the urinary bladder on the right side,HP:0100542
+7,Abnormal,mild bilateral hydronephrosis,HP:0000126
+7,Abnormal,bicornuate unicollis uterus,HP:0000813
+8,Abnormal,first concern was at 5 months of age due to cyanotic episode and floppiness,HP:0000961
+8,Abnormal,brain MRI and found to have abnormal myelination,HP:0012447
+8,Abnormal,peripheral nerve involvement confirmed by nerve conduction studies and biopsy that showed a progressive axonal loss,HP:0003447
+8,Abnormal,"gradually started to have deformities in his feet, hands and back",HP:0008443
+8,Abnormal,"sat at 18 months and walked with a walker at 4 years of age; however, he lost the ability to walk later on",HP:0002505
+8,Abnormal,estimated IQ was 65,HP:0002342
+8,Abnormal,seems to have a borderline progressive microcephaly,HP:0000253
+8,Abnormal,drooling and wheelchair bound,HP:0002307
+8,Abnormal,"physical examination was significant for drooling, scoliosis, bilateral claw hands, bilateral drop feet and areflexia",HP:0002650
+8,Abnormal,"growth parameters at 11 years of age were weight 19 kg (<1st percentile, -3.35 SD) and head circumference 50 cm (on the 1st percentile)",HP:0004325
+9,Abnormal,developmental delay,HP:0001263
+9,Abnormal,ADHD,HP:0007018
+9,Abnormal,language delay,HP:0000750
+9,Abnormal,intellectual disability,HP:0001249
+9,Abnormal,prominent nose,HP:0000448
+9,Abnormal,recurrent respiratory infections since age 6 months,HP:0002205
+9,Abnormal,higher cerebral function deficit,HP:0011446
+9,Abnormal,down slanting eyes,HP:0000494
+9,Abnormal,low hairline,HP:0002162
+9,Abnormal,mild hyperplasia of the maxilla,HP:0430028
+9,Abnormal,flattened nails,HP:0001816
+9,Abnormal,height 102 cm (10th-25th percentile),HP:0001518
+9,Abnormal,head circumference 48 cm (10th -25th percentile),HP:0000252
+9,Abnormal,height 104 cm (10th percentile),No Candidate Fit
+9,Abnormal,head circumference 49 cm (10th percentile),HP:0000252
+10,Abnormal,global developmental delay,HP:0001263
+10,Abnormal,microcephaly,HP:0000252
+10,Abnormal,bilateral strabismus,HP:0000486
+10,Abnormal,unable to follow,HP:0002300
+10,Abnormal,blind,HP:0000618
+10,Abnormal,swallowing problems with solids that progressed to liquids,HP:0200136
+10,Abnormal,frequent jerks which progressed to generalized tonic-clonic seizures,HP:0025190
+10,Abnormal,lost milestones,HP:0002376
+10,Abnormal,multiple hospitalizations and ICU admissions due to respiratory infections,HP:0002205
+10,Abnormal,head circumference 43 cm (<3rd percentile),HP:0040195
+10,Abnormal,severe hypotonia,HP:0006829
+10,Abnormal,EEG was remarkable for hypsarrhythmia and multifocal epileptic discharges,HP:0010841
+10,Abnormal,brain MRI and MRS demonstrated diffuse extensive abnormal T2 hyperintensity of both cerebral and cerebellar hemispheres and the corpus callosum as well as the posterior limb of the both internal capsule and the paramedian tracts,HP:0007204
+10,Abnormal,atrophied thalami,HP:0012695
+10,Abnormal,"restricted water diffusion with multifocal areas of necrotic appearance in the periventricular region and the centrum semiovale, bilaterally",HP:0040332

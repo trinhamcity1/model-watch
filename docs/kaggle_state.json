@@ -1,1 +1,33 @@
-{"pending": false, "started": null, "queued": 0}
+{
+ "pending": true,
+ "started": "2026-11-03T03:48:33Z",
+ "queued": 26,
+ "models": [
+  "g4",
+  "nemo",
+  "gpt",
+  "med",
+  "gran",
+  "nvidia-nvidia-nemotron-3-5-bolt-e4b-bf16",
+  "liquidai-lfm2-5-24b-a2b",
+  "inclusionai-ling-3-0-tiny",
+  "microsoft-sentiment-analysis-7b",
+  "nanbeige-nanbeige4-3-33b",
+  "recursivesi-flint",
+  "internscience-sage-a1-5",
+  "apexintelligence-ai-apex-35b-v1-0",
+  "empero-ai-qwen3-8-35b-a3b-distill",
+  "ifm-k2-horizon-mova-36b-a4b",
+  "liquidai-lfm3-1-7b",
+  "diffuspace-clover-35b-a3b-preview",
+  "xhtoken-spark-x2-6-4b",
+  "xhtoken-spark-x2-6-1-7b",
+  "krafton-raon-1-mini-preview",
+  "jetbrains-mellum2-1-12b-a2-5b-thinking-mtp",
+  "nanbeige-nanbeige4-2-3b",
+  "ibm-granite-granite-4-2-3b",
+  "ibm-granite-granite-switch-4-1-8b",
+  "openbmb-minicpm5-2b",
+  "jetbrains-mellum2-1-12b-a2-5b-thinking"
+ ]
+}
