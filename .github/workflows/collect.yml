@@ -60,6 +60,17 @@ jobs:
           echo "Files returned by Kaggle:"; ls -R out | head -80
           echo '{}' > queue.json
 
+      - name: Save the HPO search index for later runs
+        if: steps.k.outputs.state == 'complete' || steps.k.outputs.state == 'failed'
+        continue-on-error: true
+        run: |
+          F=$(find out -name hpo_index.tgz | head -1)
+          if [ -n "$F" ]; then
+            gh release view hpo-index >/dev/null 2>&1 || gh release create hpo-index --title "HPO search index" --notes "Built by the benchmark; reused so later runs skip the ~45 minute setup."
+            gh release upload hpo-index "$F" --clobber
+            echo "index saved"
+          else echo "no new index in this run"; fi
+
       - name: Mark the run as collected
         if: steps.k.outputs.state == 'complete' || steps.k.outputs.state == 'failed'
         run: |

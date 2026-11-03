@@ -59,7 +59,7 @@ for run in meta.get("runs", []):
         report["control"] = row; continue
     m = by_id.get(run["id"])
     if m is None: continue
-    res = {"task_version": ver, "date": today, "ok": row["ok"], "reason": row["reason"],
+    res = {"task_version": ver, "tier": run.get("tier", "full"), "date": today, "ok": row["ok"], "reason": row["reason"],
            "gpus": setup.get("gpus"), "hpo_version": setup.get("hpo_version"), "rag_hpo_commit": setup.get("rag_hpo_commit")}
     if row.get("metrics"): res["metrics"] = row["metrics"]
     if row.get("not_reached"):

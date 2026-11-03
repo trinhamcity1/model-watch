@@ -65,3 +65,10 @@ to retry it, delete its entry under `results`.
 - The HPO release is not pinned; the release used is recorded with each result.
 - Scores are document-level, so compare them with document-level results in the literature.
 - Thinking models may format their output in ways RAG-HPO does not parse; those runs show a reason on the site.
+
+## Size tiers, time limits and the saved index
+
+- Up to 10B parameters: every document (ID-68 all 68, GSC+ the fixed 60). 10B to 40B: a quick check on 12 documents per dataset, shown on the page as "quick check" and not compared with the full results. Over 40B: server only.
+- Each model gets 45 minutes per dataset; a model that cannot finish is marked too slow.
+- The RAG-HPO search database (about 45 minutes to build) is saved by the collect workflow as the release `hpo-index` and reused until the RAG-HPO version changes or it is older than 90 days.
+- Extra hand-picked models live in `bench/extra_models.json`; the benchmark adds any that are missing to `docs/models.json`.

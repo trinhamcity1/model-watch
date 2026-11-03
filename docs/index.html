@@ -138,7 +138,8 @@ function $(id){return document.getElementById(id)}
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
 function res(m,ds){var r=((m.results||{})[CONFIG.task]||{})[ds]; return r||null}
 function ok(m,ds){var r=res(m,ds); return r&&r.ok&&r.metrics?r.metrics:null}
-function tested(m){return Object.keys(DATASETS).some(function(d){return ok(m,d)})}
+function quick(m,ds){var r=res(m,ds); return !!(r&&r.tier==='quick')}
+function tested(m){return Object.keys(DATASETS).some(function(d){return ok(m,d)&&!quick(m,d)})}
 function store(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
 function load(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}}
 function fmt(k,v){if(v==null)return '\u2014'; if(k==='neg_errors')return String(v); if(k==='secs_per_doc')return v.toFixed(1)+' s'; if(k==='gpu_peak_gib')return v.toFixed(1)+' GB'; return v.toFixed(2)}
@@ -155,10 +156,10 @@ function setup(){
   render();
 }
 function baselines(){return Array.prototype.slice.call(document.querySelectorAll('#baselines input:checked')).map(function(i){return i.value})}
-function bestBase(ids,ds){var b=null; ids.forEach(function(id){var m=MODELS.find(function(x){return x.id===id}); var r=m&&ok(m,ds); if(r&&(!b||r.f1>b.f1))b=r}); return b}
+function bestBase(ids,ds){var b=null; ids.forEach(function(id){var m=MODELS.find(function(x){return x.id===id}); var r=m&&ok(m,ds); if(r&&!quick(m,ds)&&(!b||r.f1>b.f1))b=r}); return b}
 function worth(m,ids){
   if(ids.indexOf(m.id)>=0)return false; var any=false;
-  for(var d in DATASETS){var r=ok(m,d); if(!r)continue; var b=bestBase(ids,d); if(!b)return false; any=true;
+  for(var d in DATASETS){var r=ok(m,d); if(!r||quick(m,d))continue; var b=bestBase(ids,d); if(!b)return false; any=true;
     if(r.f1-b.f1<CONFIG.margin||r.neg_errors>b.neg_errors)return false;}
   return any;
 }
@@ -171,6 +172,7 @@ function render(){
   rows.forEach(function(m){
     var r=ok(m,ds), isBase=ids.indexOf(m.id)>=0, chip='';
     if(isBase) chip='<span class="chip tie">baseline</span>';
+    else if(quick(m,ds)) chip='<span class="chip tie">quick check, '+r.n_docs+' docs: not comparable</span>';
     else if(base){var d=r.f1-base.f1; chip='<span class="chip '+(d>=CONFIG.margin?'win':(d<=-CONFIG.margin?'loss':'tie'))+'">'+(d>=0?'+':'')+d.toFixed(2)+' F1</span>';}
     if(worth(m,ids)) chip+=' <span class="chip flag">worth a server test</span>';
     h+='<tr><td>'+esc(m.name)+'<div class="mono" style="color:var(--muted);font-size:12px">'+esc(m.size||'')+'</div></td>'+

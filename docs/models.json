@@ -1111,5 +1111,150 @@
   "added": "2026-11-02",
   "server_only": true,
   "status_reason": "Large model (287.9B): cannot test on the free Kaggle GPUs, server test needed"
+ },
+ {
+  "id": "qwen3-8b",
+  "name": "Qwen3 8B",
+  "size": "8B",
+  "licence": "Apache-2.0",
+  "ollama_tag": "qwen3:8b",
+  "source": "hand-added",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "qwen3-1-7b",
+  "name": "Qwen3 1.7B",
+  "size": "1.7B",
+  "licence": "Apache-2.0",
+  "ollama_tag": "qwen3:1.7b",
+  "source": "hand-added",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "llama31-8b",
+  "name": "Llama 3.1 8B Instruct",
+  "size": "8B",
+  "licence": "Llama 3.1 Community",
+  "ollama_tag": "llama3.1:8b",
+  "source": "hand-added",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "llama32-3b",
+  "name": "Llama 3.2 3B Instruct",
+  "size": "3B",
+  "licence": "Llama 3.2 Community",
+  "ollama_tag": "llama3.2:3b",
+  "source": "hand-added",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "gemma3-1b",
+  "name": "Gemma 3 1B",
+  "size": "1B",
+  "licence": "Gemma terms",
+  "ollama_tag": "gemma3:1b",
+  "source": "hand-added",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "gemma3n-e4b",
+  "name": "Gemma 3n E4B",
+  "size": "8B (4B effective)",
+  "params_b": 8,
+  "licence": "Gemma terms",
+  "ollama_tag": "gemma3n:e4b",
+  "source": "hand-added",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "phi4-mini",
+  "name": "Phi-4 mini",
+  "size": "3.8B",
+  "licence": "MIT",
+  "ollama_tag": "phi4-mini",
+  "source": "hand-added",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "mistral-7b",
+  "name": "Mistral 7B Instruct",
+  "size": "7B",
+  "licence": "Apache-2.0",
+  "ollama_tag": "mistral:7b",
+  "source": "hand-added",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "granite33-8b",
+  "name": "Granite 3.3 8B",
+  "size": "8B",
+  "licence": "Apache-2.0",
+  "ollama_tag": "granite3.3:8b",
+  "source": "hand-added",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "deepseek-r1-8b",
+  "name": "DeepSeek-R1 8B (distill)",
+  "size": "8B",
+  "licence": "MIT",
+  "ollama_tag": "deepseek-r1:8b",
+  "source": "hand-added",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "olmo2-7b",
+  "name": "OLMo 2 7B",
+  "size": "7B",
+  "licence": "Apache-2.0",
+  "ollama_tag": "olmo2:7b",
+  "source": "hand-added",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "medgemma15-4b",
+  "name": "MedGemma 1.5 4B (medical)",
+  "size": "4B",
+  "licence": "Health AI Developer Foundations terms",
+  "ollama_tag": "hf.co/unsloth/medgemma-1.5-4b-it-GGUF:Q4_K_M",
+  "source": "hand-added",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "gemma3-12b",
+  "name": "Gemma 3 12B",
+  "size": "12B",
+  "licence": "Gemma terms",
+  "ollama_tag": "gemma3:12b",
+  "source": "hand-added",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "openbiollm-8b",
+  "name": "OpenBioLLM-Llama3-8B (biomedical)",
+  "size": "8B",
+  "licence": "Llama 3 Community",
+  "ollama_tag": "hf.co/LoneStriker/OpenBioLLM-Llama3-8B-GGUF:Q4_K_M",
+  "source": "hand-added",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "biomistral-7b",
+  "name": "BioMistral-7B (biomedical)",
+  "size": "7B",
+  "licence": "Apache-2.0",
+  "ollama_tag": "hf.co/LoneStriker/BioMistral-7B-GGUF:Q4_K_M",
+  "source": "hand-added",
+  "added": "2026-11-02"
+ },
+ {
+  "id": "med42-8b",
+  "name": "Llama3-Med42-8B (clinical)",
+  "size": "8B",
+  "licence": "Llama 3 Community",
+  "ollama_tag": "hf.co/SandLogicTechnologies/Llama3-Med42-8B-GGUF:Q4_K_M",
+  "source": "hand-added",
+  "added": "2026-11-02"
  }
 ]

@@ -29,19 +29,46 @@ meta["setup"]["corpora_commit"] = clone(CONFIG["corpora"]["repo"], CONFIG["corpo
 sh(f"pip install -q -r {RAG}/requirements.txt")
 sh("pip install -q pronto fastembed sentence-transformers faiss-cpu tiktoken nbconvert openpyxl")
 sh("jupyter nbconvert --to script HPO_Vectorization.ipynb RAG-HPO.ipynb", cwd=RAG)
+# The HPO search database takes ~45 minutes to build, so it is built once and kept as a GitHub release file.
+def restore_index():
+    url = CONFIG.get("index_url")
+    if not url: return False
+    tgz = pathlib.Path("/kaggle/working/hpo_index.tgz")
+    if sh(f"curl -fsSL --retry 2 -o {tgz} {url}").returncode != 0 or not tgz.exists(): return False
+    sh(f"tar xzf {tgz} -C {RAG}")
+    try: info = json.load(open(RAG / "index_info.json"))
+    except Exception: return False
+    age = (time.time() - info.get("built_epoch", 0)) / 86400
+    meta["setup"]["index_age_days"] = round(age, 1)
+    good = (info.get("rag_hpo_commit") == meta["setup"]["rag_hpo_commit"] and age <= CONFIG.get("index_max_age_days", 90)
+            and (RAG / "hpo_embedded.npz").exists() and (RAG / "hpo_meta.json").exists())
+    if good: meta["setup"]["hpo_version"] = info.get("hpo_version", "unknown")
+    return good
+
 t0 = time.time()
-vec = sh("python HPO_Vectorization.py", cwd=RAG, capture_output=True, text=True)
-meta["setup"]["vectorization_seconds"] = round(time.time() - t0)
-meta["setup"]["vectorization_ok"] = (RAG / "hpo_embedded.npz").exists() and (RAG / "hpo_meta.json").exists()
-if not meta["setup"]["vectorization_ok"]:
-    meta["setup"]["vectorization_error"] = (vec.stdout + vec.stderr)[-3000:]
-    save_meta(); raise SystemExit("HPO search database was not built")
 hpo_version = "unknown"
-for obo in list(RAG.glob("*.obo")) + list(RAG.glob("**/hp.obo")):
-    for line in open(obo, errors="ignore"):
-        if line.startswith("data-version:"): hpo_version = line.split(":", 1)[1].strip(); break
-    if hpo_version != "unknown": break
-meta["setup"]["hpo_version"] = hpo_version
+if restore_index():
+    meta["setup"]["index_source"] = "release"; hpo_version = meta["setup"]["hpo_version"]
+    meta["setup"]["vectorization_seconds"] = 0; meta["setup"]["vectorization_ok"] = True
+else:
+    meta["setup"]["index_source"] = "built"
+    before = {p for p in RAG.rglob("*") if p.is_file() and ".git" not in p.parts}
+    vec = sh("python HPO_Vectorization.py", cwd=RAG, capture_output=True, text=True)
+    meta["setup"]["vectorization_seconds"] = round(time.time() - t0)
+    meta["setup"]["vectorization_ok"] = (RAG / "hpo_embedded.npz").exists() and (RAG / "hpo_meta.json").exists()
+    if not meta["setup"]["vectorization_ok"]:
+        meta["setup"]["vectorization_error"] = (vec.stdout + vec.stderr)[-3000:]
+        save_meta(); raise SystemExit("HPO search database was not built")
+    for obo in list(RAG.glob("*.obo")) + list(RAG.glob("**/hp.obo")):
+        for line in open(obo, errors="ignore"):
+            if line.startswith("data-version:"): hpo_version = line.split(":", 1)[1].strip(); break
+        if hpo_version != "unknown": break
+    meta["setup"]["hpo_version"] = hpo_version
+    new = sorted(str(p.relative_to(RAG)) for p in RAG.rglob("*") if p.is_file() and ".git" not in p.parts and p not in before)
+    json.dump({"rag_hpo_commit": meta["setup"]["rag_hpo_commit"], "hpo_version": hpo_version, "built_epoch": time.time(),
+               "built_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "files": new}, open(RAG / "index_info.json", "w"))
+    files = " ".join(new + ["index_info.json"])
+    sh(f"tar czf {OUT}/hpo_index.tgz {files}", cwd=RAG)   # the collect workflow saves this as a release file for later runs
 gpus = sh("nvidia-smi --query-gpu=name,memory.total --format=csv,noheader", capture_output=True, text=True).stdout.strip().splitlines()
 meta["setup"]["gpus"] = gpus
 src = open(RAG / "RAG-HPO.py").read()
@@ -89,7 +116,7 @@ def gpu_used():
     except ValueError: return None
 
 def run_one(entry, ds, n):
-    rec = {"id": entry["id"], "tag": entry["tag"], "role": entry["role"], "dataset": ds}
+    rec = {"id": entry["id"], "tag": entry["tag"], "role": entry["role"], "dataset": ds, "tier": entry.get("tier", "full")}
     if left() < 10 * 60 or (entry["role"] != "control" and time.time() - START > BUDGET_S):
         rec["not_reached"] = True; return rec
     inp, ndocs, index = prepare(ds, n)

@@ -36,5 +36,24 @@ def migrate_legacy(models):
 def result_for(m, ds):
     return ((m.get("results") or {}).get(CONFIG["task"]) or {}).get(ds)
 
-def is_current(res):
-    return bool(res) and res.get("task_version") == CONFIG["task_version"]
+def tier_for(m):
+    """full: every document (models up to full_max_params_b). quick: a small fixed sample (up to quick_max_params_b).
+    server: too big for the free Kaggle GPUs."""
+    b = size_b(m)
+    if b is None or b <= CONFIG["full_max_params_b"]: return "full"
+    if b <= CONFIG["quick_max_params_b"]: return "quick"
+    return "server"
+
+def is_current(res, tier="full"):
+    return bool(res) and res.get("task_version") == CONFIG["task_version"] and (res.get("tier") or "full") == tier
+
+def add_extra_models(models):
+    """Hand-picked models in bench/extra_models.json are added to models.json when missing (never overwritten)."""
+    import datetime
+    have = {m["id"] for m in models}
+    path = ROOT / "bench" / "extra_models.json"
+    added = []
+    for m in (json.load(open(path)) if path.exists() else []):
+        if m["id"] not in have:
+            models.append({**m, "source": "hand-added", "added": datetime.date.today().isoformat()}); added.append(m["id"])
+    return added

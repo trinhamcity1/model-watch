@@ -80,7 +80,9 @@ jobs:
           python - <<'PY'
           import json, os
           q = open("queue.json").read().replace("'''", "")
-          c = open("bench/config.json").read().replace("'''", "")
+          cfg = json.load(open("bench/config.json"))
+          cfg["index_url"] = "https://github.com/%s/releases/download/%s/hpo_index.tgz" % (os.environ["GITHUB_REPOSITORY"], cfg["index_release_tag"])
+          c = json.dumps(cfg).replace("'''", "")
           s = open("bench/kaggle_hpo.py").read().replace("__QUEUE__", q, 1).replace("__CONFIG__", c, 1)
           open("kdir/kaggle_hpo.py", "w").write(s)
           md = open("bench/kernel-metadata.json").read().replace("__KAGGLE_USER__", os.environ["KAGGLE_USERNAME"])
