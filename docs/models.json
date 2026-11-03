@@ -23,6 +23,72 @@
    "failed": false,
    "note": "Run 2026-11-02 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
    "reason": null
+  },
+  "results": {
+   "hpo_rag": {
+    "id68": {
+     "task_version": 1,
+     "date": "2026-11-03",
+     "ok": true,
+     "reason": null,
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9",
+     "metrics": {
+      "precision": 0.598,
+      "recall": 0.594,
+      "f1": 0.596,
+      "f1_doc_mean": 0.594,
+      "tp": 471,
+      "fp": 316,
+      "fn": 322,
+      "neg_errors": 0,
+      "n_docs": 68,
+      "seconds": 958.3,
+      "secs_per_doc": 14.1,
+      "docs_per_min": 4.26,
+      "gpu_peak_gib": 7.8,
+      "gpu_idle_gib": 0.0,
+      "categories": {
+       "Abnormal": 811
+      }
+     }
+    },
+    "gscplus": {
+     "task_version": 1,
+     "date": "2026-11-03",
+     "ok": true,
+     "reason": null,
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9",
+     "metrics": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "f1_doc_mean": 0.0,
+      "tp": 0,
+      "fp": 289,
+      "fn": 0,
+      "neg_errors": 0,
+      "n_docs": 60,
+      "seconds": 517.7,
+      "secs_per_doc": 8.6,
+      "docs_per_min": 6.95,
+      "gpu_peak_gib": 7.8,
+      "gpu_idle_gib": 7.2,
+      "categories": {
+       "Abnormal": 319
+      }
+     }
+    }
+   }
   }
  },
  {
@@ -49,6 +115,72 @@
    "failed": false,
    "note": "Kaggle run 2026-11-01 on two Tesla T4 GPUs",
    "reason": null
+  },
+  "results": {
+   "hpo_rag": {
+    "id68": {
+     "task_version": 1,
+     "date": "2026-11-03",
+     "ok": true,
+     "reason": null,
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9",
+     "metrics": {
+      "precision": 0.62,
+      "recall": 0.614,
+      "f1": 0.617,
+      "f1_doc_mean": 0.595,
+      "tp": 487,
+      "fp": 298,
+      "fn": 306,
+      "neg_errors": 1,
+      "n_docs": 68,
+      "seconds": 1262.5,
+      "secs_per_doc": 18.6,
+      "docs_per_min": 3.23,
+      "gpu_peak_gib": 5.0,
+      "gpu_idle_gib": 0.0,
+      "categories": {
+       "Abnormal": 815
+      }
+     }
+    },
+    "gscplus": {
+     "task_version": 1,
+     "date": "2026-11-03",
+     "ok": true,
+     "reason": null,
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9",
+     "metrics": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "f1_doc_mean": 0.0,
+      "tp": 0,
+      "fp": 307,
+      "fn": 0,
+      "neg_errors": 0,
+      "n_docs": 60,
+      "seconds": 668.7,
+      "secs_per_doc": 11.1,
+      "docs_per_min": 5.38,
+      "gpu_peak_gib": 5.0,
+      "gpu_idle_gib": 4.4,
+      "categories": {
+       "Abnormal": 335
+      }
+     }
+    }
+   }
   }
  },
  {
@@ -75,6 +207,34 @@
    "failed": false,
    "note": "Run 2026-11-02 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
    "reason": null
+  },
+  "results": {
+   "hpo_rag": {
+    "id68": {
+     "task_version": 1,
+     "date": "2026-11-03",
+     "ok": false,
+     "reason": "timed out after 90 minutes (too slow on the free GPUs)",
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9"
+    },
+    "gscplus": {
+     "task_version": 1,
+     "date": "2026-11-03",
+     "ok": false,
+     "reason": "timed out after 90 minutes (too slow on the free GPUs)",
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9"
+    }
+   }
   }
  },
  {
@@ -101,6 +261,22 @@
    "failed": false,
    "note": "Run 2026-11-02 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
    "reason": null
+  },
+  "results": {
+   "hpo_rag": {
+    "id68": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    },
+    "gscplus": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    }
+   }
   }
  },
  {
@@ -119,6 +295,22 @@
    "failed": true,
    "note": "Run 2026-11-02 failed checks: 1 answers cut off by the length limit",
    "reason": null
+  },
+  "results": {
+   "hpo_rag": {
+    "id68": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    },
+    "gscplus": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    }
+   }
   }
  },
  {
@@ -145,6 +337,22 @@
    "failed": false,
    "note": "Kaggle run 2026-11-01 on two Tesla T4 GPUs (answer limit raised for thinking)",
    "reason": null
+  },
+  "results": {
+   "hpo_rag": {
+    "id68": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    },
+    "gscplus": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    }
+   }
   }
  },
  {
@@ -171,6 +379,22 @@
    "failed": false,
    "note": "Run 2026-11-02 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
    "reason": null
+  },
+  "results": {
+   "hpo_rag": {
+    "id68": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    },
+    "gscplus": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    }
+   }
   }
  },
  {
@@ -190,7 +414,23 @@
    "note": "Run 2026-11-02 failed checks: test produced no results (the model may not fit in GPU memory)",
    "reason": null
   },
-  "hf": "ibm-granite/granite-switch-4.1-30b"
+  "hf": "ibm-granite/granite-switch-4.1-30b",
+  "results": {
+   "hpo_rag": {
+    "id68": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    },
+    "gscplus": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    }
+   }
+  }
  },
  {
   "id": "nvidia-nvidia-nemotron-3-5-bolt-e4b-bf16",
@@ -217,6 +457,22 @@
    "failed": false,
    "note": "Run 2026-11-01 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
    "reason": null
+  },
+  "results": {
+   "hpo_rag": {
+    "id68": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    },
+    "gscplus": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    }
+   }
   }
  },
  {
@@ -236,6 +492,22 @@
    "failed": true,
    "note": "Run 2026-11-01 failed checks: model download failed (check the tag)",
    "reason": null
+  },
+  "results": {
+   "hpo_rag": {
+    "id68": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    },
+    "gscplus": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    }
+   }
   }
  },
  {
@@ -255,6 +527,22 @@
    "failed": true,
    "note": "Run 2026-11-01 failed checks: 4 answers cut off by the length limit; 4 JSON parse failures",
    "reason": null
+  },
+  "results": {
+   "hpo_rag": {
+    "id68": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    },
+    "gscplus": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    }
+   }
   }
  },
  {
@@ -282,6 +570,22 @@
    "failed": false,
    "note": "Run 2026-11-01 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
    "reason": null
+  },
+  "results": {
+   "hpo_rag": {
+    "id68": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    },
+    "gscplus": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    }
+   }
   }
  },
  {
@@ -301,6 +605,22 @@
    "failed": true,
    "note": "Run 2026-11-01 failed checks: test produced no results (the model may not fit in GPU memory)",
    "reason": null
+  },
+  "results": {
+   "hpo_rag": {
+    "id68": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    },
+    "gscplus": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    }
+   }
   }
  },
  {
@@ -320,6 +640,22 @@
    "failed": true,
    "note": "Run 2026-11-01 failed checks: model download failed (check the tag)",
    "reason": null
+  },
+  "results": {
+   "hpo_rag": {
+    "id68": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    },
+    "gscplus": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    }
+   }
   }
  },
  {
@@ -339,6 +675,22 @@
    "failed": true,
    "note": "Run 2026-11-01 failed checks: 15 answers cut off by the length limit; 7 JSON parse failures",
    "reason": null
+  },
+  "results": {
+   "hpo_rag": {
+    "id68": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    },
+    "gscplus": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    }
+   }
   }
  },
  {
@@ -366,6 +718,22 @@
    "failed": false,
    "note": "Run 2026-11-01 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
    "reason": null
+  },
+  "results": {
+   "hpo_rag": {
+    "id68": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    },
+    "gscplus": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    }
+   }
   }
  },
  {
@@ -393,6 +761,22 @@
    "failed": false,
    "note": "Run 2026-11-01 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
    "reason": null
+  },
+  "results": {
+   "hpo_rag": {
+    "id68": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    },
+    "gscplus": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    }
+   }
   }
  },
  {
@@ -420,6 +804,22 @@
    "failed": false,
    "note": "Run 2026-11-01 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
    "reason": null
+  },
+  "results": {
+   "hpo_rag": {
+    "id68": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    },
+    "gscplus": {
+     "task_version": null,
+     "not_reached": true,
+     "date": "2026-11-03",
+     "reason": "not reached: the run's time budget ran out, tried first next run"
+    }
+   }
   }
  },
  {
