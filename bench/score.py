@@ -4,13 +4,15 @@ A predicted code counts as present when its Category is 'Abnormal'."""
 import csv, re
 
 HP = re.compile(r"HP:\d{7}")
+HP_ANY = re.compile(r"HP[:_](\d{7})")   # GSC+ writes HP_0001156 | name, ID-68 writes HP:0001156
 
 def read_gold(path):
     pos, neg = set(), set()
     for line in open(path, encoding="utf-8", errors="ignore"):
         parts = line.rstrip("\n").split("\t")
-        code = next((p.strip() for p in parts if HP.fullmatch(p.strip())), None)
-        if not code: continue
+        m = HP_ANY.search(line)
+        if not m: continue
+        code = "HP:" + m.group(1)
         (neg if any(p.strip().lower() == "neg" for p in parts) else pos).add(code)
     return pos, neg - pos
 
