@@ -277,7 +277,8 @@
      "reason": "not reached: the run's time budget ran out, tried first next run"
     }
    }
-  }
+  },
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "nemo",
@@ -311,7 +312,8 @@
      "reason": "not reached: the run's time budget ran out, tried first next run"
     }
    }
-  }
+  },
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "gpt",
@@ -353,7 +355,8 @@
      "reason": "not reached: the run's time budget ran out, tried first next run"
     }
    }
-  }
+  },
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "med",
@@ -395,7 +398,8 @@
      "reason": "not reached: the run's time budget ran out, tried first next run"
     }
    }
-  }
+  },
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "gran",
@@ -430,7 +434,8 @@
      "reason": "not reached: the run's time budget ran out, tried first next run"
     }
    }
-  }
+  },
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "nvidia-nvidia-nemotron-3-5-bolt-e4b-bf16",
@@ -473,7 +478,8 @@
      "reason": "not reached: the run's time budget ran out, tried first next run"
     }
    }
-  }
+  },
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "liquidai-lfm2-5-24b-a2b",
@@ -508,7 +514,8 @@
      "reason": "not reached: the run's time budget ran out, tried first next run"
     }
    }
-  }
+  },
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "inclusionai-ling-3-0-tiny",
@@ -543,7 +550,8 @@
      "reason": "not reached: the run's time budget ran out, tried first next run"
     }
    }
-  }
+  },
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "microsoft-sentiment-analysis-7b",
@@ -586,7 +594,8 @@
      "reason": "not reached: the run's time budget ran out, tried first next run"
     }
    }
-  }
+  },
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "nanbeige-nanbeige4-3-33b",
@@ -621,7 +630,8 @@
      "reason": "not reached: the run's time budget ran out, tried first next run"
     }
    }
-  }
+  },
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "recursivesi-flint",
@@ -656,7 +666,8 @@
      "reason": "not reached: the run's time budget ran out, tried first next run"
     }
    }
-  }
+  },
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "internscience-sage-a1-5",
@@ -691,7 +702,8 @@
      "reason": "not reached: the run's time budget ran out, tried first next run"
     }
    }
-  }
+  },
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "apexintelligence-ai-apex-35b-v1-0",
@@ -734,7 +746,8 @@
      "reason": "not reached: the run's time budget ran out, tried first next run"
     }
    }
-  }
+  },
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "empero-ai-qwen3-8-35b-a3b-distill",
@@ -777,7 +790,8 @@
      "reason": "not reached: the run's time budget ran out, tried first next run"
     }
    }
-  }
+  },
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "ifm-k2-horizon-mova-36b-a4b",
@@ -820,7 +834,8 @@
      "reason": "not reached: the run's time budget ran out, tried first next run"
     }
    }
-  }
+  },
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "liquidai-lfm3-1-7b",
@@ -831,7 +846,8 @@
   "ollama_tag": "hf.co/LiquidAI/LFM3-1.7B-GGUF:Q4_K_M",
   "hf": "LiquidAI/LFM3-1.7B",
   "source": "scout",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "diffuspace-clover-35b-a3b-preview",
@@ -842,7 +858,8 @@
   "ollama_tag": "hf.co/Diffuspace/Clover-35B-A3B-Preview-GGUF:Q4_K_M",
   "hf": "Diffuspace/Clover-35B-A3B-Preview",
   "source": "scout",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "obliteratus-deepseek-v4-1-flash-1017-obliterated",
@@ -866,7 +883,8 @@
   "ollama_tag": "hf.co/XHToken/Spark-X2.6-4B-GGUF:Q4_K_M",
   "hf": "XHToken/Spark-X2.6-4B",
   "source": "scout",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "inclusionai-ling-3-1-flash-1019",
@@ -890,7 +908,8 @@
   "ollama_tag": "hf.co/XHToken/Spark-X2.6-1.7B-GGUF:Q4_K_M",
   "hf": "XHToken/Spark-X2.6-1.7B",
   "source": "scout",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "deep-principle-hydrogen-1-0",
@@ -940,7 +959,8 @@
   "ollama_tag": "hf.co/KRAFTON/Raon-1-mini-preview-gguf:Q4_K_M",
   "hf": "KRAFTON/Raon-1-mini-preview",
   "source": "scout",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "ornith-ai-ornith-1-5-122b",
@@ -990,7 +1010,8 @@
   "ollama_tag": "hf.co/bartowski/Mellum2.1-12B-A2.5B-Thinking-MTP-GGUF:Q4_K_M",
   "hf": "JetBrains/Mellum2.1-12B-A2.5B-Thinking-MTP",
   "source": "scout",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "nanbeige-nanbeige4-2-3b",
@@ -1001,7 +1022,8 @@
   "ollama_tag": "hf.co/mradermacher/Nanbeige4.2-3B-GGUF:Q4_K_M",
   "hf": "Nanbeige/Nanbeige4.2-3B",
   "source": "scout",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "ibm-granite-granite-4-2-3b",
@@ -1012,7 +1034,8 @@
   "ollama_tag": "hf.co/ibm-granite/granite-4.2-3b-GGUF:Q4_K_M",
   "hf": "ibm-granite/granite-4.2-3b",
   "source": "scout",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "ibm-granite-granite-switch-4-1-8b",
@@ -1023,7 +1046,8 @@
   "ollama_tag": "hf.co/ibm-granite/granite-switch-4.1-8b-GGUF:Q4_K_M",
   "hf": "ibm-granite/granite-switch-4.1-8b",
   "source": "scout",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "openbmb-minicpm5-2b",
@@ -1034,7 +1058,8 @@
   "ollama_tag": "hf.co/openbmb/MiniCPM5-2B-GGUF:Q4_K_M",
   "hf": "openbmb/MiniCPM5-2B",
   "source": "scout",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "jetbrains-mellum2-1-12b-a2-5b-thinking",
@@ -1045,7 +1070,8 @@
   "ollama_tag": "hf.co/JetBrains/Mellum2.1-12B-A2.5B-Thinking-GGUF:Q4_K_M",
   "hf": "JetBrains/Mellum2.1-12B-A2.5B-Thinking",
   "source": "scout",
-  "added": "2026-11-02"
+  "added": "2026-11-02",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "inclusionai-ling-3-1-flash",
