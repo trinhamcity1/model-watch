@@ -1,0 +1,109 @@
+Patient ID,Category,Phenotype name,HPO ID
+1,Abnormal,skin tumors,HP:0008069
+1,Abnormal,skin tumors,HP:0008069
+1,Abnormal,skin tumors,HP:0008069
+1,Abnormal,Schwannomas in the skin,HP:0100008
+2,Abnormal,microcephaly,HP:0000252
+2,Abnormal,hypopigmentation,HP:0001010
+2,Abnormal,seizures,HP:0001250
+2,Abnormal,severe developmental delay and/or mental retardation,HP:0011344
+2,Abnormal,profound speech impairment,HP:0012715
+2,Abnormal,a movement and balance disorder,HP:0002172
+2,Abnormal,easily excitable personality with an inappropriately happy affect,HP:0031844
+3,Abnormal,severe mental retardation,HP:0010864
+3,Abnormal,epilepsy,HP:0001250
+3,Abnormal,status epilepticus,HP:0002133
+3,Abnormal,speech disorder,HP:0000750
+3,Abnormal,stereotyped jerky movements,HP:0000733
+3,Abnormal,suggestive electroencephalographic patterns,HP:0002353
+3,Abnormal,generalized epilepsy,HP:0001250
+3,Abnormal,partial epilepsy,HP:0007359
+3,Abnormal,atypical absences,HP:0007270
+3,Abnormal,myoclonic and tonic-clonic seizures,HP:0032795
+3,Abnormal,fever aggravated epilepsy,HP:0002373
+3,Abnormal,refractory epilepsy,HP:0031375
+4,Abnormal,global developmental delay,HP:0001263
+4,Abnormal,ataxia,HP:0001251
+4,Abnormal,seizures,HP:0001250
+4,Abnormal,microcephaly,HP:0000252
+4,Abnormal,prominent jaw,HP:0000303
+4,Abnormal,wide mouth,HP:0000154
+4,Abnormal,pointed chin,HP:0000307
+4,Abnormal,episodes of paroxysmal laughter,HP:0000749
+4,Abnormal,Tongue thrusting is common,HP:0100703
+4,Abnormal,"wide based, ataxic gait",HP:0002066
+4,Abnormal,frequent jerky limb movements,HP:0001336
+4,Abnormal,flapping of the hands,HP:0100023
+4,Abnormal,Tone is variable in the limbs,HP:0003808
+4,Abnormal,plantar responses are usually flexor,HP:0003487
+5,Abnormal,bilateral acoustic neuromas,HP:0009589
+5,Abnormal,multiple central nervous system tumors,HP:0100006
+5,Abnormal,Meningiomas,HP:0002858
+5,Abnormal,ependymomas,HP:0002888
+5,Abnormal,Intracranial nontumoral calcifications,HP:0430048
+5,Abnormal,lesions,HP:0011355
+6,Abnormal,severe mental retardation,HP:0010864
+6,Abnormal,seizures,HP:0001250
+6,Abnormal,ataxia-like incoordination,HP:0001251
+6,Abnormal,ataxic-like movements,HP:0001251
+7,Abnormal,cataracts,HP:0000518
+7,Abnormal,ocular abnormalities,HP:0000478
+7,Abnormal,"posterior subcapsular or capsular, cortical, or mixed lens opacities",HP:0007787
+7,Abnormal,retinal hamartomas,HP:0009594
+7,Abnormal,ocular motor deficits,HP:0000496
+7,Abnormal,plaque-like posterior subcapsular or capsular cataract,HP:0100017
+7,Abnormal,cortical cataract with onset under the age of 30 years,HP:0007819
+8,Abnormal,myoclonic status epilepticus,HP:0032667
+8,Abnormal,ataxia,HP:0001251
+8,Abnormal,movement problems,HP:0004302
+8,Abnormal,long-lasting periods of jerky movements,HP:0001336
+8,Abnormal,partial seizures with eye deviation and vomiting,HP:0007359
+8,Abnormal,abnormal movements,HP:0004305
+9,Abnormal,severe mental retardation,HP:0010864
+9,Abnormal,ataxic,HP:0001251
+9,Abnormal,severely retarded,HP:0010864
+9,Abnormal,lacking recognisable speech,HP:0002300
+9,Abnormal,head circumference (HC) at birth was normal but skewed in distribution,HP:0000240
+9,Abnormal,62 center dot 5% at the 10th centile,No Candidate Fit
+9,Abnormal,around the 50th centile in three patients,No Candidate Fit
+9,Abnormal,15 had poor postnatal head growth,HP:0001510
+9,Abnormal,"Short stature was not invariable, 5/26 (19%) were on or above the 50th centile",HP:0004322
+9,Abnormal,Hypotonia at birth was recorded in 15/24 (63%),HP:0001252
+9,Abnormal,neonatal feeding difficulties were recorded in 20/26 (77%),HP:0011968
+9,Abnormal,Epilepsy was present in 26/27 (96%),HP:0001250
+9,Abnormal,an abnormal EEG,HP:0002353
+9,Abnormal,Hypopigmentation was present in 19/26 (73%),HP:0001010
+9,Abnormal,oculocutaneous albinism,HP:0001022
+9,Abnormal,could not walk independently,HP:0002505
+9,Abnormal,ataxic movements,HP:0001251
+9,Abnormal,absent language,HP:0001344
+10,Abnormal,severe intellectual disability,HP:0010864
+10,Abnormal,lack of speech,HP:0001344
+10,Abnormal,happy demeanour,HP:0040082
+10,Abnormal,epilepsy,HP:0001250
+10,Abnormal,microcephaly,HP:0000252
+10,Abnormal,kyphosis,HP:0002808
+10,Abnormal,keratoconus,HP:0000563
+10,Abnormal,ataxic or hypermotoric limb movements,HP:0002070
+10,Abnormal,facial appearance consistent with the diagnosis,HP:0001999
+10,Abnormal,large mouth and jaw with deep set eyes,HP:0000154
+10,Abnormal,fair,HP:0007513
+10,Abnormal,Outbursts of laughter,HP:0000749
+10,Abnormal,"ataxic with an awkward, clumsy, heavy, and/or lilting gait",HP:0002066
+10,Abnormal,no patient had a single word of speech,HP:0002371
+10,Abnormal,ocular abnormalities,HP:0000478
+10,Abnormal,EEG was abnormal,HP:0002353
+11,Abnormal,benign and malignant tumors at an increased frequency,HP:0002664
+12,Abnormal,epileptic spasms,HP:0011097
+12,Abnormal,atonic seizures,HP:0010819
+12,Abnormal,epilepsy phenotypes,HP:0001250
+12,Abnormal,diffuse bifrontally dominant high-amplitude 1- to 3-Hz notched or triphasic or polyphasic slow waves,HP:0010850
+12,Abnormal,slow and sharp waves,HP:0011199
+12,Abnormal,severe intractable epilepsy,HP:0001250
+12,Abnormal,atypical absences,HP:0007270
+12,Abnormal,myoclonias,HP:0001336
+12,Abnormal,generalized extensor tonic seizures,HP:0010818
+12,Abnormal,flexor spasms,HP:0003394
+12,Abnormal,atypical absences,HP:0007270
+12,Abnormal,myoclonias,HP:0001336
+12,Abnormal,severe epilepsy,HP:0001250

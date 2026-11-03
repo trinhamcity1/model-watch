@@ -1,0 +1,57 @@
+Patient ID,Category,Phenotype name,HPO ID
+2,Abnormal,microcephaly,HP:0000252
+2,Abnormal,hypopigmentation,HP:0001010
+2,Abnormal,seizures,HP:0001250
+2,Abnormal,severe developmental delay and/or mental retardation,HP:0012736
+2,Abnormal,profound speech impairment,HP:0006863
+2,Abnormal,movement and balance disorder,HP:0100022
+2,Abnormal,AS specific behaviour typified by an easily excitable personality with an inappropriately happy affect,HP:0031844
+2,Abnormal,mutations within UBE3A,No Candidate Fit
+3,Abnormal,severe mental retardation,HP:0010864
+3,Abnormal,status epilepticus,HP:0002133
+3,Abnormal,speech disorder,HP:0002167
+3,Abnormal,stereotyped jerky movements,HP:0000733
+3,Abnormal,epilepsy severity,HP:0002133
+3,Abnormal,epilepsy evolution,HP:0033349
+3,Abnormal,response to antiepileptic drug treatment,HP:0020169
+3,Abnormal,epilepsy aggravated by fever,HP:0032656
+3,Abnormal,multiple seizure types,HP:0001250
+4,Abnormal,global developmental delay,HP:0001263
+4,Abnormal,ataxia,HP:0001251
+4,Abnormal,seizures,HP:0001250
+4,Abnormal,microcephaly,HP:0000252
+4,Abnormal,episodes of paroxysmal laughter,HP:0000749
+4,Abnormal,"wide based, ataxic gait",HP:0002136
+4,Abnormal,frequent jerky limb movements,HP:0001336
+4,Abnormal,flapping of the hands,HP:0100023
+5,Abnormal,two or more tumors eventually developed in 20 of the patients,HP:0002664
+5,Abnormal,intracranial nontumoral calcifications were present in most patients,HP:0430048
+5,Abnormal,the presence of such lesions is probably a prodromic feature of neurofibromatosis 2,HP:0001067
+5,Abnormal,meningiomas and ependymomas were more common among the young patients,HP:0002858
+5,Abnormal,acoustic neuromas,HP:0009588
+6,Abnormal,severe mental retardation,HP:0010864
+6,Abnormal,seizures,HP:0001250
+6,Abnormal,ataxia-like incoordination,HP:0007240
+7,Abnormal,cataracts,HP:0000518
+7,Abnormal,"posterior subcapsular or capsular, cortical, or mixed lens opacities",HP:0007787
+7,Abnormal,retinal hamartomas,HP:0009594
+7,Abnormal,ocular motor deficits,HP:0000496
+7,Abnormal,asymptomatic mutation carriers with cataracts,HP:0000518
+8,Abnormal,myoclonic status epilepticus,HP:0032667
+8,Abnormal,movement problems,HP:0100022
+8,Abnormal,long-lasting periods of jerky movements,HP:0001336
+8,Abnormal,partial seizures with eye deviation and vomiting,HP:0007359
+9,Abnormal,"All patients were ataxic, severely retarded, and lacking recognisable speech",HP:0001263
+9,Abnormal,Hypotonia at birth was recorded in 15/24 (63%) and neonatal feeding difficulties were recorded in 20/26 (77%),HP:0008935
+9,Abnormal,Epilepsy was present in 26/27 (96%) with onset by the third year of life in 20 patients (83%),HP:0001250
+9,Abnormal,An abnormal EEG was reported in 25/25 patients,HP:0002353
+9,Abnormal,Hypopigmentation was present in 19/26 (73%),HP:0001010
+9,Abnormal,Five patients could not walk independently,HP:0010345
+9,Abnormal,"Disrupted sleep patterns were present in 18/21 patients (86%), with improvement in 9/12 patients (75%) over 10 years of age",HP:0002360
+10,Abnormal,Deletion in the AS region,HP:0006118
+10,Abnormal,All had epilepsy,HP:0001250
+10,Abnormal,EEG abnormal in 10/10 patients,HP:0002353
+10,Abnormal,"All nine who walked were ataxic with an awkward, clumsy, heavy, and/or lilting gait",HP:0002066
+10,Abnormal,No patient had a single word of speech,HP:0001344
+12,Abnormal,severe intractable epilepsy,HP:0001250
+12,Abnormal,mild epilepsy,HP:0001250

@@ -1,0 +1,100 @@
+Patient ID,Category,Phenotype name,HPO ID
+1,Abnormal,Schwannomas in the skin,HP:0100008
+1,Abnormal,skin tumors are the first clinical symptoms of this disease,HP:0008069
+2,Abnormal,microcephaly,HP:0000252
+2,Abnormal,hypopigmentation,HP:0001010
+2,Abnormal,seizures,HP:0001250
+2,Abnormal,severe developmental delay and/or mental retardation,HP:0010864
+2,Abnormal,profound speech impairment,HP:0012714
+2,Abnormal,a movement and balance disorder,HP:0100022
+2,Abnormal,AS specific behaviour typified by an easily excitable personality with an inappropriately happy affect,HP:0032729
+2,Abnormal,differences in body mass index,HP:0045081
+2,Abnormal,head circumference,HP:0000256
+2,Abnormal,seizure activity,HP:0007359
+3,Abnormal,severe mental retardation,HP:0010864
+3,Abnormal,speech disorder,HP:0002167
+3,Abnormal,stereotyped jerky movements,HP:0002072
+3,Abnormal,peculiar behavioral profile,HP:0000733
+3,Abnormal,generalized epilepsy,HP:0001250
+3,Abnormal,partial epilepsy,HP:0007359
+3,Abnormal,atypical absences,HP:0007270
+3,Abnormal,myoclonic seizures,HP:0011150
+3,Abnormal,tonic-clonic seizures,HP:0002069
+3,Abnormal,epilepsy aggravated by fever occurred in 10 patients (53%),HP:0032894
+3,Abnormal,status epilepticus in 16 (84%),HP:0032660
+3,Abnormal,previous or current history of daily seizures,HP:0002197
+3,Abnormal,disabling seizures,HP:0001250
+3,Abnormal,multiple seizure types,HP:0031165
+3,Abnormal,history of refractory epilepsy,HP:0032867
+3,Abnormal,"epilepsy was aggravated by carbamazepine, oxcarbazepine, and vigabatrin",HP:0001250
+4,Abnormal,global developmental delay,HP:0001263
+4,Abnormal,ataxia,HP:0001251
+4,Abnormal,seizures,HP:0001250
+4,Abnormal,microcephaly,HP:0000252
+4,Abnormal,prominent jaw,HP:0000303
+4,Abnormal,wide mouth,HP:0000154
+4,Abnormal,pointed chin,HP:0000307
+4,Abnormal,tongue thrusting,HP:0100703
+4,Abnormal,episodes of paroxysmal laughter,HP:0000749
+4,Abnormal,"wide based, ataxic gait with frequent jerky limb movements and flapping of the hands",HP:0002066
+4,Abnormal,variable in the limbs with normal reflexes,HP:0002600
+4,Abnormal,plantar responses are usually flexor,HP:0003487
+5,Abnormal,multiple central nervous system tumors of various types,HP:0100006
+5,Abnormal,"mainly, bilateral acoustic neuromas",HP:0009589
+5,Abnormal,two or more tumors eventually developed in 20 of the patients,HP:0002664
+5,Abnormal,9 had evidence of only bilateral acoustic neuromas,HP:0009589
+5,Abnormal,meningiomas and ependymomas were more common among the young patients,HP:0033714
+5,Abnormal,intracranial nontumoral calcifications were present in most patients,HP:0430048
+5,Abnormal,were also found in symptom-free children,HP:0032860
+5,Abnormal,presence of such lesions is probably a prodromic feature of neurofibromatosis 2,HP:0001067
+6,Abnormal,severe mental retardation,HP:0010864
+6,Abnormal,seizures,HP:0001250
+6,Abnormal,ataxia-like incoordination,HP:0002071
+6,Abnormal,similar deletion of the proximal long arm of chromosome 15,HP:0006209
+6,Abnormal,mild hypertelorism,HP:0000316
+6,Abnormal,ataxic-like movements,HP:0001251
+6,Abnormal,"frequent, unprovoked and prolonged bouts of laughter",HP:0000749
+7,Abnormal,cataracts,HP:0000518
+7,Abnormal,"posterior subcapsular or capsular, cortical, or mixed lens opacities",HP:0010924
+7,Abnormal,retinal hamartomas,HP:0009594
+7,Abnormal,ocular motor deficits,HP:0000597
+8,Abnormal,myoclonic status epilepticus,HP:0032667
+8,Abnormal,ataxia,HP:0001251
+8,Abnormal,movement problems,HP:0100022
+8,Abnormal,long-lasting periods of jerky movements,HP:0001336
+8,Abnormal,partial seizures with eye deviation and vomiting,HP:0007359
+9,Abnormal,ataxic,HP:0001251
+9,Abnormal,severely retarded,HP:0010864
+9,Abnormal,lacking recognisable speech,HP:0001344
+9,Abnormal,"skewed in distribution, with 62 center dot 5% at the 10th centile",HP:0005769
+9,Abnormal,15 had poor postnatal head growth,HP:0008897
+9,Abnormal,Hypotonia at birth was recorded in 15/24 (63%),HP:0001319
+9,Abnormal,neonatal feeding difficulties were recorded in 20/26 (77%),HP:0011968
+9,Abnormal,Epilepsy was present in 26/27 (96%),HP:0001250
+9,Abnormal,An abnormal EEG was reported in 25/25 patients,HP:0002353
+9,Abnormal,Hypopigmentation was present in 19/26 (73%),HP:0001010
+9,Abnormal,One patient had oculocutaneous albinism,HP:0001022
+9,Abnormal,Five patients could not walk independently,HP:0010345
+9,Abnormal,Disrupted sleep patterns were present in 18/21 patients (86%),HP:0002494
+10,Abnormal,large mouth and jaw with deep set eyes,HP:0000490
+10,Abnormal,microcephaly in nine patients,HP:0000252
+10,Abnormal,outbursts of laughter occurred in all patients,HP:0000749
+10,Abnormal,a constant happy demeanour was present in 5/11,HP:0031844
+10,Abnormal,All had epilepsy,HP:0001250
+10,Abnormal,improvement in 5/11 (46%),HP:0025254
+10,Abnormal,no change in 4 (36%),HP:0032321
+10,Abnormal,deterioration in 2 (18%),HP:0007924
+10,Abnormal,EEG was abnormal in 10/10 patients,HP:0002353
+10,Abnormal,ocular abnormalities were reported in 3/8 patients,HP:0000478
+10,Abnormal,4/11 had developed kyphosis,HP:0002808
+10,Abnormal,Two had never walked,HP:0002540
+10,Abnormal,"All nine who walked were ataxic with an awkward, clumsy, heavy, and/or lilting gait",HP:0002066
+10,Abnormal,No patient had a single word of speech,HP:0001344
+11,Abnormal,neurofibromatosis 1 and neurofibromatosis 2 are autosomal dominant genetic disorders in which affected individuals develop both benign and malignant tumors at an increased frequency,HP:0001067
+12,Abnormal,epileptic spasms,HP:0011097
+12,Abnormal,"characteristic EEGs with diffuse bifrontally dominant high-amplitude 1- to 3-Hz notched or triphasic or polyphasic slow waves, or slow and sharp waves",HP:0011199
+12,Abnormal,severe intractable epilepsy,HP:0001250
+12,Abnormal,atypical absences and myoclonias,HP:0011150
+12,Abnormal,generalized extensor tonic seizures or flexor spasms,HP:0010818
+12,Abnormal,maternally inherited chromosome 15q11-13 deletions produce severe epilepsy,HP:0001250
+12,Abnormal,"Loss-of-function UBE3A mutations, uniparental disomy, or methylation imprint abnormalities in AS are associated with relatively mild epilepsy",HP:0001250

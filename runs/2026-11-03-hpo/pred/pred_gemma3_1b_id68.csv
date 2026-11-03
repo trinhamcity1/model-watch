@@ -1,0 +1,70 @@
+Patient ID,Category,Phenotype name,HPO ID
+1,Abnormal,bronchial asthma,HP:0002099
+1,Abnormal,decrease in fetal movements,No Candidate Fit
+1,Abnormal,birth weight of 2.8 kg,No Candidate Fit
+1,Abnormal,floppy with poor sucking,HP:0002033
+1,Abnormal,choking episodes that turned to be due to severe GERD,HP:0030842
+1,Abnormal,Niessel fundoplication,HP:0001234
+1,Abnormal,aspiration problems persisted,HP:0002100
+1,Abnormal,fundoplication procedure was repeated later,HP:0001234
+1,Abnormal,seizures and continues to seize daily despite multiple attempts to control her seizures with medications,HP:0002133
+1,Abnormal,opisthotonic posturing,No Candidate Fit
+1,Abnormal,barely can feel pain,No Candidate Fit
+1,Abnormal,no tears when she cries even though she has normal sweating,HP:0001234
+1,Abnormal,self-mutilating behavior by scratching her face,HP:0000742
+1,Abnormal,developmental delay affecting all domains,No Candidate Fit
+1,Abnormal,IQ estimated to be 20-30,No Candidate Fit
+1,Abnormal,"can vocalize, but cannot talk",No Candidate Fit
+1,Abnormal,can walk although her gait is unstable,HP:0002317
+1,Abnormal,poor growth with a significant microcephaly,HP:0005484
+2,Abnormal,cerebral edema,HP:0002181
+2,Abnormal,massive hemorrhagic infarction,HP:0001234
+2,Abnormal,nonvascular distribution pattern,No Candidate Fit
+2,Abnormal,posterior occipitoparietal regions,HP:0001234
+2,Abnormal,tentorial herniation,HP:0001234
+3,Abnormal,psychomotor delay,HP:0001263
+3,Abnormal,epilepsy,HP:0001250
+3,Abnormal,aggressive behavior,HP:0000718
+3,Abnormal,brain malformation,No Candidate Fit
+3,Abnormal,seizures at the age of two years,HP:0002069
+3,Abnormal,tonic clonic with rolling of the eyes,HP:0001234
+3,Abnormal,speech is significantly delayed,No Candidate Fit
+3,Abnormal,IQ estimated to be 55,HP:0002342
+4,Abnormal,blindness,HP:0000618
+4,Abnormal,microcephaly,HP:0000252
+4,Abnormal,bilateral strabismus,No Candidate Fit
+4,Abnormal,swallowing problems with solids that progressed to liquids,HP:0002015
+4,Abnormal,jerks,No Candidate Fit
+4,Abnormal,generalized tonic-clonic seizures,HP:0002069
+4,Abnormal,milestones,No Candidate Fit
+4,Abnormal,severe hypotonia,HP:0006829
+4,Abnormal,progressive developmental delay,No Candidate Fit
+6,Abnormal,bilateral cataract,HP:0001234
+7,Abnormal,intellectual disability,HP:0001249
+7,Abnormal,ADHD,HP:0007018
+7,Abnormal,global developmental delay,HP:0001263
+7,Abnormal,hyperactivity,HP:0000752
+7,Abnormal,seizures,HP:0001250
+7,Abnormal,dystonic movements,HP:0001332
+7,Abnormal,seizure disorder,No Candidate Fit
+7,Abnormal,poor attention,HP:0007018
+7,Abnormal,partial component,No Candidate Fit
+7,Abnormal,deterioration clinically,HP:0003676
+7,Abnormal,dystonic symptoms worsening,No Candidate Fit
+8,Abnormal,gait was unstable,HP:0002317
+8,Abnormal,his IQ was estimated to be 70,No Candidate Fit
+9,Abnormal,axial hypotonia,HP:0008936
+9,Abnormal,generalized spasticity,No Candidate Fit
+9,Abnormal,microscopic brain atrophy,HP:0012444
+9,Abnormal,bilateral diffusion restriction in the posterior limbs of the internal capsule,HP:0012502
+9,Abnormal,symmetric foci of diffusion restriction in the midbrain and the dorsal brainstem along the sensory white matter tracts,HP:0007204
+9,Abnormal,raised choline levels in the white matter,HP:0001234
+9,Abnormal,generalized encephalopathic state,No Candidate Fit
+10,Abnormal,weakness,HP:0025406
+10,Abnormal,severe hypotonia,HP:0006829
+11,Abnormal,global developmental delay,HP:0001263
+11,Abnormal,areflexia,HP:0001284
+11,Abnormal,hypotonic,No Candidate Fit
+11,Abnormal,high CK,HP:0001234
+11,Abnormal,second month of life,HP:0001234
+11,Abnormal,severe hypotonia,HP:0006829
