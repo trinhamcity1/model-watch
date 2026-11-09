@@ -1,16 +1,8 @@
 {
- "pending": false,
- "started": "2026-11-03T16:11:45Z",
- "queued": 17,
+ "pending": true,
+ "started": "2026-11-09T23:00:15Z",
+ "queued": 13,
  "models": [
-  "jetbrains-mellum2-1-12b-a2-5b-thinking",
-  "qwen3-8b",
-  "qwen3-1-7b",
-  "llama31-8b",
-  "llama32-3b",
-  "gemma3-1b",
-  "gemma3n-e4b",
-  "phi4-mini",
   "mistral-7b",
   "granite33-8b",
   "deepseek-r1-8b",
@@ -19,6 +11,10 @@
   "gemma3-12b",
   "openbiollm-8b",
   "biomistral-7b",
-  "med42-8b"
+  "lastmachine-qwen3-8b-zerozero-heretic",
+  "jackrong-deepseek-v4-pro-qwen3-5-9b",
+  "muyaoyuan-loco-7b",
+  "blackfrost-ai-lfm3-1-7b-derisked",
+  "ifm-k2-horizon-7b"
  ]
 }

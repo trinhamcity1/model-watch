@@ -2244,7 +2244,8 @@
   "ollama_tag": "hf.co/mradermacher/Arete-27B-GGUF:Q4_K_M",
   "hf": "NousResearch/Arete-27B",
   "source": "scout",
-  "added": "2026-11-09"
+  "added": "2026-11-09",
+  "status_reason": "27.4B model: runs when the benchmark is started with 'include 15B+ models' ticked"
  },
  {
   "id": "axion1-0-axion-1-0-35b",
@@ -2255,7 +2256,8 @@
   "ollama_tag": "hf.co/mradermacher/Axion-1.0-35B-GGUF:Q4_K_M",
   "hf": "Axion1-0/Axion-1.0-35B",
   "source": "scout",
-  "added": "2026-11-09"
+  "added": "2026-11-09",
+  "status_reason": "35.1B model: runs when the benchmark is started with 'include 15B+ models' ticked"
  },
  {
   "id": "lastmachine-qwen3-8b-zerozero-heretic",
@@ -2266,7 +2268,8 @@
   "ollama_tag": "hf.co/LastMachine/Qwen3-8B-ZeroZero-Heretic-GGUF:Q4_K_M",
   "hf": "LastMachine/Qwen3-8B-ZeroZero-Heretic",
   "source": "scout",
-  "added": "2026-11-09"
+  "added": "2026-11-09",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "jackrong-deepseek-v4-pro-qwen3-5-9b",
@@ -2277,7 +2280,8 @@
   "ollama_tag": "hf.co/mradermacher/DeepSeek-V4-Pro-Qwen3.5-9B-GGUF:Q4_K_M",
   "hf": "Jackrong/DeepSeek-V4-Pro-Qwen3.5-9B",
   "source": "scout",
-  "added": "2026-11-09"
+  "added": "2026-11-09",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "muyaoyuan-loco-7b",
@@ -2288,7 +2292,8 @@
   "ollama_tag": "hf.co/mradermacher/LoCo-7B-GGUF:Q4_K_M",
   "hf": "MuyaoYuan/LoCo-7B",
   "source": "scout",
-  "added": "2026-11-09"
+  "added": "2026-11-09",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "teriminal-rsi-terminal-rsi-27b",
@@ -2299,7 +2304,8 @@
   "ollama_tag": "hf.co/mradermacher/Terminal-RSI-27B-GGUF:Q4_K_M",
   "hf": "Teriminal-RSI/Terminal-RSI-27B",
   "source": "scout",
-  "added": "2026-11-09"
+  "added": "2026-11-09",
+  "status_reason": "27.8B model: runs when the benchmark is started with 'include 15B+ models' ticked"
  },
  {
   "id": "deep-principle-hydrogen-1-0-mxfp4",
@@ -2323,7 +2329,8 @@
   "ollama_tag": "hf.co/mradermacher/LFM3-1.7B-DERISKED-GGUF:Q4_K_M",
   "hf": "Blackfrost-AI/LFM3-1.7B-DERISKED",
   "source": "scout",
-  "added": "2026-11-09"
+  "added": "2026-11-09",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "ifm-k2-horizon-7b",
@@ -2334,7 +2341,8 @@
   "ollama_tag": "hf.co/IFM/K2-Horizon-7B-GGUF:Q4_K_M",
   "hf": "IFM/K2-Horizon-7B",
   "source": "scout",
-  "added": "2026-11-09"
+  "added": "2026-11-09",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "diffbot-deepseek-v4-1-flash-exl3-3bpw-2x-rtx-pro-6000",
@@ -2371,6 +2379,7 @@
   "ollama_tag": "hf.co/mradermacher/sabi-noema-GGUF:Q4_K_M",
   "hf": "sabicap/sabi-noema",
   "source": "scout",
-  "added": "2026-11-09"
+  "added": "2026-11-09",
+  "status_reason": "27.4B model: runs when the benchmark is started with 'include 15B+ models' ticked"
  }
 ]
