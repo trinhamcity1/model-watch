@@ -1,0 +1,76 @@
+Patient ID,Category,Phenotype name,HPO ID
+1,Abnormal,A decrease in fetal movements was noted during pregnancy,HP:0001558
+1,Abnormal,"At one month of age, she started to have choking episodes that turned to be due to severe GERD",HP:0002020
+1,Abnormal,"Aspiration problems persisted, and the fundoplication procedure was repeated later",HP:0002100
+1,Abnormal,She also has developed seizures and continues to seize daily despite multiple attempts to control her seizures with medications,HP:0033349
+1,Abnormal,Her seizures semiology appears to be as opisthotonic posturing,HP:0032922
+1,Abnormal,"On examination, she has poor growth with a significant microcephaly",HP:0000252
+1,Abnormal,She has subtle dysmorphia characterized as hypotelorism and tapering of fingers,HP:0001182
+1,Abnormal,MRI showed thinning of the corpus callosum and mild atrophy of the cerebellar vermis,HP:0007360
+2,Abnormal,episode of stiffness that turned to be seizures,HP:0001250
+2,Abnormal,dystonia and ataxia,HP:0001251
+2,Abnormal,"months later, he had two severe episodes of seizures",HP:0002133
+2,Abnormal,high-grade fever,HP:0033031
+2,Abnormal,"dystonia, hypotonia and hyperextension of the neck",HP:0000473
+2,Abnormal,brain MRI showed massive hemorrhagic infarction,HP:0002170
+2,Abnormal,nonvascular distribution pattern,HP:0030646
+2,Abnormal,progressive cerebral edema,HP:0002181
+3,Abnormal,psychomotor delay,HP:0001263
+3,Abnormal,brain malformation,HP:0012443
+3,Abnormal,She also started to have seizures,HP:0001250
+3,Abnormal,subsequent EEGs showed multifocal discharges,HP:0010841
+3,Abnormal,"obesity, hypertelorism, and depressed nasal bridge",HP:0005281
+3,Abnormal,Brain MRI revealed agenesis of corpus callosum,HP:0001274
+3,Abnormal,with bilateral colpocephaly,HP:0030048
+3,Abnormal,The lumbosacral scan showed spina bifida at L5 as well as upper two sacral vertebrae,HP:0004601
+3,Abnormal,Abdominal and renal ultrasound showed right ectopic kidney lying in the pelvis close to the urinary bladder on the right side,HP:0000086
+3,Abnormal,and mild bilateral hydronephrosis,HP:0000126
+3,Abnormal,The lumbosacral scan showed spina bifida at L5 as well as upper two sacral vertebrae,HP:0004601
+4,Abnormal,bilateral strabismus,HP:0000486
+4,Abnormal,frequent jerks which progressed to generalized tonic-clonic seizures,HP:0002069
+4,Abnormal,electroencephalogram was remarkable for hypsarrhythmia and multifocal epileptic discharges,HP:0002521
+4,Abnormal,brain MRI and MRS demonstrated diffuse extensive abnormal T2 hyperintensity,HP:0040329
+4,Abnormal,atrophied thalami,HP:0034988
+4,Abnormal,restricted water diffusion,HP:0045051
+4,Abnormal,multifocal areas of necrotic appearance,HP:0020052
+4,Abnormal,periventricular region,HP:0025728
+4,Abnormal,centrum semiovale,HP:0002710
+5,Abnormal,He seems to have a delay in fine motor and language domains.,HP:0010862
+5,Abnormal,He still has immature finger grasp and cannot feed himself or dress himself.,HP:0031063
+6,Abnormal,nephrocalcinosis,HP:0000121
+6,Abnormal,hepatic calcification,HP:0006559
+6,Abnormal,hypomagnesemia (0.3 mmol/L),HP:0002917
+6,Abnormal,hypophosphatemia (6.7 mmol/L),HP:0002148
+6,Abnormal,bilateral cataract,HP:0000518
+6,Abnormal,proteinuria with normal renal function,HP:0012595
+6,Abnormal,G6PD,HP:0410179
+6,Abnormal,Head CT showed mild asymmetrical dilation of both lateral ventricles due to central atrophy,HP:0100960
+6,Abnormal,Abdominal ultrasound showed nephrocalcinosis and hepatic calcification,HP:0000121
+6,Abnormal,He was found to have hypocalcemia (0.61 mmol/L),HP:0002901
+6,Abnormal,and hypercalciuria,HP:0002150
+7,Abnormal,"17 years old boy with intellectual disability, seizure disorder and ADHD.",HP:0001249
+7,Abnormal,seizure disorder has been refractory to multiple antiepileptic medications.,HP:0020174
+7,Abnormal,"new episodes of dystonic movements, and his dystonic symptoms were getting worse.",HP:0001332
+7,Abnormal,EEG was consistent with a partial seizure.,HP:0007359
+8,Abnormal,IQ estimated to be 70,HP:0001256
+10,Abnormal,global developmental delay,HP:0001263
+10,Abnormal,poor feeding,HP:0011968
+10,Abnormal,hypotonia,HP:0001252
+10,Abnormal,weakness,HP:0025406
+10,Abnormal,neonatal-onset hypotonia,HP:0001319
+10,Abnormal,global developmental delay affecting all domains,HP:0001263
+10,Abnormal,severe hypotonia,HP:0006829
+10,Abnormal,white matter abnormality,HP:0002500
+11,Abnormal,hypotonia,HP:0001252
+11,Abnormal,hypotonic,HP:0000297
+11,Abnormal,CK high,HP:0030234
+11,Abnormal,merosin-deficient muscular dystrophy,HP:0030092
+12,Abnormal,congenital microcephaly,HP:0011451
+12,Abnormal,infantile spasms,HP:0012469
+12,Abnormal,thin upper lip vermilion,HP:0000219
+12,Abnormal,"seizures consisting of several daily episodes of typical infantile spasms with sudden flexion and a tonic fashion of the body, arms and legs",HP:0012469
+12,Abnormal,Physical examination revealed anteverted ears,HP:0040080
+12,Abnormal,brisk tendon reflexes,HP:0001348
+12,Abnormal,absent visual following,HP:0030825
+12,Abnormal,dystonic posturing that is more prominent on the left side,HP:0001332
+12,Abnormal,head circumference at the age of 26 months was 42 cm (<3rd percentile),HP:0000252
