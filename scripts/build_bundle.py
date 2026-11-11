@@ -95,7 +95,7 @@ def _load_compliance():
     """bench/compliance.py is the single source of the rules. No copy is kept here, so the two can never differ."""
     import importlib.util
     here = Path(__file__).resolve().parent
-    for p in (here / "compliance.py", here.parent / "bench" / "compliance.py"):
+    for p in (here.parent / "bench" / "compliance.py", here / "compliance.py"):   # the repo's copy wins when present
         if p.is_file():
             spec = importlib.util.spec_from_file_location("mw_compliance", p)
             mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
@@ -172,6 +172,10 @@ def repo_plan(api, repo):
     has_st = any(n.endswith(".safetensors") and not n.startswith(SKIP_DIRS) for n in names)
     patterns = ALLOW if has_st else ALLOW + ALLOW_BIN
     files = [s for s in info.siblings if wanted(s.rfilename, patterns)]
+    # Some repos (Mistral) ship the same weights twice: consolidated*.safetensors for Mistral's own tools and the
+    # model*.safetensors that vLLM loads. Keep only the second when both are there.
+    if any(f.rfilename.startswith("model") and f.rfilename.endswith(".safetensors") for f in files):
+        files = [f for f in files if not f.rfilename.split("/")[-1].startswith("consolidated")]
     size = sum((s.size or 0) for s in files)
     if not any(f.rfilename.endswith((".safetensors", ".bin")) for f in files):
         raise RuntimeError("no model weights (.safetensors or pytorch_model*.bin) found in this repo")

@@ -18,7 +18,7 @@ Reasons start with "blocked:" (Texas list), "needs review:" (not approved yet) o
 This file is the single source. scripts/build_bundle.py loads it (from the repo, or a copy placed beside the
 script) and copies it into the bundle; scripts/run_benchmark.py loads the bundle's copy for its offline check.
 When DIR updates its list, edit PROHIBITED_ORGS and the FAMILY_ lists here, then run bench/test_compliance.py."""
-import json, os, re, urllib.request
+import json, os, re, urllib.error, urllib.request
 from pathlib import Path
 
 VERSION = "2026-11-11"            # change whenever a list below changes; recorded in MANIFEST.json
@@ -138,6 +138,12 @@ def check_hf(hf_id, tags=None, get=None, trail=None, _depth=0):
     if tags is not None: info = {"tags": tags}
     else:
         try: info = get(f"https://huggingface.co/api/models/{hf_id}")
+        except urllib.error.HTTPError as e:
+            if e.code != 404 or _depth == 0:
+                return False, f"unverified: could not read {hf_id} on Hugging Face (HTTP {e.code}); checked again next run"
+            # A base model named on a card but not on Hugging Face (e.g. google/gemma-3-12b). No weights can come from
+            # it; its owner and name already passed above, and it is treated as a root: approved developer or review.
+            info = {}
         except Exception as e:
             return False, f"unverified: could not read {hf_id} on Hugging Face ({type(e).__name__}); checked again next run"
         if not isinstance(info, dict): return False, f"unverified: unexpected reply for {hf_id}"

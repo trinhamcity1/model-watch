@@ -15,9 +15,15 @@ CARDS = {   # repo -> base models, as Hugging Face would report them
     "abhinand/MedEmbed-large-v0.1": ["BAAI/bge-large-en-v1.5"],
     **{f"u/l{i}": [f"u/l{i + 1}"] for i in range(9)}, "u/l9": [],
 }
+MISSING = {"google/gemma-3-12b", "someuser/ghost-base"}   # named as base models but not on Hugging Face
+CARDS.update({"google/gemma-3-12b-it": ["google/gemma-3-12b-pt"], "google/gemma-3-12b-pt": ["google/gemma-3-12b"],
+              "someuser/ghost-ft": ["someuser/ghost-base"], "someuser/qwen-ghost-ft": ["Qwen/Qwen9-Ghost"]})
+MISSING.add("Qwen/Qwen9-Ghost")
 def get(url):
     repo = url.split("/api/models/")[1]
-    if repo not in CARDS: raise OSError("404")
+    if repo in MISSING:
+        import urllib.error; raise urllib.error.HTTPError(url, 404, "Not Found", None, None)
+    if repo not in CARDS: raise OSError("network")
     return {"tags": [f"base_model:finetune:{p}" for p in CARDS[repo]]}
 
 fails = []
@@ -52,6 +58,10 @@ expect("MedEmbed (built on BGE)", c.check_hf("abhinand/MedEmbed-large-v0.1", Non
 expect("unknown developer, no base model", c.check_hf("someuser/mystery-8b", None, get), False, "needs review")
 expect("GGUF of an unknown model", c.check_hf("bartowski/mystery-8b-GGUF", None, get), False, "needs review")
 expect("unreadable repo", c.check_hf("someuser/not-there", None, get), False, "unverified")
+expect("missing base model, approved owner (Gemma 3 12B)", c.check_hf("google/gemma-3-12b-it", None, get), True)
+expect("missing base model, unknown owner", c.check_hf("someuser/ghost-ft", None, get), False, "needs review")
+expect("missing base model, listed owner", c.check_hf("someuser/qwen-ghost-ft", None, get), False, "blocked")
+expect("the model itself missing", c.check_hf("google/gemma-3-12b", None, get), False, "unverified")
 expect("chain deeper than the limit", c.check_hf("u/l0", None, get), False, "unverified")
 expect("listed base model in tags passed by the scout", c.check_hf("x/y", ["base_model:quantized:Qwen/Qwen3-8B"], get), False, "blocked")
 
