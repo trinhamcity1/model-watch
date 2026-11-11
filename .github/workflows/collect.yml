@@ -1,0 +1,149 @@
+name: Model Watch collect
+# Every 30 minutes: if a Kaggle run is pending and finished, download, score, merge and publish.
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+    inputs:
+      auto_merge:
+        description: "Merge automatically when every check passes"
+        type: boolean
+        default: true
+      force:
+        description: "Collect the last Kaggle output even if nothing is marked pending"
+        type: boolean
+        default: false
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  actions: write
+concurrency:
+  group: model-watch-collect
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+      KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+      GH_TOKEN: ${{ github.token }}
+      KERNEL: ${{ secrets.KAGGLE_USERNAME }}/model-watch-hpo
+    steps:
+      - uses: actions/checkout@v4
+      - name: Is a run pending?
+        id: p
+        run: |
+          P=$(python3 -c "import json;print(str(json.load(open('docs/kaggle_state.json')).get('pending', False)).lower())" 2>/dev/null || echo false)
+          if [ "${{ github.event.inputs.force }}" = "true" ]; then P=true; fi
+          echo "pending=$P" >> "$GITHUB_OUTPUT"; echo "pending=$P"
+      - uses: actions/setup-python@v5
+        if: steps.p.outputs.pending == 'true'
+        with: { python-version: "3.12" }
+      - name: Check Kaggle
+        id: k
+        if: steps.p.outputs.pending == 'true'
+        run: |
+          pip install -q -U kaggle six
+          S=$(kaggle kernels status "$KERNEL" 2>&1 || true); echo "$S"
+          if echo "$S" | grep -qiE "running|queued"; then echo "state=running" >> "$GITHUB_OUTPUT"
+          elif echo "$S" | grep -qi "complete"; then echo "state=complete" >> "$GITHUB_OUTPUT"
+          elif echo "$S" | grep -qiE "error|cancel"; then echo "state=failed" >> "$GITHUB_OUTPUT"
+          else echo "state=unknown" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Download Kaggle results
+        if: steps.k.outputs.state == 'complete' || steps.k.outputs.state == 'failed'
+        run: |
+          kaggle kernels output "$KERNEL" -p out || true
+          echo "Files returned by Kaggle:"; ls -R out | head -80
+          echo '{}' > queue.json
+
+      - name: Save the HPO search index for later runs
+        if: steps.k.outputs.state == 'complete' || steps.k.outputs.state == 'failed'
+        continue-on-error: true
+        run: |
+          F=$(find out -name hpo_index.tgz | head -1)
+          if [ -n "$F" ]; then
+            gh release view hpo-index >/dev/null 2>&1 || gh release create hpo-index --title "HPO search index" --notes "Built by the benchmark; reused so later runs skip the ~45 minute setup."
+            gh release upload hpo-index "$F" --clobber
+            echo "index saved"
+          else echo "no new index in this run"; fi
+
+      - name: Mark the run as collected
+        if: steps.k.outputs.state == 'complete' || steps.k.outputs.state == 'failed'
+        run: |
+          git config user.name "model-watch-bot"
+          git config user.email "actions@users.noreply.github.com"
+          python3 - <<'PY'
+          import json
+          s = json.load(open("docs/kaggle_state.json")); s["pending"] = False
+          json.dump(s, open("docs/kaggle_state.json", "w"), indent=1)
+          PY
+          git add docs/kaggle_state.json
+          git diff --cached --quiet || git commit -m "Kaggle run collected $(date +%F)"
+          git push origin HEAD:main
+
+      - name: Score and update the data files
+        id: c
+        if: steps.k.outputs.state == 'complete' || steps.k.outputs.state == 'failed'
+        run: cd bench && python collect.py ../out ../queue.json
+
+      - name: Commit to a branch and open a pull request
+        id: pr
+        if: steps.c.outcome == 'success'
+        run: |
+          BR="hpo-$(date +%Y-%m-%d-%H%M)"
+          git checkout -b "$BR"
+          git add docs runs
+          git commit -m "HPO benchmark $(date +%F)"
+          git push origin "$BR"
+          python - <<'PY' > body.md
+          import json
+          r = json.load(open("docs/run_report.json"))
+          print(f"HPO benchmark {r['date']} on {', '.join(r['gpus']) or 'no GPU'}; HPO release {r.get('hpo_version')}\n")
+          print("| Model | Dataset | Result | F1 | P | R | Neg. errors | s/doc | Peak GPU |\n|---|---|---|---|---|---|---|---|---|")
+          for x in r["results"]:
+              m = x.get("metrics") or {}
+              g = lambda k: m.get(k, "")
+              print(f"| {x['id']} | {x['dataset']} | {'ok' if x['ok'] else x['reason']} | {g('f1')} | {g('precision')} | {g('recall')} | {g('neg_errors')} | {g('secs_per_doc')} | {g('gpu_peak_gib')} |")
+          print("\nAll checks passed, safe to merge." if r["merge_ok"] else "\nProblems: " + "; ".join(r["problems"]) + ". Review before merging.")
+          PY
+          URL=$(gh pr create --base main --head "$BR" --title "HPO benchmark $(date +%F)" --body-file body.md)
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+          echo "merge_ok=$(python -c "import json;print(str(json.load(open('docs/run_report.json'))['merge_ok']).lower())")" >> "$GITHUB_OUTPUT"
+
+      - name: Merge when every check passed
+        id: merge
+        if: steps.pr.outcome == 'success'
+        run: |
+          if [ "${{ steps.pr.outputs.merge_ok }}" = "true" ] && [ "${{ github.event.inputs.auto_merge }}" != "false" ]; then
+            gh pr merge "${{ steps.pr.outputs.url }}" --squash --delete-branch
+            echo "merged=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "merged=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publish the site
+        if: steps.merge.outputs.merged == 'true'
+        run: gh workflow run deploy.yml --ref main
+
+      - name: Start a follow-up for models not reached
+        if: steps.merge.outputs.merged == 'true' && steps.c.outputs.not_reached != '0' && steps.c.outputs.completed != '0'
+        run: gh workflow run benchmark.yml --ref main
+
+      - name: Notify
+        if: always() && (steps.k.outputs.state == 'complete' || steps.k.outputs.state == 'failed')
+        run: |
+          OWNER="${{ github.repository_owner }}"
+          SITE="https://${OWNER}.github.io/${{ github.event.repository.name }}/"
+          RUN="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          if [ "${{ steps.merge.outputs.merged }}" = "true" ]; then
+            T="HPO benchmark: new results are live"; B="@${OWNER} Results merged. Site: ${SITE}"
+          elif [ "${{ steps.pr.outcome }}" = "success" ]; then
+            T="HPO benchmark needs your review"; B="@${OWNER} Results collected but not merged. Review: ${{ steps.pr.outputs.url }}"
+          else
+            T="HPO benchmark collect failed"; B="@${OWNER} Kaggle state: ${{ steps.k.outputs.state }}. Log: ${RUN}"
+          fi
+          gh issue create --title "$T" --body "$B"

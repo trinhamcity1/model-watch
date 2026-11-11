@@ -1,0 +1,72 @@
+{
+ "task": "hpo_rag",
+ "task_version": 2,
+ "description": "RAG-HPO phenotype extraction: each model is the LLM inside RAG-HPO; output HPO codes are scored per document against expert annotations.",
+ "rag_hpo": {
+  "repo": "https://github.com/PoseyPod/RAG-HPO",
+  "ref": "main"
+ },
+ "corpora": {
+  "repo": "https://github.com/EclipseCN/PhenoBERT",
+  "ref": "main"
+ },
+ "datasets": {
+  "id68": {
+   "label": "ID-68",
+   "path": "phenobert/data/ID-68",
+   "n": 12,
+   "docs": [
+    "09DG00835",
+    "12DG2311",
+    "13DG0911",
+    "13DG1665",
+    "14DG1743",
+    "15DG0115",
+    "15DG0299",
+    "15DG0749",
+    "16DG0971",
+    "17DG0762",
+    "17DG0769",
+    "DD_91704"
+   ],
+   "about": "12 hand-picked clinical notes from ID-68 (families with intellectual disability, Anazi et al. 2017): 7 with seizures or epilepsy, 5 with negated findings, the rest other neurodevelopmental features."
+  },
+  "gscplus": {
+   "label": "GSC+",
+   "path": "phenobert/data/GSC+",
+   "n": 12,
+   "docs": [
+    "10771486",
+    "11748306",
+    "16401744",
+    "2466440",
+    "3134615",
+    "3688021",
+    "7485365",
+    "8576558",
+    "8929945",
+    "9182785",
+    "9207339",
+    "9546330"
+   ],
+   "about": "12 hand-picked PubMed abstracts from GSC+ (Lobo et al. 2017): 8 on seizure or epilepsy disorders, 4 on other neurodevelopmental disorders."
+  }
+ },
+ "selection_rule": "Picked for the lab's use case (epilepsy and neurodevelopmental disorders): documents up to 350 words with at least 3 gold HPO codes; ID-68 takes the notes with negated findings first, then the notes with the most nervous-system findings; GSC+ takes 8 seizure/epilepsy abstracts and 4 other neurodevelopmental ones.",
+ "sample_seed": 42,
+ "control": {
+  "tag": "llama3.1:8b",
+  "dataset": "id68",
+  "n": 12,
+  "max_f1_drift": 0.1
+ },
+ "large_min_params_b": 15,
+ "kaggle_max_params_b": 40,
+ "budget_minutes": 600,
+ "hard_limit_minutes": 660,
+ "per_dataset_timeout_minutes": 30,
+ "pull_timeout_minutes": 25,
+ "temperature": 0.0,
+ "index_release_tag": "hpo-index",
+ "index_max_age_days": 90
+}

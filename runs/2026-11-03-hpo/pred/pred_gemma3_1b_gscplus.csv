@@ -1,0 +1,65 @@
+Patient ID,Category,Phenotype name,HPO ID
+2,Abnormal,severe developmental delay and/or mental retardation,No Candidate Fit
+2,Abnormal,profound speech impairment,HP:0001234
+2,Abnormal,movement and balance disorder,No Candidate Fit
+3,Abnormal,severe mental retardation,HP:0010864
+3,Abnormal,epilepsy,HP:0001250
+3,Abnormal,status epilepticus,HP:0002133
+3,Abnormal,speech disorder,HP:0002167
+3,Abnormal,stereotyped jerky movements,No Candidate Fit
+3,Abnormal,peculiar behavioral profile,No Candidate Fit
+3,Abnormal,suggestive electroencephalographic patterns,No Candidate Fit
+3,Abnormal,epilepsy severity,No Candidate Fit
+3,Abnormal,epilepsy evolution,No Candidate Fit
+3,Abnormal,response to antiepileptic drug treatment,HP:0030201
+3,Abnormal,generalized epilepsy,HP:0002197
+3,Abnormal,partial epilepsy,HP:0007359
+3,Abnormal,disabling seizures,HP:0001234
+3,Abnormal,refractory epilepsy,HP:0001234
+3,Abnormal,disabling seizures,No Candidate Fit
+3,Abnormal,carbamazepine,No Candidate Fit
+3,Abnormal,oxcarbazepine,No Candidate Fit
+3,Abnormal,vigabatrin,No Candidate Fit
+4,Abnormal,prominent jaw,HP:0000303
+4,Abnormal,wide mouth,HP:0000154
+4,Abnormal,pointed chin,HP:0000307
+4,Abnormal,tongue thrusting,HP:0100703
+5,Abnormal,malignant lesions,HP:0002664
+5,Abnormal,meningiomas,HP:0002858
+5,Abnormal,ependymomas,HP:0002888
+7,Abnormal,cataracts,HP:0000518
+7,Abnormal,"posterior subcapsular or capsular, cortical, or mixed lens opacities",HP:0007787
+7,Abnormal,retinal hamartomas,HP:0009594
+7,Abnormal,retinal hamartomas,HP:0009594
+7,Abnormal,ocular motor deficits,No Candidate Fit
+7,Abnormal,plaque-like posterior subcapsular or capsular cataract,HP:0007787
+7,Abnormal,cortical cataract with onset under the age of 30 years,No Candidate Fit
+8,Abnormal,myoclonic status epilepticus,HP:0032667
+9,Abnormal,severe mental retardation,HP:0010864
+9,Abnormal,abnormal EEG,HP:0002353
+9,Abnormal,severe mental retardation,HP:0010864
+9,Abnormal,abnormal EEG,HP:0002353
+9,Abnormal,severe mental retardation,HP:0010864
+9,Abnormal,abnormal EEG,HP:0002353
+9,Abnormal,ataxic movements,HP:0001234
+9,Abnormal,absent language,HP:0001234
+9,Abnormal,ataxic movements,No Candidate Fit
+9,Abnormal,significant brain abnormalities,No Candidate Fit
+9,Abnormal,unable to walk independently,HP:0002540
+9,Abnormal,ataxic movements,No Candidate Fit
+10,Abnormal,severe intellectual disability,HP:0010864
+10,Abnormal,lack of speech,HP:0001344
+10,Abnormal,epilepsy,HP:0001250
+10,Abnormal,ataxic or hypermotoric limb movements,No Candidate Fit
+10,Abnormal,large mouth and jaw with deep set eyes,No Candidate Fit
+10,Abnormal,microcephaly in nine patients (two having a large head size for height),No Candidate Fit
+10,Abnormal,no patient had a single word of speech but one patient could use sign language for two needs,HP:0033849
+10,Abnormal,kyphosis is two problems of older patients,HP:0002808
+10,Abnormal,keratoconus is two problems of older patients,No Candidate Fit
+11,Abnormal,malignant tumors,HP:0002664
+12,Abnormal,epileptic spasms,HP:0011097
+12,Abnormal,severe intractable epilepsy,HP:0001234
+12,Abnormal,atypical absences,HP:0007270
+12,Abnormal,myoclonias,HP:0001234
+12,Abnormal,generalized extensor tonic seizures or flexor spasms,No Candidate Fit
+12,Abnormal,old as 41 years,HP:0001234

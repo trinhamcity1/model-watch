@@ -1,0 +1,131 @@
+Patient ID,Category,Phenotype name,HPO ID
+1,Abnormal,skin tumors,HP:0008069
+1,Abnormal,Schwannomas in the skin,HP:0100008
+1,Abnormal,NF2 mutations,HP:0001067
+1,Abnormal,allelic loss,HP:0003494
+1,Abnormal,NF2 mutations in blood,HP:0001871
+1,Abnormal,NF2 mutations in tumors,HP:0001067
+1,Abnormal,NF2 allelic loss in tumors,HP:0001067
+1,Abnormal,genetic alterations,HP:0001425
+1,Abnormal,vestibular schwannomas,HP:0009588
+1,Abnormal,meningiomas,HP:0002858
+1,Abnormal,skin schwannomas,HP:0100008
+1,Abnormal,neurofibromatosis 2-associated skin tumors,HP:0008069
+1,Abnormal,constitutional mutations,HP:0025352
+2,Abnormal,microcephaly,HP:0000252
+2,Abnormal,hypopigmentation,HP:0001010
+2,Abnormal,seizures,HP:0001250
+2,Abnormal,severe developmental delay and/or mental retardation,HP:0011344
+2,Abnormal,profound speech impairment,HP:0000750
+2,Abnormal,movement and balance disorder,HP:0002141
+2,Abnormal,AS specific behaviour typified by an easily excitable personality with an inappropriately happy affect,HP:0031844
+2,Abnormal,mutations within UBE3A,HP:0000816
+2,Abnormal,deletions,HP:0003689
+2,Abnormal,UPD and ID patients,HP:0032382
+2,Abnormal,UBE3A mutation patients,HP:0003647
+2,Abnormal,subjects with unknown aetiology,HP:0033552
+3,Abnormal,severe mental retardation,HP:0010864
+3,Abnormal,epilepsy,HP:0001250
+3,Abnormal,status epilepticus,HP:0002133
+3,Abnormal,speech disorder,HP:0001260
+3,Abnormal,stereotyped jerky movements,HP:0001336
+3,Abnormal,electroencephalographic patterns,HP:0002353
+3,Abnormal,generalized epilepsy,HP:0001250
+3,Abnormal,partial epilepsy,HP:0007359
+3,Abnormal,atypical absences,HP:0007270
+3,Abnormal,myoclonic seizures,HP:0002123
+3,Abnormal,tonic-clonic seizures,HP:0002069
+3,Abnormal,daily seizures,HP:0001250
+3,Abnormal,disabling seizures,HP:0001250
+3,Abnormal,multiple seizure types,HP:0001250
+3,Abnormal,refractory epilepsy,HP:0001250
+3,Abnormal,"severe, generalized, cryptogenic epilepsy",HP:0001250
+4,Abnormal,global developmental delay,HP:0001263
+4,Abnormal,ataxia,HP:0001251
+4,Abnormal,seizures,HP:0001250
+4,Abnormal,microcephaly,HP:0000252
+4,Abnormal,prominent jaw,HP:0000303
+4,Abnormal,wide mouth,HP:0000154
+4,Abnormal,pointed chin,HP:0000307
+4,Abnormal,tongue thrusting,HP:0100703
+4,Abnormal,episodes of paroxysmal laughter,HP:0000749
+4,Abnormal,"wide based, ataxic gait",HP:0002066
+4,Abnormal,jerky limb movements,HP:0001336
+4,Abnormal,flapping of the hands,HP:0100023
+4,Abnormal,variable tone in the limbs,HP:0003808
+4,Abnormal,flexor plantar responses,HP:0003487
+5,Abnormal,bilateral acoustic neuromas,HP:0009589
+5,Abnormal,multiple central nervous system tumors,HP:0100006
+5,Abnormal,meningiomas,HP:0002858
+5,Abnormal,ependymomas,HP:0002888
+5,Abnormal,intracranial nontumoral calcifications,HP:0007238
+5,Abnormal,neurofibromatosis 2,HP:0001067
+6,Abnormal,severe mental retardation,HP:0010864
+6,Abnormal,seizures,HP:0001250
+6,Abnormal,ataxia-like incoordination,HP:0002311
+6,Abnormal,mild hypertelorism,HP:0000316
+6,Abnormal,ataxic-like movements,HP:0002066
+6,Abnormal,"frequent, unprovoked and prolonged bouts of laughter",HP:0000749
+7,Abnormal,cataracts,HP:0000518
+7,Abnormal,ocular abnormalities,HP:0000478
+7,Abnormal,"posterior subcapsular or capsular, cortical, or mixed lens opacities",HP:0007787
+7,Abnormal,retinal hamartomas,HP:0009594
+7,Abnormal,ocular motor deficits,HP:0000657
+7,Abnormal,plaque-like posterior subcapsular or capsular cataract,HP:0007787
+7,Abnormal,cortical cataract with onset under the age of 30 years,HP:0100019
+8,Abnormal,myoclonic status epilepticus,HP:0032667
+8,Abnormal,ataxia,HP:0001251
+8,Abnormal,movement problems,HP:0002311
+8,Abnormal,long-lasting periods of jerky movements,HP:0001336
+8,Abnormal,partial seizures with eye deviation and vomiting,HP:0007359
+8,Abnormal,jerky movements,HP:0001336
+9,Abnormal,severe mental retardation,HP:0010864
+9,Abnormal,abnormal EEG,HP:0002353
+9,Abnormal,ataxic,HP:0001251
+9,Abnormal,severely retarded,HP:0001249
+9,Abnormal,lacking recognisable speech,HP:0002300
+9,Abnormal,poor postnatal head growth,HP:0005484
+9,Abnormal,hypotonia at birth,HP:0001319
+9,Abnormal,neonatal feeding difficulties,HP:0011968
+9,Abnormal,epilepsy was present in 26/27 (96%),HP:0001250
+9,Abnormal,onset by the third year of life in 20 patients (83%),HP:0001709
+9,Abnormal,an abnormal EEG was reported in 25/25 patients,HP:0002353
+9,Abnormal,hypopigmentation was present in 19/26 (73%),HP:0001010
+9,Abnormal,one patient had oculocutaneous albinism,HP:0001107
+9,Abnormal,five patients could not walk independently,HP:0010345
+9,Abnormal,disrupted sleep patterns were present in 18/21 patients (86%),HP:0025199
+9,Abnormal,"large, wide mouth",HP:0000154
+9,Abnormal,ataxic movements,HP:0001251
+9,Abnormal,absent language,HP:0001344
+10,Abnormal,severe intellectual disability,HP:0010864
+10,Abnormal,lack of speech,HP:0001344
+10,Abnormal,epilepsy,HP:0001250
+10,Abnormal,microcephaly,HP:0000252
+10,Abnormal,hypopigmentation,HP:0001010
+10,Abnormal,fair skin,HP:0007513
+10,Abnormal,happy demeanour,HP:0040082
+10,Abnormal,EEG abnormal,HP:0002353
+10,Abnormal,kyphosis,HP:0002808
+10,Abnormal,ataxic gait,HP:0002066
+10,Abnormal,ataxic or hypermotoric limb movements,HP:0002070
+10,Abnormal,a 'happy' demeanour,HP:0040082
+10,Abnormal,facial appearance consistent with the diagnosis,HP:0001999
+10,Abnormal,large mouth and jaw with deep set eyes,HP:0000490
+10,Abnormal,outbursts of laughter,HP:0000749
+10,Abnormal,ocular abnormalities,HP:0000478
+10,Abnormal,never walked,HP:0002540
+10,Abnormal,clumsy gait,HP:0002066
+10,Abnormal,heavy gait,HP:0002066
+10,Abnormal,lilting gait,HP:0002066
+10,Abnormal,no speech,HP:0001344
+10,Abnormal,use of sign language,HP:0025536
+11,Abnormal,benign and malignant tumors,HP:0002664
+11,Abnormal,neurofibromatosis 1,HP:0001067
+11,Abnormal,neurofibromatosis 2,HP:0001067
+12,Abnormal,epileptic spasms,HP:0011097
+12,Abnormal,severe intractable epilepsy,HP:0001250
+12,Abnormal,atypical absences,HP:0007270
+12,Abnormal,myoclonias,HP:0001336
+12,Abnormal,generalized extensor tonic seizures,HP:0010818
+12,Abnormal,flexor spasms,HP:0003394
+12,Abnormal,"characteristic EEGs with diffuse bifrontally dominant high-amplitude 1- to 3-Hz notched or triphasic or polyphasic slow waves, or slow and sharp waves",HP:0011199

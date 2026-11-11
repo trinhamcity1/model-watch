@@ -1,0 +1,117 @@
+name: Model Watch HPO benchmark
+# Starts a Kaggle run for every model in docs/models.json that has no result yet, then exits.
+# The "Model Watch collect" workflow picks up the results when Kaggle finishes (it checks every 30 minutes).
+on:
+  workflow_dispatch:
+    inputs:
+      models:
+        description: "Model ids, comma-separated (empty = every model still missing a result)"
+        type: string
+        default: ""
+      datasets:
+        description: "Datasets: id68, gscplus (empty = both)"
+        type: string
+        default: ""
+      max_docs:
+        description: "Documents per dataset (empty = all 12 hand-picked per dataset)"
+        type: string
+        default: ""
+      include_large:
+        description: "Include 15B+ models (up to 40B; slower, uses more GPU hours)"
+        type: boolean
+        default: false
+      force:
+        description: "Re-run models that already have results"
+        type: boolean
+        default: false
+      ignore_pending:
+        description: "Start even if the last Kaggle run was never collected (its output will be lost)"
+        type: boolean
+        default: false
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: model-watch-start
+  cancel-in-progress: false
+jobs:
+  start:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+      KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+      GH_TOKEN: ${{ github.token }}
+      KERNEL: ${{ secrets.KAGGLE_USERNAME }}/model-watch-hpo
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install -U kaggle six
+      - name: Check Kaggle login
+        run: |
+          test -n "$KAGGLE_USERNAME" || { echo "Add the KAGGLE_USERNAME secret"; exit 1; }
+          kaggle kernels list --mine --page-size 1
+
+      - name: Make sure the last run was collected
+        id: gate
+        run: |
+          PENDING=$(python -c "import json;print(str(json.load(open('docs/kaggle_state.json')).get('pending', False)).lower())" 2>/dev/null || echo false)
+          S=$(kaggle kernels status "$KERNEL" 2>&1 || true); echo "$S"
+          if echo "$S" | grep -qiE "running|queued"; then
+            echo "A Kaggle run is still going. Not starting another; the collect workflow will pick it up."; echo "ok=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if [ "$PENDING" = "true" ] && [ "${{ github.event.inputs.ignore_pending }}" != "true" ]; then
+            echo "The last Kaggle run has not been collected yet. Run 'Model Watch collect' first (or tick ignore_pending)."; echo "ok=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          echo "ok=true" >> "$GITHUB_OUTPUT"
+
+      - name: Test the compliance filter
+        if: steps.gate.outputs.ok == 'true'
+        run: python bench/test_compliance.py
+
+      - name: Choose models to test
+        id: q
+        if: steps.gate.outputs.ok == 'true'
+        env:
+          MODELS: ${{ github.event.inputs.models }}
+          DATASETS: ${{ github.event.inputs.datasets }}
+          MAX_DOCS: ${{ github.event.inputs.max_docs }}
+          FORCE: ${{ github.event.inputs.force }}
+          LARGE: ${{ github.event.inputs.include_large }}
+        run: cd bench && python select.py ../queue.json
+
+      - name: Start the Kaggle run
+        if: steps.gate.outputs.ok == 'true' && steps.q.outputs.queued != '0'
+        run: |
+          mkdir kdir
+          python - <<'PY'
+          import json, os
+          q = open("queue.json").read().replace("'''", "")
+          cfg = json.load(open("bench/config.json"))
+          cfg["index_url"] = "https://github.com/%s/releases/download/%s/hpo_index.tgz" % (os.environ["GITHUB_REPOSITORY"], cfg["index_release_tag"])
+          c = json.dumps(cfg).replace("'''", "")
+          s = open("bench/kaggle_hpo.py").read().replace("__QUEUE__", q, 1).replace("__CONFIG__", c, 1)
+          open("kdir/kaggle_hpo.py", "w").write(s)
+          md = open("bench/kernel-metadata.json").read().replace("__KAGGLE_USER__", os.environ["KAGGLE_USERNAME"])
+          open("kdir/kernel-metadata.json", "w").write(md)
+          PY
+          kaggle kernels push -p kdir
+
+      - name: Record that a run is pending
+        if: steps.gate.outputs.ok == 'true' && steps.q.outputs.queued != '0'
+        run: |
+          python - <<'PY'
+          import json, datetime
+          q = json.load(open("queue.json"))
+          json.dump({"pending": True, "started": datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z",
+                     "queued": len(q["models"]), "models": [m["id"] for m in q["models"]]},
+                    open("docs/kaggle_state.json", "w"), indent=1)
+          PY
+          git config user.name "model-watch-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/kaggle_state.json docs/models.json
+          git commit -m "Kaggle run started $(date +%F)"
+          git push origin HEAD:main
+          echo "Kaggle run started. The collect workflow checks every 30 minutes and publishes when it finishes."

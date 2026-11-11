@@ -1,0 +1,111 @@
+Patient ID,Category,Phenotype name,HPO ID
+1,Abnormal,choking episodes,HP:0030842
+1,Abnormal,seizures,HP:0001250
+1,Abnormal,bronchial asthma,HP:0002099
+1,Abnormal,thinning of the corpus callosum,HP:0033725
+1,Abnormal,floppy with poor sucking,HP:0002033
+1,Abnormal,severe GERD,HP:0002020
+1,Abnormal,opisthotonic posturing,HP:0002179
+1,Abnormal,cannot feel pain,HP:0007021
+1,Abnormal,no tears when cries,HP:0000522
+1,Abnormal,self-mutilating behavior,HP:0100716
+1,Abnormal,developmental delay affecting all domains,HP:0001263
+1,Abnormal,poor growth with significant microcephaly,HP:0000252
+1,Abnormal,hypotelorism and tapering of fingers,HP:0006180
+1,Abnormal,mild atrophy of the cerebellar vermis,HP:0006855
+2,Abnormal,seizures,HP:0001250
+2,Abnormal,dystonia,HP:0001332
+2,Abnormal,ataxia,HP:0001251
+2,Abnormal,hypotonia,HP:0001252
+2,Abnormal,dystonia,HP:0001332
+2,Abnormal,high-grade fever,HP:0001945
+2,Abnormal,hyperextension of the neck,HP:0003318
+2,Abnormal,massive hemorrhagic infarction,HP:0002170
+2,Abnormal,atrophic type 2 muscle fiber,HP:0003554
+3,Abnormal,psychomotor delay,HP:0001263
+3,Abnormal,epilepsy,HP:0001250
+3,Abnormal,global developmental delay,HP:0001263
+3,Abnormal,speech delay,HP:0000750
+3,Abnormal,short stature,HP:0004322
+3,Abnormal,obesity,HP:0001513
+3,Abnormal,hypertelorism,HP:0000316
+3,Abnormal,depressed nasal bridge,HP:0005280
+3,Abnormal,hyperreflexia,HP:0001347
+3,Abnormal,agenesis of corpus callosum,HP:0001274
+3,Abnormal,spina bifida,HP:0002414
+3,Abnormal,ectopic kidney,HP:0000086
+3,Abnormal,brain malformation,HP:0002060
+3,Abnormal,tonic clonic seizures,HP:0002069
+3,Abnormal,bilateral colpocephaly,HP:0030048
+3,Abnormal,mild bilateral hydronephrosis,HP:0000126
+3,Abnormal,bicornuate unicollis uterus,HP:0000813
+4,Abnormal,global developmental delay,HP:0001263
+4,Abnormal,microcephaly,HP:0000252
+4,Abnormal,hypotonia,HP:0001252
+4,Abnormal,microcephaly,HP:0000252
+4,Abnormal,bilateral strabismus,HP:0000486
+4,Abnormal,blind,HP:0000618
+4,Abnormal,swallowing problems,HP:0002015
+4,Abnormal,generalized tonic-clonic seizures,HP:0002069
+4,Abnormal,severe hypotonia,HP:0006829
+4,Abnormal,multifocal epileptic discharges,HP:0010841
+4,Abnormal,diffuse extensive abnormal T2 hyperintensity,HP:0030892
+4,Abnormal,atrophied thalami,HP:0012695
+4,Abnormal,restricted water diffusion,HP:0032615
+4,Abnormal,necrotic appearance,HP:0034988
+5,Abnormal,delay in fine motor and language domains,HP:0001270
+5,Abnormal,immature finger grasp,HP:0009532
+5,Abnormal,cannot feed himself or dress himself,HP:0031060
+5,Abnormal,bilateral clinodactyly,HP:0004209
+6,Abnormal,global developmental delay,HP:0001263
+6,Abnormal,nephrocalcinosis,HP:0000121
+6,Abnormal,bilateral cataract,HP:0000518
+6,Abnormal,proteinuria with normal renal function,HP:0012595
+6,Abnormal,G6PD and hepatic calcification,HP:0006559
+6,Abnormal,"sparse hair, fair hair, deep seated eyes, small eyes, hypotonia, hyperreflexia, reduced muscle mass",HP:0008070
+6,Abnormal,mild asymmetrical dilation of both lateral ventricles due to central atrophy,HP:0006956
+6,Abnormal,nephrocalcinosis and hepatic calcification,HP:0006559
+6,Abnormal,"hypocalcemia (0.61 mmol/L), hypomagnesemia (0.3 mmol/L), hypophosphatemia (6.7 mmol/L) and hypercalciuria",HP:0002901
+7,Abnormal,intellectual disability,HP:0001249
+7,Abnormal,ADHD,HP:0007018
+7,Abnormal,global developmental delay,HP:0001263
+7,Abnormal,seizures,HP:0001250
+7,Abnormal,dystonic movements,HP:0001332
+7,Abnormal,intellectual disability,HP:0001249
+7,Abnormal,partial seizure,HP:0007359
+7,Abnormal,seizure disorder,HP:0001250
+7,Abnormal,seizure disorder,HP:0001250
+7,Abnormal,refractory to multiple antiepileptic medications,HP:0032867
+7,Abnormal,bilateral tonsillar herniation,HP:0008441
+8,Abnormal,intellectual disability,HP:0001249
+9,Abnormal,axial hypotonia,HP:0008936
+9,Abnormal,developmental delay,HP:0001263
+9,Abnormal,focal seizures,HP:0007359
+9,Abnormal,generalized brain atrophy,HP:0002283
+9,Abnormal,microcephalic child,HP:0000252
+9,Abnormal,generalized spasticity,HP:0001257
+9,Abnormal,persistent seizure,HP:0002133
+9,Abnormal,poorly controlled epilepsy,HP:0001250
+9,Abnormal,bilateral diffusion restriction,HP:0032615
+9,Abnormal,symmetric foci of diffusion restriction,HP:0007262
+9,Abnormal,raised choline levels,HP:0012706
+9,Abnormal,generalized encephalopathic state,HP:0032661
+10,Abnormal,poor feeding,HP:0011968
+10,Abnormal,global developmental delay affecting all domains,HP:0001263
+10,Abnormal,neonatal-onset hypotonia,HP:0008935
+10,Abnormal,severe hypotonia and weakness,HP:0006829
+10,Abnormal,brain MRI showed white matter abnormality,HP:0002500
+11,Abnormal,global developmental delay,HP:0001263
+11,Abnormal,areflexia,HP:0001284
+11,Abnormal,hypotonic,HP:0001252
+11,Abnormal,high CK,HP:0030235
+11,Abnormal,severe underweight,HP:0001508
+11,Abnormal,multiple contractures of hands and knees joints,HP:0009473
+11,Abnormal,severe scoliosis,HP:0002944
+11,Abnormal,severe hypotonia,HP:0006829
+12,Abnormal,global developmental delay,HP:0001263
+12,Abnormal,congenital microcephaly,HP:0011451
+12,Abnormal,infantile spasms,HP:0012469
+12,Abnormal,dystonic posturing,HP:0001304
+12,Abnormal,head circumference 31 cm (on the 3rd percentile),HP:0000252
+12,Abnormal,head circumference 42 cm (<3rd percentile),HP:0000252

@@ -1,0 +1,145 @@
+Patient ID,Category,Phenotype name,HPO ID
+1,Abnormal,choking episodes,HP:0030842
+1,Abnormal,seizures,HP:0001250
+1,Abnormal,bronchial asthma,HP:0002099
+1,Abnormal,poor growth,HP:0001510
+1,Abnormal,hypotelorism,HP:0000601
+1,Abnormal,thinning of the corpus callosum,HP:0033725
+1,Abnormal,decrease in fetal movements,HP:0001558
+1,Abnormal,birth weight 2.8 kg,HP:0001195
+1,Abnormal,floppy with poor sucking,HP:0002033
+1,Abnormal,severe GERD,HP:0002020
+1,Abnormal,aspiration problems,HP:0002835
+1,Abnormal,opisthotonic posturing,HP:0002179
+1,Abnormal,barely can feel pain,HP:0007021
+1,Abnormal,no tears when she cries,HP:0000522
+1,Abnormal,self-mutilating behavior by scratching her face,HP:0012169
+1,Abnormal,developmental delay affecting all domains,HP:0001263
+1,Abnormal,estimated IQ 20-30,HP:0002342
+1,Abnormal,cannot talk,HP:0002371
+1,Abnormal,unstable gait,HP:0002317
+1,Abnormal,significant microcephaly,HP:0000252
+1,Abnormal,tapering of fingers,HP:0001182
+1,Abnormal,mild atrophy of the cerebellar vermis,HP:0006855
+2,Abnormal,stiffness that turned to be seizures,HP:0010821
+2,Abnormal,regressed in his motor skills,HP:0033044
+2,Abnormal,dystonia and ataxia,HP:0002073
+2,Abnormal,massive hemorrhagic infarction of nonvascular distribution pattern involving both posterior occipitoparietal regions within the brainstem area and cerebellum,HP:0002170
+2,Abnormal,progressive cerebral edema and tentorial herniation,HP:0002516
+2,Abnormal,mild lipid myopathy with type 2 muscle fiber atrophy,HP:0012548
+3,Abnormal,psychomotor delay,HP:0001263
+3,Abnormal,epilepsy,HP:0001250
+3,Abnormal,aggressive behavior,HP:0000718
+3,Abnormal,short stature,HP:0004322
+3,Abnormal,obesity,HP:0001513
+3,Abnormal,hypertelorism,HP:0000316
+3,Abnormal,depressed nasal bridge,HP:0005280
+3,Abnormal,brain malformation,HP:0012443
+3,Abnormal,did not cry immediately after birth,HP:0003680
+3,Abnormal,kept in NICU for 3 days,HP:0008935
+3,Abnormal,started to have seizures at the age of two years,HP:0002069
+3,Abnormal,severely delayed speech,HP:0000750
+3,Abnormal,IQ was estimated to be 55,HP:0002187
+3,Abnormal,spina bifida at L5 as well as upper two sacral vertebrae,HP:0002414
+3,Abnormal,right ectopic kidney lying in the pelvis close to the urinary bladder on the right side,HP:0000086
+3,Abnormal,bilateral hydronephrosis,HP:0000126
+3,Abnormal,bicornuate unicollis uterus,HP:0000813
+4,Abnormal,global developmental delay,HP:0001263
+4,Abnormal,microcephaly,HP:0000252
+4,Abnormal,bilateral strabismus,HP:0000486
+4,Abnormal,unable to follow,HP:0002066
+4,Abnormal,blind,HP:0000618
+4,Abnormal,swallowing problems with solids that progressed to liquids as well,HP:0200136
+4,Abnormal,frequent jerks which progressed to generalized tonic-clonic seizures,HP:0002069
+4,Abnormal,started to lose milestones,HP:0006834
+4,Abnormal,severe hypotonia,HP:0006829
+4,Abnormal,hypsarrhythmia and multifocal epileptic discharges,HP:0002521
+4,Abnormal,diffuse extensive abnormal T2 hyperintensity of both cerebral and cerebellar hemispheres and the corpus callosum as well as the posterior limb of the both internal capsule and the paramedian tracts,HP:0030892
+4,Abnormal,atrophied thalami,HP:0012444
+4,Abnormal,"restricted water diffusion with multifocal areas of necrotic appearance in the periventricular region and the centrum semiovale, bilaterally",HP:0006970
+5,Abnormal,delay in fine motor and language domains,HP:0000750
+5,Abnormal,immature finger grasp,HP:0009159
+5,Abnormal,cannot feed himself or dress himself,HP:0031060
+5,Abnormal,head circumference 48.4 cm (5th-10th percentile),HP:0000256
+5,Abnormal,bilateral clinodactyly,HP:0030084
+6,Abnormal,global developmental delay,HP:0001263
+6,Abnormal,nephrocalcinosis,HP:0000121
+6,Abnormal,global developmental delay,HP:0001263
+6,Abnormal,hypocalcemia (0.61 mmol/L),HP:0002901
+6,Abnormal,hypomagnesemia (0.3 mmol/L),HP:0002917
+6,Abnormal,hypophosphatemia (6.7 mmol/L),HP:0002148
+6,Abnormal,hypercalciuria,HP:0002150
+6,Abnormal,hypotonia,HP:0001252
+6,Abnormal,bilateral cataract,HP:0000519
+6,Abnormal,proteinuria with normal renal function,HP:0012595
+6,Abnormal,G6PD and hepatic calcification,HP:0410176
+6,Abnormal,small eyes,HP:0000601
+6,Abnormal,reduced muscle mass,HP:0003700
+7,Abnormal,intellectual disability,HP:0001249
+7,Abnormal,ADHD,HP:0007018
+7,Abnormal,seizure disorder,HP:0002197
+7,Abnormal,global developmental delay that was mainly in cognitive functions with poor attention and hyperactivity,HP:0012736
+7,Abnormal,seizures that started at 6 years of age with semiology of a partial component,HP:0007359
+7,Abnormal,refractory to multiple antiepileptic medications,HP:0032867
+7,Abnormal,new episodes of dystonic movements,HP:0001332
+7,Abnormal,deteriorated clinically,HP:0003678
+7,Abnormal,bilateral tonsillar herniation,HP:0025193
+8,Abnormal,language has always been delayed,HP:0000750
+8,Abnormal,gait was unstable,HP:0002317
+8,Abnormal,IQ was estimated to be 70,HP:0001249
+8,Abnormal,weight 18.7 kg (10th percentile),HP:0001518
+8,Abnormal,height 113.5 cm (3rd -5th percentile),HP:0004322
+9,Abnormal,global developmental delay,HP:0001263
+9,Abnormal,axial hypotonia,HP:0008936
+9,Abnormal,generalized brain atrophy,HP:0002283
+9,Abnormal,transient respiratory distress,HP:0002098
+9,Abnormal,questionable sepsis,HP:0100806
+9,Abnormal,focal seizures at 6 months of age,HP:0007359
+9,Abnormal,persistent seizure,HP:0002133
+9,Abnormal,failure to extubate,HP:0005946
+9,Abnormal,poorly controlled epilepsy,HP:0001250
+9,Abnormal,microcephalic child,HP:0011451
+9,Abnormal,generalized spasticity,HP:0001257
+9,Abnormal,weight 8 kg (on the 3rd percentile),HP:0004325
+9,Abnormal,height 61 cm (<1st percentile),HP:0003502
+9,Abnormal,head circumference 41 cm (<1st percentile),HP:0000252
+9,Abnormal,bilateral diffusion restriction in the posterior limbs of the internal capsule,HP:0032615
+9,Abnormal,symmetric foci of diffusion restriction in the midbrain and the dorsal brainstem along the sensory white matter tracts,HP:0032615
+9,Abnormal,raised choline levels in the white matter,HP:0025047
+9,Abnormal,generalized encephalopathic state,HP:0032661
+9,Abnormal,evidence of partial seizure,HP:0007359
+10,Abnormal,global developmental delay,HP:0001263
+10,Abnormal,poor feeding,HP:0011968
+10,Abnormal,neonatal-onset hypotonia,HP:0001319
+10,Abnormal,hypotonia since birth,HP:0008935
+10,Abnormal,global developmental delay affecting all domains,HP:0001263
+10,Abnormal,severe hypotonia and weakness,HP:0006829
+10,Abnormal,white matter abnormality,HP:0002500
+11,Abnormal,global developmental delay,HP:0001263
+11,Abnormal,plagiocephaly,HP:0001357
+11,Abnormal,open bite,HP:0010807
+11,Abnormal,areflexia,HP:0001284
+11,Abnormal,hypotonic shortly after birth,HP:0001319
+11,Abnormal,high CK in addition to his hypotonia,HP:0030234
+11,Abnormal,severely delayed motor and cognitive skills,HP:0012736
+11,Abnormal,unable to sit unsupported,HP:0025336
+11,Abnormal,severe underweight,HP:0001525
+11,Abnormal,borderline OFC (6th percentile),HP:0012827
+11,Abnormal,multiple contractures of hands and knees joints,HP:0005750
+11,Abnormal,severe scoliosis,HP:0002650
+11,Abnormal,one large caf au lait macule in the lower back,HP:0000957
+11,Abnormal,severe hypotonia,HP:0006829
+12,Abnormal,global developmental delay,HP:0001263
+12,Abnormal,congenital microcephaly,HP:0011451
+12,Abnormal,infantile spasms,HP:0012469
+12,Abnormal,anteverted ears,HP:0040080
+12,Abnormal,thin upper lip vermilion,HP:0000219
+12,Abnormal,mild dysmorphic features,HP:0001999
+12,Abnormal,head circumference 31 cm (on the 3rd percentile),HP:0000256
+12,Abnormal,head circumference at the age of 26 months was 42 cm (<3rd percentile),HP:0020305
+12,Abnormal,unable to sit and control his head,HP:0002421
+12,Abnormal,cannot walk,HP:0002540
+12,Abnormal,speech is severely delayed,HP:0006863
+12,Abnormal,brisk tendon reflexes,HP:0006801
+12,Abnormal,absent visual following,HP:0030553
+12,Abnormal,dystonic posturing that is more prominent on the left side,HP:0001332

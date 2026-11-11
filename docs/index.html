@@ -1,0 +1,246 @@
+<title>Model Watch</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow column, controls on top, verdict first, evidence below, queue and method last. */
+:root{
+  --bg:#f4f5f2; --panel:#ffffff; --fg:#1b2a2f; --muted:#5d6b70; --line:#d9ddd6;
+  --accent:#2c5d8a; --accent-fg:#ffffff;
+  --good:#1d7a4c; --good-bg:#e1f1e8; --bad:#a8362c; --bad-bg:#f6e1de; --tie:#6a6f73; --tie-bg:#ebecea; --warn:#8a5a0a; --warn-bg:#f6ecd5;
+  --sans:'IBM Plex Sans',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121a1d; --panel:#1a2529; --fg:#e4ebe9; --muted:#9aa9ad; --line:#2f3d42;
+  --accent:#6aa5da; --accent-fg:#0f1a1f;
+  --good:#6fd1a0; --good-bg:#17382a; --bad:#f09a90; --bad-bg:#40201d; --tie:#aab3b6; --tie-bg:#263337; --warn:#e5b866; --warn-bg:#3a2d12; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121a1d; --panel:#1a2529; --fg:#e4ebe9; --muted:#9aa9ad; --line:#2f3d42;
+  --accent:#6aa5da; --accent-fg:#0f1a1f;
+  --good:#6fd1a0; --good-bg:#17382a; --bad:#f09a90; --bad-bg:#40201d; --tie:#aab3b6; --tie-bg:#263337; --warn:#e5b866; --warn-bg:#3a2d12; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:15px/1.5 var(--sans);padding-block:28px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:880px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1{font-size:28px;line-height:1.15;margin:0;font-weight:600;text-wrap:balance}
+h2{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;font-weight:600}
+p{margin:0}
+.sub{color:var(--muted);max-width:62ch;margin-top:8px}
+.banner{background:var(--warn-bg);color:var(--warn);border-radius:6px;padding:10px 12px;font-size:13.5px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px}
+.controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;align-items:end}
+label{display:flex;flex-direction:column;gap:5px;font-size:12.5px;color:var(--muted);font-weight:500;min-width:0}
+select,button{font:inherit;color:var(--fg)}
+select{background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:9px 10px;width:100%;min-width:0}
+select:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button.go{background:var(--accent);color:var(--accent-fg);border:0;border-radius:6px;padding:10px 16px;font-weight:600;cursor:pointer}
+button.go:hover{filter:brightness(1.08)}
+.ucdesc{font-size:13.5px;color:var(--muted);margin-top:12px}
+.verdict{border-left:4px solid var(--tie);padding:2px 0 2px 14px}
+.verdict.good{border-color:var(--good)} .verdict.hold{border-color:var(--accent)} .verdict.mixed{border-color:var(--warn)}
+.verdict .big{font-size:20px;font-weight:600;line-height:1.3;text-wrap:balance}
+.verdict .small{color:var(--muted);margin-top:6px;font-size:13.5px}
+.cards{display:flex;flex-direction:column;gap:14px}
+.card h3{margin:0 0 4px;font-size:17px;font-weight:600}
+.card .tagline{font-size:13.5px;color:var(--muted);margin-bottom:10px}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-size:12px;color:var(--muted);font-weight:500}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:0}
+.chip{display:inline-block;font-size:12px;font-weight:600;padding:2px 9px;border-radius:99px}
+.chip.win{background:var(--good-bg);color:var(--good)} .chip.loss{background:var(--bad-bg);color:var(--bad)} .chip.tie{background:var(--tie-bg);color:var(--tie)}
+.empty{color:var(--muted)}
+ul.plain{margin:0;padding-left:18px;color:var(--muted);font-size:13.5px;display:flex;flex-direction:column;gap:4px}
+.mono{font-family:var(--mono);font-size:13px}
+.status{font-size:12px;font-weight:600;padding:2px 8px;border-radius:99px;background:var(--tie-bg);color:var(--tie)}
+.more summary{cursor:pointer;color:var(--accent);font-weight:600;padding:8px 0}
+.more-btn{background:none;border:0;color:var(--accent);font-weight:600;cursor:pointer;padding:6px 0;font:inherit}
+.status.warn{background:var(--warn-bg);color:var(--warn)}
+.status.done{background:var(--good-bg);color:var(--good)}
+footer{color:var(--muted);font-size:12.5px}
+@media (prefers-reduced-motion:no-preference){.fade{animation:f .25s ease-out}@keyframes f{from{opacity:.4}to{opacity:1}}}
+.checks{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:6px}
+.checks label{flex-direction:row;align-items:center;gap:6px;color:var(--fg);font-size:13.5px;font-weight:400}
+.flag{background:var(--good-bg);color:var(--good)}
+td.wrap{white-space:normal;min-width:220px;color:var(--muted)}
+.legend{font-size:12.5px;color:var(--muted);margin-top:8px}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Model Watch</h1>
+    <p class="sub">Open language models tested on phenotype extraction: each model runs inside RAG-HPO, and the HPO terms it returns are scored against expert annotations in public datasets (ID-68 and GSC+).</p>
+  </header>
+
+  <div class="banner">Prototype. Speeds and memory come from free Kaggle GPUs (two T4 cards), not the lab server. Treat results as a first screen; deeper tests happen on the server.</div>
+
+  <section class="panel" aria-label="Choose a comparison">
+    <div class="controls">
+      <label for="dataset">Dataset<select id="dataset"></select></label>
+      <label for="sort">Sort by<select id="sort"></select></label>
+    </div>
+    <div style="margin-top:14px">
+      <div style="font-size:12.5px;color:var(--muted);font-weight:500">Baseline models (pick one or more; every other model is compared with the best of them)</div>
+      <div class="checks" id="baselines"></div>
+    </div>
+    <p class="ucdesc" id="dsdesc"></p>
+  </section>
+
+  <section>
+    <h2>Results</h2>
+    <div class="panel tablewrap"><table id="results"></table></div>
+    <p class="legend" id="legend"></p>
+  </section>
+
+  <section id="pendingsec" hidden>
+    <h2>Not tested yet</h2>
+    <div class="panel tablewrap"><table id="pending"></table></div>
+  </section>
+
+  <section id="found" hidden>
+    <h2>Found by the weekly scout</h2>
+    <p class="sub" id="foundnote" style="margin:0 0 10px"></p>
+    <div class="panel tablewrap"><table id="foundtable"></table></div>
+    <p style="margin-top:10px"><button type="button" id="foundmore" class="more-btn" hidden></button></p>
+  </section>
+
+  <section>
+    <h2>How this works</h2>
+    <div class="panel">
+      <ul class="plain">
+        <li>RAG-HPO asks the language model to pull phenotype phrases out of each document, then matches them to Human Phenotype Ontology terms with a fixed search index. Only the language model changes between rows.</li>
+        <li>Scoring is per document: the set of HPO codes returned (category Abnormal) against the expert codes. Precision, recall and F1 are summed over all documents; "per doc" is the average of each document's F1.</li>
+        <li>Negation errors count codes the experts marked as absent (for example "no seizures") that the model reported as present. Only ID-68 marks these.</li>
+        <li>Every model gets the same 24 documents: 12 hand-picked ID-68 notes and 12 hand-picked GSC+ abstracts, chosen for epilepsy and neurodevelopmental findings (and, in ID-68, negated findings). With the same documents and the same scoring, every model on the page is directly comparable. A small control model is re-run each time to catch changes in the environment.</li>
+        <li>Models over 15B run only when the benchmark is started with "include 15B+ models" ticked; models over 40B need the lab server.</li>
+        <li>"Worth a server test" means the model beats the best selected baseline by at least 0.03 F1 on every dataset it was tested on, with no more negation errors. It is a prompt to look closer, not a decision to switch.</li>
+        <li>Models from a developer on the Texas prohibited technologies list, which UT System follows, or built on such a model (fine-tunes, distills, quantized copies), are not screened, not listed and never sent to the lab server.</li>
+        <li>"Needs review" or "Not approved yet" means the model's developer is not on the lab's approved list, or the model it was built on could not be confirmed. It is not screened until a person has read its card and approved it.</li>
+        <li>Scores are document-level, so they compare with document-level results in the literature (for example PhenoTagger), not mention-level ones.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="legacysec" hidden>
+    <details class="more">
+      <summary>Archive: retired 18-question synthetic test</summary>
+      <p class="sub" style="margin:0 0 10px">Our first test used invented reports and parent statements. It was retired in favour of expert-annotated datasets. Kept here for the record.</p>
+      <div class="panel tablewrap"><table id="legacy"></table></div>
+    </details>
+  </section>
+
+  <footer><span id="lastrun"></span></footer>
+</div>
+
+<script>
+var MODELS = [], CONFIG = {task:'hpo_rag', task_version:2, margin:0.03};
+var DATASETS = {id68:{label:'ID-68', about:'12 hand-picked clinical notes from ID-68 (families with intellectual disability, Anazi et al. 2017): 7 with seizures or epilepsy, 5 with negated findings, the rest other neurodevelopmental features.'},
+                gscplus:{label:'GSC+', about:'12 hand-picked PubMed abstracts from GSC+ (Lobo et al. 2017): 8 on seizure or epilepsy disorders, 4 on other neurodevelopmental disorders.'}};
+var BOTH = {label:'GSC+ and ID-68 (mean)', about:'The mean of the two datasets, for models tested on both: precision, recall, F1, F1 per doc and seconds per doc are averaged; negation errors are added up; peak GPU is the higher of the two.'};
+var SORTS = {f1:['F1',true], precision:['Precision',true], recall:['Recall',true], f1_doc_mean:['F1 per doc',true],
+             neg_errors:['Negation errors',false], secs_per_doc:['Seconds per doc',false], gpu_peak_gib:['Peak GPU memory',false]};
+function $(id){return document.getElementById(id)}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function res(m,ds){
+  if(ds==='both'){var a=res(m,'id68'),b=res(m,'gscplus'); if(!a||!b)return null; return {date:a.date>b.date?a.date:b.date}}
+  var r=((m.results||{})[CONFIG.task]||{})[ds]; return r&&(r.task_version===CONFIG.task_version||(r.not_reached&&r.for_version===CONFIG.task_version))?r:null}
+function ok(m,ds){
+  if(ds==='both'){var a=ok(m,'id68'),b=ok(m,'gscplus'); if(!a||!b)return null; var o={};
+    ['precision','recall','f1','f1_doc_mean','secs_per_doc'].forEach(function(k){o[k]=(a[k]!=null&&b[k]!=null)?(a[k]+b[k])/2:null});
+    o.neg_errors=(a.neg_errors||0)+(b.neg_errors||0); o.gpu_peak_gib=Math.max(a.gpu_peak_gib||0,b.gpu_peak_gib||0)||null; o.n_docs=(a.n_docs||0)+(b.n_docs||0); return o}
+  var r=res(m,ds); return r&&r.ok&&r.metrics?r.metrics:null}
+function tested(m){return Object.keys(DATASETS).some(function(d){return ok(m,d)})}
+function store(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function load(k){try{return JSON.parse(localStorage.getItem(k))}catch(e){return null}}
+function fmt(k,v){if(v==null)return '\u2014'; if(k==='neg_errors')return String(v); if(k==='secs_per_doc')return v.toFixed(1)+' s'; if(k==='gpu_peak_gib')return v.toFixed(1)+' GB'; return v.toFixed(2)}
+
+function setup(){
+  var ds=$('dataset'); ds.add(new Option(BOTH.label,'both')); Object.keys(DATASETS).forEach(function(k){ds.add(new Option(DATASETS[k].label,k))});
+  var so=$('sort'); Object.keys(SORTS).forEach(function(k){so.add(new Option(SORTS[k][0],k))});
+  var saved=load('mw-view')||{}; if(saved.ds&&(DATASETS[saved.ds]||saved.ds==='both'))ds.value=saved.ds; if(saved.sort&&SORTS[saved.sort])so.value=saved.sort;
+  var t=MODELS.filter(tested), picked=load('mw-baselines');
+  if(!picked||!picked.length){ var d=MODELS.find(function(m){return m.baseline&&tested(m)})||t[0]; picked=d?[d.id]:[]; }
+  $('baselines').innerHTML=t.length?t.map(function(m){return '<label><input type="checkbox" value="'+esc(m.id)+'"'+(picked.indexOf(m.id)>=0?' checked':'')+'> '+esc(m.name)+'</label>'}).join(''):'<span class="empty">No tested models yet.</span>';
+  [ds,so].forEach(function(e){e.addEventListener('change',render)});
+  $('baselines').addEventListener('change',render);
+  render();
+}
+function baselines(){return Array.prototype.slice.call(document.querySelectorAll('#baselines input:checked')).map(function(i){return i.value})}
+function bestBase(ids,ds){var b=null; ids.forEach(function(id){var m=MODELS.find(function(x){return x.id===id}); var r=m&&ok(m,ds); if(r&&(!b||r.f1>b.f1))b=r}); return b}
+function worth(m,ids){
+  if(ids.indexOf(m.id)>=0)return false; var any=false;
+  for(var d in DATASETS){var r=ok(m,d); if(!r)continue; var b=bestBase(ids,d); if(!b)return false; any=true;
+    if(r.f1-b.f1<CONFIG.margin||r.neg_errors>b.neg_errors)return false;}
+  return any;
+}
+function render(){
+  var ds=$('dataset').value, key=$('sort').value, ids=baselines(); store('mw-view',{ds:ds,sort:key}); store('mw-baselines',ids);
+  var DS=ds==='both'?BOTH:DATASETS[ds]; $('dsdesc').textContent=DS.about;
+  var rows=MODELS.filter(function(m){return ok(m,ds)}), base=bestBase(ids,ds), hi=SORTS[key][1];
+  rows.sort(function(a,b){var x=ok(a,ds)[key],y=ok(b,ds)[key]; if(x==null)return 1; if(y==null)return -1; return hi?y-x:x-y});
+  var h='<thead><tr><th>Model</th><th class="num">F1</th><th class="num">Precision</th><th class="num">Recall</th><th class="num">F1 per doc</th><th class="num">Neg. errors</th><th class="num">s / doc</th><th class="num">Peak GPU</th><th>vs baseline</th><th>Tested</th></tr></thead><tbody>';
+  rows.forEach(function(m){
+    var r=ok(m,ds), isBase=ids.indexOf(m.id)>=0, chip='';
+    if(isBase) chip='<span class="chip tie">baseline</span>';
+    else if(base){var d=r.f1-base.f1; chip='<span class="chip '+(d>=CONFIG.margin?'win':(d<=-CONFIG.margin?'loss':'tie'))+'">'+(d>=0?'+':'')+d.toFixed(2)+' F1</span>';}
+    if(m.blocked) chip+=' <span class="chip loss" title="'+esc(m.blocked)+'">'+(/^blocked/.test(m.blocked)||/Texas/.test(m.blocked)?'Texas list':'Not approved yet')+'</span>';
+    else if(worth(m,ids)) chip+=' <span class="chip flag">worth a server test</span>';
+    h+='<tr><td>'+esc(m.name)+'<div class="mono" style="color:var(--muted);font-size:12px">'+esc(m.size||'')+'</div></td>'+
+      ['f1','precision','recall','f1_doc_mean','neg_errors','secs_per_doc','gpu_peak_gib'].map(function(k){return '<td class="num">'+fmt(k,r[k])+'</td>'}).join('')+
+      '<td style="white-space:normal;min-width:150px">'+chip+'</td><td class="mono">'+esc(res(m,ds).date||'')+'</td></tr>';
+  });
+  $('results').innerHTML=rows.length?h+'</tbody>':'<tbody><tr><td class="empty">No results for this dataset yet.</td></tr></tbody>';
+  $('legend').textContent=base?'Compared with the best selected baseline on '+DS.label+' (F1 '+base.f1.toFixed(2)+'). Differences under '+CONFIG.margin+' F1 count as a tie.':'Pick a baseline above to compare.';
+  renderPending();
+}
+function reasonFor(m){
+  if(m.blocked)return [(/^blocked/.test(m.blocked)||/Texas/.test(m.blocked))?'Blocked':'Needs review',m.status_reason||'Not screened: '+m.blocked];
+  if(m.server_only)return ['Server only',m.status_reason||'Too large for the free Kaggle GPUs'];
+  var parts=[], wait=[]; for(var d in DATASETS){var r=res(m,d); if(!r)continue;
+    if(r.not_reached)wait.push(DATASETS[d].label+': '+r.reason); else if(!r.ok&&r.reason)parts.push(DATASETS[d].label+': '+r.reason)}
+  if(parts.length)return ['Failed',parts.concat(wait).join('; ')];
+  if(wait.length)return ['Waiting',wait.join('; ')];
+  if(!m.ollama_tag)return ['Needs a tag',m.status_reason||'No download tag in models.json'];
+  return ['Waiting',m.status_reason||'Queued for the next benchmark run'];
+}
+function renderPending(){
+  var rows=MODELS.filter(function(m){return Object.keys(DATASETS).some(function(d){return !ok(m,d)})});
+  if(!rows.length){$('pendingsec').hidden=true;return}
+  var h='<thead><tr><th>Model</th><th>Size</th><th>Added</th><th>Status</th><th>Reason</th></tr></thead><tbody>';
+  rows.forEach(function(m){var s=reasonFor(m), part=tested(m)?' (partly tested)':'';
+    h+='<tr><td>'+esc(m.name)+'</td><td class="mono">'+esc(m.size||'')+'</td><td class="mono">'+esc(m.added||'\u2014')+'</td><td><span class="status'+(s[0]==='Failed'||s[0]==='Blocked'||s[0]==='Needs review'?' warn':'')+'">'+s[0]+part+'</span></td><td class="wrap">'+esc(s[1])+'</td></tr>'});
+  $('pending').innerHTML=h+'</tbody>'; $('pendingsec').hidden=false;
+}
+function renderLegacy(){
+  var rows=MODELS.filter(function(m){return m.legacy&&m.legacy.scores});
+  if(!rows.length)return;
+  var h='<thead><tr><th>Model</th><th class="num">F1</th><th class="num">Labels (of 16)</th><th class="num">Doctor (of 5)</th><th class="num">Tok/s</th><th class="num">s / answer</th></tr></thead><tbody>';
+  rows.forEach(function(m){var s=m.legacy.scores; h+='<tr><td>'+esc(m.name)+'</td><td class="num">'+s.f1+'</td><td class="num">'+s.labels+'</td><td class="num">'+s.doctor+'</td><td class="num">'+s.tps+'</td><td class="num">'+s.secs+'</td></tr>'});
+  $('legacy').innerHTML=h+'</tbody>'; $('legacysec').hidden=false;
+}
+var LABELS={in_list:['In the list',''],added:['Added','done'],server_only:['Server only','warn'],no_gguf:['No GGUF',''],too_large:['Server only','warn'],blocked:['Blocked (Texas list)','warn'],needs_review:['Needs review','warn']};
+function renderFound(d){
+  if(!d||!d.candidates)return;
+  var all=d.candidates.concat((d.blocked_models||[]).map(function(c){return Object.assign({},c,{status:/^blocked/.test(c.blocked)?'blocked':'needs_review',reason:c.blocked})}));
+  var rows=all.map(function(c){var l=LABELS[c.status]||[c.status||'Not checked',''];
+    return '<tr><td><a href="'+esc(c.card)+'" target="_blank" rel="noopener">'+esc(c.id)+'</a></td><td class="mono">'+c.params_b+'B</td><td>'+esc(c.licence)+'</td><td>'+c.days_since_update+' d ago</td><td><span class="status '+l[1]+'">'+l[0]+'</span></td><td class="wrap">'+esc(c.reason||'')+'</td></tr>'});
+  var SHOW=10, h='<thead><tr><th>Model</th><th>Size</th><th>Licence</th><th>Updated</th><th>Status</th><th>Reason</th></tr></thead><tbody>';
+  rows.forEach(function(r,i){h+=i<SHOW?r:r.replace('<tr>','<tr class="extra" hidden>')});
+  $('foundtable').innerHTML=h+'</tbody>';
+  $('foundnote').textContent='Scout run '+String(d.generated).slice(0,10)+': '+d.kept+' recent models passed its filters'+(d.blocked?'; '+d.blocked+' were blocked because their developer, or a model they are built on, is on the Texas prohibited technologies list':'')+'. Models with a download tag are added to the list and benchmarked automatically; larger ones are listed for a server test.';
+  var btn=$('foundmore');
+  if(rows.length>SHOW){btn.hidden=false; btn.textContent='Show all '+rows.length; btn.onclick=function(){var open=btn.getAttribute('data-open')!=='1';
+    document.querySelectorAll('#foundtable tr.extra').forEach(function(e){e.hidden=!open}); btn.setAttribute('data-open',open?'1':'0'); btn.textContent=open?'Show fewer':'Show all '+rows.length}}
+  $('found').hidden=false;
+}
+function loadExtras(){
+  fetch('candidates.json',{cache:'no-store'}).then(function(r){return r.json()}).then(renderFound).catch(function(){});
+  fetch('run_report.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(r){
+    if(r.task!==CONFIG.task){$('lastrun').textContent='No benchmark run yet.';return}
+    var bad=r.results.filter(function(x){return !x.ok&&!x.not_reached&&x.role!=='control'}).length;
+    $('lastrun').textContent='Last benchmark '+r.date+' on '+((r.gpus||[]).join(', ')||'unknown GPU')+'; HPO release '+(r.hpo_version||'unknown')+'; RAG-HPO '+String(r.rag_hpo_commit||'').slice(0,7)+'. '+(bad?bad+' run'+(bad>1?'s':'')+' failed.':'')+((r.problems||[]).length?' Problems: '+r.problems.join('; '):'');
+  }).catch(function(){$('lastrun').textContent='No benchmark run yet.'});
+}
+fetch('models.json',{cache:'no-store'}).then(function(r){return r.json()}).then(function(d){MODELS=d;setup();renderLegacy();loadExtras();}).catch(function(){
+  $('results').innerHTML='<tbody><tr><td class="empty">Could not load models.json. Serve the docs folder (python3 -m http.server) instead of opening the file directly.</td></tr></tbody>';
+});
+</script>

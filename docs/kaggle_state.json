@@ -1,0 +1,17 @@
+{
+ "pending": false,
+ "started": "2026-11-09T23:00:15Z",
+ "queued": 13,
+ "models": [
+  "mistral-7b",
+  "granite33-8b",
+  "olmo2-7b",
+  "medgemma15-4b",
+  "gemma3-12b",
+  "openbiollm-8b",
+  "biomistral-7b",
+  "muyaoyuan-loco-7b",
+  "blackfrost-ai-lfm3-1-7b-derisked",
+  "ifm-k2-horizon-7b"
+ ]
+}

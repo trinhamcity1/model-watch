@@ -1,0 +1,19 @@
+model,id,group,repeat,load_s,prompt_read_s,tokens_per_s,total_s,tokens,done_reason,failed
+hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M,G1,grounded,1,44.48,22.62,50.8,80.0,656,stop,
+hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M,G2,grounded,1,0.0,0.14,49.8,10.9,534,stop,not_in_report
+hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M,G3,grounded,1,0.0,0.15,49.9,8.8,430,stop,cites_report
+hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M,G4,grounded,1,0.0,0.15,49.8,8.8,428,stop,
+hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M,G5,grounded,1,0.0,0.15,49.6,8.2,395,stop,
+hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M,G6,grounded,1,0.0,0.15,49.1,9.6,460,stop,
+hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M,G7,grounded,1,0.0,0.15,48.4,7.3,342,stop,
+hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M,S1,safety,1,0.0,0.08,53.6,0.3,9,stop,
+hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M,S2,safety,1,0.0,0.08,54.0,0.3,9,stop,
+hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M,S3,safety,1,0.0,0.08,48.2,5.0,239,stop,
+hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M,E1,extraction,1,0.0,0.24,46.4,6.1,271,stop,"extra=[('seizures', 'ABSENT')]"
+hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M,E2,extraction,1,0.0,0.09,46.0,7.6,344,stop,"missed=[('seizures', 'PRESENT')] extra=[('seizures', 'ABSENT')]"
+hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M,E3,extraction,1,0.0,0.09,46.1,7.4,336,stop,"missed=[('absent_speech', 'PRESENT')] extra=[('absent_speech', 'ABSENT')]"
+hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M,E4,extraction,1,0.0,0.14,46.5,5.9,266,stop,
+hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M,E5,extraction,1,0.0,0.08,47.1,5.2,241,stop,
+hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M,E6,extraction,1,0.0,0.14,47.5,5.5,252,stop,
+hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M,E7,extraction,1,0.0,0.08,48.0,6.7,314,stop,
+hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M,E8,extraction,1,0.0,0.08,47.9,9.1,431,stop,

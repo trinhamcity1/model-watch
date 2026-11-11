@@ -1,0 +1,124 @@
+Patient ID,Category,Phenotype name,HPO ID
+1,Abnormal,skin tumors,HP:0008069
+1,Abnormal,Schwannomas in the skin,HP:0100008
+1,Abnormal,first clinical symptoms of this disease,HP:0003674
+1,Abnormal,neurofibromatosis-2-related skin tumors,HP:0008069
+1,Abnormal,NF2 mutations in five (13%) and NF2 allelic loss in 18 (45%) of the 40 analyzed tumors,HP:0002185
+1,Abnormal,alterations were found on both NF2 alleles,HP:0001067
+1,Abnormal,skin schwannomas,HP:0100008
+1,Abnormal,neurofibromatosis-2-associated skin tumors,HP:0008069
+2,Abnormal,microcephaly,HP:0000252
+2,Abnormal,hypopigmentation,HP:0001010
+2,Abnormal,seizures,HP:0001250
+2,Abnormal,Angelman syndrome (AS),HP:0001466
+2,Abnormal,severe developmental delay and/or mental retardation,HP:0010864
+2,Abnormal,profound speech impairment,HP:0002371
+2,Abnormal,a movement and balance disorder,HP:0001288
+2,Abnormal,AS specific behaviour typified by an easily excitable personality with an inappropriately happy affect,HP:0100024
+2,Abnormal,mutations within UBE3A,HP:0011922
+2,Abnormal,seizure activity,HP:0001250
+3,Abnormal,severe mental retardation,HP:0010864
+3,Abnormal,epilepsy,HP:0001250
+3,Abnormal,status epilepticus,HP:0002133
+3,Abnormal,speech disorder,HP:0000750
+3,Abnormal,stereotyped jerky movements,HP:0000733
+3,Abnormal,"peculiar behavioral profile, with a happy disposition and outbursts of laughter",HP:0040082
+3,Abnormal,electroencephalographic patterns,HP:0002353
+3,Abnormal,generalized epilepsy,HP:0001250
+3,Abnormal,partial epilepsy,HP:0007359
+3,Abnormal,atypical absences,HP:0007270
+3,Abnormal,myoclonic and tonic-clonic seizures,HP:0032795
+3,Abnormal,epilepsy aggravated by fever,HP:0032894
+3,Abnormal,disabling seizures,HP:0001250
+3,Abnormal,multiple seizure types were observed,HP:0001250
+3,Abnormal,history of refractory epilepsy,HP:0020174
+3,Abnormal,decrease in seizure frequency or seizure control,HP:0002133
+3,Abnormal,valproic acid alone or in association with phenobarbital or clonazepam,HP:4000117
+3,Abnormal,"carbamazepine, oxcarbazepine, and vigabatrin",HP:4000116
+3,Abnormal,"age-related improvement, even in refractory cases, during late childhood and puberty",HP:0005616
+4,Abnormal,global developmental delay,HP:0001263
+4,Abnormal,ataxia,HP:0001251
+4,Abnormal,seizures,HP:0001250
+4,Abnormal,microcephaly,HP:0000252
+4,Abnormal,episodes of paroxysmal laughter,HP:0000749
+4,Abnormal,facial appearance is characterised by a prominent jaw,HP:0000303
+4,Abnormal,a wide mouth,HP:0000154
+4,Abnormal,a pointed chin,HP:0000307
+4,Abnormal,"wide based, ataxic gait",HP:0002066
+4,Abnormal,frequent jerky limb movements,HP:0001336
+4,Abnormal,flapping of the hands,HP:0100023
+4,Abnormal,Tone is variable in the limbs,HP:0003808
+5,Abnormal,bilateral acoustic neuromas,HP:0009589
+5,Abnormal,neurofibromatosis 2 (central or bilateral acoustic neurofibromatosis),HP:0001067
+5,Abnormal,multiple central nervous system tumors,HP:0100006
+5,Abnormal,two or more tumors eventually developed,HP:0002664
+5,Abnormal,Meningiomas,HP:0002858
+5,Abnormal,ependymomas,HP:0002888
+5,Abnormal,acoustic neuromas,HP:0009589
+5,Abnormal,intracranial nontumoral calcifications,HP:0430048
+6,Abnormal,severe mental retardation,HP:0010864
+6,Abnormal,seizures,HP:0001250
+6,Abnormal,ataxia-like incoordination,HP:0001251
+6,Abnormal,mild hypertelorism,HP:0000316
+6,Abnormal,ataxic-like movements,HP:0001251
+6,Abnormal,"frequent, unprovoked and prolonged bouts of laughter",HP:0000749
+7,Abnormal,"posterior subcapsular or capsular, cortical, or mixed lens opacities",HP:0007889
+7,Abnormal,retinal hamartomas,HP:0009594
+7,Abnormal,ocular motor deficits,HP:0000496
+7,Abnormal,plaque-like posterior subcapsular or capsular cataract,HP:0100020
+7,Abnormal,cortical cataract with onset under the age of 30 years,HP:0100019
+8,Abnormal,myoclonic status epilepticus,HP:0032667
+8,Abnormal,ataxia,HP:0001251
+8,Abnormal,movement problems,HP:0002406
+8,Abnormal,long-lasting periods of jerky movements,HP:0001336
+8,Abnormal,partial seizures with eye deviation and vomiting,HP:0007359
+8,Abnormal,prominent occipital involvement,HP:0000269
+8,Abnormal,transient myoclonic status epilepticus,HP:0032667
+8,Abnormal,jerky ones,HP:0001336
+9,Abnormal,All patients were ataxic,HP:0002066
+9,Abnormal,severely retarded,HP:0011344
+9,Abnormal,lacking recognisable speech,HP:0001344
+9,Abnormal,15 had poor postnatal head growth,HP:0001530
+9,Abnormal,Hypotonia at birth was recorded in 15/24 (63%),HP:0008935
+9,Abnormal,neonatal feeding difficulties were recorded in 20/26 (77%),HP:0008872
+9,Abnormal,Epilepsy was present in 26/27 (96%),HP:0001250
+9,Abnormal,An abnormal EEG was reported in 25/25 patients,HP:0002353
+9,Abnormal,Hypopigmentation was present in 19/26 (73%),HP:0001010
+9,Abnormal,One patient had oculocutaneous albinism,HP:0001022
+9,Abnormal,Five patients could not walk independently,HP:0010345
+9,Abnormal,Disrupted sleep patterns were present in 18/21 patients (86%),HP:0002360
+9,Abnormal,100% showed severe mental retardation,HP:0010864
+9,Abnormal,ataxic movements,HP:0002066
+9,Abnormal,absent language,HP:0001344
+9,Abnormal,"large, wide mouth",HP:0000154
+10,Abnormal,severe intellectual disability,HP:0010864
+10,Abnormal,lack of speech,HP:0001344
+10,Abnormal,happy demeanour,HP:0040082
+10,Abnormal,epilepsy,HP:0001250
+10,Abnormal,microcephaly,HP:0000252
+10,Abnormal,kyphosis,HP:0002808
+10,Abnormal,ataxic or hypermotoric limb movements,HP:0002070
+10,Abnormal,facial appearance consistent with the diagnosis,HP:0000271
+10,Abnormal,large mouth and jaw,HP:0000154
+10,Abnormal,deep set eyes,HP:0000490
+10,Abnormal,large head size for height,HP:0000256
+10,Abnormal,1/11 patients was fair,HP:0007513
+10,Abnormal,outbursts of laughter,HP:0000749
+10,Abnormal,a constant happy demeanour,HP:0040082
+10,Abnormal,improvement in epilepsy,HP:0002133
+10,Abnormal,no change in epilepsy,HP:0001250
+10,Abnormal,deterioration in epilepsy,HP:0032660
+10,Abnormal,EEG was abnormal,HP:0002353
+10,Abnormal,ocular abnormalities,HP:0000478
+10,Abnormal,Two had never walked,HP:0002505
+10,Abnormal,"ataxic with an awkward, clumsy, heavy, and/or lilting gait",HP:0002066
+10,Abnormal,No patient had a single word of speech,HP:0002300
+10,Abnormal,one patient could use sign language for two needs (food and drink),HP:0031063
+11,Abnormal,affected individuals develop both benign and malignant tumors at an increased frequency,HP:0007606
+12,Abnormal,Epileptic spasms,HP:0011097
+12,Abnormal,diffuse bifrontally dominant high-amplitude 1- to 3-Hz notched or triphasic or polyphasic slow waves,HP:0011195
+12,Abnormal,severe intractable epilepsy,HP:0002133
+12,Abnormal,atypical absences and myoclonias,HP:0007270
+12,Abnormal,generalized extensor tonic seizures or flexor spasms,HP:0010818
+12,Abnormal,no epilepsy or drug-responsive mild epilepsy,HP:0001250
+12,Abnormal,"relatively infrequent atypical absences, myoclonias, or atonic seizures",HP:0007270

@@ -1,0 +1,45 @@
+name: Model Watch scout
+# Weekly: find new models on Hugging Face, add them to docs/models.json, publish, then start the benchmark.
+on:
+  schedule:
+    - cron: "17 13 * * 1"   # Mondays, 13:17 UTC
+  workflow_dispatch:
+    inputs:
+      start_benchmark:
+        description: "Start the HPO benchmark afterwards"
+        type: boolean
+        default: true
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: model-watch-scout
+  cancel-in-progress: false
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Test the compliance filter
+        run: python bench/test_compliance.py
+      - name: Scout Hugging Face
+        run: python scout/scout.py
+      - name: Add found models to the list
+        run: python scout/update_models.py
+      - name: Commit the updated list
+        run: |
+          git config user.name "model-watch-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add docs/models.json docs/candidates.json
+          git diff --cached --quiet || git commit -m "Scout $(date +%F)"
+          git push origin HEAD:main
+      - name: Publish the site
+        run: gh workflow run deploy.yml --ref main
+      - name: Start the benchmark
+        if: github.event_name == 'schedule' || github.event.inputs.start_benchmark != 'false'
+        run: gh workflow run benchmark.yml --ref main

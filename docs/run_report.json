@@ -1,0 +1,349 @@
+{
+ "date": "2026-11-10",
+ "gpus": [
+  "Tesla T4, 15360 MiB",
+  "Tesla T4, 15360 MiB"
+ ],
+ "hpo_version": "hp/releases/2026-09-01",
+ "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9",
+ "corpora_commit": "195d5df2ad9c6265e1de523f139694c7646eee29",
+ "task": "hpo_rag",
+ "task_version": 2,
+ "results": [
+  {
+   "id": "mistral-7b",
+   "tag": "mistral:7b",
+   "role": "candidate",
+   "dataset": "id68",
+   "ok": true,
+   "reason": null,
+   "metrics": {
+    "precision": 0.53,
+    "recall": 0.483,
+    "f1": 0.505,
+    "f1_doc_mean": 0.456,
+    "tp": 71,
+    "fp": 63,
+    "fn": 76,
+    "neg_errors": 0,
+    "n_docs": 12,
+    "seconds": 412.7,
+    "secs_per_doc": 34.4,
+    "docs_per_min": 1.74,
+    "gpu_peak_gib": 9.0,
+    "gpu_idle_gib": 0.0,
+    "categories": {
+     "Abnormal": 141
+    }
+   }
+  },
+  {
+   "id": "mistral-7b",
+   "tag": "mistral:7b",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "ok": true,
+   "reason": null,
+   "metrics": {
+    "precision": 0.515,
+    "recall": 0.347,
+    "f1": 0.415,
+    "f1_doc_mean": 0.431,
+    "tp": 51,
+    "fp": 48,
+    "fn": 96,
+    "neg_errors": 0,
+    "n_docs": 12,
+    "seconds": 392.4,
+    "secs_per_doc": 32.7,
+    "docs_per_min": 1.83,
+    "gpu_peak_gib": 9.0,
+    "gpu_idle_gib": 8.4,
+    "categories": {
+     "Abnormal": 111
+    }
+   }
+  },
+  {
+   "id": "granite33-8b",
+   "tag": "granite3.3:8b",
+   "role": "candidate",
+   "dataset": "id68",
+   "ok": true,
+   "reason": null,
+   "metrics": {
+    "precision": 0.517,
+    "recall": 0.51,
+    "f1": 0.514,
+    "f1_doc_mean": 0.513,
+    "tp": 75,
+    "fp": 70,
+    "fn": 72,
+    "neg_errors": 0,
+    "n_docs": 12,
+    "seconds": 532.5,
+    "secs_per_doc": 44.4,
+    "docs_per_min": 1.35,
+    "gpu_peak_gib": 10.6,
+    "gpu_idle_gib": 0.0,
+    "categories": {
+     "Abnormal": 152
+    }
+   }
+  },
+  {
+   "id": "granite33-8b",
+   "tag": "granite3.3:8b",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "ok": true,
+   "reason": null,
+   "metrics": {
+    "precision": 0.411,
+    "recall": 0.252,
+    "f1": 0.312,
+    "f1_doc_mean": 0.289,
+    "tp": 37,
+    "fp": 53,
+    "fn": 110,
+    "neg_errors": 0,
+    "n_docs": 12,
+    "seconds": 436.5,
+    "secs_per_doc": 36.4,
+    "docs_per_min": 1.65,
+    "gpu_peak_gib": 10.6,
+    "gpu_idle_gib": 10.0,
+    "categories": {
+     "Abnormal": 105
+    }
+   }
+  },
+  {
+   "id": "olmo2-7b",
+   "tag": "olmo2:7b",
+   "role": "candidate",
+   "dataset": "id68",
+   "ok": true,
+   "reason": null,
+   "metrics": {
+    "precision": 0.598,
+    "recall": 0.415,
+    "f1": 0.49,
+    "f1_doc_mean": 0.467,
+    "tp": 61,
+    "fp": 41,
+    "fn": 86,
+    "neg_errors": 0,
+    "n_docs": 12,
+    "seconds": 322.2,
+    "secs_per_doc": 26.8,
+    "docs_per_min": 2.23,
+    "gpu_peak_gib": 6.8,
+    "gpu_idle_gib": 0.0,
+    "categories": {
+     "Abnormal": 110
+    }
+   }
+  },
+  {
+   "id": "olmo2-7b",
+   "tag": "olmo2:7b",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "ok": true,
+   "reason": null,
+   "metrics": {
+    "precision": 0.525,
+    "recall": 0.286,
+    "f1": 0.37,
+    "f1_doc_mean": 0.389,
+    "tp": 42,
+    "fp": 38,
+    "fn": 105,
+    "neg_errors": 0,
+    "n_docs": 12,
+    "seconds": 361.9,
+    "secs_per_doc": 30.2,
+    "docs_per_min": 1.99,
+    "gpu_peak_gib": 6.8,
+    "gpu_idle_gib": 6.2,
+    "categories": {
+     "Abnormal": 93
+    }
+   }
+  },
+  {
+   "id": "medgemma15-4b",
+   "tag": "hf.co/unsloth/medgemma-1.5-4b-it-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "ok": false,
+   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
+  },
+  {
+   "id": "medgemma15-4b",
+   "tag": "hf.co/unsloth/medgemma-1.5-4b-it-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "ok": false,
+   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
+  },
+  {
+   "id": "gemma3-12b",
+   "tag": "gemma3:12b",
+   "role": "candidate",
+   "dataset": "id68",
+   "ok": true,
+   "reason": null,
+   "metrics": {
+    "precision": 0.596,
+    "recall": 0.673,
+    "f1": 0.633,
+    "f1_doc_mean": 0.611,
+    "tp": 99,
+    "fp": 67,
+    "fn": 48,
+    "neg_errors": 0,
+    "n_docs": 12,
+    "seconds": 641.0,
+    "secs_per_doc": 53.4,
+    "docs_per_min": 1.12,
+    "gpu_peak_gib": 12.4,
+    "gpu_idle_gib": 0.0,
+    "categories": {
+     "Abnormal": 181
+    }
+   }
+  },
+  {
+   "id": "gemma3-12b",
+   "tag": "gemma3:12b",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "ok": true,
+   "reason": null,
+   "metrics": {
+    "precision": 0.5,
+    "recall": 0.415,
+    "f1": 0.454,
+    "f1_doc_mean": 0.457,
+    "tp": 61,
+    "fp": 61,
+    "fn": 86,
+    "neg_errors": 0,
+    "n_docs": 12,
+    "seconds": 534.1,
+    "secs_per_doc": 44.5,
+    "docs_per_min": 1.35,
+    "gpu_peak_gib": 12.4,
+    "gpu_idle_gib": 11.8,
+    "categories": {
+     "Abnormal": 146
+    }
+   }
+  },
+  {
+   "id": "openbiollm-8b",
+   "tag": "hf.co/LoneStriker/OpenBioLLM-Llama3-8B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "ok": false,
+   "reason": "RAG-HPO produced no output (last log line: FileNotFoundError: [Errno 2] No such file or directory: '/Users/garciabt/Library/CloudStorage/OneDrive-BaylorCollegeofMedicine/01 Posey Lab/RAG-HPO/RAG-HPO/Test)"
+  },
+  {
+   "id": "openbiollm-8b",
+   "tag": "hf.co/LoneStriker/OpenBioLLM-Llama3-8B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "ok": false,
+   "reason": "RAG-HPO produced no output (last log line: FileNotFoundError: [Errno 2] No such file or directory: '/Users/garciabt/Library/CloudStorage/OneDrive-BaylorCollegeofMedicine/01 Posey Lab/RAG-HPO/RAG-HPO/Test)"
+  },
+  {
+   "id": "biomistral-7b",
+   "tag": "hf.co/LoneStriker/BioMistral-7B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "ok": false,
+   "reason": "RAG-HPO produced no output (last log line: FileNotFoundError: [Errno 2] No such file or directory: '/Users/garciabt/Library/CloudStorage/OneDrive-BaylorCollegeofMedicine/01 Posey Lab/RAG-HPO/RAG-HPO/Test)"
+  },
+  {
+   "id": "biomistral-7b",
+   "tag": "hf.co/LoneStriker/BioMistral-7B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "ok": false,
+   "reason": "RAG-HPO produced no output (last log line: FileNotFoundError: [Errno 2] No such file or directory: '/Users/garciabt/Library/CloudStorage/OneDrive-BaylorCollegeofMedicine/01 Posey Lab/RAG-HPO/RAG-HPO/Test)"
+  },
+  {
+   "id": "muyaoyuan-loco-7b",
+   "tag": "hf.co/mradermacher/LoCo-7B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "ok": true,
+   "reason": null,
+   "metrics": {
+    "precision": 0.549,
+    "recall": 0.265,
+    "f1": 0.358,
+    "f1_doc_mean": 0.328,
+    "tp": 39,
+    "fp": 32,
+    "fn": 108,
+    "neg_errors": 0,
+    "n_docs": 12,
+    "seconds": 1585.0,
+    "secs_per_doc": 132.1,
+    "docs_per_min": 0.45,
+    "gpu_peak_gib": 6.9,
+    "gpu_idle_gib": 0.0,
+    "categories": {
+     "Abnormal": 75
+    }
+   }
+  },
+  {
+   "id": "muyaoyuan-loco-7b",
+   "tag": "hf.co/mradermacher/LoCo-7B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "ok": false,
+   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
+  },
+  {
+   "id": "blackfrost-ai-lfm3-1-7b-derisked",
+   "tag": "hf.co/mradermacher/LFM3-1.7B-DERISKED-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "ok": false,
+   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
+  },
+  {
+   "id": "blackfrost-ai-lfm3-1-7b-derisked",
+   "tag": "hf.co/mradermacher/LFM3-1.7B-DERISKED-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "ok": false,
+   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
+  },
+  {
+   "id": "ifm-k2-horizon-7b",
+   "tag": "hf.co/IFM/K2-Horizon-7B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "ok": false,
+   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
+  },
+  {
+   "id": "ifm-k2-horizon-7b",
+   "tag": "hf.co/IFM/K2-Horizon-7B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "ok": false,
+   "reason": "timed out after 30 minutes (too slow on the free GPUs)"
+  }
+ ],
+ "control": null,
+ "merge_ok": true,
+ "problems": [],
+ "not_reached": []
+}
