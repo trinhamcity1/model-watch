@@ -1,4 +1,4 @@
-"""Build the Kaggle queue for the HPO benchmark. Usage: python bench/select.py queue.json
+"""Build the Kaggle queue for the HPO benchmark. Usage: python bench/build_queue.py queue.json
 Inputs (env): MODELS ('' = all queued, or comma-separated ids), DATASETS ('' = all), MAX_DOCS ('' = config), FORCE ('true').
 A model is queued for each dataset that has no result at the current task version (or always, with FORCE).
 Every model gets the same hand-picked documents (bench/config.json). Models over large_min_params_b run only with

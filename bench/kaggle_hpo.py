@@ -14,11 +14,11 @@ OUT = pathlib.Path("/kaggle/working/out"); OUT.mkdir(parents=True, exist_ok=True
 meta = {"started": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "runs": [], "setup": {}}
 def save_meta(): json.dump(meta, open(OUT / "meta.json", "w"), indent=1)
 
-# Last compliance check, inside the kernel: bench/select.py already checked every tag (block list, base models and
+# Last compliance check, inside the kernel: bench/build_queue.py already checked every tag (block list, base models and
 # the approved list in bench/compliance.py). This repeats the name rules so a hand-edited queue cannot pull a
 # model from a Texas-listed developer. A queue without the rules is refused.
 GUARD = QUEUE.get("guard")
-if not GUARD: raise SystemExit("queue.json has no compliance rules ('guard'): build it with bench/select.py")
+if not GUARD: raise SystemExit("queue.json has no compliance rules ('guard'): build it with bench/build_queue.py")
 meta["setup"]["compliance_version"] = GUARD.get("version")
 def tag_refused(tag):
     low = (tag or "").lower()

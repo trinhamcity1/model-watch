@@ -19,7 +19,7 @@ Three workflows:
    (could not be read; checked again next week). The scout lists refused models under `blocked_models` in
    `candidates.json`; `models.json` is rechecked every week; the Kaggle script repeats the name rules before each pull.
 2. **Model Watch HPO benchmark** (`.github/workflows/benchmark.yml`) runs after the scout, or by hand.
-   It queues every model in `docs/models.json` that has no result yet (`bench/select.py`), starts a free Kaggle GPU
+   It queues every model in `docs/models.json` that has no result yet (`bench/build_queue.py`), starts a free Kaggle GPU
    notebook (`bench/kaggle_hpo.py`) and exits. It will not start while a Kaggle run is going or uncollected.
 3. **Model Watch collect** (`.github/workflows/collect.yml`) checks every 30 minutes. When the Kaggle run has
    finished, it scores the output (`bench/score.py`, `bench/collect.py`), opens and merges a pull request, publishes the

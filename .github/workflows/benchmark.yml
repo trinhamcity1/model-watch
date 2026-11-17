@@ -80,7 +80,7 @@ jobs:
           MAX_DOCS: ${{ github.event.inputs.max_docs }}
           FORCE: ${{ github.event.inputs.force }}
           LARGE: ${{ github.event.inputs.include_large }}
-        run: cd bench && python select.py ../queue.json
+        run: cd bench && python build_queue.py ../queue.json
 
       - name: Start the Kaggle run
         if: steps.gate.outputs.ok == 'true' && steps.q.outputs.queued != '0'
