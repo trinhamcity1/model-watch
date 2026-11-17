@@ -515,7 +515,8 @@
     }
    }
   },
-  "status_reason": "33.1B model: runs when the benchmark is started with 'include 15B+ models' ticked"
+  "status_reason": "33.1B model: runs when the benchmark is started with 'include 15B+ models' ticked",
+  "blocked": "needs review: Nanbeige/Nanbeige4.3-33B -> Nanbeige/Nanbeige4.3-33B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "recursivesi-flint",
@@ -551,7 +552,8 @@
     }
    }
   },
-  "status_reason": "39.8B model: runs when the benchmark is started with 'include 15B+ models' ticked"
+  "status_reason": "39.8B model: runs when the benchmark is started with 'include 15B+ models' ticked",
+  "blocked": "needs review: RecursiveSI/flint names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "internscience-sage-a1-5",
@@ -587,51 +589,8 @@
     }
    }
   },
-  "status_reason": "36B model: runs when the benchmark is started with 'include 15B+ models' ticked"
- },
- {
-  "id": "apexintelligence-ai-apex-35b-v1-0",
-  "name": "Apex-35B-V1.0",
-  "size": "36.0B",
-  "licence": "apache-2.0",
-  "ollama_tag": "hf.co/mradermacher/Apex-35B-V1.0-GGUF:Q4_K_M",
-  "hf": "Apexintelligence-AI/Apex-35B-V1.0",
-  "reviewed": false,
-  "source": "scout",
-  "added": "2026-11-01",
-  "legacy": {
-   "test": "18-question synthetic test (retired)",
-   "scores": {
-    "f1": 0.94,
-    "labels": 15,
-    "tps": 69.0,
-    "secs": 5.3,
-    "negation": 0,
-    "doctor": 5,
-    "numbers": 7
-   },
-   "tested": true,
-   "failed": false,
-   "note": "Run 2026-11-01 on Tesla T4, 15360 MiB, Tesla T4, 15360 MiB",
-   "reason": null
-  },
-  "results": {
-   "hpo_rag": {
-    "id68": {
-     "task_version": null,
-     "not_reached": true,
-     "date": "2026-11-03",
-     "reason": "not reached: the run's time budget ran out, tried first next run"
-    },
-    "gscplus": {
-     "task_version": null,
-     "not_reached": true,
-     "date": "2026-11-03",
-     "reason": "not reached: the run's time budget ran out, tried first next run"
-    }
-   }
-  },
-  "status_reason": "36B model: runs when the benchmark is started with 'include 15B+ models' ticked"
+  "status_reason": "36B model: runs when the benchmark is started with 'include 15B+ models' ticked",
+  "blocked": "needs review: InternScience/Sage-A1.5 names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "ifm-k2-horizon-mova-36b-a4b",
@@ -675,7 +634,8 @@
     }
    }
   },
-  "status_reason": "37.4B model: runs when the benchmark is started with 'include 15B+ models' ticked"
+  "status_reason": "37.4B model: runs when the benchmark is started with 'include 15B+ models' ticked",
+  "blocked": "needs review: IFM/K2-Horizon-MoVA-36B-A4B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "liquidai-lfm3-1-7b",
@@ -719,18 +679,6 @@
   }
  },
  {
-  "id": "diffuspace-clover-35b-a3b-preview",
-  "name": "Clover-35B-A3B-Preview",
-  "size": "34.7B",
-  "params_b": 34.7,
-  "licence": "apache-2.0",
-  "ollama_tag": "hf.co/Diffuspace/Clover-35B-A3B-Preview-GGUF:Q4_K_M",
-  "hf": "Diffuspace/Clover-35B-A3B-Preview",
-  "source": "scout",
-  "added": "2026-11-02",
-  "status_reason": "34.7B model: runs when the benchmark is started with 'include 15B+ models' ticked"
- },
- {
   "id": "xhtoken-spark-x2-6-4b",
   "name": "Spark-X2.6-4B",
   "size": "4.1B",
@@ -769,7 +717,8 @@
      "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9"
     }
    }
-  }
+  },
+  "blocked": "needs review: XHToken/Spark-X2.6-4B -> XHToken/Spark-X2.6-4B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "xhtoken-spark-x2-6-1-7b",
@@ -810,20 +759,8 @@
      "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9"
     }
    }
-  }
- },
- {
-  "id": "deep-principle-hydrogen-1-0",
-  "name": "Hydrogen-1.0",
-  "size": "753.3B",
-  "params_b": 753.3,
-  "licence": "mit",
-  "ollama_tag": null,
-  "hf": "deep-principle/Hydrogen-1.0",
-  "source": "scout",
-  "added": "2026-11-02",
-  "server_only": true,
-  "status_reason": "Large model (753.3B): cannot test on the free Kaggle GPUs, server test needed"
+  },
+  "blocked": "needs review: XHToken/Spark-X2.6-1.7B -> XHToken/Spark-X2.6-1.7B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "reflection-beam-1-0-501b-a23b",
@@ -836,7 +773,8 @@
   "source": "scout",
   "added": "2026-11-02",
   "server_only": true,
-  "status_reason": "Large model (501.3B): cannot test on the free Kaggle GPUs, server test needed"
+  "status_reason": "Large model (501.3B): cannot test on the free Kaggle GPUs, server test needed",
+  "blocked": "needs review: reflection/Beam-1.0-501B-A23B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "krafton-raon-1-mini-preview",
@@ -848,7 +786,8 @@
   "hf": "KRAFTON/Raon-1-mini-preview",
   "source": "scout",
   "added": "2026-11-02",
-  "status_reason": "28.8B model: runs when the benchmark is started with 'include 15B+ models' ticked"
+  "status_reason": "28.8B model: runs when the benchmark is started with 'include 15B+ models' ticked",
+  "blocked": "needs review: KRAFTON/Raon-1-mini-preview names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "ornith-ai-ornith-1-5-122b",
@@ -861,7 +800,8 @@
   "source": "scout",
   "added": "2026-11-02",
   "server_only": true,
-  "status_reason": "Large model (125.1B): cannot test on the free Kaggle GPUs, server test needed"
+  "status_reason": "Large model (125.1B): cannot test on the free Kaggle GPUs, server test needed",
+  "blocked": "needs review: ornith-ai/Ornith-1.5-122B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "aleph-alpha-kolibri-1",
@@ -874,7 +814,8 @@
   "source": "scout",
   "added": "2026-11-02",
   "server_only": true,
-  "status_reason": "Large model (78.1B): cannot test on the free Kaggle GPUs, server test needed"
+  "status_reason": "Large model (78.1B): cannot test on the free Kaggle GPUs, server test needed",
+  "blocked": "needs review: Aleph-Alpha/Kolibri-1 -> Aleph-Alpha/Kolibri-1-BF16 names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "jetbrains-mellum2-1-12b-a2-5b-thinking-mtp",
@@ -915,7 +856,8 @@
      "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9"
     }
    }
-  }
+  },
+  "blocked": "needs review: JetBrains/Mellum2.1-12B-A2.5B-Thinking-MTP -> JetBrains/Mellum2-12B-A2.5B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "nanbeige-nanbeige4-2-3b",
@@ -956,7 +898,8 @@
      "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9"
     }
    }
-  }
+  },
+  "blocked": "needs review: Nanbeige/Nanbeige4.2-3B -> Nanbeige/Nanbeige4.2-3B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "ibm-granite-granite-4-2-3b",
@@ -1079,7 +1022,8 @@
      "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9"
     }
    }
-  }
+  },
+  "blocked": "needs review: openbmb/MiniCPM5-2B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "jetbrains-mellum2-1-12b-a2-5b-thinking",
@@ -1120,20 +1064,8 @@
      "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9"
     }
    }
-  }
- },
- {
-  "id": "memtensor-memt-1-0-flash",
-  "name": "MemT-1.0-Flash",
-  "size": "287.9B",
-  "params_b": 287.9,
-  "licence": "mit",
-  "ollama_tag": null,
-  "hf": "MemTensor/MemT-1.0-Flash",
-  "source": "scout",
-  "added": "2026-11-02",
-  "server_only": true,
-  "status_reason": "Large model (287.9B): cannot test on the free Kaggle GPUs, server test needed"
+  },
+  "blocked": "needs review: JetBrains/Mellum2.1-12B-A2.5B-Thinking -> JetBrains/Mellum2-12B-A2.5B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "llama31-8b",
@@ -1945,7 +1877,8 @@
      "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9"
     }
    }
-  }
+  },
+  "blocked": "needs review: LoneStriker/BioMistral-7B-GGUF names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "med42-8b",
@@ -2021,18 +1954,6 @@
   }
  },
  {
-  "id": "nousresearch-arete-27b",
-  "name": "Arete-27B",
-  "size": "27.4B",
-  "params_b": 27.4,
-  "licence": "apache-2.0",
-  "ollama_tag": "hf.co/mradermacher/Arete-27B-GGUF:Q4_K_M",
-  "hf": "NousResearch/Arete-27B",
-  "source": "scout",
-  "added": "2026-11-09",
-  "status_reason": "27.4B model: runs when the benchmark is started with 'include 15B+ models' ticked"
- },
- {
   "id": "axion1-0-axion-1-0-35b",
   "name": "Axion-1.0-35B",
   "size": "35.1B",
@@ -2042,67 +1963,8 @@
   "hf": "Axion1-0/Axion-1.0-35B",
   "source": "scout",
   "added": "2026-11-09",
-  "status_reason": "35.1B model: runs when the benchmark is started with 'include 15B+ models' ticked"
- },
- {
-  "id": "muyaoyuan-loco-7b",
-  "name": "LoCo-7B",
-  "size": "7.6B",
-  "params_b": 7.6,
-  "licence": "mit",
-  "ollama_tag": "hf.co/mradermacher/LoCo-7B-GGUF:Q4_K_M",
-  "hf": "MuyaoYuan/LoCo-7B",
-  "source": "scout",
-  "added": "2026-11-09",
-  "results": {
-   "hpo_rag": {
-    "id68": {
-     "task_version": 2,
-     "tier": "small",
-     "date": "2026-11-10",
-     "ok": true,
-     "reason": null,
-     "gpus": [
-      "Tesla T4, 15360 MiB",
-      "Tesla T4, 15360 MiB"
-     ],
-     "hpo_version": "hp/releases/2026-09-01",
-     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9",
-     "metrics": {
-      "precision": 0.549,
-      "recall": 0.265,
-      "f1": 0.358,
-      "f1_doc_mean": 0.328,
-      "tp": 39,
-      "fp": 32,
-      "fn": 108,
-      "neg_errors": 0,
-      "n_docs": 12,
-      "seconds": 1585.0,
-      "secs_per_doc": 132.1,
-      "docs_per_min": 0.45,
-      "gpu_peak_gib": 6.9,
-      "gpu_idle_gib": 0.0,
-      "categories": {
-       "Abnormal": 75
-      }
-     }
-    },
-    "gscplus": {
-     "task_version": 2,
-     "tier": "small",
-     "date": "2026-11-10",
-     "ok": false,
-     "reason": "timed out after 30 minutes (too slow on the free GPUs)",
-     "gpus": [
-      "Tesla T4, 15360 MiB",
-      "Tesla T4, 15360 MiB"
-     ],
-     "hpo_version": "hp/releases/2026-09-01",
-     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9"
-    }
-   }
-  }
+  "status_reason": "35.1B model: runs when the benchmark is started with 'include 15B+ models' ticked",
+  "blocked": "needs review: Axion1-0/Axion-1.0-35B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "teriminal-rsi-terminal-rsi-27b",
@@ -2114,20 +1976,8 @@
   "hf": "Teriminal-RSI/Terminal-RSI-27B",
   "source": "scout",
   "added": "2026-11-09",
-  "status_reason": "27.8B model: runs when the benchmark is started with 'include 15B+ models' ticked"
- },
- {
-  "id": "deep-principle-hydrogen-1-0-mxfp4",
-  "name": "Hydrogen-1.0-MXFP4",
-  "size": "384.3B",
-  "params_b": 384.3,
-  "licence": "mit",
-  "ollama_tag": null,
-  "hf": "deep-principle/Hydrogen-1.0-MXFP4",
-  "source": "scout",
-  "added": "2026-11-09",
-  "server_only": true,
-  "status_reason": "Large model (384.3B): cannot test on the free Kaggle GPUs, server test needed"
+  "status_reason": "27.8B model: runs when the benchmark is started with 'include 15B+ models' ticked",
+  "blocked": "needs review: Teriminal-RSI/Terminal-RSI-27B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "blackfrost-ai-lfm3-1-7b-derisked",
@@ -2209,18 +2059,29 @@
      "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9"
     }
    }
-  }
+  },
+  "blocked": "needs review: IFM/K2-Horizon-7B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
-  "id": "sabicap-sabi-noema",
-  "name": "sabi-noema",
-  "size": "27.4B",
-  "params_b": 27.4,
+  "id": "ibm-granite-granite-4-2-8b",
+  "name": "granite-4.2-8b",
+  "size": "8.8B",
+  "params_b": 8.8,
   "licence": "apache-2.0",
-  "ollama_tag": "hf.co/mradermacher/sabi-noema-GGUF:Q4_K_M",
-  "hf": "sabicap/sabi-noema",
+  "ollama_tag": "hf.co/ibm-granite/granite-4.2-8b-GGUF:Q4_K_M",
+  "hf": "ibm-granite/granite-4.2-8b",
   "source": "scout",
-  "added": "2026-11-09",
-  "status_reason": "27.4B model: runs when the benchmark is started with 'include 15B+ models' ticked"
+  "added": "2026-11-17"
+ },
+ {
+  "id": "klein-ml-kv1-1-2b",
+  "name": "KV1-1.2B",
+  "size": "1.2B",
+  "params_b": 1.2,
+  "licence": "other",
+  "ollama_tag": "hf.co/klein-ml/KV1-1.2B-GGUF:Q4_K_M",
+  "hf": "klein-ml/KV1-1.2B",
+  "source": "scout",
+  "added": "2026-11-17"
  }
 ]
