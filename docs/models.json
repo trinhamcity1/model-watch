@@ -515,7 +515,7 @@
     }
    }
   },
-  "status_reason": "33.1B model: runs when the benchmark is started with 'include 15B+ models' ticked",
+  "status_reason": "Not screened: needs review: Nanbeige/Nanbeige4.3-33B -> Nanbeige/Nanbeige4.3-33B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py",
   "blocked": "needs review: Nanbeige/Nanbeige4.3-33B -> Nanbeige/Nanbeige4.3-33B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
@@ -552,7 +552,7 @@
     }
    }
   },
-  "status_reason": "39.8B model: runs when the benchmark is started with 'include 15B+ models' ticked",
+  "status_reason": "Not screened: needs review: RecursiveSI/flint names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py",
   "blocked": "needs review: RecursiveSI/flint names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
@@ -589,7 +589,7 @@
     }
    }
   },
-  "status_reason": "36B model: runs when the benchmark is started with 'include 15B+ models' ticked",
+  "status_reason": "Not screened: needs review: InternScience/Sage-A1.5 names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py",
   "blocked": "needs review: InternScience/Sage-A1.5 names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
@@ -634,7 +634,7 @@
     }
    }
   },
-  "status_reason": "37.4B model: runs when the benchmark is started with 'include 15B+ models' ticked",
+  "status_reason": "Not screened: needs review: IFM/K2-Horizon-MoVA-36B-A4B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py",
   "blocked": "needs review: IFM/K2-Horizon-MoVA-36B-A4B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
@@ -718,7 +718,8 @@
     }
    }
   },
-  "blocked": "needs review: XHToken/Spark-X2.6-4B -> XHToken/Spark-X2.6-4B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+  "blocked": "needs review: XHToken/Spark-X2.6-4B -> XHToken/Spark-X2.6-4B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py",
+  "status_reason": "Not screened: needs review: XHToken/Spark-X2.6-4B -> XHToken/Spark-X2.6-4B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "xhtoken-spark-x2-6-1-7b",
@@ -760,7 +761,8 @@
     }
    }
   },
-  "blocked": "needs review: XHToken/Spark-X2.6-1.7B -> XHToken/Spark-X2.6-1.7B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+  "blocked": "needs review: XHToken/Spark-X2.6-1.7B -> XHToken/Spark-X2.6-1.7B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py",
+  "status_reason": "Not screened: needs review: XHToken/Spark-X2.6-1.7B -> XHToken/Spark-X2.6-1.7B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "reflection-beam-1-0-501b-a23b",
@@ -772,8 +774,7 @@
   "hf": "reflection/Beam-1.0-501B-A23B",
   "source": "scout",
   "added": "2026-11-02",
-  "server_only": true,
-  "status_reason": "Large model (501.3B): cannot test on the free Kaggle GPUs, server test needed",
+  "status_reason": "Not screened: needs review: reflection/Beam-1.0-501B-A23B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py",
   "blocked": "needs review: reflection/Beam-1.0-501B-A23B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
@@ -786,7 +787,7 @@
   "hf": "KRAFTON/Raon-1-mini-preview",
   "source": "scout",
   "added": "2026-11-02",
-  "status_reason": "28.8B model: runs when the benchmark is started with 'include 15B+ models' ticked",
+  "status_reason": "Not screened: needs review: KRAFTON/Raon-1-mini-preview names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py",
   "blocked": "needs review: KRAFTON/Raon-1-mini-preview names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
@@ -799,8 +800,7 @@
   "hf": "ornith-ai/Ornith-1.5-122B",
   "source": "scout",
   "added": "2026-11-02",
-  "server_only": true,
-  "status_reason": "Large model (125.1B): cannot test on the free Kaggle GPUs, server test needed",
+  "status_reason": "Not screened: needs review: ornith-ai/Ornith-1.5-122B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py",
   "blocked": "needs review: ornith-ai/Ornith-1.5-122B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
@@ -813,8 +813,7 @@
   "hf": "Aleph-Alpha/Kolibri-1",
   "source": "scout",
   "added": "2026-11-02",
-  "server_only": true,
-  "status_reason": "Large model (78.1B): cannot test on the free Kaggle GPUs, server test needed",
+  "status_reason": "Not screened: needs review: Aleph-Alpha/Kolibri-1 -> Aleph-Alpha/Kolibri-1-BF16 names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py",
   "blocked": "needs review: Aleph-Alpha/Kolibri-1 -> Aleph-Alpha/Kolibri-1-BF16 names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
@@ -857,7 +856,8 @@
     }
    }
   },
-  "blocked": "needs review: JetBrains/Mellum2.1-12B-A2.5B-Thinking-MTP -> JetBrains/Mellum2-12B-A2.5B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+  "blocked": "needs review: JetBrains/Mellum2.1-12B-A2.5B-Thinking-MTP -> JetBrains/Mellum2-12B-A2.5B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py",
+  "status_reason": "Not screened: needs review: JetBrains/Mellum2.1-12B-A2.5B-Thinking-MTP -> JetBrains/Mellum2-12B-A2.5B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "nanbeige-nanbeige4-2-3b",
@@ -899,7 +899,8 @@
     }
    }
   },
-  "blocked": "needs review: Nanbeige/Nanbeige4.2-3B -> Nanbeige/Nanbeige4.2-3B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+  "blocked": "needs review: Nanbeige/Nanbeige4.2-3B -> Nanbeige/Nanbeige4.2-3B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py",
+  "status_reason": "Not screened: needs review: Nanbeige/Nanbeige4.2-3B -> Nanbeige/Nanbeige4.2-3B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "ibm-granite-granite-4-2-3b",
@@ -1023,7 +1024,8 @@
     }
    }
   },
-  "blocked": "needs review: openbmb/MiniCPM5-2B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+  "blocked": "needs review: openbmb/MiniCPM5-2B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py",
+  "status_reason": "Not screened: needs review: openbmb/MiniCPM5-2B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "jetbrains-mellum2-1-12b-a2-5b-thinking",
@@ -1065,7 +1067,8 @@
     }
    }
   },
-  "blocked": "needs review: JetBrains/Mellum2.1-12B-A2.5B-Thinking -> JetBrains/Mellum2-12B-A2.5B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+  "blocked": "needs review: JetBrains/Mellum2.1-12B-A2.5B-Thinking -> JetBrains/Mellum2-12B-A2.5B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py",
+  "status_reason": "Not screened: needs review: JetBrains/Mellum2.1-12B-A2.5B-Thinking -> JetBrains/Mellum2-12B-A2.5B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "llama31-8b",
@@ -1878,7 +1881,8 @@
     }
    }
   },
-  "blocked": "needs review: LoneStriker/BioMistral-7B-GGUF names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+  "blocked": "needs review: LoneStriker/BioMistral-7B-GGUF names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py",
+  "status_reason": "Not screened: needs review: LoneStriker/BioMistral-7B-GGUF names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "med42-8b",
@@ -1963,7 +1967,7 @@
   "hf": "Axion1-0/Axion-1.0-35B",
   "source": "scout",
   "added": "2026-11-09",
-  "status_reason": "35.1B model: runs when the benchmark is started with 'include 15B+ models' ticked",
+  "status_reason": "Not screened: needs review: Axion1-0/Axion-1.0-35B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py",
   "blocked": "needs review: Axion1-0/Axion-1.0-35B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
@@ -1976,7 +1980,7 @@
   "hf": "Teriminal-RSI/Terminal-RSI-27B",
   "source": "scout",
   "added": "2026-11-09",
-  "status_reason": "27.8B model: runs when the benchmark is started with 'include 15B+ models' ticked",
+  "status_reason": "Not screened: needs review: Teriminal-RSI/Terminal-RSI-27B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py",
   "blocked": "needs review: Teriminal-RSI/Terminal-RSI-27B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
@@ -2060,7 +2064,8 @@
     }
    }
   },
-  "blocked": "needs review: IFM/K2-Horizon-7B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+  "blocked": "needs review: IFM/K2-Horizon-7B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py",
+  "status_reason": "Not screened: needs review: IFM/K2-Horizon-7B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
  },
  {
   "id": "ibm-granite-granite-4-2-8b",
@@ -2071,7 +2076,8 @@
   "ollama_tag": "hf.co/ibm-granite/granite-4.2-8b-GGUF:Q4_K_M",
   "hf": "ibm-granite/granite-4.2-8b",
   "source": "scout",
-  "added": "2026-11-17"
+  "added": "2026-11-17",
+  "status_reason": "In the queue for the benchmark"
  },
  {
   "id": "klein-ml-kv1-1-2b",
@@ -2082,6 +2088,7 @@
   "ollama_tag": "hf.co/klein-ml/KV1-1.2B-GGUF:Q4_K_M",
   "hf": "klein-ml/KV1-1.2B",
   "source": "scout",
-  "added": "2026-11-17"
+  "added": "2026-11-17",
+  "status_reason": "In the queue for the benchmark"
  }
 ]
