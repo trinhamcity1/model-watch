@@ -1,0 +1,86 @@
+{
+ "started": "2026-11-17T23:56:25Z",
+ "runs": [
+  {
+   "id": "_control",
+   "tag": "llama3.1:8b",
+   "role": "control",
+   "dataset": "id68",
+   "tier": "full",
+   "n_docs": 12,
+   "gold_index": "index_12.json",
+   "log_tail": "\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589 | 100/112 [01:29<00:11,  1.08entry/s]\nGenerating HPO:  90%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 | 101/112 [01:30<00:10,  1.09entry/s]\nGenerating HPO:  91%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588 | 102/112 [01:31<00:09,  1.10entry/s]\nGenerating HPO:  92%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f| 103/112 [01:32<00:08,  1.08entry/s]\nGenerating HPO:  93%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258e| 104/112 [01:33<00:07,  1.08entry/s]\nGenerating HPO:  94%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258d| 105/112 [01:34<00:06,  1.10entry/s]\nGenerating HPO:  95%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258d| 106/112 [01:35<00:05,  1.09entry/s]\nGenerating HPO:  96%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c| 107/112 [01:36<00:04,  1.10entry/s]\nGenerating HPO:  96%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 108/112 [01:37<00:03,  1.11entry/s]\nGenerating HPO:  97%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258b| 109/112 [01:37<00:02,  1.12entry/s]\nGenerating HPO:  98%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258a| 110/112 [01:38<00:01,  1.12entry/s]\nGenerating HPO:  99%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2589| 111/112 [01:39<00:00,  1.12entry/s]\nGenerating HPO: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 112/112 [01:40<00:00,  1.09entry/s]\nGenerating HPO: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 112/112 [01:40<00:00,  1.11entry/s]\nTraceback (most recent call last):\n  File \"/kaggle/working/RAG-HPO/RAG-HPO.py\", line 992, in <module>\n    process_and_replace_all(input_file, output_file)\n    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/RAG-HPO/RAG-HPO.py\", line 940, in process_and_replace_all\n    with open(infile, newline='') as rf:\n         ~~~~^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/garciabt/Library/CloudStorage/OneDrive-BaylorCollegeofMedicine/01 Posey Lab/RAG-HPO/RAG-HPO/Test_Cases_Manual_Annotations.csv'\n",
+   "seconds": 529.6,
+   "gpu_idle_mib": 0,
+   "gpu_peak_mib": 9538,
+   "pred_file": "pred__control_id68.csv"
+  },
+  {
+   "id": "ibm-granite-granite-4-2-8b",
+   "tag": "hf.co/ibm-granite/granite-4.2-8b-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "tier": "small",
+   "n_docs": 12,
+   "gold_index": "index_12.json",
+   "timeout": true,
+   "seconds": 1800.4,
+   "gpu_idle_mib": 0,
+   "gpu_peak_mib": 11016
+  },
+  {
+   "id": "ibm-granite-granite-4-2-8b",
+   "tag": "hf.co/ibm-granite/granite-4.2-8b-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "tier": "small",
+   "n_docs": 12,
+   "gold_index": "index_12.json",
+   "timeout": true,
+   "seconds": 1800.4,
+   "gpu_idle_mib": 10411,
+   "gpu_peak_mib": 11022
+  },
+  {
+   "id": "klein-ml-kv1-1-2b",
+   "tag": "hf.co/klein-ml/KV1-1.2B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "id68",
+   "tier": "small",
+   "n_docs": 12,
+   "gold_index": "index_12.json",
+   "log_tail": "ng Notes:  58%|\u2588\u2588\u2588\u2588\u2588\u258a    | 7/12 [00:32<00:08,  1.64s/note]\nProcessing Notes:  67%|\u2588\u2588\u2588\u2588\u2588\u2588\u258b   | 8/12 [00:33<00:05,  1.40s/note]\nProcessing Notes:  75%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c  | 9/12 [00:34<00:03,  1.26s/note]\nProcessing Notes:  83%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258e | 10/12 [00:34<00:02,  1.07s/note]\nProcessing Notes:  92%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f| 11/12 [00:35<00:01,  1.01s/note]\nProcessing Notes: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 12/12 [00:36<00:00,  1.01s/note]\nProcessing Notes: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 12/12 [00:36<00:00,  3.05s/note]\nTraceback (most recent call last):\n  File \"/kaggle/working/RAG-HPO/RAG-HPO.py\", line 824, in main\n    exact_df, non_exact_df = split_exact_nonexact(df, hpo_term_col='HPO_Term')\n                             ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/RAG-HPO/RAG-HPO.py\", line 323, in split_exact_nonexact\n    raise KeyError(f\"[FATAL] 'category' missing; columns: {df.columns.tolist()}\")\nKeyError: \"[FATAL] 'category' missing; columns: ['HPO_Term']\"\nTraceback (most recent call last):\n  File \"/kaggle/working/RAG-HPO/RAG-HPO.py\", line 992, in <module>\n    process_and_replace_all(input_file, output_file)\n    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/RAG-HPO/RAG-HPO.py\", line 940, in process_and_replace_all\n    with open(infile, newline='') as rf:\n         ~~~~^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/garciabt/Library/CloudStorage/OneDrive-BaylorCollegeofMedicine/01 Posey Lab/RAG-HPO/RAG-HPO/Test_Cases_Manual_Annotations.csv'\n",
+   "seconds": 54.6,
+   "gpu_idle_mib": 0,
+   "gpu_peak_mib": 1982
+  },
+  {
+   "id": "klein-ml-kv1-1-2b",
+   "tag": "hf.co/klein-ml/KV1-1.2B-GGUF:Q4_K_M",
+   "role": "candidate",
+   "dataset": "gscplus",
+   "tier": "small",
+   "n_docs": 12,
+   "gold_index": "index_12.json",
+   "log_tail": "ng Notes:  58%|\u2588\u2588\u2588\u2588\u2588\u258a    | 7/12 [00:05<00:03,  1.49note/s]\nProcessing Notes:  67%|\u2588\u2588\u2588\u2588\u2588\u2588\u258b   | 8/12 [00:05<00:02,  1.61note/s]\nProcessing Notes:  75%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258c  | 9/12 [00:06<00:02,  1.23note/s]\nProcessing Notes:  83%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258e | 10/12 [00:07<00:01,  1.17note/s]\nProcessing Notes:  92%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u258f| 11/12 [00:08<00:00,  1.22note/s]\nProcessing Notes: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 12/12 [00:09<00:00,  1.11note/s]\nProcessing Notes: 100%|\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588| 12/12 [00:09<00:00,  1.26note/s]\nTraceback (most recent call last):\n  File \"/kaggle/working/RAG-HPO/RAG-HPO.py\", line 824, in main\n    exact_df, non_exact_df = split_exact_nonexact(df, hpo_term_col='HPO_Term')\n                             ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/RAG-HPO/RAG-HPO.py\", line 323, in split_exact_nonexact\n    raise KeyError(f\"[FATAL] 'category' missing; columns: {df.columns.tolist()}\")\nKeyError: \"[FATAL] 'category' missing; columns: ['HPO_Term']\"\nTraceback (most recent call last):\n  File \"/kaggle/working/RAG-HPO/RAG-HPO.py\", line 992, in <module>\n    process_and_replace_all(input_file, output_file)\n    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/kaggle/working/RAG-HPO/RAG-HPO.py\", line 940, in process_and_replace_all\n    with open(infile, newline='') as rf:\n         ~~~~^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/Users/garciabt/Library/CloudStorage/OneDrive-BaylorCollegeofMedicine/01 Posey Lab/RAG-HPO/RAG-HPO/Test_Cases_Manual_Annotations.csv'\n",
+   "seconds": 28.1,
+   "gpu_idle_mib": 1405,
+   "gpu_peak_mib": 1982
+  }
+ ],
+ "setup": {
+  "compliance_version": "2026-11-11",
+  "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9",
+  "corpora_commit": "195d5df2ad9c6265e1de523f139694c7646eee29",
+  "index_age_days": 14.8,
+  "hpo_version": "hp/releases/2026-09-01",
+  "index_source": "release",
+  "vectorization_seconds": 0,
+  "vectorization_ok": true,
+  "gpus": [
+   "Tesla T4, 15360 MiB",
+   "Tesla T4, 15360 MiB"
+  ]
+ },
+ "finished": "2026-11-18T01:09:29Z"
+}
