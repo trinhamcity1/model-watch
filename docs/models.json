@@ -2077,7 +2077,36 @@
   "hf": "ibm-granite/granite-4.2-8b",
   "source": "scout",
   "added": "2026-11-17",
-  "status_reason": "In the queue for the benchmark"
+  "results": {
+   "hpo_rag": {
+    "id68": {
+     "task_version": 2,
+     "tier": "small",
+     "date": "2026-11-24",
+     "ok": false,
+     "reason": "timed out after 30 minutes (too slow on the free GPUs)",
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9"
+    },
+    "gscplus": {
+     "task_version": 2,
+     "tier": "small",
+     "date": "2026-11-24",
+     "ok": false,
+     "reason": "timed out after 30 minutes (too slow on the free GPUs)",
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9"
+    }
+   }
+  }
  },
  {
   "id": "klein-ml-kv1-1-2b",
@@ -2089,7 +2118,36 @@
   "hf": "klein-ml/KV1-1.2B",
   "source": "scout",
   "added": "2026-11-17",
-  "status_reason": "In the queue for the benchmark"
+  "results": {
+   "hpo_rag": {
+    "id68": {
+     "task_version": 2,
+     "tier": "small",
+     "date": "2026-11-24",
+     "ok": false,
+     "reason": "RAG-HPO produced no output (last log line: FileNotFoundError: [Errno 2] No such file or directory: '/Users/garciabt/Library/CloudStorage/OneDrive-BaylorCollegeofMedicine/01 Posey Lab/RAG-HPO/RAG-HPO/Test)",
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9"
+    },
+    "gscplus": {
+     "task_version": 2,
+     "tier": "small",
+     "date": "2026-11-24",
+     "ok": false,
+     "reason": "RAG-HPO produced no output (last log line: FileNotFoundError: [Errno 2] No such file or directory: '/Users/garciabt/Library/CloudStorage/OneDrive-BaylorCollegeofMedicine/01 Posey Lab/RAG-HPO/RAG-HPO/Test)",
+     "gpus": [
+      "Tesla T4, 15360 MiB",
+      "Tesla T4, 15360 MiB"
+     ],
+     "hpo_version": "hp/releases/2026-09-01",
+     "rag_hpo_commit": "080fc3a04c91ee45c8986076765f4d4b4f14ddd9"
+    }
+   }
+  }
  },
  {
   "id": "memtensor-memt-1-0-pro",
