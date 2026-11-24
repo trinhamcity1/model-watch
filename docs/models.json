@@ -2090,5 +2090,18 @@
   "source": "scout",
   "added": "2026-11-17",
   "status_reason": "In the queue for the benchmark"
+ },
+ {
+  "id": "memtensor-memt-1-0-pro",
+  "name": "MemT-1.0-Pro",
+  "size": "564.8B",
+  "params_b": 564.8,
+  "licence": "other",
+  "ollama_tag": null,
+  "hf": "MemTensor/MemT-1.0-Pro",
+  "source": "scout",
+  "added": "2026-11-24",
+  "server_only": true,
+  "status_reason": "Large model (564.8B): cannot test on the free Kaggle GPUs, server test needed"
  }
 ]

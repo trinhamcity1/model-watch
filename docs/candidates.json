@@ -1,19 +1,45 @@
 {
- "generated": "2026-11-17T23:55:43+00:00",
- "kept": 9,
- "blocked": 17,
- "needs_review": 15,
- "dropped": 158,
- "skipped": 1,
+ "generated": "2026-11-24T00:55:39+00:00",
+ "kept": 5,
+ "blocked": 19,
+ "needs_review": 22,
+ "dropped": 154,
+ "skipped": 0,
  "next_step": "Not reviewed. A person reads each card: purpose, thinking switch, system prompt, medical evaluation.",
  "candidates": [
+  {
+   "id": "MemTensor/MemT-1.0-Pro",
+   "params_b": 564.8,
+   "licence": "other",
+   "days_since_update": 2,
+   "downloads": 31,
+   "likes": 65,
+   "card": "https://huggingface.co/MemTensor/MemT-1.0-Pro",
+   "suggested_tag": null,
+   "tag_note": "No GGUF version found from the model's own publisher or the 7 community publishers we search",
+   "status": "server_only",
+   "reason": "Large model (564.8B): cannot test on the free Kaggle GPUs, server test needed"
+  },
+  {
+   "id": "microsoft/Aion-1.0-Instruct-2.3B",
+   "params_b": 2.3,
+   "licence": "mit",
+   "days_since_update": 5,
+   "downloads": 4747,
+   "likes": 277,
+   "card": "https://huggingface.co/microsoft/Aion-1.0-Instruct-2.3B",
+   "suggested_tag": null,
+   "tag_note": "No GGUF version found from the model's own publisher or the 7 community publishers we search",
+   "status": "no_gguf",
+   "reason": "No GGUF version found from the model's own publisher or the 7 community publishers we search"
+  },
   {
    "id": "LiquidAI/LFM3-1.7B",
    "params_b": 1.7,
    "licence": "other",
-   "days_since_update": 8,
-   "downloads": 109972,
-   "likes": 1910,
+   "days_since_update": 14,
+   "downloads": 146872,
+   "likes": 1961,
    "card": "https://huggingface.co/LiquidAI/LFM3-1.7B",
    "suggested_tag": "hf.co/LiquidAI/LFM3-1.7B-GGUF:Q4_K_M",
    "tag_note": null,
@@ -21,51 +47,12 @@
    "reason": null
   },
   {
-   "id": "ibm-granite/granite-4.1-8b-llmon-preview",
-   "params_b": 8.8,
-   "licence": "apache-2.0",
-   "days_since_update": 5,
-   "downloads": 710,
-   "likes": 20,
-   "card": "https://huggingface.co/ibm-granite/granite-4.1-8b-llmon-preview",
-   "suggested_tag": null,
-   "tag_note": "No GGUF version found from the model's own publisher or the 7 community publishers we search",
-   "status": "no_gguf",
-   "reason": "No GGUF version found from the model's own publisher or the 7 community publishers we search"
-  },
-  {
-   "id": "ibm-granite/granite-4.1-3b-llmon-preview",
-   "params_b": 3.7,
-   "licence": "apache-2.0",
-   "days_since_update": 5,
-   "downloads": 2633,
-   "likes": 18,
-   "card": "https://huggingface.co/ibm-granite/granite-4.1-3b-llmon-preview",
-   "suggested_tag": null,
-   "tag_note": "No GGUF version found from the model's own publisher or the 7 community publishers we search",
-   "status": "no_gguf",
-   "reason": "No GGUF version found from the model's own publisher or the 7 community publishers we search"
-  },
-  {
-   "id": "nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-BF16",
-   "params_b": 4.0,
-   "licence": "other",
-   "days_since_update": 4,
-   "downloads": 15210,
-   "likes": 266,
-   "card": "https://huggingface.co/nvidia/NVIDIA-Nemotron-Labs-Dory1.0-4B-BF16",
-   "suggested_tag": null,
-   "tag_note": "No GGUF version found from the model's own publisher or the 7 community publishers we search",
-   "status": "no_gguf",
-   "reason": "No GGUF version found from the model's own publisher or the 7 community publishers we search"
-  },
-  {
    "id": "LiquidAI/LFM2.5-24B-A2B",
    "params_b": 24.0,
    "licence": "other",
-   "days_since_update": 14,
-   "downloads": 30619,
-   "likes": 620,
+   "days_since_update": 20,
+   "downloads": 26894,
+   "likes": 629,
    "card": "https://huggingface.co/LiquidAI/LFM2.5-24B-A2B",
    "suggested_tag": "hf.co/LiquidAI/LFM2.5-24B-A2B-GGUF:Q4_K_M",
    "tag_note": null,
@@ -73,56 +60,17 @@
    "reason": null
   },
   {
-   "id": "ibm-granite/granite-4.2-8b",
-   "params_b": 8.8,
+   "id": "ibm-granite/granite-4.2-3b",
+   "params_b": 3.7,
    "licence": "apache-2.0",
-   "days_since_update": 28,
-   "downloads": 60416,
-   "likes": 127,
-   "card": "https://huggingface.co/ibm-granite/granite-4.2-8b",
-   "suggested_tag": "hf.co/ibm-granite/granite-4.2-8b-GGUF:Q4_K_M",
-   "tag_note": null,
-   "status": "added",
-   "reason": "Added to the list; the benchmark tests it on the next run"
-  },
-  {
-   "id": "nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16",
-   "params_b": 8.0,
-   "licence": "other",
-   "days_since_update": 25,
-   "downloads": 30834,
-   "likes": 75,
-   "card": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16",
-   "suggested_tag": "hf.co/mradermacher/NVIDIA-Nemotron-3.5-Bolt-E4B-BF16-GGUF:Q4_K_M",
+   "days_since_update": 34,
+   "downloads": 38689,
+   "likes": 142,
+   "card": "https://huggingface.co/ibm-granite/granite-4.2-3b",
+   "suggested_tag": "hf.co/ibm-granite/granite-4.2-3b-GGUF:Q4_K_M",
    "tag_note": null,
    "status": "in_list",
    "reason": null
-  },
-  {
-   "id": "summerAIO/diffusion-lfm2.5-24b-a2b",
-   "params_b": 24.0,
-   "licence": "other",
-   "days_since_update": 5,
-   "downloads": 2060,
-   "likes": 10,
-   "card": "https://huggingface.co/summerAIO/diffusion-lfm2.5-24b-a2b",
-   "suggested_tag": null,
-   "tag_note": "No GGUF version found from the model's own publisher or the 7 community publishers we search",
-   "status": "no_gguf",
-   "reason": "No GGUF version found from the model's own publisher or the 7 community publishers we search"
-  },
-  {
-   "id": "klein-ml/KV1-1.2B",
-   "params_b": 1.2,
-   "licence": "other",
-   "days_since_update": 3,
-   "downloads": 105,
-   "likes": 8,
-   "card": "https://huggingface.co/klein-ml/KV1-1.2B",
-   "suggested_tag": "hf.co/klein-ml/KV1-1.2B-GGUF:Q4_K_M",
-   "tag_note": null,
-   "status": "added",
-   "reason": "Added to the list; the benchmark tests it on the next run"
   }
  ],
  "blocked_models": [
@@ -130,31 +78,39 @@
    "id": "maxwell-model/Maxwell-V1-Flash",
    "params_b": 36.8,
    "licence": "apache-2.0",
-   "days_since_update": 3,
+   "days_since_update": 9,
    "card": "https://huggingface.co/maxwell-model/Maxwell-V1-Flash",
    "blocked": "needs review: maxwell-model/Maxwell-V1-Flash names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+  },
+  {
+   "id": "OVHaiLLM/Olala-v1.0-mini-7A1B",
+   "params_b": 6.8,
+   "licence": "apache-2.0",
+   "days_since_update": 0,
+   "card": "https://huggingface.co/OVHaiLLM/Olala-v1.0-mini-7A1B",
+   "blocked": "needs review: OVHaiLLM/Olala-v1.0-mini-7A1B -> OVHaiLLM/Olala-v1.0-mini-7A1B-SFT -> OVHaiLLM/Olala-v1.0-mini-7A1B-base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+  },
+  {
+   "id": "Aleph-Alpha/Kolibri-1.1",
+   "params_b": 75.1,
+   "licence": "apache-2.0",
+   "days_since_update": 0,
+   "card": "https://huggingface.co/Aleph-Alpha/Kolibri-1.1",
+   "blocked": "needs review: Aleph-Alpha/Kolibri-1.1 names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
   },
   {
    "id": "KRAFTON/Raon-1-nano",
    "params_b": 3.5,
    "licence": "apache-2.0",
-   "days_since_update": 0,
+   "days_since_update": 6,
    "card": "https://huggingface.co/KRAFTON/Raon-1-nano",
    "blocked": "needs review: KRAFTON/Raon-1-nano names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
-  },
-  {
-   "id": "RecursiveSI/flint",
-   "params_b": 39.8,
-   "licence": "apache-2.0",
-   "days_since_update": 27,
-   "card": "https://huggingface.co/RecursiveSI/flint",
-   "blocked": "needs review: RecursiveSI/flint names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
   },
   {
    "id": "XHToken/Spark-X2.6-4B",
    "params_b": 4.1,
    "licence": "apache-2.0",
-   "days_since_update": 11,
+   "days_since_update": 17,
    "card": "https://huggingface.co/XHToken/Spark-X2.6-4B",
    "blocked": "needs review: XHToken/Spark-X2.6-4B -> XHToken/Spark-X2.6-4B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
   },
@@ -162,89 +118,137 @@
    "id": "Nanbeige/Nanbeige4.3-33B",
    "params_b": 33.1,
    "licence": "apache-2.0",
-   "days_since_update": 20,
+   "days_since_update": 26,
    "card": "https://huggingface.co/Nanbeige/Nanbeige4.3-33B",
    "blocked": "needs review: Nanbeige/Nanbeige4.3-33B -> Nanbeige/Nanbeige4.3-33B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+  },
+  {
+   "id": "sarvamai/sarvam-105b-1711",
+   "params_b": 56.1,
+   "licence": "apache-2.0",
+   "days_since_update": 0,
+   "card": "https://huggingface.co/sarvamai/sarvam-105b-1711",
+   "blocked": "needs review: sarvamai/sarvam-105b-1711 -> sarvamai/sarvam-105b-1711-bf16 -> sarvamai/sarvam-105b names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+  },
+  {
+   "id": "XingChen-AGI/Xing4.1-Preview",
+   "params_b": 279.9,
+   "licence": "apache-2.0",
+   "days_since_update": 0,
+   "card": "https://huggingface.co/XingChen-AGI/Xing4.1-Preview",
+   "blocked": "needs review: XingChen-AGI/Xing4.1-Preview names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+  },
+  {
+   "id": "sarvamai/sarvam-105b-1711-bf16",
+   "params_b": 106.0,
+   "licence": "apache-2.0",
+   "days_since_update": 0,
+   "card": "https://huggingface.co/sarvamai/sarvam-105b-1711-bf16",
+   "blocked": "needs review: sarvamai/sarvam-105b-1711-bf16 -> sarvamai/sarvam-105b names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+  },
+  {
+   "id": "RecursiveSI/flint",
+   "params_b": 39.8,
+   "licence": "apache-2.0",
+   "days_since_update": 33,
+   "card": "https://huggingface.co/RecursiveSI/flint",
+   "blocked": "needs review: RecursiveSI/flint names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+  },
+  {
+   "id": "Aleph-Alpha/Kolibri-1",
+   "params_b": 78.1,
+   "licence": "apache-2.0",
+   "days_since_update": 0,
+   "card": "https://huggingface.co/Aleph-Alpha/Kolibri-1",
+   "blocked": "needs review: Aleph-Alpha/Kolibri-1 -> Aleph-Alpha/Kolibri-1-BF16 names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
   },
   {
    "id": "sevren-ai/Embla1-4bit",
    "params_b": 7.0,
    "licence": "mit",
-   "days_since_update": 4,
+   "days_since_update": 10,
    "card": "https://huggingface.co/sevren-ai/Embla1-4bit",
    "blocked": "needs review: sevren-ai/Embla1-4bit names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+  },
+  {
+   "id": "IFM/K2-Horizon-7B",
+   "params_b": 9.0,
+   "licence": "apache-2.0",
+   "days_since_update": 1,
+   "card": "https://huggingface.co/IFM/K2-Horizon-7B",
+   "blocked": "needs review: IFM/K2-Horizon-7B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
   },
   {
    "id": "openbmb/MiniCPM5-2B",
    "params_b": 2.5,
    "licence": "apache-2.0",
-   "days_since_update": 8,
+   "days_since_update": 14,
    "card": "https://huggingface.co/openbmb/MiniCPM5-2B",
    "blocked": "needs review: openbmb/MiniCPM5-2B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
   },
   {
-   "id": "speakleash/Bielik-11B-v3.1-Instruct",
-   "params_b": 11.2,
+   "id": "OVHaiLLM/Olala-v1.0-mini-7A1B-SFT",
+   "params_b": 6.8,
    "licence": "apache-2.0",
-   "days_since_update": 7,
-   "card": "https://huggingface.co/speakleash/Bielik-11B-v3.1-Instruct",
-   "blocked": "needs review: speakleash/Bielik-11B-v3.1-Instruct -> speakleash/Bielik-11B-v3-Base-20250730 names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+   "days_since_update": 0,
+   "card": "https://huggingface.co/OVHaiLLM/Olala-v1.0-mini-7A1B-SFT",
+   "blocked": "needs review: OVHaiLLM/Olala-v1.0-mini-7A1B-SFT -> OVHaiLLM/Olala-v1.0-mini-7A1B-base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
   },
   {
-   "id": "VillanovaAI/Villanova2-15B-A3B",
-   "params_b": 15.5,
+   "id": "IFM/K2-Horizon-3.7B",
+   "params_b": 5.1,
    "licence": "apache-2.0",
-   "days_since_update": 2,
-   "card": "https://huggingface.co/VillanovaAI/Villanova2-15B-A3B",
-   "blocked": "needs review: VillanovaAI/Villanova2-15B-A3B -> VillanovaAI/Villanova2-15B-A3B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+   "days_since_update": 1,
+   "card": "https://huggingface.co/IFM/K2-Horizon-3.7B",
+   "blocked": "needs review: IFM/K2-Horizon-3.7B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
   },
   {
-   "id": "InternScience/Sage-A1.5",
-   "params_b": 36.0,
+   "id": "JetBrains/Mellum2.1-12B-A2.5B-Thinking",
+   "params_b": 12.1,
    "licence": "apache-2.0",
-   "days_since_update": 26,
-   "card": "https://huggingface.co/InternScience/Sage-A1.5",
-   "blocked": "needs review: InternScience/Sage-A1.5 names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+   "days_since_update": 47,
+   "card": "https://huggingface.co/JetBrains/Mellum2.1-12B-A2.5B-Thinking",
+   "blocked": "needs review: JetBrains/Mellum2.1-12B-A2.5B-Thinking -> JetBrains/Mellum2-12B-A2.5B-Base names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
   },
   {
    "id": "KRAFTON/Raon-1-mini-preview",
    "params_b": 28.8,
    "licence": "apache-2.0",
-   "days_since_update": 5,
+   "days_since_update": 11,
    "card": "https://huggingface.co/KRAFTON/Raon-1-mini-preview",
    "blocked": "needs review: KRAFTON/Raon-1-mini-preview names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
   },
   {
-   "id": "Lythri/Lythri-Wink-2B",
-   "params_b": 2.5,
+   "id": "DuoNeural/Cyber-Ornith-1.5-9B-OBLITERATED",
+   "params_b": 9.0,
    "licence": "apache-2.0",
-   "days_since_update": 0,
-   "card": "https://huggingface.co/Lythri/Lythri-Wink-2B",
-   "blocked": "needs review: Lythri/Lythri-Wink-2B -> Lythri/Lythri-Wink-2B-pt names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+   "days_since_update": 59,
+   "card": "https://huggingface.co/DuoNeural/Cyber-Ornith-1.5-9B-OBLITERATED",
+   "blocked": "needs review: DuoNeural/Cyber-Ornith-1.5-9B-OBLITERATED -> OBLITERATUS/Ornith-1.5-9B-OBLITERATED -> ornith-ai/Ornith-1.5-9B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
   },
   {
-   "id": "Vxtzq/Crowd-v1",
-   "params_b": 1.0,
-   "licence": "mit",
-   "days_since_update": 0,
-   "card": "https://huggingface.co/Vxtzq/Crowd-v1",
-   "blocked": "needs review: Vxtzq/Crowd-v1 names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
-  },
-  {
-   "id": "reflection/Beam-1.0-501B-A23B",
-   "params_b": 501.3,
+   "id": "speakleash/Bielik-11B-v3.1-Instruct",
+   "params_b": 11.2,
    "licence": "apache-2.0",
-   "days_since_update": 14,
-   "card": "https://huggingface.co/reflection/Beam-1.0-501B-A23B",
-   "blocked": "needs review: reflection/Beam-1.0-501B-A23B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+   "days_since_update": 13,
+   "card": "https://huggingface.co/speakleash/Bielik-11B-v3.1-Instruct",
+   "blocked": "needs review: speakleash/Bielik-11B-v3.1-Instruct -> speakleash/Bielik-11B-v3-Base-20250730 names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
   },
   {
-   "id": "sevren-ai/Embla1-bf16",
-   "params_b": 7.0,
-   "licence": "mit",
+   "id": "IFM/K2-Horizon-375B-A23B",
+   "params_b": 379.2,
+   "licence": "apache-2.0",
+   "days_since_update": 1,
+   "card": "https://huggingface.co/IFM/K2-Horizon-375B-A23B",
+   "blocked": "needs review: IFM/K2-Horizon-375B-A23B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+  },
+  {
+   "id": "XingChen-AGI/Xing4.0-29B-A4B",
+   "params_b": 31.2,
+   "licence": "apache-2.0",
    "days_since_update": 4,
-   "card": "https://huggingface.co/sevren-ai/Embla1-bf16",
-   "blocked": "needs review: sevren-ai/Embla1-bf16 names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
+   "card": "https://huggingface.co/XingChen-AGI/Xing4.0-29B-A4B",
+   "blocked": "needs review: XingChen-AGI/Xing4.0-29B-A4B names no base model and its developer is not on the approved list; read its card, then add the developer to APPROVED_ORGS or the repo to REVIEWED in bench/compliance.py"
   }
  ],
  "limits": {
